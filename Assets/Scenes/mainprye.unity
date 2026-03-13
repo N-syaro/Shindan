@@ -376,6 +376,8 @@ MonoBehaviour:
   dstm: 10
   brsp: 100
   dlitm: 2
+  xlimit: 5
+  ylimit: 5
   bart:
   - {fileID: 1957253816760516541, guid: 8aac8c7e144429347b58f67e7498e4ed, type: 3}
   - {fileID: 4785635057628691438, guid: 248c9c0f63383be44870cd08a04cf78f, type: 3}
