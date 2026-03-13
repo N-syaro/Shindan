@@ -153,8 +153,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -765.68, y: -187}
-  m_SizeDelta: {x: 388.64, y: 82.89}
+  m_AnchoredPosition: {x: -657.68, y: -216.19}
+  m_SizeDelta: {x: 604.64, y: 141.27}
   m_Pivot: {x: 0.49999982, y: 0.5}
 --- !u!222 &42907510
 CanvasRenderer:
@@ -186,7 +186,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 50
+    m_FontSize: 62
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -564,8 +564,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9.7543e-11, y: -415}
-  m_SizeDelta: {x: 507.88, y: 63.94}
+  m_AnchoredPosition: {x: 0, y: -362}
+  m_SizeDelta: {x: 904.85, y: 63.94}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1238238876
 MonoBehaviour:
@@ -597,10 +597,10 @@ MonoBehaviour:
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 1
+    m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u304A\u306F\u3088\u3046\u3054\u3056\u3044\u307E\u3059\u3053\u308C\u304B\u3089\u3082\u304A\u9858\u3044\u3057\u307E\u3059"
+  m_Text: "\u304A\u306F\u3088\u3046\u3054\u3056\u3044\u307E\u3059\n\u3053\u308C\u304B\u3089\u3082\u304A\u9858\u3044\u3057\u307E\u3059"
 --- !u!222 &1238238877
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -794,7 +794,7 @@ MonoBehaviour:
   PlayerImage: {fileID: 728116732}
   FriendsImage: {fileID: 258155972}
   conttext: {fileID: 1238238878}
-  Textdata: {fileID: 11400000, guid: a9b32d33c717c5f48a48e07e293e573f, type: 2}
+  Textdata: {fileID: 11400000, guid: ee1d23c951931834d87a405ae3d901ed, type: 2}
   NPCData: {fileID: 11400000, guid: 275ade8cd2a32924cbb58301bc30c719, type: 2}
   Player_Data: {fileID: 11400000, guid: 9adab52665b61a7419b02db4655513f1, type: 2}
 --- !u!1 &1819395080
