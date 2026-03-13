@@ -28,6 +28,6 @@ public class TalkDelay : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
             text.text += Data[i];
         }
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
     }
 }
