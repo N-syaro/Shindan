@@ -14,8 +14,8 @@ public class TalkController : MonoBehaviour
     [SerializeField] Text Nametext;
    // [SerializeField] Text left;
     //[SerializeField] Text right;
-    //[SerializeField] Image PlayerImage;
-   // [SerializeField] Image FriendsImage;
+   [SerializeField] Image PlayerImage;
+   [SerializeField] Image FriendsImage;
     [Header("機能参照")]
   　 // [SerializeField] GameManager gameManager;　仮消し
     [SerializeField] TalkDelay conttext;
@@ -74,8 +74,8 @@ public class TalkController : MonoBehaviour
     IEnumerator Manage()
     {
         TalkUI.SetActive(true);
-      //  if (Player_Data.Image != null) { PlayerImage.sprite = Player_Data.Image[0]; }
-//if (NPCData.Image != null) { FriendsImage.sprite = NPCData.Image[0]; }
+        if (Player_Data.Image != null) { PlayerImage.sprite = Player_Data.Image[0]; }
+        if (NPCData.Image != null) { FriendsImage.sprite = NPCData.Image[0]; }
         colti = col(Textdata.Datas, NPCData, Textdata.UseImage_);
         yield return StartCoroutine(colti);
         TalkUI.SetActive(false);
@@ -88,7 +88,7 @@ public class TalkController : MonoBehaviour
     {
         //イラスト表示-------------------------------------------------------------------------
         foreach (var item in data)
-        {/*
+        {
             if (usei)
             {
                 PlayerImage.enabled = true;
@@ -113,7 +113,7 @@ public class TalkController : MonoBehaviour
                 PlayerImage.enabled = false;
                 FriendsImage.enabled = false;
             }
-        */
+        
             yield return StartCoroutine(conttext.TextActive(Talktext, item.TextData));
 　　　　　
         }

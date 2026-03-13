@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Player_Data
   m_EditorClassIdentifier: 
   Name: "\u30D7\u30EC\u30A4\u30E4\u30FC"
-  Image: []
+  Image:
+  - {fileID: 8957324059118975939, guid: 55f5429f2582ec84cbe15f7ad6960ecb, type: 3}
