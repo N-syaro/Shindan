@@ -273,7 +273,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pose_pien_uruuru_woman_0: 4524333495455199187
+      pose_pien_uruuru_woman_1: 6437108769415502824
+      pose_pien_uruuru_woman_2: 1783746388676111107
+      pose_pien_uruuru_woman_3: 1769821590473858995
+      pose_pien_uruuru_woman_4: -6096334923594239992
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

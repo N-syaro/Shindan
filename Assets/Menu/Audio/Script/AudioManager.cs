@@ -98,5 +98,11 @@ public class AudioManager : MonoBehaviour
         text.text = Mathf.FloorToInt(val * 100).ToString() + "%";
         
     }
+
+    public void TitleButton()
+    {
+        //ƒ^ƒCƒgƒ‹‰æ–Ê‚É–ß‚é
+
+    }
     
 }
