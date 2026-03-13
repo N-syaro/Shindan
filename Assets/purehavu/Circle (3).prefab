@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6204450815874255731}
   m_Layer: 0
   m_Name: Circle (3)
-  m_TagString: Untagged
+  m_TagString: ballt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,6 +105,7 @@ MonoBehaviour:
   sped: 1
   dstm: 5
   brsp: 0
+  dlitm: 5
   bart: []
 --- !u!50 &6204450815874255731
 Rigidbody2D:
