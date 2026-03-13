@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class Testclick : MonoBehaviour   //‚±‚ê‚ğ•¶š‚É‚Ô‚Â‚©‚Á‚Ä‚µ‚Ü‚Á‚½‚Æ‚«‚ÉŒÄ‚Ño‚³‚ê‚éƒXƒNƒŠƒvƒg‚É‚·‚é
 {
     Timermain timer;
+    Stop stop;
     void Start()
     {
         timer = Object.FindObjectOfType<Timermain>();
@@ -12,7 +13,8 @@ public class Testclick : MonoBehaviour   //‚±‚ê‚ğ•¶š‚É‚Ô‚Â‚©‚Á‚Ä‚µ‚Ü‚Á‚½‚Æ‚«‚ÉŒ
 
     public void OnClick()
     {
-        timer.scripttouch();
+        timer.scripttouch();//30•b’Zk
+        stop.Click();//ˆê’â~
     }
 
 }
