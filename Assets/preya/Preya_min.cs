@@ -11,6 +11,8 @@ public class Preya_min : MonoBehaviour
     public float dstm=5f; //弾丸消滅速度
     public float brsp = 1000f;//弾丸の速度
     public float dlitm=3f; //coolタイム
+    public float xlimit=8f;
+    public float ylimit=7.5f;
     public GameObject[] bart;//弾丸のプレハブ
 
     private int balet ;//弾丸の種類
@@ -58,6 +60,10 @@ public class Preya_min : MonoBehaviour
         {//マウスの位置へ向けて移動する
             transform.position = Vector2.MoveTowards(transform.position, mouseworldPos, sped * Time.deltaTime);
           
+            Vector2 pozi = transform.position;
+            pozi.x =Mathf.Clamp(pozi.x,-xlimit,xlimit);
+            pozi.y =Mathf.Clamp(pozi.y,-ylimit,ylimit);
+            transform.position = pozi;
             taime += Time.deltaTime;
             if(Input.GetMouseButtonDown(0))
             {
