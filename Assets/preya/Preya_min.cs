@@ -10,7 +10,7 @@ public class Preya_min : MonoBehaviour
     public float sped=10f;//移動速度
     public float dstm=5f; //弾丸消滅速度
     public float brsp = 1000f;//弾丸の速度
-    public float dlitm=5f; //coolタイム
+    public float dlitm=3f; //coolタイム
     public GameObject[] bart;//弾丸のプレハブ
 
     private int balet ;//弾丸の種類
