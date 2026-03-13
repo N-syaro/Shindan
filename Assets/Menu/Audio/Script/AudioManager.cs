@@ -1,0 +1,102 @@
+using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.UI;
+
+
+public class AudioManager : MonoBehaviour
+{
+    //メニューキャンバス
+    [SerializeField] GameObject menuCanvas;
+
+    //オーディオミキサー
+    [SerializeField] AudioMixer audioMixer;
+
+    //メニュー表示フラグ
+    public bool isMenuOpen = false;
+
+    //BGM用スライダー
+    [SerializeField] Slider bgmSlider;
+    //SE用スライダー
+    [SerializeField] Slider seSlider;
+    
+    //BGM用テキスト
+    [SerializeField] Text bgmText;
+    //SE用テキスト
+    [SerializeField] Text seText;
+    
+    void Start()
+    {
+        //BGM
+        InitializeSlider("BGM", bgmSlider, bgmText);
+        //SE
+        InitializeSlider("SE", seSlider, seText);
+    }
+
+    void Update()
+    {
+        // エスケープキーが押されたら
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ToggleMenu();
+        }
+    }
+    public void ToggleMenu()
+    {
+        if (isMenuOpen) CloseMenu();
+        else OpenMenu();
+    }
+    // メニューを表示
+    public void OpenMenu()
+    {
+        if (menuCanvas != null)
+        {
+            menuCanvas.SetActive(true);
+            isMenuOpen = true;
+            // ゲームを一時停止
+            Time.timeScale = 0f;
+        }
+        else { Debug.LogError("menuCanvasがインスペクターで設定されていません！"); }
+    }
+    // メニューを非表示
+    public void CloseMenu()
+    {
+        if (menuCanvas != null)
+        {
+            menuCanvas.SetActive(false);
+            isMenuOpen = false;
+            // ゲームを再開
+            Time.timeScale = 1f;
+        }
+    }
+
+
+    private void InitializeSlider(string name, Slider slider, Text text)
+    {
+        // Mixerから現在のデシベルを取得し、スライダーの値(0-1)に逆換算して適用
+        if (audioMixer.GetFloat(name, out float volumeDB))
+        {
+            slider.value = Mathf.Pow(10, volumeDB / 20);
+            UpdateText(slider, text);
+        }
+    }
+    // 各メソッドをUIのOnValueChangedから呼ぶ
+    public void SetBGM(float value) => SetVolume("BGM", value, bgmText);
+    public void SetSE(float value) => SetVolume("SE", value, seText);
+    private void SetVolume(string name, float value, Text text)
+    {
+        // 0だとLog10がエラーになるため、Mathf.Clampで微小な値を確保
+        float db = Mathf.Log10(Mathf.Max(0.0001f, value)) * 20;
+        audioMixer.SetFloat(name, db);
+
+        UpdateText(null, text, value);
+    }
+   
+    private void UpdateText(Slider slider, Text text, float value = -1)
+    {
+        float val = value < 0 ? slider.value : value;
+        //%表示にする
+        text.text = Mathf.FloorToInt(val * 100).ToString() + "%";
+        
+    }
+    
+}
