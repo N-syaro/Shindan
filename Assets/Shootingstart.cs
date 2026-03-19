@@ -17,12 +17,19 @@ public class Shootingstart : MonoBehaviour
         rectTransform = GetComponent<RectTransform>();
     }
 
-    
+
+    void Start()
+    {
+      TriggerFalling();    
+    }
+
+
     public void TriggerFalling()
     {
         
         if (!isMoving)
         {
+            isMoving = true;
             StartCoroutine(Shootingdown());
         }
     }
