@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -42,8 +43,14 @@ public class AudioManager : MonoBehaviour
     }
     public void ToggleMenu()
     {
-        if (isMenuOpen) CloseMenu();
-        else OpenMenu();
+        if (isMenuOpen)
+        {
+            CloseMenu();
+        }
+        else
+        {
+            OpenMenu();
+        }
     }
     // メニューを表示
     public void OpenMenu()
@@ -99,10 +106,10 @@ public class AudioManager : MonoBehaviour
         
     }
 
-    public void TitleButton()
+    public void TitleButton(string Title)
     {
         //タイトル画面に戻る
-
+        SceneManager.LoadScene(Title);
     }
     
 }
