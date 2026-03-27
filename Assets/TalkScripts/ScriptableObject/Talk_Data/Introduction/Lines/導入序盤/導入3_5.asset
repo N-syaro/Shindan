@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be0c93688f7de047b94ab18306647e6, type: 3}
   m_Name: "\u5C0E\u51653_5"
   m_EditorClassIdentifier: 
-  TextData: 
+  TextData: "\u300C\u304D\u305F\u306D\uFF01\u6700\u521D\u306E\u76F8\u8AC7\u8005\u3002"
   Side: 0
   CHImageNum_: 0
   SceneName: 
