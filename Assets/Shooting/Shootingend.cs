@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
-public class ScreenFade : MonoBehaviour
+public class Shootingend : MonoBehaviour
 {
     public Image blackFadeImage;
 
@@ -11,6 +11,7 @@ public class ScreenFade : MonoBehaviour
 
     public GameObject targetUI;
 
+    public Shoootingcom spawner;
     void Start()
     {
         Color c = blackFadeImage.color;
@@ -30,9 +31,13 @@ public class ScreenFade : MonoBehaviour
         {
             targetUI.SetActive(false);
         }
-        yield return StartCoroutine(FadeFromBlack());
-
         
+
+        if (spawner != null)
+        {
+            spawner.StartGame();
+        }
+        yield return StartCoroutine(FadeFromBlack());
     }
 
     IEnumerator FadeToBlack()

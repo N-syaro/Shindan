@@ -4,7 +4,8 @@ using System.Collections;
 public class TestShoooting : MonoBehaviour
 {
     public UIFall fall;
-    public ScreenFade fade;
+    public Shootingend fade;
+    public Shoootingcom com;
 
     IEnumerator Start()
     {
