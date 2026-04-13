@@ -9,8 +9,8 @@ public class Preya_min : MonoBehaviour
     public bool point = true;//マウスでのキャラ操作の切り替え
     public float sped=10f;//移動速度
     public float dstm=5f; //弾丸消滅速度
-    public float brsp = 1000f;//弾丸の速度
-    public float dlitm=3f; //coolタイム
+    public float brsp = 30f;//弾丸の速度
+    public float dlitm=1.5f; //coolタイム
     public float xlimit=8f;
     public float ylimit=7.5f;
     public GameObject[] bart;//弾丸のプレハブ
