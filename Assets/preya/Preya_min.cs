@@ -23,6 +23,18 @@ public class Preya_min : MonoBehaviour
     {
        
     }
+
+    private void OntrriggerEnte2D(Collider2D collision) 
+    {
+        GameObject hitobj = collision.gameObject;
+        switch (hitobj.tag) 
+        {
+            case "Enemy":
+                Debug.Log("É_ÉÅÅ[ÉW");
+
+                break;
+        }
+    }
     // Update is called once per frame
     void Update()
     {
