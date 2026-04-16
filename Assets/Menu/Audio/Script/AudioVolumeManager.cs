@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
-public class AudioManager : MonoBehaviour
+public class AudioVolumeManager : MonoBehaviour
 {
     //メニューキャンバス
     [SerializeField] GameObject menuCanvas;

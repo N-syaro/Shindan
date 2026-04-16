@@ -9,12 +9,20 @@ public class TitleManager : MonoBehaviour
     //言語キャンバス
     [SerializeField] GameObject languageCanvas;
 
-    public void StartButton()
+    private string gameLanguage;
+
+
+    public void StartButton(string gameLanguage)
+    {
+        SceneManager.LoadScene(gameLanguage);
+    }
+    public void LanguageButton()
     {
         //言語選択画面を表示
         languageCanvas.SetActive(true);
         titleCanvas.SetActive(false);
     }
+
 
     public void EndButton()
     {
@@ -25,16 +33,16 @@ public class TitleManager : MonoBehaviour
         #endif
     }
 
-    public void JapaneseButton(/*string*/)
+    public void JapaneseButton()
     {
-        //日本語でゲームを開始
-        //SceneManager.LoadScene();
+        //日本語に設定
+        gameLanguage = "JP";
     }
 
-    public void EnglishButton(/*string*/)
+    public void EnglishButton()
     {
-        //英語でゲームを開始
-        //SceneManager.LoadScene();
+        //英語に設定
+        gameLanguage = "EN";
     }
 
     public void CancelButton()
