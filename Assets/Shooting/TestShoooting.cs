@@ -15,6 +15,8 @@ public class TestShoooting : MonoBehaviour
 
         yield return new WaitForSeconds(fall.fallDuration);
 
-        fade.StartFade();
+        com.StartGame();
+
+      
     }
 }

@@ -12,32 +12,35 @@ public class Shootingend : MonoBehaviour
     public GameObject targetUI;
 
     public Shoootingcom spawner;
+    private bool isFading = false;
     void Start()
     {
         Color c = blackFadeImage.color;
         c.a = 0;
         blackFadeImage.color = c;
+     
+ 
     }
-
-    public void StartFade()
+    public void Startfade()
     {
+        if (isFading) return;
+
+        isFading = true;
+
         StartCoroutine(FadeSequence());
     }
-
+   
     IEnumerator FadeSequence()
     {
-        yield return StartCoroutine(FadeToBlack());
+        //yield return StartCoroutine(FadeToBlack());
         if (targetUI != null)
         {
-            targetUI.SetActive(false);
+            yield return StartCoroutine(MoveUpAndHide(targetUI));
         }
         
 
-        if (spawner != null)
-        {
-            spawner.StartGame();
-        }
-        yield return StartCoroutine(FadeFromBlack());
+       
+        //yield return StartCoroutine(FadeFromBlack());
     }
 
     IEnumerator FadeToBlack()
@@ -59,6 +62,26 @@ public class Shootingend : MonoBehaviour
         color.a = 1;
         blackFadeImage.color = color;
     }
+    IEnumerator MoveUpAndHide(GameObject targetUI)
+    {
+        RectTransform rt = targetUI.GetComponent<RectTransform>();
+
+        float time = 0;
+        float duration = 2f;
+
+        Vector2 start = rt.anchoredPosition;
+        Vector2 end = start + new Vector2(0,1100f);
+
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            float t = time / duration;
+
+            rt.anchoredPosition = Vector2.Lerp(start, end, t);
+            yield return null;
+        }
+    }
+
 
     IEnumerator FadeFromBlack()
     {

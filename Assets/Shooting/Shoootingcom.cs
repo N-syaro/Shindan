@@ -10,8 +10,14 @@ public class Shoootingcom : MonoBehaviour
 
     private bool isPlaying = false;
 
+    public int finisheCout = 0;
+    public int maxSpawn = 25;
+
+    public Shootingend ending;
+
     public void StartGame() 
     {
+
         isPlaying = true;
         StartCoroutine(SpawnLoop());
     }
@@ -21,23 +27,44 @@ public class Shoootingcom : MonoBehaviour
         while (isPlaying)
         {
             SpawnText();
+
             yield return new WaitForSeconds(spawnInterval);
         }
     }
 
     void SpawnText()
     {
-        float x = Random.Range(
-             spawnArea.rect.xMin,
-             spawnArea.rect.xMax
-         );
+        GameObject obj = Instantiate(textPrefab, spawnArea);
+        obj.transform.SetAsLastSibling();
 
-        Vector3 spawnPos = new Vector3(
-            spawnArea.position.x + x,
-            spawnArea.position.y,
-            0
+        RectTransform rt = obj.GetComponent<RectTransform>();
+
+        float x = Random.Range(
+            spawnArea.rect.xMin,
+            spawnArea.rect.xMax
         );
 
-        Instantiate(textPrefab, spawnPos, Quaternion.identity, spawnArea);
+        float y = spawnArea.rect.yMax; 
+
+        rt.anchoredPosition = new Vector2(x, y);
+        FallingText fall = obj.GetComponent<FallingText>();
+        if (fall != null)
+        {
+            fall.manager = this;
+        }
     }
+    public void ONtextfinished()
+    {
+        finisheCout++;
+        if (finisheCout > maxSpawn)
+        {
+            isPlaying = false;
+
+            if (ending  != null)
+            {
+                ending.Startfade();
+            }
+        }
+    }
+
 }
