@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9be0c93688f7de047b94ab18306647e6, type: 3}
-  m_Name: "\u304A\u306F\u3088\u3046"
+  m_Name: "\u5C0E\u51652_1"
   m_EditorClassIdentifier: 
-  TextData: "\u304A\u306F\u3088\u3046\u3054\u3056\u3044\u307E\u3059\u3002"
-  Side: 1
+  TextData: "\u300C\u3042\u3001\u8D77\u304D\u305F\uFF1F\u300D"
+  Side: 0
   CHImageNum_: 0
   SceneName: 

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 209ecdb9925d6264a9bef717787048f1, type: 3}
+  m_Name: "\u5C0E\u5165\uFF1A\u7D42"
+  m_EditorClassIdentifier: 
+  SceneTitle: "\u5C0E\u5165_\u7D42\u76E4"
+  Datas:
+  - {fileID: 11400000, guid: cc622d5572a35f14080bbbdff0969b03, type: 2}
+  - {fileID: 11400000, guid: a49a8c4a3defda0489cced08f6dd6bdd, type: 2}
+  - {fileID: 11400000, guid: f093790bc51913b4d9d4b2ade665893e, type: 2}
+  - {fileID: 11400000, guid: 88d86cea9d8bc4645b283ba99a9b60dc, type: 2}
+  - {fileID: 11400000, guid: 95563df06faaa5346abb9cb2972c8d78, type: 2}
+  - {fileID: 11400000, guid: e10adcd69fb12de4993d0468f4f3e3f5, type: 2}
+  - {fileID: 11400000, guid: 4ac84a04d0b83e54ab8c187911f38a93, type: 2}
+  - {fileID: 11400000, guid: 23cd49f753e101049819653fc9fcfa1e, type: 2}
+  UseImage_: 0
