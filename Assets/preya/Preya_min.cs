@@ -6,6 +6,7 @@ public class Preya_min : MonoBehaviour
 {
     Vector2 mousePos;
     Vector2 mouseworldPos;//マウスポインタ位置
+    Rigidbody2D Rigidbody2D;
     public bool point = true;//マウスでのキャラ操作の切り替え
     public float sped=10f;//移動速度
     public float dstm=5f; //弾丸消滅速度
@@ -21,20 +22,11 @@ public class Preya_min : MonoBehaviour
     float taime = 0;//タイマー用の関数
     private void Start()
     {
-       
+        this.Rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
-    private void OntrriggerEnte2D(Collider2D collision) 
-    {
-        GameObject hitobj = collision.gameObject;
-        switch (hitobj.tag) 
-        {
-            case "Enemy":
-                Debug.Log("ダメージ");
+  
 
-                break;
-        }
-    }
     // Update is called once per frame
     void Update()
     {
@@ -111,5 +103,6 @@ public class Preya_min : MonoBehaviour
         Destroy(newbalet, dstm);
 
     }
+
 
 }
