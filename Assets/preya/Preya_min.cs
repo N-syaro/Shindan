@@ -9,8 +9,10 @@ public class Preya_min : MonoBehaviour
     public bool point = true;//マウスでのキャラ操作の切り替え
     public float sped=10f;//移動速度
     public float dstm=5f; //弾丸消滅速度
-    public float brsp = 1000f;//弾丸の速度
-    public float dlitm=3f; //coolタイム
+    public float brsp = 30f;//弾丸の速度
+    public float dlitm=1.5f; //coolタイム
+    public float xlimit=8f;
+    public float ylimit=7.5f;
     public GameObject[] bart;//弾丸のプレハブ
 
     private int balet ;//弾丸の種類
@@ -20,6 +22,18 @@ public class Preya_min : MonoBehaviour
     private void Start()
     {
        
+    }
+
+    private void OntrriggerEnte2D(Collider2D collision) 
+    {
+        GameObject hitobj = collision.gameObject;
+        switch (hitobj.tag) 
+        {
+            case "Enemy":
+                Debug.Log("ダメージ");
+
+                break;
+        }
     }
     // Update is called once per frame
     void Update()
@@ -58,6 +72,10 @@ public class Preya_min : MonoBehaviour
         {//マウスの位置へ向けて移動する
             transform.position = Vector2.MoveTowards(transform.position, mouseworldPos, sped * Time.deltaTime);
           
+            Vector2 pozi = transform.position;
+            pozi.x =Mathf.Clamp(pozi.x,-xlimit,xlimit);
+            pozi.y =Mathf.Clamp(pozi.y,-ylimit,ylimit);
+            transform.position = pozi;
             taime += Time.deltaTime;
             if(Input.GetMouseButtonDown(0))
             {
