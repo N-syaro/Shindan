@@ -25,8 +25,8 @@ public class AudioSourceManager : MonoBehaviour
     public void seChange(int seCount)
     {
         seSource.Stop();
-        seSource.clip = seClips[seCount];
-        seSource.Play();
+        //seSource.clip = seClips[seCount];
+        seSource.PlayOneShot(seClips[seCount]);
     }
 
     //BGMí‚é~
