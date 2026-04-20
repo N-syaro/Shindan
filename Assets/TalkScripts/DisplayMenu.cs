@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class DisplayMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject backlogDisplay; // 親オブジェクト(バッグログディスプレイ)
-    [SerializeField] private GameObject backlogPrebab; // バッグログのプレハブ
+    [SerializeField] private GameObject backlogDisplay; 
+    [SerializeField] private GameObject backlogPrebab; 
     [SerializeField] private Sprite _logButtonInactiveSprite;
     [SerializeField] private Sprite _logButtonActiveSprite;
     private bool _isActiveLog = false;
