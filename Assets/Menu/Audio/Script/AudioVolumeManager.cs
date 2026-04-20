@@ -108,8 +108,11 @@ public class AudioVolumeManager : MonoBehaviour
 
     public void TitleButton(string Title)
     {
+        menuCanvas.SetActive(false);
+        isMenuOpen = false;
         //ƒ^ƒCƒgƒ‹‰æ–Ê‚É–ß‚é
         SceneManager.LoadScene(Title);
+        
     }
     
 }
