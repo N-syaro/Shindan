@@ -69,8 +69,9 @@ public class Preya_min : MonoBehaviour
             pozi.y =Mathf.Clamp(pozi.y,-ylimit,ylimit);
             transform.position = pozi;
             taime += Time.deltaTime;
+          
             if(Input.GetMouseButtonDown(0))
-            {
+            { //’eŠÛ”­Ë“ü—Í 
                 if(faia)
                 {
                     Debug.Log("’e‚ğ‘Å‚¿‚Ü‚µ‚½");
@@ -80,7 +81,7 @@ public class Preya_min : MonoBehaviour
                     Debug.Log(taime);
                 }
                 else
-                {
+                {//ƒN[ƒ‹ƒ^ƒCƒ€
                     Debug.Log("cool’†");
                    
                     if (taime >= dlitm)
