@@ -40,8 +40,8 @@ public class BackLogDisplay : MonoBehaviour
             }
         }
 
-        Button BacklogCloseComponent = BacklogCloseObject.GetComponent<Button>();
-        BacklogCloseComponent.onClick.AddListener(BacklogClose);
+       // Button BacklogCloseComponent = BacklogCloseObject.GetComponent<Button>();
+    //    BacklogCloseComponent.onClick.AddListener(BacklogClose);
 
         if (viewport != null && content != null)
         {
@@ -54,8 +54,8 @@ public class BackLogDisplay : MonoBehaviour
             }
         }
 
-        ScrollRect scrollRect = GetComponent<ScrollRect>();
-        scrollRect.verticalNormalizedPosition = 0;
+        //ScrollRect scrollRect = GetComponent<ScrollRect>();
+      //  scrollRect.verticalNormalizedPosition = 0;
     }
 
     private void InstanceViewportContents(string nameText, string sentenceText, Transform content)

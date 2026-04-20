@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DisplayMenu : MonoBehaviour
@@ -10,17 +11,29 @@ public class DisplayMenu : MonoBehaviour
     private GameObject _logButtonInstance;
     private GameObject _backlogInstance;
 
+    public TalkDelay talkDelay;
     void Start()
     {
         //省略：LogボタンのクリックでToggleLogが動作するようにLogボタンの生成・配置・クリックイベントの登録を行う
     }
 
 
-    //表示なども省略(Logボタンの挙動も追加する
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Keypad0)) 
+        {
+            ToggleLog();
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad1))
+        {
+           TurnOffLog();
+        }
+    }
 
     public void ToggleLog()
     {
-        // GameManager.Instance.gameUpdateManager.TurnOnLogMode(); //ログモードに切り替える
+        talkDelay.TurnBacklogMode();
         _backlogInstance = Instantiate(backlogPrebab, backlogDisplay.transform); //バックログを生成する
         _isActiveLog = !_isActiveLog; // 状態を切り替える
                                       // DisplaySprite(); // ボタンの表示を更新
