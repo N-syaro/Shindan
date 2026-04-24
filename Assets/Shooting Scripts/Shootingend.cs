@@ -10,7 +10,7 @@ public class Shootingend : MonoBehaviour
     public float fadeInDuration = 1.5f;
 
     public GameObject targetUI;
-
+    public GameObject player;
     public Shootingcom spawner;
     private bool isFading = false;
     private void Start()
@@ -37,15 +37,14 @@ public class Shootingend : MonoBehaviour
     }
     IEnumerator FadeSequence()
     {
-        //yield return StartCoroutine(FadeToBlack());
+        yield return StartCoroutine(FadeToBlack());
         if (targetUI != null)
         {
             yield return StartCoroutine(MoveUpAndHide(targetUI));
         }
 
 
-
-        //yield return StartCoroutine(FadeFromBlack());
+        yield return StartCoroutine(FadeFromBlack());
     }
 
     IEnumerator FadeToBlack()
@@ -85,6 +84,8 @@ public class Shootingend : MonoBehaviour
             rt.anchoredPosition = Vector2.Lerp(start, end, t);
             yield return null;
         }
+        player.SetActive(false);
+        targetUI.SetActive(false);
     }
 
 
