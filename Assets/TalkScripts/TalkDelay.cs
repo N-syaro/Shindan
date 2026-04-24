@@ -3,9 +3,11 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
+using UnityEngine.Rendering;
 
 public class TalkDelay : MonoBehaviour
 {
+    private bool isMode = false;
     private bool isSkip = false;
     public int count = 0;
 
@@ -14,8 +16,21 @@ public class TalkDelay : MonoBehaviour
     {
         isSkip = true;
     }
+    public void TurnBacklogMode()
+    {
+        if (!isMode)
+        { 
+            isMode = true;
+        }
+        else 
+        {
+            isMode = false;
+        }
+       
+    }
     public  IEnumerator TextActive(Text text,string Data)//ˆê•¶Žš‚¸‚Â—¬‚·ƒR[ƒh
     {
+        yield return new WaitUntil(()=>!isMode);
         if(Data == null) { yield break;}
         isSkip = false;
         text.text = "";

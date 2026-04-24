@@ -1,9 +1,10 @@
 using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.InputSystem;
 using UnityEditor.Rendering.LookDev;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class TalkController : MonoBehaviour
 {
@@ -19,7 +20,6 @@ public class TalkController : MonoBehaviour
     [Header("機能参照")]
   　 // [SerializeField] GameManager gameManager;　仮消し
     [SerializeField] TalkDelay conttext;
-
     
     [Header("データ参照")]//スクリプタブル    
     [SerializeField] MakeConversation Textdata;//会話データ
@@ -27,6 +27,8 @@ public class TalkController : MonoBehaviour
     [SerializeField, Header("プレイヤー")] Chara_data Player_Data;//プレイヤーのデータ
     //[SerializeField] ButtonAdd_ a;*/
     public enum TextMeshProMode { TextMeshPro, TextMeshProUGUI, TMP_Text }
+
+    private List<(string Name, string Text)> backlogLogTextList = new();
 
     private IEnumerator colti;
     //------  変数  ------
@@ -38,6 +40,7 @@ public class TalkController : MonoBehaviour
         Manage();
     }
  
+
     public void SetObject(MakeConversation d, Chara_data c)
     {
         if (d == null) { Debug.LogWarning("TextDataNull"); }
@@ -86,6 +89,7 @@ public class TalkController : MonoBehaviour
 
     IEnumerator col(Setting_Text_Data[] data, Chara_data charaData, bool usei)
     {
+
         //イラスト表示-------------------------------------------------------------------------
         foreach (var item in data)
         {
@@ -100,18 +104,22 @@ public class TalkController : MonoBehaviour
                     PlayerImage.sprite = Player_Data.Image[item.CHImageNum_];
                     Nametext.text = Player_Data.Name;
                     PlayerImage.color = new Color(1, 1, 1, 1);
+                    backlogLogTextList.Add((Player_Data.Name, item.TextData));
                 }
                 else
                 {
                     FriendsImage.sprite = charaData.Image[item.CHImageNum_];
                     Nametext.text = charaData.Name;
                     FriendsImage.color = new Color(1, 1, 1, 1);
+                    backlogLogTextList.Add((Player_Data.Name, item.TextData));
                 }
             }
             else
             {
                 PlayerImage.enabled = false;
                 FriendsImage.enabled = false;
+
+                backlogLogTextList.Add(("", item.TextData));
             }
         
             yield return StartCoroutine(conttext.TextActive(Talktext, item.TextData));
@@ -119,12 +127,26 @@ public class TalkController : MonoBehaviour
         }
         yield break;
     }
+
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        Debug.Log("バックログ件数: " + backlogLogTextList.Count);
+        if (Input.GetKeyDown(KeyCode.KeypadEnter))
         {
             StartCoroutine(Manage());
         }  
+    }
+    public List<(string Name, string Text)> GetBacklogList()
+    {
+        // 件数を表示
+        Debug.Log("バックログ件数: " + backlogLogTextList.Count);
+
+        // 中身を1件ずつ表示
+        for (int i = 0; i < backlogLogTextList.Count; i++)
+        {
+            Debug.Log($"[{i}] Name: {backlogLogTextList[i].Name} / Text: {backlogLogTextList[i].Text}");
+        }
+        return backlogLogTextList;
     }
     /*  public void c(bool a)  gamemanagerに記入（UI操作の切り替え)
       {
@@ -139,6 +161,6 @@ public class TalkController : MonoBehaviour
               Ui.enabled = !a;
           }
 
-
+      
       }*/
 }
