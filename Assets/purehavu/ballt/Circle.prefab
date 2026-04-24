@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8066876287609320234}
   - component: {fileID: 1861644575208236543}
   - component: {fileID: -8274721678359116714}
+  - component: {fileID: 7303914902125015751}
   m_Layer: 0
   m_Name: Circle
   m_TagString: ballt
@@ -140,3 +141,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7303914902125015751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957253816760516541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e1edaa03ddb3c246a6896275194caed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BringToFront
