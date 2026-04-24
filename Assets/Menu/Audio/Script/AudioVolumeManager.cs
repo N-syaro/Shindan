@@ -24,7 +24,33 @@ public class AudioVolumeManager : MonoBehaviour
     [SerializeField] Text bgmText;
     //SE用テキスト
     [SerializeField] Text seText;
-    
+
+
+    public static AudioVolumeManager audioVInstance
+    {
+        get; private set;
+    }
+
+
+
+
+
+    void Awake()
+    {
+        if (audioVInstance == null)
+        {
+            audioVInstance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+    }
+
+
+
     void Start()
     {
         //BGM
@@ -105,6 +131,19 @@ public class AudioVolumeManager : MonoBehaviour
         text.text = Mathf.FloorToInt(val * 100).ToString() + "%";
         
     }
+
+
+    public void bgmOneSwap()
+    {
+        audioMixer.SetFloat("BGM_1", -10f);
+        audioMixer.SetFloat("BGM_2", -80f);
+    }
+    public void bgmTwoSwap()
+    {
+        audioMixer.SetFloat("BGM_1", -80f);
+        audioMixer.SetFloat("BGM_2", -10f);
+    }
+
 
     public void TitleButton(string Title)
     {

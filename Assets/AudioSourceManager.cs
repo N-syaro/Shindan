@@ -15,69 +15,81 @@ public class AudioSourceManager : MonoBehaviour
     //åªç›ó¨ÇÍÇƒÇ¢ÇÈSE
     [SerializeField] AudioSource seSource;
 
+    [SerializeField] AudioVolumeManager volumeManager;
 
 
-    public static AudioSourceManager audioInstance
+    public static AudioSourceManager audioSInstance
     {
         get; private set;
     }
 
-
-
-    public static AudioSource bgmInstance
-    {
-        get; private set;
-    }
 
 
     
-    public static AudioSource seInstance
-    {
-        get; private set;
-    }
-
 
     void Awake()
     {
-        if (audioInstance != null)
+        if (audioSInstance == null)
         {
-            Destroy(this);
-            return;
+            audioSInstance = this;
+            DontDestroyOnLoad(gameObject); 
         }
-        audioInstance = this;
-        DontDestroyOnLoad(this);
+        else
+        {
+            Destroy(gameObject); 
+        }
 
-        if (bgmInstance != null)
-        {
-            Destroy(bgmSourceOne);
-            return;
-        }
-        bgmInstance = bgmSourceOne;
-        DontDestroyOnLoad(bgmSourceOne);
-
-        if (seInstance != null)
-        {
-            Destroy(seSource);
-            return;
-        }
-        seInstance = seSource;
-        DontDestroyOnLoad(seSource);
     }
 
 
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.T))
+        {
+            volumeManager.bgmOneSwap();
+        }
+        if(Input.GetKeyDown(KeyCode.Y))
+        {
+            volumeManager.bgmTwoSwap();
+        }
+        if(Input.GetKeyDown(KeyCode.U))
+        {
+            bgmChangeOne(0);
+        }
+        if(Input.GetKeyDown(KeyCode.I))
+        {
+            bgmChangeOne(1);
+        }
+        if(Input.GetKeyDown(KeyCode.O))
+        {
+            bgmChangeTwo(2);
+        }
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            bgmChangeTwo(3);
+        }
 
+
+    }
 
 
 
 
     //ìoò^Ç≥ÇÍÇΩBGMÇó¨Ç∑
-    public void bgmChange(int bgmCount)
+    public void bgmChangeOne(int bgmCount)
     {
         bgmSourceOne.Stop();
         bgmSourceOne.clip = bgmClips[bgmCount];
         bgmSourceOne.Play();
     }
+    public void bgmChangeTwo(int bgmCount)
+    {
+        bgmSourceTwo.Stop();
+        bgmSourceTwo.clip = bgmClips[bgmCount];
+        bgmSourceTwo.Play();
+    }
+
 
     //ìoò^Ç≥ÇÍÇΩSEÇó¨Ç∑
     public void seChange(int seCount)
@@ -88,9 +100,13 @@ public class AudioSourceManager : MonoBehaviour
     }
 
     //BGMí‚é~
-    public void bgmStop()
+    public void bgmStopOne()
     {
         bgmSourceOne.Stop();
+    }
+    public void bgmStopTwo()
+    {
+        bgmSourceTwo.Stop();
     }
 
     //SEí‚é~
