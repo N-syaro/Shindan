@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Enm : MonoBehaviour
 {
+    //プレイヤーの効果処理のスクリプト
+
     bool timeon = false;//タイマースタート
     public float timelemt = 50f;//時間制限
     float taima = 0f;//タイマー
@@ -16,7 +18,7 @@ public class Enm : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (timeon == true)//タイマー処理
         {

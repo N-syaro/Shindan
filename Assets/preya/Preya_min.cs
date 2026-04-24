@@ -4,6 +4,8 @@ using UnityEngine.Rendering.Universal;
 
 public class Preya_min : MonoBehaviour
 {
+    //プレイヤー操作のスクリプト
+
     Vector2 mousePos;
     Vector2 mouseworldPos;//マウスポインタ位置
     Rigidbody2D Rigidbody2D;

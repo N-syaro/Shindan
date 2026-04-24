@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3923512955407353717}
   m_Layer: 0
   m_Name: Static Sprite
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,5 +179,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29fdb31f7c34ed442967bbbaf2a60f41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  waldpos: {x: 0, y: 0}
-  mube: 100
+  weipos:
+  - {x: 15, y: 2}
+  - {x: 0, y: 0}
+  - {x: 2, y: 10}
+  mube: 15.1
