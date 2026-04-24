@@ -2,15 +2,13 @@ using UnityEngine;
 
 public class BGMTwo : MonoBehaviour
 {
-    public static BGMTwo audioSInstance
-    {
-        get; private set;
-    }
+    private BGMTwo bgmTwo;
+    
     void Awake()
     {
-        if (audioSInstance == null)
+        if (bgmTwo == null)
         {
-            audioSInstance = this;
+            bgmTwo = this;
             DontDestroyOnLoad(gameObject);
         }
         else

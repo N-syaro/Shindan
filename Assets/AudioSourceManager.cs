@@ -18,14 +18,8 @@ public class AudioSourceManager : MonoBehaviour
     [SerializeField] AudioVolumeManager volumeManager;
 
 
-    public static AudioSourceManager audioSInstance
-    {
-        get; private set;
-    }
+    private AudioSourceManager audioSInstance;
 
-
-
-    
 
     void Awake()
     {

@@ -26,13 +26,8 @@ public class AudioVolumeManager : MonoBehaviour
     [SerializeField] Text seText;
 
 
-    public static AudioVolumeManager audioVInstance
-    {
-        get; private set;
-    }
-
-
-
+    private AudioVolumeManager audioVInstance;
+    
 
 
     void Awake()
