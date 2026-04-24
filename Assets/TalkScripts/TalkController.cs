@@ -20,7 +20,6 @@ public class TalkController : MonoBehaviour
     [Header("機能参照")]
   　 // [SerializeField] GameManager gameManager;　仮消し
     [SerializeField] TalkDelay conttext;
-
     
     [Header("データ参照")]//スクリプタブル    
     [SerializeField] MakeConversation Textdata;//会話データ
@@ -131,13 +130,22 @@ public class TalkController : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.KeypadEnter))
+        Debug.Log("バックログ件数: " + backlogLogTextList.Count);
+        if (Input.GetKeyDown(KeyCode.KeypadEnter))
         {
             StartCoroutine(Manage());
         }  
     }
     public List<(string Name, string Text)> GetBacklogList()
     {
+        // 件数を表示
+        Debug.Log("バックログ件数: " + backlogLogTextList.Count);
+
+        // 中身を1件ずつ表示
+        for (int i = 0; i < backlogLogTextList.Count; i++)
+        {
+            Debug.Log($"[{i}] Name: {backlogLogTextList[i].Name} / Text: {backlogLogTextList[i].Text}");
+        }
         return backlogLogTextList;
     }
     /*  public void c(bool a)  gamemanagerに記入（UI操作の切り替え)

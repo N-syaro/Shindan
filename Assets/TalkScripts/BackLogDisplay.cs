@@ -5,16 +5,27 @@ using UnityEngine.UI;
 public class BackLogDisplay : MonoBehaviour
 {
     [SerializeField] private GameObject viewportContentsPrefab;
-    [SerializeField] private TalkController talkController; // ★InspectorでアサインするかFind
+    [SerializeField] private TalkController talkController; 
 
     private RectTransform contentRectTransform;
     private RectTransform scrollViewRectTransform;
 
+    [System.Obsolete]
     void Start()
     {
-       // TalkControllerからリストを取得 後で変更
-       List<(string Name, string Text)> backlogLogTextList = talkController.GetBacklogList();
-
+        if (talkController == null)
+        {
+            talkController = FindObjectOfType<TalkController>();
+            if (talkController == null)
+            {
+                Debug.LogError("TalkControllerがシーン内に見つかりません");
+                return;
+            }
+            Debug.Log("TalkControllerを自動取得しました: " + talkController.name);
+        }
+        // TalkControllerからリストを取得 後で変更
+        List<(string Name, string Text)> backlogLogTextList = talkController.GetBacklogList();
+        Debug.Log("バックログ件数: " + backlogLogTextList.Count);
         Transform backlog = transform;
         Transform viewport = null;
         Transform content = null;
@@ -22,9 +33,16 @@ public class BackLogDisplay : MonoBehaviour
 
         foreach (Transform child in backlog)
         {
+            Debug.Log("a");
             if (child.name == "BacklogClose")
             {
                 BacklogCloseObject = child.gameObject;
+                if(BacklogCloseObject == null)
+                {
+                    Debug.LogError("BacklogCloseObject is null");
+                    return;
+                }
+                
             }
             if (child.name == "Viewport")
             {
@@ -38,10 +56,11 @@ public class BackLogDisplay : MonoBehaviour
                     }
                 }
             }
+         
         }
 
-       // Button BacklogCloseComponent = BacklogCloseObject.GetComponent<Button>();
-    //    BacklogCloseComponent.onClick.AddListener(BacklogClose);
+        //Button BacklogCloseComponent = BacklogCloseObject.GetComponent<Button>();
+       // BacklogCloseComponent.onClick.AddListener(BacklogClose);
 
         if (viewport != null && content != null)
         {
@@ -54,10 +73,14 @@ public class BackLogDisplay : MonoBehaviour
             }
         }
 
-        //ScrollRect scrollRect = GetComponent<ScrollRect>();
-      //  scrollRect.verticalNormalizedPosition = 0;
+        ScrollRect scrollRect = GetComponent<ScrollRect>();
+        if (scrollRect == null)
+        {
+            Debug.LogError("ScrollRectが自身に見つかりません");
+            
+        }
+        scrollRect.verticalNormalizedPosition = 0;
     }
-
     private void InstanceViewportContents(string nameText, string sentenceText, Transform content)
     {
         GameObject newViewportContents = Instantiate(viewportContentsPrefab, content);

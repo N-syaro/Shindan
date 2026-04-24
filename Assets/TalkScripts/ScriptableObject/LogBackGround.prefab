@@ -86,7 +86,6 @@ GameObject:
   - component: {fileID: 3771618375189207510}
   - component: {fileID: 6698031889455550575}
   - component: {fileID: 446704874827090190}
-  - component: {fileID: 3504110182864685200}
   m_Layer: 5
   m_Name: LogBackGround
   m_TagString: Untagged
@@ -106,14 +105,14 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 679663434935568145}
   - {fileID: 1302151758207506532}
+  - {fileID: 679663434935568145}
   - {fileID: 5665240621175878640}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 124325.27, y: 606629.5}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1773.8, y: 205.97}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6698031889455550575
@@ -154,20 +153,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3504110182864685200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5206056119389072963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c869e16280f0f3d4989f820bc749ecfd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BackLogDisplay
-  viewportContentsPrefab: {fileID: 0}
-  talkController: {fileID: 0}
 --- !u!1 &7721185832069430179
 GameObject:
   m_ObjectHideFlags: 0

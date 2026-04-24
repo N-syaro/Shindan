@@ -21,6 +21,7 @@ public class DisplayMenu : MonoBehaviour
 
     private void Update()
     {
+        //デバッグ用コード
         if (Input.GetKeyDown(KeyCode.Keypad0)) 
         {
             ToggleLog();
