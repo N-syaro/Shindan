@@ -136,6 +136,7 @@ public class TalkController : MonoBehaviour
             StartCoroutine(Manage());
         }  
     }
+
     public List<(string Name, string Text)> GetBacklogList()
     {
         // Œ”‚ğ•\¦
