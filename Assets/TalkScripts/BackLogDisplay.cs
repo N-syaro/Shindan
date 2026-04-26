@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -80,6 +81,8 @@ public class BackLogDisplay : MonoBehaviour
             
         }
         scrollRect.verticalNormalizedPosition = 0;
+
+        StartCoroutine(ScrollToBottom(scrollRect));
     }
     private void InstanceViewportContents(string nameText, string sentenceText, Transform content)
     {
@@ -90,6 +93,19 @@ public class BackLogDisplay : MonoBehaviour
         sentenceText_.text = sentenceText;
     }
 
+    private IEnumerator ScrollToBottom(ScrollRect scrollRect)
+    {
+        // 1フレーム待ってレイアウト計算を完了させる
+        yield return null;
+
+        Canvas.ForceUpdateCanvases();
+        LayoutRebuilder.ForceRebuildLayoutImmediate(contentRectTransform);
+
+        // もう1フレーム待つ（念のため）
+        yield return null;
+
+        scrollRect.verticalNormalizedPosition = 0f;
+    }
     void BacklogClose()
     {
         Destroy(this.gameObject);
