@@ -3,7 +3,7 @@ using UnityEngine;
 public class gemu_obuge : MonoBehaviour
 {
     //敵の生成処理のスクリプト
-
+    public bool stat=true;
     public GameObject[] enemiobuject;//生成するゲームオブジェクト
     public float[] spulnt;//生成するタイミング
     float taimudl;//経過時間
@@ -15,27 +15,33 @@ public class gemu_obuge : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        taimudl = Time.time;//タイマー
-        if (next < spulnt.Length)//順次生成処理
-        {
+    
 
-            if (taimudl > spulnt[next])
+    // Update is called once per frame
+    void Update()
+    {
+        if (stat == true)
+        {
+            taimudl += Time.deltaTime;
+            Debug.Log(taimudl);
+            //タイマー
+            if (next < taimudl)//順次生成処理
             {
-                sponw();
-                next++;
+
+                if (taimudl > spulnt[next])
+                {
+                    sponw();
+                    next++;
+                }
+            }
+
+            void sponw()//生成処理
+            {
+
+                Instantiate(enemiobuject[next], transform);
+                Debug.Log("spon");
             }
         }
-
-        void sponw()//生成処理
-        {
-
-            Instantiate(enemiobuject[next], transform);
-            Debug.Log("spon");
-        }
-
 
 
 

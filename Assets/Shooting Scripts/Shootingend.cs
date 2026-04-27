@@ -11,7 +11,7 @@ public class Shootingend : MonoBehaviour
 
     public GameObject targetUI;
     public GameObject player;
-    public Shootingcom spawner;
+    //public Shootingcom spawner;
     private bool isFading = false;
     private void Start()
     {

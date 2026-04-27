@@ -1,10 +1,11 @@
 using UnityEngine;
+using UnityEngine.iOS;
 
 public class Enm : MonoBehaviour
 {
     //プレイヤーの効果処理のスクリプト
 
-    bool timeon = false;//タイマースタート
+   public bool timeon = false;//タイマースタート
     public float timelemt = 50f;//時間制限
     float taima = 0f;//タイマー
     float taima2 = 0f;//タイマーダメージ
@@ -13,7 +14,7 @@ public class Enm : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {//初期化
-        timeon = true;  
+         
         taima = 0f;
     }
 
@@ -22,7 +23,8 @@ public class Enm : MonoBehaviour
     {
         if (timeon == true)//タイマー処理
         {
-            taima = taima2+ Time.time;
+            taima += taima2+ Time.deltaTime;
+            
             if (taima > timelemt)
             {
 

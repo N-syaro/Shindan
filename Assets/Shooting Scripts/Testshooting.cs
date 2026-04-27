@@ -5,7 +5,7 @@ using UnityEngine;
 public class Testshooting : MonoBehaviour
 {
     public Shootingstart fall;
-    public Shootingend fade;
+    
     public Shootingcom com;
 
     IEnumerator Start()
