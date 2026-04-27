@@ -22,11 +22,11 @@ public class DisplayMenu : MonoBehaviour
     private void Update()
     {
         //デバッグ用コード
-        if (Input.GetKeyDown(KeyCode.Keypad0)) 
+        if (Input.GetKeyDown(KeyCode.A/* Keypad0*/)) 
         {
             ToggleLog();
         }
-        if (Input.GetKeyDown(KeyCode.Keypad1))
+        if (Input.GetKeyDown(KeyCode.S/*Keypad1*/))
         {
            TurnOffLog();
         }

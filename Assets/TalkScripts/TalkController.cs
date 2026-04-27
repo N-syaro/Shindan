@@ -131,11 +131,12 @@ public class TalkController : MonoBehaviour
     private void Update()
     {
         Debug.Log("バックログ件数: " + backlogLogTextList.Count);
-        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        if (Input.GetKeyDown(KeyCode.W/*KeypadEnter*/))
         {
             StartCoroutine(Manage());
         }  
     }
+
     public List<(string Name, string Text)> GetBacklogList()
     {
         // 件数を表示
