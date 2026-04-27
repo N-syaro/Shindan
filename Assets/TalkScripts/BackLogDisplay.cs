@@ -60,8 +60,8 @@ public class BackLogDisplay : MonoBehaviour
          
         }
 
-        //Button BacklogCloseComponent = BacklogCloseObject.GetComponent<Button>();
-       // BacklogCloseComponent.onClick.AddListener(BacklogClose);
+       Button BacklogCloseComponent = BacklogCloseObject.GetComponent<Button>();
+       BacklogCloseComponent.onClick.AddListener(BacklogClose);
 
         if (viewport != null && content != null)
         {
