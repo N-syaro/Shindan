@@ -64,7 +64,7 @@ public class AudioVolumeManager : MonoBehaviour
             isMenuOpen = true;
             // ゲームを一時停止
             Time.timeScale = 0f;
-            Debug.Log("OpenMenu");
+            
         }
         else { Debug.LogError("menuCanvasがインスペクターで設定されていません！"); }
     }
@@ -77,7 +77,7 @@ public class AudioVolumeManager : MonoBehaviour
             isMenuOpen = false;
             // ゲームを再開
             Time.timeScale = 1f;
-            Debug.Log("CloseMenu");
+            
         }
     }
 
