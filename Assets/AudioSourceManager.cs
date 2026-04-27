@@ -18,11 +18,13 @@ public class AudioSourceManager : MonoBehaviour
     [SerializeField] AudioVolumeManager volumeManager;
 
 
-    private AudioSourceManager audioSInstance;
+    public static AudioSourceManager audioSInstance = null;
 
 
     void Awake()
     {
+        transform.SetParent(null);
+
         if (audioSInstance == null)
         {
             audioSInstance = this;

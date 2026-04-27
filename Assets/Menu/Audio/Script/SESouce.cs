@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class SESouce : MonoBehaviour
 {
-    private SESouce seSouce;
+    public static SESouce seSouce;
     
     void Awake()
     {
+        transform.SetParent(null);
         if (seSouce == null)
         {
             seSouce = this;

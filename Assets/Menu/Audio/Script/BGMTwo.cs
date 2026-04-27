@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class BGMTwo : MonoBehaviour
 {
-    private BGMTwo bgmTwo;
+    public static BGMTwo bgmTwo;
     
     void Awake()
     {
+        transform.SetParent(null);
         if (bgmTwo == null)
         {
             bgmTwo = this;

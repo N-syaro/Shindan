@@ -12,7 +12,7 @@ public class AudioVolumeManager : MonoBehaviour
     //オーディオミキサー
     [SerializeField] AudioMixer audioMixer;
 
-    //メニュー表示フラグ
+    //メニュー表示フラグ(メニューかキャンバスを必ず非表示に）
     public bool isMenuOpen = false;
 
     //BGM用スライダー
@@ -26,25 +26,7 @@ public class AudioVolumeManager : MonoBehaviour
     [SerializeField] Text seText;
 
 
-    private AudioVolumeManager audioVInstance;
-    
-
-
-    void Awake()
-    {
-        if (audioVInstance == null)
-        {
-            audioVInstance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
-    }
-
-
+   
 
     void Start()
     {
@@ -82,6 +64,7 @@ public class AudioVolumeManager : MonoBehaviour
             isMenuOpen = true;
             // ゲームを一時停止
             Time.timeScale = 0f;
+            Debug.Log("OpenMenu");
         }
         else { Debug.LogError("menuCanvasがインスペクターで設定されていません！"); }
     }
@@ -94,6 +77,7 @@ public class AudioVolumeManager : MonoBehaviour
             isMenuOpen = false;
             // ゲームを再開
             Time.timeScale = 1f;
+            Debug.Log("CloseMenu");
         }
     }
 
@@ -130,13 +114,13 @@ public class AudioVolumeManager : MonoBehaviour
 
     public void bgmOneSwap()
     {
-        audioMixer.SetFloat("BGM_1", -10f);
+        audioMixer.SetFloat("BGM_1", 0f);
         audioMixer.SetFloat("BGM_2", -80f);
     }
     public void bgmTwoSwap()
     {
         audioMixer.SetFloat("BGM_1", -80f);
-        audioMixer.SetFloat("BGM_2", -10f);
+        audioMixer.SetFloat("BGM_2", 0f);
     }
 
 
