@@ -56,7 +56,7 @@ public class Preya_min : MonoBehaviour
                 balet = bart.Length-1;
             }
 
-            Debug.Log(balet);
+         
 
        }
   
@@ -80,7 +80,7 @@ public class Preya_min : MonoBehaviour
                     Shot();
                     faia = false;
                     taime = 0;
-                    Debug.Log(taime);
+                    
                 }
                 else
                 {//クールタイム

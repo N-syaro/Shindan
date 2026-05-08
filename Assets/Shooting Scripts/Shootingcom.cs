@@ -3,8 +3,8 @@ using System.Collections;
 
 public class Shootingcom : MonoBehaviour
 {
-    public GameObject textPrefab;
-    public RectTransform spawnArea;
+    //public GameObject textPrefab;
+    //public RectTransform spawnArea;
 
     public float spawnInterval = 1.0f;
 
@@ -26,13 +26,13 @@ public class Shootingcom : MonoBehaviour
     {
         while (isPlaying)
         {
-            SpawnText();
+            
 
             yield return new WaitForSeconds(spawnInterval);
         }
     }
 
-    void SpawnText()
+    /*void SpawnText()
     {
         GameObject obj = Instantiate(textPrefab, spawnArea);
         obj.transform.SetAsLastSibling();
@@ -52,7 +52,7 @@ public class Shootingcom : MonoBehaviour
         {
             fall.manager = this;
         }
-    }
+    }*/
     public void ONtextfinished()
     {
         finisheCout++;
