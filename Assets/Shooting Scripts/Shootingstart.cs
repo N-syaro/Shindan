@@ -23,13 +23,13 @@ public class Shootingstart : MonoBehaviour
 
     private void Update()
     {
-
+        
         if (talkDelay.count >= maxcount&!hasFallen)
         {
             hasFallen = true;
             StartCoroutine(Fall());
         }
-
+       
 
         IEnumerator Fall()
         {

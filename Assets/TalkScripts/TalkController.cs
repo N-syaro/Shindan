@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.Rendering.LookDev;
+using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -10,7 +11,7 @@ public class TalkController : MonoBehaviour
 {
     //------  参照  ------
     [Header("UI参照")]
-    [SerializeField] GameObject TalkUI;
+    [SerializeField]public GameObject TalkUI;
     [SerializeField] Text Talktext;
     [SerializeField] Text Nametext;
    // [SerializeField] Text left;
@@ -20,11 +21,12 @@ public class TalkController : MonoBehaviour
     [Header("機能参照")]
   　 // [SerializeField] GameManager gameManager;　仮消し
     [SerializeField] TalkDelay conttext;
+    [SerializeField] GameManager gamemanager;
     
     [Header("データ参照")]//スクリプタブル    
     [SerializeField] MakeConversation Textdata;//会話データ
-    [SerializeField] Chara_data NPCData;//NPCのデータ
-    [SerializeField, Header("プレイヤー")] Chara_data Player_Data;//プレイヤーのデータ
+   // [SerializeField] Chara_data NPCData;//NPCのデータ
+   // [SerializeField, Header("プレイヤー")] Chara_data Player_Data;//プレイヤーのデータ
     //[SerializeField] ButtonAdd_ a;*/
     public enum TextMeshProMode { TextMeshPro, TextMeshProUGUI, TMP_Text }
 
@@ -34,19 +36,23 @@ public class TalkController : MonoBehaviour
     //------  変数  ------
   
     int num;
-    private void Start()
+    private void Awake()
     {
         TalkUI.SetActive(false);
-        Manage();
+    }
+    private void Start()
+    {
+        
+       // Manage();
     }
  
 
-    public void SetObject(MakeConversation d, Chara_data c)
+    public void SetObject(MakeConversation d)
     {
         if (d == null) { Debug.LogWarning("TextDataNull"); }
-        if (c == null) { Debug.LogWarning("CharaDataNull"); }
+       // if (c == null) { Debug.LogWarning("CharaDataNull"); }
         Textdata = d;
-        NPCData = c;
+        //NPCData = c;
         //gameManager.c(false);//仮消し    
         Talk();
     }
@@ -71,23 +77,24 @@ public class TalkController : MonoBehaviour
     IEnumerator CCOL(Setting_Text_Data[] data, bool i)
     {
         TalkUI.SetActive(true);
-        colti = col(data, NPCData, i);
+        colti = col(data, i);
         yield return StartCoroutine(colti);
     }
-    IEnumerator Manage()
+    IEnumerator Manage()//会話開始
     {
         TalkUI.SetActive(true);
-        if (Player_Data.Image != null) { PlayerImage.sprite = Player_Data.Image[0]; }
-        if (NPCData.Image != null) { FriendsImage.sprite = NPCData.Image[0]; }
-        colti = col(Textdata.Datas, NPCData, Textdata.UseImage_);
+     //  if (Player_Data.Image != null) { PlayerImage.sprite = Player_Data.Image[0]; }
+     //  if (NPCData.Image != null) { FriendsImage.sprite = NPCData.Image[0]; }
+        colti = col(Textdata.Datas, Textdata.UseImage_);
         yield return StartCoroutine(colti);
+        gamemanager.Talkend = true;
         TalkUI.SetActive(false);
         //gameManager.c(true);仮消し
         Debug.Log("cclo");
         yield break;
     }
 
-    IEnumerator col(Setting_Text_Data[] data, Chara_data charaData, bool usei)
+    IEnumerator col(Setting_Text_Data[] data,bool usei)
     {
 
         //イラスト表示-------------------------------------------------------------------------
@@ -95,23 +102,23 @@ public class TalkController : MonoBehaviour
         {
             if (usei)
             {
-                PlayerImage.enabled = true;
-                FriendsImage.enabled = true;
+              //  PlayerImage.enabled = true;
+              //  FriendsImage.enabled = true;
                 PlayerImage.color = new Color(0.5f, 0.5f, 0.5f, 1);
                 FriendsImage.color = new Color(0.5f, 0.5f, 0.5f, 1);
                 if (item.Side)
                 {
-                    PlayerImage.sprite = Player_Data.Image[item.CHImageNum_];
-                    Nametext.text = Player_Data.Name;
+                    PlayerImage.sprite = item.Talking_chara.Image[item.CHImageNum_];
+                    Nametext.text = item.Talking_chara.Name;
                     PlayerImage.color = new Color(1, 1, 1, 1);
-                    backlogLogTextList.Add((Player_Data.Name, item.TextData));
+                    backlogLogTextList.Add((item.Talking_chara.Name, item.TextData));
                 }
                 else
                 {
-                    FriendsImage.sprite = charaData.Image[item.CHImageNum_];
-                    Nametext.text = charaData.Name;
+                    FriendsImage.sprite = item.Talking_chara.Image[item.CHImageNum_];
+                    Nametext.text = item.Talking_chara.Name;
                     FriendsImage.color = new Color(1, 1, 1, 1);
-                    backlogLogTextList.Add((Player_Data.Name, item.TextData));
+                    backlogLogTextList.Add((item.Talking_chara.Name, item.TextData));
                 }
             }
             else

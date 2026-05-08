@@ -8,7 +8,7 @@ public class Testshooting : MonoBehaviour
     
     public Shootingcom com;
 
-    IEnumerator Start()
+   public IEnumerator S_Start()
     {
         yield return new WaitForSeconds(2f);
 
