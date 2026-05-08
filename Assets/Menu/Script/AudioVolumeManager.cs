@@ -30,6 +30,7 @@ public class AudioVolumeManager : MonoBehaviour
 
     void Start()
     {
+        menuCanvas.SetActive(false);
         //BGM
         InitializeSlider("BGM", bgmSlider, bgmText);
         //SE
@@ -114,11 +115,13 @@ public class AudioVolumeManager : MonoBehaviour
 
     public void bgmOneSwap()
     {
+        //BGM1‚ª•·‚±‚¦‚é‚æ‚¤‚É
         audioMixer.SetFloat("BGM_1", 0f);
         audioMixer.SetFloat("BGM_2", -80f);
     }
     public void bgmTwoSwap()
     {
+        //BGM2‚ª•·‚±‚¦‚é‚æ‚¤‚É
         audioMixer.SetFloat("BGM_1", -80f);
         audioMixer.SetFloat("BGM_2", 0f);
     }

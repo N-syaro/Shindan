@@ -1970,6 +1970,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4107780557013338460, guid: b95011829148ccb4689ed5ec920e1c4b, type: 3}
+      propertyPath: seClips.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4107780557013338460, guid: b95011829148ccb4689ed5ec920e1c4b, type: 3}
+      propertyPath: 'seClips.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 07d8e5ebb25dfe94b9444f40591648f0, type: 3}
+    - target: {fileID: 4107780557013338460, guid: b95011829148ccb4689ed5ec920e1c4b, type: 3}
+      propertyPath: 'seClips.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 8d9e0b21e617b37429c3a630fec4fa07, type: 3}
+    - target: {fileID: 4107780557013338460, guid: b95011829148ccb4689ed5ec920e1c4b, type: 3}
+      propertyPath: 'seClips.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: d44d6f980986a8c4091fadbfcfe50a4b, type: 3}
+    - target: {fileID: 4107780557013338460, guid: b95011829148ccb4689ed5ec920e1c4b, type: 3}
+      propertyPath: 'seClips.Array.data[6]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 72896810ce2cb314286e678a60588483, type: 3}
     - target: {fileID: 6455291265057672048, guid: b95011829148ccb4689ed5ec920e1c4b, type: 3}
       propertyPath: Loop
       value: 1
