@@ -25,7 +25,7 @@ public class gemu_obuge : MonoBehaviour
             taimudl += Time.deltaTime;
             Debug.Log(taimudl);
             //タイマー
-            if (next < taimudl)//順次生成処理
+            if (next < enemiobuject.Length)//順次生成処理
             {
 
                 if (taimudl > spulnt[next])
