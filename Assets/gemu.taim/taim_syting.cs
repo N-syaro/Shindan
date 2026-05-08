@@ -9,6 +9,7 @@ public class taim_syting : MonoBehaviour
     void Start()
     {
         
+       taima =0f; 
     }
 
     // Update is called once per frame

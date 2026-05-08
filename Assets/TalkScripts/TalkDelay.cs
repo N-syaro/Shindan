@@ -9,6 +9,8 @@ public class TalkDelay : MonoBehaviour
 {
     private bool isMode = false;
     private bool isSkip = false;
+    public int count = 0;
+
 
     public void SKip()//スキップフラグ
     {
@@ -44,5 +46,6 @@ public class TalkDelay : MonoBehaviour
             text.text += Data[i];
         }
         yield return new WaitForSeconds(1f);
+        count++;
     }
 }

@@ -4,8 +4,11 @@ using UnityEngine.Rendering.Universal;
 
 public class Preya_min : MonoBehaviour
 {
+    //プレイヤー操作のスクリプト
+
     Vector2 mousePos;
     Vector2 mouseworldPos;//マウスポインタ位置
+    Rigidbody2D Rigidbody2D;
     public bool point = true;//マウスでのキャラ操作の切り替え
     public float sped=10f;//移動速度
     public float dstm=5f; //弾丸消滅速度
@@ -21,20 +24,11 @@ public class Preya_min : MonoBehaviour
     float taime = 0;//タイマー用の関数
     private void Start()
     {
-       
+        this.Rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
-    private void OntrriggerEnte2D(Collider2D collision) 
-    {
-        GameObject hitobj = collision.gameObject;
-        switch (hitobj.tag) 
-        {
-            case "Enemy":
-                Debug.Log("ダメージ");
+  
 
-                break;
-        }
-    }
     // Update is called once per frame
     void Update()
     {
@@ -77,8 +71,9 @@ public class Preya_min : MonoBehaviour
             pozi.y =Mathf.Clamp(pozi.y,-ylimit,ylimit);
             transform.position = pozi;
             taime += Time.deltaTime;
+          
             if(Input.GetMouseButtonDown(0))
-            {
+            { //弾丸発射入力 
                 if(faia)
                 {
                     Debug.Log("弾を打ちました");
@@ -88,7 +83,7 @@ public class Preya_min : MonoBehaviour
                     Debug.Log(taime);
                 }
                 else
-                {
+                {//クールタイム
                     Debug.Log("cool中");
                    
                     if (taime >= dlitm)
@@ -111,5 +106,6 @@ public class Preya_min : MonoBehaviour
         Destroy(newbalet, dstm);
 
     }
+
 
 }
