@@ -10,10 +10,21 @@ public class BackLogDisplay : MonoBehaviour
 
     private RectTransform contentRectTransform;
     private RectTransform scrollViewRectTransform;
-
+    private GameObject GameManager;
+    private DisplayMenu D_Menu;
     [System.Obsolete]
     void Start()
     {
+        if (D_Menu == null)
+        {
+            D_Menu = FindObjectOfType<DisplayMenu>();
+            if (D_Menu == null)
+            {
+                Debug.LogError("D_Menu‚ªƒV[ƒ““à‚ÉŒ©‚Â‚©‚è‚Ü‚¹‚ñ");
+                return;
+            }
+            Debug.Log("D_Menu‚ğ©“®æ“¾‚µ‚Ü‚µ‚½: " + D_Menu.name);
+        }
         if (talkController == null)
         {
             talkController = FindObjectOfType<TalkController>();
@@ -108,6 +119,7 @@ public class BackLogDisplay : MonoBehaviour
     }
     void BacklogClose()
     {
+        D_Menu.TurnOffLog();
         Destroy(this.gameObject);
     }
 }

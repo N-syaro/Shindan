@@ -100,25 +100,42 @@ public class TalkController : MonoBehaviour
         //イラスト表示-------------------------------------------------------------------------
         foreach (var item in data)
         {
+            
             if (usei)
             {
-              //  PlayerImage.enabled = true;
-              //  FriendsImage.enabled = true;
+                PlayerImage.enabled = true;
+                FriendsImage.enabled = true;
                 PlayerImage.color = new Color(0.5f, 0.5f, 0.5f, 1);
                 FriendsImage.color = new Color(0.5f, 0.5f, 0.5f, 1);
+
+                string charaName = item.Talking_chara?.Name ?? "";
+
+                bool hasValidImage = item.Talking_chara?.Image != null && item.Talking_chara.Image.Length > item.CHImageNum_ &&item.Talking_chara.Image[item.CHImageNum_] != null;
                 if (item.Side)
                 {
-                    PlayerImage.sprite = item.Talking_chara.Image[item.CHImageNum_];
-                    Nametext.text = item.Talking_chara.Name;
-                    PlayerImage.color = new Color(1, 1, 1, 1);
-                    backlogLogTextList.Add((item.Talking_chara.Name, item.TextData));
+                    if (hasValidImage)
+                    {
+                        PlayerImage.sprite = item.Talking_chara.Image[item.CHImageNum_];
+                        PlayerImage.color = new Color(1, 1, 1, 1);
+                    }
+                    else
+                    {
+                        PlayerImage.enabled = false; // 画像なければ非表示
+                    }
+                    backlogLogTextList.Add((charaName, item.TextData));
                 }
                 else
                 {
-                    FriendsImage.sprite = item.Talking_chara.Image[item.CHImageNum_];
-                    Nametext.text = item.Talking_chara.Name;
-                    FriendsImage.color = new Color(1, 1, 1, 1);
-                    backlogLogTextList.Add((item.Talking_chara.Name, item.TextData));
+                    if (hasValidImage)
+                    {
+                        FriendsImage.sprite = item.Talking_chara.Image[item.CHImageNum_];
+                        FriendsImage.color = new Color(1, 1, 1, 1);
+                    }
+                    else
+                    {
+                        FriendsImage.enabled = false; // 画像なければ非表示
+                    }
+                    backlogLogTextList.Add((charaName, item.TextData));
                 }
             }
             else

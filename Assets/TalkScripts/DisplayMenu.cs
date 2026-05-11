@@ -10,7 +10,8 @@ public class DisplayMenu : MonoBehaviour
     private bool _isActiveLog = false;
     private GameObject _logButtonInstance;
     private GameObject _backlogInstance;
-
+    [Header("スクリプト参照")]
+    [SerializeField]
     public TalkDelay talkDelay;
     void Start()
     {
@@ -42,6 +43,7 @@ public class DisplayMenu : MonoBehaviour
 
     public void TurnOffLog()
     {
+        talkDelay.TurnBacklogMode();
         _isActiveLog = false; // 状態を切り替える
                               //   DisplaySprite(); // ボタンの表示を更新
 

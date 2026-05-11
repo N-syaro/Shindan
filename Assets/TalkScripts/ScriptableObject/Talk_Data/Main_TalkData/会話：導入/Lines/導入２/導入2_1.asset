@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9be0c93688f7de047b94ab18306647e6, type: 3}
-  m_Name: "\u5C0E\u51652_11"
-  m_EditorClassIdentifier: Assembly-CSharp::Setting_Text_Data
-  TextData: "\u300C\u3042\uFF01\u62D2\u5426\u6A29\u306F\u306A\u3044\u3088\uFF5E\uFF01\u300D"
+  m_Name: "\u5C0E\u51652_1"
+  m_EditorClassIdentifier: 
+  TextData: "\u300C\u3042\u3001\u8D77\u304D\u305F\uFF1F\u300D"
   Side: 0
-  Talking_chara: {fileID: 0}
+  Talking_chara: {fileID: 11400000, guid: 3e459beea31698343b6910c1890c490a, type: 2}
   CHImageNum_: 0
   SceneName: 

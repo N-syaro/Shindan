@@ -448,7 +448,7 @@ GameObject:
   - component: {fileID: 492223871}
   - component: {fileID: 492223872}
   m_Layer: 0
-  m_Name: Gamemanegar
+  m_Name: GameManagar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -776,7 +776,6 @@ MonoBehaviour:
   fallDuration: 2
   startY: 1000
   endY: 0
-  maxcount: 11
 --- !u!114 &677711258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1139,7 +1138,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: '
+
+'
 --- !u!1 &1232049517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1235,7 +1236,6 @@ MonoBehaviour:
   fallDuration: 2
   startY: 1000
   endY: 0
-  maxcount: 11
 --- !u!1 &1485445603
 GameObject:
   m_ObjectHideFlags: 0
@@ -1388,7 +1388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 839ff7b57b21aa44f814c02f2f83551e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TalkDelay
-  count: 0
+  currentText: 
 --- !u!222 &1927479704
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1449,7 +1449,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!1001 &1964724284
 PrefabInstance:
   m_ObjectHideFlags: 0

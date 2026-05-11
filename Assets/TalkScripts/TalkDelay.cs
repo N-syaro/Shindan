@@ -20,11 +20,14 @@ public class TalkDelay : MonoBehaviour
     {
         if (!isMode)
         { 
+            
             isMode = true;
+            Debug.Log(isMode);
         }
         else 
         {
             isMode = false;
+            Debug.Log(isMode);
         }
        
     }
