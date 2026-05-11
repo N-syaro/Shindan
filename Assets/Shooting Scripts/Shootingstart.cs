@@ -10,21 +10,20 @@ public class Shootingstart : MonoBehaviour
     public float fallDuration = 2.0f;
     public float startY = 1000f;
     public float endY = 0f;
-    public float maxcount = 11;
     private bool hasFallen = false;
-    private int caunt = 0;
+    
     
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
-        caunt =targetObject.Length;
+        
         
     }
 
     private void Update()
     {
         
-        if (talkDelay.count >= maxcount&!hasFallen)
+        if (talkDelay.currentText == "（こぶりボン？の話に耳を傾けた。）"/*||*/ & !hasFallen)
         {
             Debug.Log("物が落ち始めました");
             hasFallen = true;
@@ -52,10 +51,10 @@ public class Shootingstart : MonoBehaviour
             }
             
             rectTransform.anchoredPosition = endPos;
-            for (int i = 0; i < caunt; i++)
+            /*for (int i = 0; i < caunt; i++)
             {
                 targetObject[i].SetActive(true);
-            }
+            }*/
         }
     }
 }
