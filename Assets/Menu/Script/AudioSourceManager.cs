@@ -7,13 +7,17 @@ public class AudioSourceManager : MonoBehaviour
     public AudioClip[] bgmClips;
     //SEÇÃìoò^èÍèä
     public AudioClip[] seClips;
-    //åªç›ó¨ÇÍÇƒÇ¢ÇÈBGM
+    //VoiceÇÃìoò^èÍèä(âº)
+    public AudioClip[] voiceClips;
+    //åªç›ó¨ÇÍÇƒÇ¢ÇÈBGM1
     [SerializeField] AudioSource bgmSourceOne;
-    //åªç›ó¨ÇÍÇƒÇ¢ÇÈBGM
+    //åªç›ó¨ÇÍÇƒÇ¢ÇÈBGM2
     [SerializeField] AudioSource bgmSourceTwo;
 
     //åªç›ó¨ÇÍÇƒÇ¢ÇÈSE
     [SerializeField] AudioSource seSource;
+    //åªç›ó¨ÇÍÇƒÇ¢ÇÈVoice
+    [SerializeField] AudioSource voiceSource;
 
     [SerializeField] AudioVolumeManager volumeManager;
 
@@ -23,8 +27,9 @@ public class AudioSourceManager : MonoBehaviour
 
     void Awake()
     {
+        //êeéqä÷åWÇÉäÉZÉbÉg
         transform.SetParent(null);
-
+        //ÉQÅ[ÉÄè„Ç…àÍÇ¬à»â∫ÇµÇ©Ç»Ç¢ÇÊÇ§Ç…Ç∑ÇÈ
         if (audioSInstance == null)
         {
             audioSInstance = this;
@@ -42,13 +47,13 @@ public class AudioSourceManager : MonoBehaviour
     //ìoò^Ç≥ÇÍÇΩBGMÇó¨Ç∑
     public void bgmChangeOne(int bgmCount)
     {
-        bgmSourceOne.Stop();
+        bgmStopOne();
         bgmSourceOne.clip = bgmClips[bgmCount];
         bgmSourceOne.Play();
     }
     public void bgmChangeTwo(int bgmCount)
     {
-        bgmSourceTwo.Stop();
+        bgmStopTwo();
         bgmSourceTwo.clip = bgmClips[bgmCount];
         bgmSourceTwo.Play();
     }
@@ -58,9 +63,19 @@ public class AudioSourceManager : MonoBehaviour
     public void seChange(int seCount)
     {
         seSource.Stop();
-        //seSource.clip = seClips[seCount];
+        
         seSource.PlayOneShot(seClips[seCount]);
     }
+
+    //ìoò^Ç≥ÇÍÇΩÉ{ÉCÉXÇó¨Ç∑
+    public void voiceChange(int voiceCount)
+    {
+        voiceStop();
+        voiceSource.PlayOneShot(voiceClips[voiceCount]);
+    }
+
+
+
 
     //BGMí‚é~
     public void bgmStopOne()
@@ -78,6 +93,10 @@ public class AudioSourceManager : MonoBehaviour
         seSource.Stop();
     }
 
-
+    //Voiceí‚é~
+    public void voiceStop()
+    {
+        voiceSource.Stop();
+    }
 
 }
