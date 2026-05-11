@@ -26,6 +26,7 @@ public class Shootingstart : MonoBehaviour
         
         if (talkDelay.count >= maxcount&!hasFallen)
         {
+            Debug.Log("•¨‚ª—Ž‚¿Žn‚ß‚Ü‚µ‚½");
             hasFallen = true;
             StartCoroutine(Fall());
         }

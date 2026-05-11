@@ -10,9 +10,8 @@ public class Testshooting : MonoBehaviour
 
    public IEnumerator S_Start()
     {
+        Debug.Log("S_Start‚ª“Ç‚İ‚Ü‚ê‚Ü‚µ‚½");
         yield return new WaitForSeconds(2f);
-
-
         yield return new WaitForSeconds(fall.fallDuration);
 
         com.StartGame();
