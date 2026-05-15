@@ -103,13 +103,14 @@ public class TalkController : MonoBehaviour
             
             if (usei)
             {
+                Nametext.enabled = true;
                 PlayerImage.enabled = true;
                 FriendsImage.enabled = true;
                 PlayerImage.color = new Color(0.5f, 0.5f, 0.5f, 1);
                 FriendsImage.color = new Color(0.5f, 0.5f, 0.5f, 1);
-
+              
                 string charaName = item.Talking_chara?.Name ?? "";
-
+                Nametext.text = charaName;
                 bool hasValidImage = item.Talking_chara?.Image != null && item.Talking_chara.Image.Length > item.CHImageNum_ &&item.Talking_chara.Image[item.CHImageNum_] != null;
                 if (item.Side)
                 {
@@ -121,6 +122,7 @@ public class TalkController : MonoBehaviour
                     else
                     {
                         PlayerImage.enabled = false; // ‰æ‘œ‚È‚¯‚ê‚Î”ñ•\Ž¦
+                        Nametext.enabled = false;
                     }
                     backlogLogTextList.Add((charaName, item.TextData));
                 }
@@ -134,6 +136,7 @@ public class TalkController : MonoBehaviour
                     else
                     {
                         FriendsImage.enabled = false; // ‰æ‘œ‚È‚¯‚ê‚Î”ñ•\Ž¦
+                        Nametext.enabled = false;
                     }
                     backlogLogTextList.Add((charaName, item.TextData));
                 }
