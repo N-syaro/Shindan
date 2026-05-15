@@ -20,14 +20,14 @@ public class AudioVolumeManager : MonoBehaviour
     //SE用スライダー
     [SerializeField] Slider seSlider;
     //Voice用スライダー
-    [SerializeField] Slider voiceSlider; 
+    //[SerializeField] Slider voiceSlider; 
     
     //BGM用テキスト
     [SerializeField] Text bgmText;
     //SE用テキスト
     [SerializeField] Text seText;
     //Voice用テキスト
-    [SerializeField] Text voiceText;
+    //[SerializeField] Text voiceText;
 
 
    
@@ -39,8 +39,11 @@ public class AudioVolumeManager : MonoBehaviour
         InitializeSlider("BGM", bgmSlider, bgmText);
         //SE
         InitializeSlider("SE", seSlider, seText);
-        //CV
-        InitializeSlider("CV", voiceSlider, voiceText);
+        //Voice
+        //InitializeSlider("Voice", voiceSlider, voiceText);
+
+        audioMixer.SetFloat("BGM_1", 0f);
+        audioMixer.SetFloat("BGM_2", -80f);
     }
 
     void Update()
@@ -103,7 +106,8 @@ public class AudioVolumeManager : MonoBehaviour
     // 各メソッドをUIのOnValueChangedから呼ぶ
     public void SetBGM(float value) => SetVolume("BGM", value, bgmText);
     public void SetSE(float value) => SetVolume("SE", value, seText);
-    public void SetCV(float value) => SetVolume("CV", value, voiceText);
+
+    //public void SetCV(float value) => SetVolume("CV", value, voiceText);
     private void SetVolume(string name, float value, Text text)
     {
         // 0だとLog10がエラーになるため、Mathf.Clampで微小な値を確保

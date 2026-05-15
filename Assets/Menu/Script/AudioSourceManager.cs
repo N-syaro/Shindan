@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -7,8 +8,10 @@ public class AudioSourceManager : MonoBehaviour
     public AudioClip[] bgmClips;
     //SEÇÃìoò^èÍèä
     public AudioClip[] seClips;
+
     //VoiceÇÃìoò^èÍèä(âº)
-    public AudioClip[] voiceClips;
+    //public AudioClip[] voiceClips;
+
     //åªç›ó¨ÇÍÇƒÇ¢ÇÈBGM1
     [SerializeField] AudioSource bgmSourceOne;
     //åªç›ó¨ÇÍÇƒÇ¢ÇÈBGM2
@@ -16,8 +19,9 @@ public class AudioSourceManager : MonoBehaviour
 
     //åªç›ó¨ÇÍÇƒÇ¢ÇÈSE
     [SerializeField] AudioSource seSource;
+
     //åªç›ó¨ÇÍÇƒÇ¢ÇÈVoice
-    [SerializeField] AudioSource voiceSource;
+    //[SerializeField] AudioSource voiceSource;
 
     [SerializeField] AudioVolumeManager volumeManager;
 
@@ -42,6 +46,7 @@ public class AudioSourceManager : MonoBehaviour
 
     }
 
+    
 
 
     //ìoò^Ç≥ÇÍÇΩBGMÇó¨Ç∑
@@ -62,18 +67,17 @@ public class AudioSourceManager : MonoBehaviour
     //ìoò^Ç≥ÇÍÇΩSEÇó¨Ç∑
     public void seChange(int seCount)
     {
-        seSource.Stop();
-        
         seSource.PlayOneShot(seClips[seCount]);
     }
 
     //ìoò^Ç≥ÇÍÇΩÉ{ÉCÉXÇó¨Ç∑
+    /*
     public void voiceChange(int voiceCount)
     {
         voiceStop();
         voiceSource.PlayOneShot(voiceClips[voiceCount]);
     }
-
+    */
 
 
 
@@ -94,9 +98,10 @@ public class AudioSourceManager : MonoBehaviour
     }
 
     //Voiceí‚é~
+    /*
     public void voiceStop()
     {
         voiceSource.Stop();
     }
-
+    */
 }
