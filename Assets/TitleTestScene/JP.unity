@@ -484,8 +484,8 @@ MonoBehaviour:
   TalkUI: {fileID: 74376224}
   Talktext: {fileID: 1927479706}
   Nametext: {fileID: 1209155918}
-  PlayerImage: {fileID: 1183704117}
-  FriendsImage: {fileID: 946201723}
+  PlayerImage: {fileID: 946201723}
+  FriendsImage: {fileID: 1183704117}
   conttext: {fileID: 1927479703}
   gamemanager: {fileID: 492223872}
   Textdata: {fileID: 0}
@@ -841,7 +841,7 @@ GameObject:
   - component: {fileID: 946201722}
   - component: {fileID: 946201723}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -997,7 +997,7 @@ GameObject:
   - component: {fileID: 1183704116}
   - component: {fileID: 1183704117}
   m_Layer: 5
-  m_Name: Image
+  m_Name: NPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
