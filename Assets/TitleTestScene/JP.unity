@@ -1563,6 +1563,14 @@ PrefabInstance:
       propertyPath: brsp
       value: 600
       objectReference: {fileID: 0}
+    - target: {fileID: 669464529788642858, guid: 87625a4aeb3d01b4099b2328bbe66328, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 669464529788642858, guid: 87625a4aeb3d01b4099b2328bbe66328, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4350243527127759767, guid: 87625a4aeb3d01b4099b2328bbe66328, type: 3}
       propertyPath: timeon
       value: 1
@@ -1577,11 +1585,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8657828326927109853, guid: 87625a4aeb3d01b4099b2328bbe66328, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 957
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8657828326927109853, guid: 87625a4aeb3d01b4099b2328bbe66328, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 493
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8657828326927109853, guid: 87625a4aeb3d01b4099b2328bbe66328, type: 3}
       propertyPath: m_LocalPosition.z

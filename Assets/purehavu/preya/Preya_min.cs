@@ -103,7 +103,7 @@ public class Preya_min : MonoBehaviour
         GameObject newbalet = Instantiate(bart[balet],this.transform.position,Quaternion.identity);
         Rigidbody2D bllet2d= newbalet.GetComponent<Rigidbody2D>();
         bllet2d.AddForce(this.transform.up* brsp);
-        Destroy(newbalet, dstm);
+        //Destroy(newbalet, dstm);
 
     }
 

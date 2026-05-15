@@ -20,32 +20,38 @@ public class gemu_obuge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (enemiobuject==null)return;
+
+       
         if (stat == true)
         {
+            
             taimudl += Time.deltaTime;
-            Debug.Log(taimudl);
+          
             //タイマー
-            if (next < taimudl)//順次生成処理
+
+            if (next < taimudl&& next<spulnt.Length)//順次生成処理
             {
 
-                if (taimudl > spulnt[next])
+                if (taimudl  >spulnt[next])
                 {
                     sponw();
                     next++;
                 }
             }
 
-            void sponw()//生成処理
-            {
-
-                Instantiate(enemiobuject[next], transform);
-                Debug.Log("spon");
-            }
+           
         }
 
 
 
 
+    }
+    void sponw()//生成処理
+    {
+
+        Instantiate(enemiobuject[next], transform);
+        Debug.Log("spon");
     }
 }
 
