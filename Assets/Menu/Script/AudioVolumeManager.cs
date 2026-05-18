@@ -12,51 +12,38 @@ public class AudioVolumeManager : MonoBehaviour
     //オーディオミキサー
     [SerializeField] AudioMixer audioMixer;
 
-    //メニュー表示フラグ
+    //メニュー表示フラグ(メニューかキャンバスを必ず非表示に）
     public bool isMenuOpen = false;
 
     //BGM用スライダー
     [SerializeField] Slider bgmSlider;
     //SE用スライダー
     [SerializeField] Slider seSlider;
+    //Voice用スライダー
+    //[SerializeField] Slider voiceSlider; 
     
     //BGM用テキスト
     [SerializeField] Text bgmText;
     //SE用テキスト
     [SerializeField] Text seText;
+    //Voice用テキスト
+    //[SerializeField] Text voiceText;
 
 
-    public static AudioVolumeManager audioVInstance
-    {
-        get; private set;
-    }
-
-
-
-
-
-    void Awake()
-    {
-        if (audioVInstance == null)
-        {
-            audioVInstance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
-    }
-
-
+   
 
     void Start()
     {
+        menuCanvas.SetActive(false);
         //BGM
         InitializeSlider("BGM", bgmSlider, bgmText);
         //SE
         InitializeSlider("SE", seSlider, seText);
+        //Voice
+        //InitializeSlider("Voice", voiceSlider, voiceText);
+
+        audioMixer.SetFloat("BGM_1", 0f);
+        audioMixer.SetFloat("BGM_2", -80f);
     }
 
     void Update()
@@ -69,10 +56,12 @@ public class AudioVolumeManager : MonoBehaviour
     }
     public void ToggleMenu()
     {
+        //メニューを閉じる
         if (isMenuOpen)
         {
             CloseMenu();
         }
+        //メニューを開ける
         else
         {
             OpenMenu();
@@ -87,6 +76,7 @@ public class AudioVolumeManager : MonoBehaviour
             isMenuOpen = true;
             // ゲームを一時停止
             Time.timeScale = 0f;
+            
         }
         else { Debug.LogError("menuCanvasがインスペクターで設定されていません！"); }
     }
@@ -99,6 +89,7 @@ public class AudioVolumeManager : MonoBehaviour
             isMenuOpen = false;
             // ゲームを再開
             Time.timeScale = 1f;
+            
         }
     }
 
@@ -115,6 +106,8 @@ public class AudioVolumeManager : MonoBehaviour
     // 各メソッドをUIのOnValueChangedから呼ぶ
     public void SetBGM(float value) => SetVolume("BGM", value, bgmText);
     public void SetSE(float value) => SetVolume("SE", value, seText);
+
+    //public void SetCV(float value) => SetVolume("CV", value, voiceText);
     private void SetVolume(string name, float value, Text text)
     {
         // 0だとLog10がエラーになるため、Mathf.Clampで微小な値を確保
@@ -135,13 +128,15 @@ public class AudioVolumeManager : MonoBehaviour
 
     public void bgmOneSwap()
     {
-        audioMixer.SetFloat("BGM_1", -10f);
+        //BGM1が聞こえるように
+        audioMixer.SetFloat("BGM_1", 0f);
         audioMixer.SetFloat("BGM_2", -80f);
     }
     public void bgmTwoSwap()
     {
+        //BGM2が聞こえるように
         audioMixer.SetFloat("BGM_1", -80f);
-        audioMixer.SetFloat("BGM_2", -10f);
+        audioMixer.SetFloat("BGM_2", 0f);
     }
 
 

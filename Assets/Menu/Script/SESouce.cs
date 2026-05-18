@@ -2,15 +2,14 @@ using UnityEngine;
 
 public class SESouce : MonoBehaviour
 {
-    public static SESouce audioSInstance
-    {
-        get; private set;
-    }
+    public static SESouce seSouce;
+    
     void Awake()
     {
-        if (audioSInstance == null)
+        transform.SetParent(null);
+        if (seSouce == null)
         {
-            audioSInstance = this;
+            seSouce = this;
             DontDestroyOnLoad(gameObject);
         }
         else
