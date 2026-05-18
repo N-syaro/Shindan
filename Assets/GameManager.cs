@@ -1,7 +1,9 @@
 using System.Collections;
 using Unity.Collections;
+using Unity.VectorGraphics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static UnityEditor.Progress;
 
 public class GameManager : MonoBehaviour
@@ -22,9 +24,11 @@ public class GameManager : MonoBehaviour
     public int Conv_Count = 0;
     public int endCount = 0;
      public bool Talkend;//会話終了判定
+    private string sceneName;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+       sceneName = SceneManager.GetActiveScene().name;
         StartCoroutine(AllGameLoop());
     }
 
@@ -35,7 +39,7 @@ public class GameManager : MonoBehaviour
             t_controller.SetObject(makeConversations[Conv_Count]);
             yield return new WaitUntil(()=>Talkend);
             Talkend = false;
-            if(Conv_Count == 2)
+            if(Conv_Count == 1)
             {
                 Debug.Log("シューティングゲーム開始");
                 t_controller.TalkUI.SetActive(false);
@@ -61,7 +65,47 @@ public class GameManager : MonoBehaviour
             yield return new WaitUntil(() => Talkend);
 
             Talkend = false;
+          /* 製作途中です　中塚
+           if(sceneName == "")
+            {//導入シーン
+                Debug.Log("導入シーン用処理");
+                if (Conv_Count == 1)
+                {
+                    Debug.Log("シューティングゲーム開始");
 
+                    t_controller.TalkUI.SetActive(false);
+
+                    yield return StartCoroutine(Testshooting.S_Start());
+
+                    // シューティング終了待ち
+                    yield return new WaitUntil(() => endCount > 0);
+
+                    // UI再表示
+                    t_controller.TalkUI.SetActive(true);
+
+
+                }
+            }
+            if(sceneName == "")
+            {//本編シーン
+                Debug.Log("本編シーン用処理");
+                if (Conv_Count == 1)
+                {
+                    Debug.Log("シューティングゲーム開始");
+
+                    t_controller.TalkUI.SetActive(false);
+
+                    yield return StartCoroutine(Testshooting.S_Start());
+
+                    // シューティング終了待ち
+                    yield return new WaitUntil(() => endCount > 0);
+
+                    // UI再表示
+                    t_controller.TalkUI.SetActive(true);
+
+
+                }
+            }*/
             // 2回に1回実行
             if ((Conv_Count + 1) % 2 == 0)
             {
