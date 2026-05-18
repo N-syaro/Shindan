@@ -16,7 +16,7 @@ public class Testshooting : MonoBehaviour
         //yield return new WaitForSeconds(2f);
         yield return new WaitForSeconds(0.1f);
         player.SetActive(true);
-        Triangle.SetActive(true);
+       // Triangle.SetActive(true);
         //com.StartGame();
 
 

@@ -15,16 +15,17 @@ public class enemy_sprn : MonoBehaviour
     // Update is called once per frame
     private void OnCollisionEnter2D(Collision2D collision)//当たり判定
     {
-        if (next!)
-        {
+       // if (next!)
+        //{
             if (collision.gameObject.tag == "ballt")//balltタグに当たったらクリアフラグを立てる
             {
                 culafl = true;
                 Debug.Log(culafl);
-                gameManager.Conv_Count++;
+                Debug.Log("当たった！！");
+                //ここにコルーチン
             }
 
-        }
+       // }
 
 
     }
