@@ -9,6 +9,7 @@ public class enemy_sprn : MonoBehaviour
     public bool culafl=false;//クリアフラグ
     int pint=0;//移動ポイントの数
     [SerializeField] bool next=false;//クリア用オブジェクトはtrue
+    [SerializeField] GameManager gameManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     // Update is called once per frame
@@ -20,7 +21,7 @@ public class enemy_sprn : MonoBehaviour
             {
                 culafl = true;
                 Debug.Log(culafl);
-
+                gameManager.Conv_Count++;
             }
 
         }

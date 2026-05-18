@@ -31,28 +31,6 @@ public class Shootingcom : MonoBehaviour
             yield return new WaitForSeconds(spawnInterval);
         }
     }
-
-    /*void SpawnText()
-    {
-        GameObject obj = Instantiate(textPrefab, spawnArea);
-        obj.transform.SetAsLastSibling();
-
-        RectTransform rt = obj.GetComponent<RectTransform>();
-
-        float x = Random.Range(
-            spawnArea.rect.xMin,
-            spawnArea.rect.xMax
-        );
-
-        float y = spawnArea.rect.yMax;
-
-        rt.anchoredPosition = new Vector2(x, y);
-        FallingText fall = obj.GetComponent<FallingText>();
-        if (fall != null)
-        {
-            fall.manager = this;
-        }
-    }*/
     public void ONtextfinished()
     {
         finisheCout++;
