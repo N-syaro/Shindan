@@ -26,7 +26,7 @@ public class AudioSourceManager : MonoBehaviour
     [SerializeField] AudioVolumeManager volumeManager;
 
 
-    public static AudioSourceManager audioSInstance = null;
+    public static AudioSourceManager audioInstance = null;
 
 
     void Awake()
@@ -34,9 +34,9 @@ public class AudioSourceManager : MonoBehaviour
         //親子関係をリセット
         transform.SetParent(null);
         //ゲーム上に一つ以下しかないようにする
-        if (audioSInstance == null)
+        if (audioInstance == null)
         {
-            audioSInstance = this;
+            audioInstance = this;
             DontDestroyOnLoad(gameObject); 
         }
         else
