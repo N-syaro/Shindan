@@ -1,0 +1,24 @@
+using Unity.VisualScripting;
+using UnityEngine;
+
+public class BGMLoop : MonoBehaviour
+{
+   public AudioSource audioSource;
+    public TalkDelay talkDelay;
+    public AudioClip nextBGM;
+
+    private bool changed = false;
+
+    void Update()
+    {
+        if (talkDelay.currentText.Contains("Ç†Ç†Ç†Ç†") && !changed)//Ç†Ç†Ç†Ç†ÇÃÇ∆Ç±ÇÎÇêÿÇËë÷ÇÌÇÈèäÇ…
+        {
+            changed = true;
+
+            audioSource.clip = nextBGM;
+            audioSource.Play();
+        }
+
+    }
+
+}
