@@ -17,6 +17,14 @@ public class TitleManager : MonoBehaviour
 
     public FadeOutIn fade;
 
+    private void Awake()
+    {
+        titleCanvas.SetActive(true);
+        languageCanvas.SetActive(false);
+        jpText.SetActive(true);
+        enText.SetActive(false);
+    }
+
 
     public void StartButton(string sceneName)
     {
@@ -29,10 +37,12 @@ public class TitleManager : MonoBehaviour
     {
         //Œ¾Œê‘I‘ð‰æ–Ê‚ð•\Ž¦
         languageCanvas.SetActive(true);
+
+        fade.fadeOutIn(0.01f, 1.0f, 1.0f);
+
         titleCanvas.SetActive(false);
 
-        fade.fadeOutIn(1.0f, 1.0f, 1.0f);
-
+        
     }
 
 

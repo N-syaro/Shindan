@@ -10,33 +10,14 @@ public class FadeOutIn : MonoBehaviour
     [SerializeField]
     private CanvasGroup canvasGroup;
 
-    private float waitTime;
-
-    private float fadeOutTime;
-
-    private float fadeInTime;
-
-    private float fadeSpeed=0.02f;
-    private float fadeInSpeed;
-
-    public static FadeOutIn fadeInstance;
+    
 
     private void Awake()
     {
         canvasGroup.alpha = 0f;
 
-        //親子関係をリセット
-        //transform.SetParent(null);
-        //ゲーム上に一つ以下しかないようにする
-        if (fadeInstance == null)
-        {
-            fadeInstance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        fadeImage.gameObject.SetActive(false);
+        
     }
 
     public void fadeOutIn(float outTime, float wait, float inTime)
@@ -71,8 +52,13 @@ public class FadeOutIn : MonoBehaviour
 
     IEnumerator startFadeOut(float outTime)
     {
+        fadeImage.gameObject.SetActive(true);
+
+
         float fadeOutSpeed = 1.0f / outTime;
         float currentAlpha = canvasGroup.alpha;
+
+
 
         while (currentAlpha < 1.0f)
         {
@@ -90,6 +76,9 @@ public class FadeOutIn : MonoBehaviour
     IEnumerator startFadeIn(float wait, float inTime)
     {
 
+        
+
+
         if (wait > 0f)
         {
             yield return new WaitForSeconds(wait);
@@ -104,6 +93,8 @@ public class FadeOutIn : MonoBehaviour
             yield return null;
         }
         canvasGroup.alpha = 0.0f;
+
+        fadeImage.gameObject.SetActive(false);
 
     }
     
