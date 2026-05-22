@@ -30,7 +30,7 @@ public class TalkController : MonoBehaviour
     //[SerializeField] ButtonAdd_ a;*/
     public enum TextMeshProMode { TextMeshPro, TextMeshProUGUI, TMP_Text }
 
-    private List<(string Name, string Text)> backlogLogTextList = new();
+    private List<(string Name,Sprite p_image, string Text)> backlogLogTextList = new();
 
     private IEnumerator colti;
     //------  変数  ------
@@ -118,13 +118,15 @@ public class TalkController : MonoBehaviour
                     {
                         PlayerImage.sprite = item.Talking_chara.Image[item.CHImageNum_];
                         PlayerImage.color = new Color(1, 1, 1, 1);
+                        backlogLogTextList.Add((charaName,PlayerImage.sprite, item.TextData));
                     }
                     else
                     {
                         PlayerImage.enabled = false; // 画像なければ非表示
                         Nametext.enabled = false;
+                        backlogLogTextList.Add((charaName,PlayerImage.sprite, item.TextData));
                     }
-                    backlogLogTextList.Add((charaName, item.TextData));
+                  //  backlogLogTextList.Add((charaName, item.TextData));
                 }
                 else
                 {
@@ -132,13 +134,15 @@ public class TalkController : MonoBehaviour
                     {
                         FriendsImage.sprite = item.Talking_chara.Image[item.CHImageNum_];
                         FriendsImage.color = new Color(1, 1, 1, 1);
+                        backlogLogTextList.Add((charaName,FriendsImage.sprite, item.TextData));
                     }
                     else
                     {
                         FriendsImage.enabled = false; // 画像なければ非表示
                         Nametext.enabled = false;
+                        backlogLogTextList.Add((charaName, FriendsImage.sprite, item.TextData));
                     }
-                    backlogLogTextList.Add((charaName, item.TextData));
+                   // backlogLogTextList.Add((charaName, item.TextData));
                 }
             }
             else
@@ -146,7 +150,7 @@ public class TalkController : MonoBehaviour
                 PlayerImage.enabled = false;
                 FriendsImage.enabled = false;
 
-                backlogLogTextList.Add(("", item.TextData));
+                backlogLogTextList.Add(("", null,item.TextData));
             }
         
             yield return StartCoroutine(conttext.TextActive(Talktext, item.TextData));
@@ -164,7 +168,7 @@ public class TalkController : MonoBehaviour
         }  
     }
 
-    public List<(string Name, string Text)> GetBacklogList()
+    public List<(string Name, Sprite p_image, string Text)> GetBacklogList()
     {
         // 件数を表示
         Debug.Log("バックログ件数: " + backlogLogTextList.Count);

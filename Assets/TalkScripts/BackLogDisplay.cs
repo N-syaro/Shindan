@@ -36,7 +36,7 @@ public class BackLogDisplay : MonoBehaviour
             Debug.Log("TalkControllerを自動取得しました: " + talkController.name);
         }
         // TalkControllerからリストを取得 後で変更
-        List<(string Name, string Text)> backlogLogTextList = talkController.GetBacklogList();
+        List<(string Name, Sprite p_image, string Text)> backlogLogTextList = talkController.GetBacklogList();
         Debug.Log("バックログ件数: " + backlogLogTextList.Count);
         Transform backlog = transform;
         Transform viewport = null;
