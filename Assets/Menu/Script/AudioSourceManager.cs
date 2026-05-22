@@ -23,31 +23,7 @@ public class AudioSourceManager : MonoBehaviour
     //現在流れているVoice
     //[SerializeField] AudioSource voiceSource;
 
-    [SerializeField] AudioVolumeManager volumeManager;
-
-
-    public static AudioSourceManager audioSInstance = null;
-
-
-    void Awake()
-    {
-        //親子関係をリセット
-        transform.SetParent(null);
-        //ゲーム上に一つ以下しかないようにする
-        if (audioSInstance == null)
-        {
-            audioSInstance = this;
-            DontDestroyOnLoad(gameObject); 
-        }
-        else
-        {
-            Destroy(gameObject); 
-        }
-
-    }
-
     
-
 
     //登録されたBGMを流す
     public void bgmChangeOne(int bgmCount)
