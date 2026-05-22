@@ -775,6 +775,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &778616209 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9123589968819070882, guid: b95011829148ccb4689ed5ec920e1c4b, type: 3}
+  m_PrefabInstance: {fileID: 1244565770}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9dc151509879544e813b31a51bcc230, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioVolumeManager
 --- !u!1 &809654278
 GameObject:
   m_ObjectHideFlags: 0
@@ -1958,6 +1969,10 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2799777098975302387, guid: b95011829148ccb4689ed5ec920e1c4b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3157425084708133709, guid: b95011829148ccb4689ed5ec920e1c4b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1560.5493
@@ -2021,6 +2036,18 @@ PrefabInstance:
     - target: {fileID: 6455291265057672048, guid: b95011829148ccb4689ed5ec920e1c4b, type: 3}
       propertyPath: Loop
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6485104544956090123, guid: b95011829148ccb4689ed5ec920e1c4b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 778616209}
+    - target: {fileID: 6485104544956090123, guid: b95011829148ccb4689ed5ec920e1c4b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TitleButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 6485104544956090123, guid: b95011829148ccb4689ed5ec920e1c4b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MenuManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8012758239923366310, guid: b95011829148ccb4689ed5ec920e1c4b, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2949,12 +2976,20 @@ PrefabInstance:
       propertyPath: canvasGroup
       value: 
       objectReference: {fileID: 913321104}
+    - target: {fileID: 1733303781471260884, guid: c0960554143f98343a619de6ef7f84ac, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1952224309323975658, guid: c0960554143f98343a619de6ef7f84ac, type: 3}
       propertyPath: m_SortingOrder
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2704168773757595848, guid: c0960554143f98343a619de6ef7f84ac, type: 3}
       propertyPath: m_Alpha
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613386652522628322, guid: c0960554143f98343a619de6ef7f84ac, type: 3}
+      propertyPath: m_RaycastTarget
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4877817536813822410, guid: c0960554143f98343a619de6ef7f84ac, type: 3}
