@@ -642,6 +642,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Testshooting
   fall: {fileID: 677711257}
   com: {fileID: 677711259}
+  player: {fileID: 32416784}
+  Triangle: {fileID: 858948047}
 --- !u!114 &492223872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -661,6 +663,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 02550aac04892d44091f255e6d22630c, type: 2}
   - {fileID: 11400000, guid: 51a6f81af71238b44b9b6f55bb77991b, type: 2}
   - {fileID: 11400000, guid: 88e44d1125256a74d883f49bbc4b7879, type: 2}
+  Conv_Count: 0
+  endCount: 0
   Talkend: 0
 --- !u!1 &651735732
 GameObject:
@@ -789,7 +793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1de4b8c01ae60d43a50dd21a05fe29a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shootingend
-  blackFadeImage: {fileID: 0}
+  blackFadeImage: {fileID: 1232049519}
   fadeOutDuration: 1.5
   fadeInDuration: 1.5
   targetUI: {fileID: 0}
