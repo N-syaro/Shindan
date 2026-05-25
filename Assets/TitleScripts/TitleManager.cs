@@ -38,11 +38,7 @@ public class TitleManager : MonoBehaviour
         //Œ¾Œê‘I‘ð‰æ–Ê‚ð•\Ž¦
         languageCanvas.SetActive(true);
 
-        fade.fadeOutIn(0.01f, 1.0f, 1.0f);
-
         titleCanvas.SetActive(false);
-
-        
     }
 
 
