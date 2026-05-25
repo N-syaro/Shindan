@@ -32,11 +32,14 @@ public class Shootingend : MonoBehaviour
     }
     IEnumerator DelayedFadeSequence()
     {
+
+        //// ここで6秒待機してからフェードシーケンスを開始
         yield return new WaitForSeconds(6f);  // 6秒待機
         yield return StartCoroutine(FadeSequence());
     }
     IEnumerator FadeSequence()
     {
+        //// フェードアウトしてUIを上に移動させるシーケンス
         yield return StartCoroutine(FadeToBlack());
         if (targetUI != null)
         {
@@ -49,6 +52,7 @@ public class Shootingend : MonoBehaviour
 
     IEnumerator FadeToBlack()
     {
+        //// フェードアウトして画面を黒くするシーケンス
         float elapsed = 0;
         Color color = blackFadeImage.color;
 

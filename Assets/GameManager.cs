@@ -79,12 +79,12 @@ public class GameManager : MonoBehaviour
                     t_controller.TalkUI.SetActive(false);
 
                     yield return new WaitForSeconds(3);
-                    /*
+                    
                     yield return StartCoroutine(Testshooting.S_Start());
 
                     // シューティング終了待ち
                     yield return new WaitUntil(() => endCount > 0);
-                    */
+                    
                     // UI再表示
                     t_controller.TalkUI.SetActive(true);
                 }
