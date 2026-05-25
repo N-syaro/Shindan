@@ -51,6 +51,7 @@ public class Shootingstart : MonoBehaviour
             }
             
             rectTransform.anchoredPosition = endPos;
+            
             /*for (int i = 0; i < caunt; i++)
             {
                 targetObject[i].SetActive(true);

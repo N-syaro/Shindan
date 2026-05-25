@@ -9,21 +9,23 @@ public class enemy_sprn : MonoBehaviour
     public bool culafl=false;//クリアフラグ
     int pint=0;//移動ポイントの数
     [SerializeField] bool next=false;//クリア用オブジェクトはtrue
+    [SerializeField] GameManager gameManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     // Update is called once per frame
     private void OnCollisionEnter2D(Collision2D collision)//当たり判定
     {
-        if (next!)
-        {
+       // if (next!)
+        //{
             if (collision.gameObject.tag == "ballt")//balltタグに当たったらクリアフラグを立てる
             {
                 culafl = true;
                 Debug.Log(culafl);
-
+                Debug.Log("当たった！！");
+                //ここにコルーチン
             }
 
-        }
+       // }
 
 
     }

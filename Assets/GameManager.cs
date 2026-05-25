@@ -18,7 +18,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     MakeConversation[] makeConversations;//会話データ配列(体験版使用)本番はリスト化したい
 
-    private int Conv_Count  = 0;//会話量
+    //private int Conv_Count  = 0;//会話量
+    public int Conv_Count = 0;
+    public int endCount = 0;
      public bool Talkend;//会話終了判定
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,22 +28,60 @@ public class GameManager : MonoBehaviour
         StartCoroutine(AllGameLoop());
     }
 
-    IEnumerator AllGameLoop()
+    /*IEnumerator AllGameLoop()
     {
         while (Conv_Count<makeConversations.Length)
         {
             t_controller.SetObject(makeConversations[Conv_Count]);
             yield return new WaitUntil(()=>Talkend);
             Talkend = false;
-            if(Conv_Count == 1)
+            if(Conv_Count == 2)
             {
                 Debug.Log("シューティングゲーム開始");
                 t_controller.TalkUI.SetActive(false);
                 yield return StartCoroutine(Testshooting.S_Start());
-                t_controller.TalkUI.SetActive(true);
+                if (endCount == 1)
+                {   
+                    t_controller.TalkUI.SetActive(true);
+                }
+               
             }          
             Conv_Count++;
         }
         yield break;
+    }*/
+    IEnumerator AllGameLoop()
+    {
+        while (Conv_Count < makeConversations.Length)
+        {
+            // 会話開始
+            t_controller.SetObject(makeConversations[Conv_Count]);
+
+            // 会話終了待ち
+            yield return new WaitUntil(() => Talkend);
+
+            Talkend = false;
+
+            // 2回に1回実行
+            if ((Conv_Count + 1) % 2 == 0)
+            {
+                Debug.Log("シューティングゲーム開始");
+
+                t_controller.TalkUI.SetActive(false);
+
+                yield return StartCoroutine(Testshooting.S_Start());
+
+                // シューティング終了待ち
+                yield return new WaitUntil(() => endCount > 0);
+
+                // UI再表示
+                t_controller.TalkUI.SetActive(true);
+
+                
+            }
+
+            // 次へ
+            Conv_Count++;
+        }
     }
 }
