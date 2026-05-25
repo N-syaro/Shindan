@@ -9,6 +9,7 @@ using static UnityEditor.Progress;
 
 public class GameManager : MonoBehaviour
 {
+    
     //ゲームマネージャー||メインシーンの全制御
     //会話部分だけ製作します
     //残りのつなぎをお願いします。
@@ -20,12 +21,16 @@ public class GameManager : MonoBehaviour
     [Header("データ参照")]
     [SerializeField]
     MakeConversation[] makeConversations;//会話データ配列(体験版使用)本番はリスト化したい
-
+    [Header("オブジェクト参照")]
+    [SerializeField]
+    GameObject Player_obj;
+    [SerializeField]
+    GameObject Triangle_obj;
 
     //private int Conv_Count  = 0;//会話量
     public int Conv_Count = 0;
-    public int endCount = 0;
-     public bool Talkend;//会話終了判定
+    public bool endCount;
+     public bool Talkend= false;//会話終了判定
     private string sceneName;
     public string NextScene;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -78,13 +83,13 @@ public class GameManager : MonoBehaviour
 
                     t_controller.TalkUI.SetActive(false);
 
-                    yield return new WaitForSeconds(3);
-                    /*
+                    //yield return new WaitForSeconds(3);
+                    
                     yield return StartCoroutine(Testshooting.S_Start());
 
                     // シューティング終了待ち
-                    yield return new WaitUntil(() => endCount > 0);
-                    */
+                    yield return new WaitUntil(() => endCount);
+                    endCount = false;
                     // UI再表示
                     t_controller.TalkUI.SetActive(true);
                 }
@@ -144,4 +149,15 @@ public class GameManager : MonoBehaviour
             Conv_Count++;
         }
     }
+    public void EndShooting(bool i)
+    {
+        Debug.Log("EndShooting");
+        if (i == true)
+        {
+            endCount = true;
+        }
+        Player_obj.SetActive(false);
+        Triangle_obj.SetActive(false);
+    }
+    
 }

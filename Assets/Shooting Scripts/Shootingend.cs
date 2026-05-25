@@ -23,7 +23,7 @@ public class Shootingend : MonoBehaviour
     }
     public void Startfade()
     {
-        
+        Debug.Log("Startfade‚ª“Ç‚İ‚Ü‚ê‚Ü‚µ‚½");
         if (isFading) return;
 
         isFading = true;
@@ -32,11 +32,13 @@ public class Shootingend : MonoBehaviour
     }
     IEnumerator DelayedFadeSequence()
     {
+        Debug.Log("DelayedFadeSequence‚ª“Ç‚İ‚Ü‚ê‚Ü‚µ‚½");
         yield return new WaitForSeconds(6f);  // 6•b‘Ò‹@
         yield return StartCoroutine(FadeSequence());
     }
     IEnumerator FadeSequence()
     {
+        Debug.Log("FadeSequence‚ª“Ç‚İ‚Ü‚ê‚Ü‚µ‚½");
         yield return StartCoroutine(FadeToBlack());
         if (targetUI != null)
         {

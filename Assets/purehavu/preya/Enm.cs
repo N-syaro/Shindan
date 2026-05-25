@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.iOS;
+using UnityEngine.SceneManagement;
 
 public class Enm : MonoBehaviour
 {
@@ -9,12 +10,12 @@ public class Enm : MonoBehaviour
     public float timelemt = 50f;//時間制限
     float taima = 0f;//タイマー
     float taima2 = 0f;//タイマーダメージ
-   
+    private string SceneName;
     public float demegte = 1f;//ダメージで減らす時間
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {//初期化
-         
+        SceneName = SceneManager.GetActiveScene().name;
         taima = 0f;
     }
 
@@ -26,9 +27,13 @@ public class Enm : MonoBehaviour
             taima += taima2+ Time.deltaTime;
             
             if (taima > timelemt)
-            {
-
+            {               
                 Debug.Log("タイムオーバー");
+                if (SceneName == "JP Main")
+                {
+                    SceneManager.LoadScene("Bad END");
+                }
+                
             }
     
 

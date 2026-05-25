@@ -9,9 +9,9 @@ public class ballt : MonoBehaviour
         
         if (collision.gameObject.tag == "neo")
         {
-
+            
             Destroy(collision.gameObject);
-            image.enabled = true;
+            //image.enabled = true;
         }
 
         Destroy(gameObject);

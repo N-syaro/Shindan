@@ -10,18 +10,32 @@ public class enemy_sprn : MonoBehaviour
     int pint=0;//移動ポイントの数
     [SerializeField] bool next=false;//クリア用オブジェクトはtrue
     [SerializeField] GameManager gameManager;
+    GameObject G_mana;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
+    private void Start()
+    {
+        G_mana = GameObject.Find("GameManager");
+    }
     // Update is called once per frame
     private void OnCollisionEnter2D(Collision2D collision)//当たり判定
     {
         if (next!)
         {
             if (collision.gameObject.tag == "ballt")//balltタグに当たったらクリアフラグを立てる
-            {
+            {              
                 culafl = true;
                 Debug.Log(culafl);
-                gameManager.Conv_Count++;
+                if (G_mana != null)
+                {
+                    G_mana.GetComponent<GameManager>().EndShooting(true);
+                    
+                }
+                else
+                {
+                    Debug.Log("GameManagerがありません");
+                }
+                //gameManager.Conv_Count++;
             }
 
         }

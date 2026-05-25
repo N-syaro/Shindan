@@ -50,7 +50,7 @@ public class gemu_obuge : MonoBehaviour
     void sponw()//¶¬ˆ—
     {
 
-        Instantiate(enemiobuject[next], transform);
+        Instantiate(enemiobuject[next]);
         Debug.Log("spon");
     }
 }
