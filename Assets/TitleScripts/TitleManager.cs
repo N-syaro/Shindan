@@ -15,18 +15,34 @@ public class TitleManager : MonoBehaviour
     //‘I‘ð‚µ‚½Œ¾Œê
     private string gameLanguage = "JP";
 
+    public FadeOutIn fade;
+
+    private void Awake()
+    {
+        titleCanvas.SetActive(true);
+        languageCanvas.SetActive(false);
+        jpText.SetActive(true);
+        enText.SetActive(false);
+    }
+
 
     public void StartButton(string sceneName)
     {
         sceneName = gameLanguage;
 
         SceneManager.LoadScene(sceneName);
+
     }
     public void LanguageButton()
     {
         //Œ¾Œê‘I‘ð‰æ–Ê‚ð•\Ž¦
         languageCanvas.SetActive(true);
+
+        fade.fadeOutIn(0.01f, 1.0f, 1.0f);
+
         titleCanvas.SetActive(false);
+
+        
     }
 
 

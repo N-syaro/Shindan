@@ -12,4 +12,5 @@ public class Setting_Text_Data : ScriptableObject
     public Switch s;
     public int CHImageNum_ = 0;
     [SerializeField, Header("ƒV[ƒ“‚Ì–¼‘O")] public string SceneName = null;
+    [SerializeField,Header("’e–‹“Ë“ü")]public bool IsTalkEnd;
 }

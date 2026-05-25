@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
-public class AudioVolumeManager : MonoBehaviour
+public class MenuManager : MonoBehaviour
 {
     //メニューキャンバス
     [SerializeField] GameObject menuCanvas;
@@ -29,8 +29,24 @@ public class AudioVolumeManager : MonoBehaviour
     //Voice用テキスト
     //[SerializeField] Text voiceText;
 
+    public static MenuManager menuInstance = null;
 
-   
+
+    void Awake()
+    {
+        //ゲーム上に一つ以下しかないようにする
+        if (menuInstance == null)
+        {
+            menuInstance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+    }
+
 
     void Start()
     {
@@ -142,6 +158,7 @@ public class AudioVolumeManager : MonoBehaviour
 
     public void TitleButton(string Title)
     {
+        Time.timeScale = 1f;
         menuCanvas.SetActive(false);
         isMenuOpen = false;
         //タイトル画面に戻る
