@@ -23,7 +23,7 @@ public class Shootingend : MonoBehaviour
     }
     public void Startfade()
     {
-        Debug.Log("Startfadeが読み込まれました");
+        
         if (isFading) return;
 
         isFading = true;
@@ -32,22 +32,14 @@ public class Shootingend : MonoBehaviour
     }
     IEnumerator DelayedFadeSequence()
     {
-<<<<<<< HEAD
 
         //// ここで6秒待機してからフェードシーケンスを開始
-=======
-        Debug.Log("DelayedFadeSequenceが読み込まれました");
->>>>>>> Make_Loop
         yield return new WaitForSeconds(6f);  // 6秒待機
         yield return StartCoroutine(FadeSequence());
     }
     IEnumerator FadeSequence()
     {
-<<<<<<< HEAD
         //// フェードアウトしてUIを上に移動させるシーケンス
-=======
-        Debug.Log("FadeSequenceが読み込まれました");
->>>>>>> Make_Loop
         yield return StartCoroutine(FadeToBlack());
         if (targetUI != null)
         {

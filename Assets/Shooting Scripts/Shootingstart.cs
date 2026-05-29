@@ -33,7 +33,8 @@ public class Shootingstart : MonoBehaviour
 
         IEnumerator Fall()
         {
-            Debug.Log("FallÇ™ì«Ç›çûÇ‹ÇÍÇ‹ÇµÇΩ");
+
+
             Vector2 startPos = new Vector2(rectTransform.anchoredPosition.x, startY);
             Vector2 endPos = new Vector2(rectTransform.anchoredPosition.x, endY);
 
