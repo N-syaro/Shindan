@@ -73,4 +73,9 @@ public class TitleManager : MonoBehaviour
         languageCanvas.SetActive(false);
         titleCanvas.SetActive(true);
     }
+
+    public void BonusButton(string Bonus)
+    {
+        SceneManager.LoadScene(Bonus);
+    }
 }
