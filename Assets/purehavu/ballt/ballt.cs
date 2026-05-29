@@ -11,10 +11,14 @@ public class ballt : MonoBehaviour
         
         if (collision.gameObject.tag == "neo")//シューティングゲームの終了
         {
-
+            
             Destroy(collision.gameObject);
+<<<<<<< HEAD
            
 
+=======
+            //image.enabled = true;
+>>>>>>> Make_Loop
         }
 
         Destroy(gameObject);
