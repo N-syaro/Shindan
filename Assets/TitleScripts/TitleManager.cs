@@ -15,7 +15,9 @@ public class TitleManager : MonoBehaviour
     //選択した言語
     private string gameLanguage = "JP";
 
-    public FadeOutIn fade;
+    public FadeOutIn fadeout;
+
+    public AudioSourceManager sourceManager;
 
     private void Awake()
     {
@@ -23,14 +25,46 @@ public class TitleManager : MonoBehaviour
         languageCanvas.SetActive(false);
         jpText.SetActive(true);
         enText.SetActive(false);
+
+        //fade = GetComponent<FadeOutIn>();
     }
 
+
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    // 新しいシーンが読み込まれたときに自動で実行される
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // 新しいシーン内から「FadeOutIn」コンポーネントが付いているオブジェクトを探す
+        fadeout = FindFirstObjectByType<FadeOutIn>();
+
+        sourceManager = FindFirstObjectByType<AudioSourceManager>();
+
+       
+    }
 
     public void StartButton(string sceneName)
     {
         sceneName = gameLanguage;
 
+        sourceManager.seChange(1);
+
+        sourceManager.seChange(3);
+
+        fadeout.fadeOutIn(0f, 0.2f, 0.2f);
+
+
         SceneManager.LoadScene(sceneName);
+
+        
 
     }
     public void LanguageButton()

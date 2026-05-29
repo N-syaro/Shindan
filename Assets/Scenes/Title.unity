@@ -2207,11 +2207,26 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9123589968819070882, guid: b95011829148ccb4689ed5ec920e1c4b, type: 3}
+      propertyPath: fadeout
+      value: 
+      objectReference: {fileID: 452829615}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b95011829148ccb4689ed5ec920e1c4b, type: 3}
+--- !u!114 &1303182192 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4107780557013338460, guid: b95011829148ccb4689ed5ec920e1c4b, type: 3}
+  m_PrefabInstance: {fileID: 1244565770}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c4b3f0d310bd1746accf93fb8e783b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1330169465
 GameObject:
   m_ObjectHideFlags: 0
@@ -3215,7 +3230,8 @@ MonoBehaviour:
   languageCanvas: {fileID: 726447778}
   jpText: {fileID: 1129554923}
   enText: {fileID: 1497076774}
-  fade: {fileID: 452829615}
+  fadeout: {fileID: 0}
+  sourceManager: {fileID: 1303182192}
 --- !u!4 &1753373711
 Transform:
   m_ObjectHideFlags: 0
