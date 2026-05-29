@@ -642,6 +642,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Testshooting
   fall: {fileID: 677711257}
   com: {fileID: 677711259}
+  player: {fileID: 0}
+  Triangle: {fileID: 0}
 --- !u!114 &492223872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -658,7 +660,13 @@ MonoBehaviour:
   Testshooting: {fileID: 492223871}
   makeConversations:
   - {fileID: 11400000, guid: f7613862c2dff614b92c3dde6d38c8fb, type: 2}
+  - {fileID: 11400000, guid: 34bf1c2ad340e2f409312c2262889007, type: 2}
+  Player_obj: {fileID: 0}
+  Triangle_obj: {fileID: 0}
+  Conv_Count: 0
+  endCount: 0
   Talkend: 0
+  NextScene: 
 --- !u!1 &651735732
 GameObject:
   m_ObjectHideFlags: 0

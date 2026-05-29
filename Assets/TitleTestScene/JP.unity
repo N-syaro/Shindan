@@ -447,6 +447,7 @@ GameObject:
   - component: {fileID: 492223870}
   - component: {fileID: 492223871}
   - component: {fileID: 492223872}
+  - component: {fileID: 492223873}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -668,6 +669,20 @@ MonoBehaviour:
   endCount: 0
   Talkend: 0
   NextScene: 
+--- !u!114 &492223873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492223865}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a50c1e73eb758784296b2e5ce1935a0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StillPopUp
+  T_deray: {fileID: 0}
+  StillImage: {fileID: 0}
 --- !u!1 &651735732
 GameObject:
   m_ObjectHideFlags: 0

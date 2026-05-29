@@ -1,6 +1,8 @@
 
+using System;
 using System.Collections;
 using Unity.Collections;
+using Unity.Collections.LowLevel.Unsafe;
 using Unity.VectorGraphics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -33,11 +35,21 @@ public class GameManager : MonoBehaviour
      public bool Talkend= false;//会話終了判定
     private string sceneName;
     public string NextScene;
+    private GameObject ContinuePanel;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
        sceneName = SceneManager.GetActiveScene().name;
         StartCoroutine(AllGameLoop());
+        if(sceneName == "Bad END")
+        {
+            ContinuePanel = GameObject.Find("Conti_Panel");
+            if(ContinuePanel != null)
+            {
+                ContinuePanel.SetActive(false);
+            }
+            
+        }
     }
 
     /*IEnumerator AllGameLoop()
@@ -64,6 +76,8 @@ public class GameManager : MonoBehaviour
     }*/
     IEnumerator AllGameLoop()
     {
+        
+
         while (Conv_Count < makeConversations.Length)
         {
             // 会話開始
@@ -71,80 +85,85 @@ public class GameManager : MonoBehaviour
 
             // 会話終了待ち
             yield return new WaitUntil(() => Talkend);
-
             Talkend = false;
-           if(sceneName == "JP")
-            {//導入シーン
-                NextScene = "JP Main";
-                Debug.Log("導入シーン用処理");
-                if (Conv_Count == 1)
-                {
-                    Debug.Log("シューティングゲーム開始");
-
-                    t_controller.TalkUI.SetActive(false);
-
-                    //yield return new WaitForSeconds(3);
-                    
-                    yield return StartCoroutine(Testshooting.S_Start());
-
-                    // シューティング終了待ち
-                    yield return new WaitUntil(() => endCount);
-                    endCount = false;
-                    // UI再表示
-                    t_controller.TalkUI.SetActive(true);
-                }
-                if(Conv_Count == 2)
-                {
-                    SceneManager.LoadScene(NextScene);
-                }
-            }
-            if(sceneName == "JP Main")
-            {//本編シーン
-                NextScene = "END Credits";
-                Debug.Log("本編シーン用処理");             
-                    Debug.Log("シューティングゲーム開始");
-
-                    t_controller.TalkUI.SetActive(false);
-
-                    yield return new WaitForSeconds(5f);
-                    /*
-                    yield return StartCoroutine(Testshooting.S_Start());
-
-                    // シューティング終了待ち
-                    yield return new WaitUntil(() => endCount > 0);
-                    */
-                    if(Conv_Count == 3)
-                     {
-                         Debug.Log("シーン遷移");
-                         SceneManager.LoadScene(NextScene);
-                     }
-                    // UI再表示
-                    t_controller.TalkUI.SetActive(true);           
-                
-            }
-            if(sceneName == "END Credits")
+            switch (sceneName)
             {
-                NextScene = "EndingScene";
-                SceneManager.LoadScene(NextScene);
-            }
-            /*// 2回に1回実行 テスト用CO
-            if ((Conv_Count + 1) % 2 == 0)
-            {
-                Debug.Log("シューティングゲーム開始");
+                case "JP":
+                    {
+                        NextScene = "JP Main";
+                        Debug.Log("導入シーン用処理");
+                        if (Conv_Count == 1)
+                        {
+                            Debug.Log("シューティングゲーム開始");
 
-                t_controller.TalkUI.SetActive(false);
+                            t_controller.TalkUI.SetActive(false);
 
-                yield return StartCoroutine(Testshooting.S_Start());
+                            yield return StartCoroutine(Testshooting.S_Start());
+                            
+                            yield return new WaitUntil(() => endCount);// シューティング終了待ち
+                            endCount = false;
+                            
+                            t_controller.TalkUI.SetActive(true);// UI再表示
+                        }
+                        if (Conv_Count == 2)
+                        {
+                            SceneManager.LoadScene(NextScene);
+                        }
+                        break;
+                    }
+                case "JP Main":
+                    {
+                        NextScene = "END Credits";
+                        Debug.Log("本編シーン用処理");
+                        Debug.Log("シューティングゲーム開始");
 
-                // シューティング終了待ち
-                yield return new WaitUntil(() => endCount > 0);
+                        t_controller.TalkUI.SetActive(false);
 
-                // UI再表示
-                t_controller.TalkUI.SetActive(true);
+                        yield return new WaitForSeconds(5f);
+                        /*
+                        yield return StartCoroutine(Testshooting.S_Start());
 
-                
-            }*/
+                        // シューティング終了待ち
+                        yield return new WaitUntil(() => endCount > 0);
+                        */
+                        if (Conv_Count == 3)
+                        {
+                            Debug.Log("シーン遷移");
+                            SceneManager.LoadScene(NextScene);
+                        }
+                       
+                        t_controller.TalkUI.SetActive(true); // UI再表示
 
+                        break;
+                    }
+                case "END Credits"://エンドクレジット用処理
+                    {   
+                        NextScene = "EndingScene";
+                        if (Conv_Count == 1)
+                        {
+                            SceneManager.LoadScene(NextScene);
+                           
+                        }    
+                        break;            
+                    }
+                case "Bad END"://バッドエンド用処理
+                    {
+                        Debug.Log("バッドエンド用処理");
+                        if(Conv_Count == 1)
+                        { 
+                            if(ContinuePanel != null)
+                            {
+                                ContinuePanel.SetActive(true);
+                            }
+                            else
+                            {
+                                Debug.Log("Conti_Panelがnullです。");
+                            }
+                            
+                        }
+                        break;
+                    }
+            }                       
             // 次へ
             Conv_Count++;
         }
