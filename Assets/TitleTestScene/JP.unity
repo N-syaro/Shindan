@@ -1527,6 +1527,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: priya
       objectReference: {fileID: 0}
+    - target: {fileID: 7571369716794134933, guid: bfad2b9726a56814fb089e6f45456008, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -7,11 +7,12 @@ public class Enm : MonoBehaviour
 
   [SerializeField] bool timeon = false;//タイマースタート
    [SerializeField] float timelemt = 50f;//時間制限
-    [SerializeField] float damegerup=3f;
+    [SerializeField] float damegerup=3f;//ダメージを受けた後の無敵時間
+    [SerializeField] float cycle=1;
     private BoxCollider2D cpplid;
     float taima = 0f;//タイマー
     float taima2 = 0f;//タイマーダメージ
-    bool hit=false;
+    bool hit=false;//ダメージ判定
     float damgct;
 
 
@@ -42,7 +43,7 @@ public class Enm : MonoBehaviour
 
           
         }
-        if (hit == true) 
+        if (hit == true) //ダメージを受けた時の処理
         {
             damgct += Time.deltaTime;
             if (damegerup < damgct) 
@@ -51,6 +52,7 @@ public class Enm : MonoBehaviour
                 damgct = 0f;
                 Debug.Log(hit);
             }
+            
 
         }
 
@@ -63,7 +65,7 @@ public class Enm : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         
-       if (collision.gameObject.tag == "Enemy"&&hit ==false)
+       if (collision.gameObject.tag == "Enemy"&&hit ==false)//hit==falseならダメージなし
        {
             hit = true;
             Debug.Log(hit);
