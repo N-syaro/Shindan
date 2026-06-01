@@ -3,11 +3,13 @@ using UnityEngine;
 public class gemu_obuge : MonoBehaviour
 {
     //敵の生成処理のスクリプト
+   
     public bool stat=true;
     public GameObject[] enemiobuject;//生成するゲームオブジェクト
     public float[] spulnt;//生成するタイミング
     float taimudl;//経過時間
     int next = 0;//生成する数
+    bool onstop;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,14 +24,21 @@ public class gemu_obuge : MonoBehaviour
     {
         if (enemiobuject==null)return;
 
+
+
        
+
+
         if (stat == true)
         {
             
             taimudl += Time.deltaTime;
-          
             //タイマー
 
+           
+
+         
+         
             if (next < taimudl&& next<spulnt.Length)//順次生成処理
             {
 
