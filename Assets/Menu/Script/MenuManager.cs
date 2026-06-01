@@ -31,6 +31,7 @@ public class MenuManager : MonoBehaviour
 
     public static MenuManager menuInstance = null;
 
+    public FadeOutIn fadeout;
 
     void Awake()
     {
@@ -44,9 +45,30 @@ public class MenuManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
+        
     }
 
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    // 新しいシーンが読み込まれたときに自動で実行される
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // 新しいシーン内から「FadeOutIn」コンポーネントが付いているオブジェクトを探す
+        fadeout = FindFirstObjectByType<FadeOutIn>();
+
+        if (fadeout == null)
+        {
+            Debug.LogWarning($"新しいシーン「{scene.name}」に FadeOutIn が見つかりません！");
+        }
+    }
 
     void Start()
     {
@@ -161,6 +183,16 @@ public class MenuManager : MonoBehaviour
         Time.timeScale = 1f;
         menuCanvas.SetActive(false);
         isMenuOpen = false;
+
+        if (fadeout != null)
+        {
+            fadeout.fadeOutIn(0f, 0.2f, 0.2f);
+        }
+        else
+        {
+            Debug.LogError("フェードオブジェクトが割り当てられていないため、フェードできません。");
+        }
+
         //タイトル画面に戻る
         SceneManager.LoadScene(Title);
         

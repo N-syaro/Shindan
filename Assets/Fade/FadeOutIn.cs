@@ -10,14 +10,28 @@ public class FadeOutIn : MonoBehaviour
     [SerializeField]
     private CanvasGroup canvasGroup;
 
-    
+    public static FadeOutIn fadeInstance = null;
+
+
+
 
     private void Awake()
     {
         canvasGroup.alpha = 0f;
 
         fadeImage.gameObject.SetActive(false);
-        
+
+        //ÉQÅ[ÉÄè„Ç…àÍÇ¬à»â∫ÇµÇ©Ç»Ç¢ÇÊÇ§Ç…Ç∑ÇÈ
+        if (fadeInstance == null)
+        {
+            fadeInstance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     public void fadeOutIn(float outTime, float wait, float inTime)
