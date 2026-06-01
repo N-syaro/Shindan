@@ -81,7 +81,7 @@ public class BackLogDisplay : MonoBehaviour
 
             foreach (var entry in backlogLogTextList)
             {
-                InstanceViewportContents(entry.Name, entry.Text, content);
+                InstanceViewportContents(entry.Name, entry.Text,entry.p_image, content);
             }
         }
 
@@ -95,13 +95,15 @@ public class BackLogDisplay : MonoBehaviour
 
         StartCoroutine(ScrollToBottom(scrollRect));
     }
-    private void InstanceViewportContents(string nameText, string sentenceText, Transform content)
+    private void InstanceViewportContents(string nameText, string sentenceText,Sprite userImage,Transform content)
     {
         GameObject newViewportContents = Instantiate(viewportContentsPrefab, content);
         Text nameText_ = newViewportContents.transform.GetChild(0).GetComponent<Text>();
         Text sentenceText_ = newViewportContents.transform.GetChild(1).GetComponent<Text>();
+        Image UserImage_ = newViewportContents.transform.GetChild(2).GetComponent<Image>();
         nameText_.text = nameText;
         sentenceText_.text = sentenceText;
+        UserImage_.sprite = userImage;
     }
 
     private IEnumerator ScrollToBottom(ScrollRect scrollRect)
