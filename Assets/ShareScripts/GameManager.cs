@@ -7,6 +7,7 @@ using Unity.VectorGraphics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using static UnityEditor.Progress;
 
 public class GameManager : MonoBehaviour
@@ -23,57 +24,50 @@ public class GameManager : MonoBehaviour
     [Header("データ参照")]
     [SerializeField]
     MakeConversation[] makeConversations;//会話データ配列(体験版使用)本番はリスト化したい
+    [SerializeField]
+    Sprite[] Exp_Sprites;//説明用イメージ配列
     [Header("オブジェクト参照")]
     [SerializeField]
     GameObject Player_obj;
     [SerializeField]
     GameObject Triangle_obj;
+    [SerializeField]
+    GameObject Exp_Panel;//説明用パネル
+    [SerializeField]
+    Image Exp_Image;//説明用イメージ
 
     //private int Conv_Count  = 0;//会話量
     public int Conv_Count = 0;
-    public bool endCount;
-     public bool Talkend= false;//会話終了判定
+    public bool endCount = false;
+    public bool Talkend= false;//会話終了判定
+    public bool Exp_end = false;//説明1終了判定
+    public bool Exp2_end = false;//説明2終了判定
     private string sceneName;
     public string NextScene;
     private GameObject ContinuePanel;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-       sceneName = SceneManager.GetActiveScene().name;
+        
+        sceneName = SceneManager.GetActiveScene().name;
         StartCoroutine(AllGameLoop());
-        if(sceneName == "Bad END")
-        {
-            ContinuePanel = GameObject.Find("Conti_Panel");
-            if(ContinuePanel != null)
+        switch (sceneName)
+        { case "JP":
             {
-                ContinuePanel.SetActive(false);
+                Exp_Panel.SetActive(false);
+                break;
             }
-            
+            case "Bad END":
+            {
+                ContinuePanel = GameObject.Find("Conti_Panel");
+                if(ContinuePanel != null)
+                {
+                         ContinuePanel.SetActive(false);
+                }
+                break;  
+            }
         }
     }
-
-    /*IEnumerator AllGameLoop()
-    {
-        while (Conv_Count<makeConversations.Length)
-        {
-            t_controller.SetObject(makeConversations[Conv_Count]);
-            yield return new WaitUntil(()=>Talkend);
-            Talkend = false;
-            if(Conv_Count == 1)
-            {
-                Debug.Log("シューティングゲーム開始");
-                t_controller.TalkUI.SetActive(false);
-                yield return StartCoroutine(Testshooting.S_Start());
-                if (endCount == 1)
-                {   
-                    t_controller.TalkUI.SetActive(true);
-                }
-               
-            }          
-            Conv_Count++;
-        }
-        yield break;
-    }*/
     IEnumerator AllGameLoop()
     {
         
@@ -94,6 +88,12 @@ public class GameManager : MonoBehaviour
                         Debug.Log("導入シーン用処理");
                         if (Conv_Count == 1)
                         {
+                            Debug.Log("操作説明１のUI表示");
+                            Exp_Panel.SetActive(true);
+                            Exp_Image.sprite = Exp_Sprites[0];
+                            yield return new WaitUntil(() => Exp_end);
+                            Exp_Panel.SetActive(false);
+                            Exp_end = false;    
                             Debug.Log("シューティングゲーム開始");
 
                             t_controller.TalkUI.SetActive(false);
@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
                             yield return StartCoroutine(Testshooting.S_Start());
                             
                             yield return new WaitUntil(() => endCount);// シューティング終了待ち
-                            endCount = false;
+                            endCount = false;   
                             
                             t_controller.TalkUI.SetActive(true);// UI再表示
                         }
@@ -178,5 +178,9 @@ public class GameManager : MonoBehaviour
         Player_obj.SetActive(false);
         Triangle_obj.SetActive(false);
     }
-    
+    public void EndExp()
+    {
+        Debug.Log("EndExp");
+            Exp_end = true;      
+    }
 }
