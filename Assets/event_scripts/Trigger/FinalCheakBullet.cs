@@ -1,13 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CheakBUllet : MonoBehaviour
+public class FinalCheakBullet : MonoBehaviour
 {
-    [SerializeField] private TalkController talkController;
-
-    [SerializeField] private MakeConversation okData;
-    [SerializeField] private MakeConversation noData;
-
     private const string LAYER_NAME_coreect = "coreect";
     private const string LAYER_NAME_incoreect = "incoreect";
 
@@ -18,12 +13,11 @@ public class CheakBUllet : MonoBehaviour
 
         if (collision.gameObject.layer == layerA)
         {
-            talkController.CTalk(okData);
+            SceneManager.LoadScene("END Credits");
         }
         if (collision.gameObject.layer == layerB)
         {
-            
-            talkController.CTalk(noData);
+            SceneManager.LoadScene("Bad END");
         }
 
 
