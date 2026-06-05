@@ -1,5 +1,7 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.iOS;
+using UnityEngine.SceneManagement;
 
 public class Enm : MonoBehaviour
 {
@@ -14,14 +16,19 @@ public class Enm : MonoBehaviour
     float taima2 = 0f;//タイマーダメージ
     bool hit=false;//ダメージ判定
     float damgct;
-
-
-   
+    string scenename;
+    [Header("点滅用")]
+    float flashIntarval = 0.02f;
+    int loopCount = 60;
+    SpriteRenderer sp;
+    bool isHit;
+    
     public float demegte = 1f;//ダメージで減らす時間
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {//初期化
-         
+        sp = GetComponent<SpriteRenderer>();
+         scenename = SceneManager.GetActiveScene().name;
         taima = 0f;
         damgct = 0f;
         cpplid =  GetComponent<BoxCollider2D>();
@@ -38,10 +45,11 @@ public class Enm : MonoBehaviour
             {
 
                 Debug.Log("タイムオーバー");
-            }
-    
-
-          
+                if(scenename == "JP Main")
+                {
+                    SceneManager.LoadScene("BadEND");
+                }
+            }         
         }
         if (hit == true) //ダメージを受けた時の処理
         {
@@ -52,25 +60,36 @@ public class Enm : MonoBehaviour
                 damgct = 0f;
                 Debug.Log(hit);
             }
-            
-
-        }
-
-     
+        }     
     }
-
-  
-   
-   
+    
     void OnTriggerEnter2D(Collider2D collision)
     {
+        if(isHit)
+        {
+            return;
+        }
         
        if (collision.gameObject.tag == "Enemy"&&hit ==false)//hit==falseならダメージなし
        {
             hit = true;
-            Debug.Log(hit);
-            
+            Debug.Log("Hit");
+
+            StartCoroutine(EnemyHit());
         }
     }
-    
+    //点滅用コルーチン
+    IEnumerator EnemyHit()
+    {
+        isHit = true;
+        for(int i = 0; i < loopCount;i++)
+        {
+            yield return new WaitForSeconds(flashIntarval);
+            sp.enabled = false;
+
+            yield return new WaitForSeconds(flashIntarval);
+            sp.enabled = true;  
+        }
+        isHit = false;
+    }
 }
