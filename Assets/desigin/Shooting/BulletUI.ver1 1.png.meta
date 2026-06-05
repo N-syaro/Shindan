@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 00d0a1d3ed4be294597815f323c2f7d4
+guid: 945182468fbcf7c499bf5359ceb01ccd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3932861975184943606
-    second: BulletUI.ver1_0
+      213: -4233235168160182226
+    second: BulletUI.ver1 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -137,12 +137,34 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: BulletUI.ver1 1_0
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 7
+        width: 82
+        height: 490
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e201f1f0b078045c0800000000000000
+      internalID: -4233235168160182226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 096301c3461ac6249a10e333f69cc438
+    spriteID: ba678a0d861070d4390021a14e7556a7
     internalID: 0
     vertices: []
     indices: 
@@ -152,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BulletUI.ver1_0: 3932861975184943606
+      BulletUI.ver1 1_0: -4233235168160182226
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
