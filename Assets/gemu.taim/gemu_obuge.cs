@@ -14,7 +14,7 @@ public class gemu_obuge : MonoBehaviour
     float taimudl;//Œo‰ßŠÔ
     int next = 0;//¶¬‚·‚é”
     bool onstop;
-<<<<<<< HEAD
+
     GameObject gamemanager;
     GameManager dawe;
 
@@ -25,25 +25,20 @@ public class gemu_obuge : MonoBehaviour
     void Start()
     {
 
-        /*gamemanager = GameObject.Find("GameManagar");
-        dawe = gamemanager.GetComponent<GameManager>();
-        */
-=======
+       /* gamemanager = GameObject.Find("GameManagar");
+        dawe = gamemanager.GetComponent<GameManager>();*/
 
-    /*
-     * ¶¬‚µ‚«‚Á‚½‚çgamemanger‚ÌExp_end‚ğtrue‚É‚·‚éˆ—‚ğ“ü‚ê‚½‚¢
-     * 
-     *
-     */
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        SceneName = SceneManager.GetActiveScene().name;
->>>>>>> origin/è«¸ã€…ä½œæˆ
+
+
+        /*
+         * ¶¬‚µ‚«‚Á‚½‚çgamemanger‚ÌExp_end‚ğtrue‚É‚·‚éˆ—‚ğ“ü‚ê‚½‚¢
+         * 
+         *
+         */
+        // Start is called once before the first execution of Update after the MonoBehaviour is created
+
 
     }
-
-    
 
     // Update is called once per frame
     void Update()
@@ -59,16 +54,15 @@ public class gemu_obuge : MonoBehaviour
                 sponw();
                 next++;
             }
-<<<<<<< HEAD
-           /* else if (next >= spulnt.Length) 
+
+            else if (next >= spulnt.Length) 
             {
                 dawe.endCount=true;
                 Debug.Log(dawe.endCount);
             }
-           */
            
-=======
->>>>>>> origin/è«¸ã€…ä½œæˆ
+           
+
         }
     }
     void sponw()//¶¬ˆ—
