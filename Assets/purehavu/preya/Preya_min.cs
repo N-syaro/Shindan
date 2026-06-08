@@ -33,7 +33,10 @@ public class Preya_min : MonoBehaviour
 
     private void Start()
     {
+       
         sp = GetComponent<SpriteRenderer>();
+        Debug.Log("SpriteRenderer: " + sp);
+        Debug.Log("このオブジェクト名: " + gameObject.name);
         this.Rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
@@ -107,6 +110,7 @@ public class Preya_min : MonoBehaviour
         //Destroy(newbalet, dstm);
 
     }
+    /*
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (isHit)
@@ -124,6 +128,7 @@ public class Preya_min : MonoBehaviour
     }
     IEnumerator EnemyHit()
     {
+        Debug.Log("EnemyHit");
         isHit = true;
         for (int i = 0; i < loopCount; i++)
         {
@@ -134,5 +139,5 @@ public class Preya_min : MonoBehaviour
             sp.enabled = true;
         }
         isHit = false;
-    }
+    }*/
 }
