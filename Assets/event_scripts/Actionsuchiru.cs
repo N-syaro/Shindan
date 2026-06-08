@@ -5,7 +5,7 @@ using System.Collections;
 public class Actionsuchiru : MonoBehaviour
 {
     public TalkDelay talkDelay;
-    public Image image;
+    public Image[] image;
 
     private CanvasGroup canvasGroup;
     private bool hasShown = false;

@@ -22,7 +22,7 @@ public class CheakBUllet : MonoBehaviour
         }
         if (collision.gameObject.layer == layerB)
         {
-            
+            //タイマー減少処理
             talkController.CTalk(noData);
         }
 
