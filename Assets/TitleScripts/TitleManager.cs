@@ -55,7 +55,7 @@ public class TitleManager : MonoBehaviour
     {
         sceneName = gameLanguage;
 
-        sourceManager.seChange(1);
+        
 
         sourceManager.seChange(3);
 

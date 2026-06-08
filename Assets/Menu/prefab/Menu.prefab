@@ -591,6 +591,7 @@ MonoBehaviour:
   seSlider: {fileID: 422524719019708088}
   bgmText: {fileID: 4875782948626460588}
   seText: {fileID: 4965475943025663465}
+  fadeout: {fileID: 0}
 --- !u!1 &1443979281228536132
 GameObject:
   m_ObjectHideFlags: 0
@@ -1280,8 +1281,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a0fc6ffa346972447a2e9da7c9d1491c, type: 3}
   seClips:
   - {fileID: 8300000, guid: 95b9db6db532ee24e91e64cc0da129d0, type: 3}
-  - {fileID: 8300000, guid: 3a41ace40bdf50a48a444360e1b589b9, type: 3}
+  - {fileID: 8300000, guid: d44d6f980986a8c4091fadbfcfe50a4b, type: 3}
   - {fileID: 8300000, guid: 56585b23208cda944856b0dd518eb447, type: 3}
+  - {fileID: 8300000, guid: 72896810ce2cb314286e678a60588483, type: 3}
+  - {fileID: 8300000, guid: 8d9e0b21e617b37429c3a630fec4fa07, type: 3}
+  - {fileID: 8300000, guid: 07d8e5ebb25dfe94b9444f40591648f0, type: 3}
   bgmSourceOne: {fileID: 6455291265057672048}
   bgmSourceTwo: {fileID: 5598410107855088281}
   seSource: {fileID: 1951867213268019052}

@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShootingUI : MonoBehaviour
+public class AmmoUI : MonoBehaviour
 {
     [SerializeField]
     GameObject[] ammos;

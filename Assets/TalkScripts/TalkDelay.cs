@@ -1,9 +1,11 @@
-using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
+using System.Resources;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
+using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class TalkDelay : MonoBehaviour
 {
@@ -12,9 +14,40 @@ public class TalkDelay : MonoBehaviour
 
     public string currentText;
 
+    //----石上変更点----
+
+    public AudioSourceManager sourceManager;
+
+    IEnumerator Start()
+    {
+        // 1フレーム待つ(消えてしまうオブジェクトを参照しないため)
+        yield return null;
+
+        
+        sourceManager = FindFirstObjectByType<AudioSourceManager>();
+
+        if (sourceManager == null)
+        {
+            Debug.LogWarning("AudioSourceManager が見つかりませんでした。");
+        }
+        else
+        {
+            Debug.Log("AudioSourceManager が見つかりました");
+        }
+    }
+
+
+    //------------------
+
+
     public void SKip()//スキップフラグ
     {
         isSkip = true;
+
+        //------------------
+        sourceManager.seChange(3);
+        //------------------
+
     }
     public void TurnBacklogMode()
     {
