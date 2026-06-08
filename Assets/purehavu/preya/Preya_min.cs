@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -16,18 +17,28 @@ public class Preya_min : MonoBehaviour
     public float dlitm=1.5f; //coolタイム
     public float xlimit=8f;
     public float ylimit=7.5f;
+    bool hit = false;//ダメージ判定
     public GameObject[] bart;//弾丸のプレハブ
 
     private int balet ;//弾丸の種類
     private float wh;//マウスホイールの数値
     private bool faia=true;
     float taime = 0;//タイマー用の関数
+
+    [Header("点滅用")]
+    float flashIntarval = 0.02f;
+    int loopCount = 60;
+    SpriteRenderer sp;
+    bool isHit;
+
     private void Start()
     {
+       
+        sp = GetComponent<SpriteRenderer>();
+        Debug.Log("SpriteRenderer: " + sp);
+        Debug.Log("このオブジェクト名: " + gameObject.name);
         this.Rigidbody2D = GetComponent<Rigidbody2D>();
     }
-
-  
 
     // Update is called once per frame
     void Update()
@@ -54,14 +65,9 @@ public class Preya_min : MonoBehaviour
             }else if (balet < 0)
             {
                 balet = bart.Length-1;
-            }
-
-         
-
+            }       
        }
-  
-
-       
+        
         if (point)//キャラ操作用
         {//マウスの位置へ向けて移動する
             transform.position = Vector2.MoveTowards(transform.position, mouseworldPos, sped * Time.deltaTime);
@@ -94,9 +100,7 @@ public class Preya_min : MonoBehaviour
                     }
                 }
             }
-        }
-
-        
+        }    
     }
     void Shot() 
     {//弾丸の発射処理
@@ -106,6 +110,34 @@ public class Preya_min : MonoBehaviour
         //Destroy(newbalet, dstm);
 
     }
+    /*
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (isHit)
+        {
+            return;
+        }
 
+        if (collision.gameObject.tag == "Enemy" && hit == false)//hit==falseならダメージなし
+        {
+            hit = true;
+            Debug.Log("Hit");
 
+            StartCoroutine(EnemyHit());
+        }
+    }
+    IEnumerator EnemyHit()
+    {
+        Debug.Log("EnemyHit");
+        isHit = true;
+        for (int i = 0; i < loopCount; i++)
+        {
+            yield return new WaitForSeconds(flashIntarval);
+            sp.enabled = false;
+
+            yield return new WaitForSeconds(flashIntarval);
+            sp.enabled = true;
+        }
+        isHit = false;
+    }*/
 }
