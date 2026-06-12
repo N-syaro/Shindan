@@ -13,9 +13,7 @@ public class AmmoUI : MonoBehaviour
 
     private int uiBalet = 0;
 
-    //[SerializeField]
-    //private Text timerText;
-
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,11 +26,11 @@ public class AmmoUI : MonoBehaviour
         float wh = Input.mouseScrollDelta.y;
         if (wh != 0)
         {
-            if (wh > 0)
+            if (wh < 0)
             {
                 uiBalet++;
             }
-            if (wh < 0) 
+            if (wh > 0) 
             {
                 uiBalet--;
             }
@@ -55,11 +53,6 @@ public class AmmoUI : MonoBehaviour
         
 
     }
-
-    //void UpdateTime(float time)
-    //{
-    //    timerText.text = time.ToString("F2") + " •b";
-    //}
 
 
     void UpdateScale()

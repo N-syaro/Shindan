@@ -1,4 +1,5 @@
- using UnityEngine;
+using System.Collections;
+using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
@@ -30,25 +31,20 @@ public class TitleManager : MonoBehaviour
     }
 
 
-    void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
+    IEnumerator Start()
 
-    void OnDisable()
     {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
 
-    // 新しいシーンが読み込まれたときに自動で実行される
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        // 新しいシーン内から「FadeOutIn」コンポーネントが付いているオブジェクトを探す
-        fadeout = FindFirstObjectByType<FadeOutIn>();
+        // 1フレーム待つ(消えてしまうオブジェクトを参照しないようにするため) 
+
+        yield return null;
+
+
 
         sourceManager = FindFirstObjectByType<AudioSourceManager>();
 
-       
+        fadeout = FindFirstObjectByType<FadeOutIn>();
+
     }
 
     public void StartButton(string sceneName)
