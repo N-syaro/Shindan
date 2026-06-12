@@ -15,7 +15,6 @@ MonoBehaviour:
   SceneTitle: 
   Datas:
   - {fileID: 11400000, guid: 2779e64cb5331614283bd4b27dbb2e73, type: 2}
-  - {fileID: 11400000, guid: 2f11618b0e355d44197ff648ce961923, type: 2}
   - {fileID: 11400000, guid: 80701d539cf147b438b03a5cf8419cf8, type: 2}
   - {fileID: 11400000, guid: d1e3b8ac55ace354480be11150737fbd, type: 2}
   - {fileID: 11400000, guid: 06bf694e10861f942a25640785774a89, type: 2}
@@ -26,6 +25,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 17f1e76e4cdab9e448659170a6b59c8e, type: 2}
   - {fileID: 11400000, guid: ee70e85c4e296994e83792a99b5ca7b8, type: 2}
   - {fileID: 11400000, guid: f1461528c256ffb4eb61ed8b827f8334, type: 2}
+  - {fileID: 11400000, guid: 2f11618b0e355d44197ff648ce961923, type: 2}
   - {fileID: 11400000, guid: 18694f23035bfd04bad75d48d81967bd, type: 2}
   - {fileID: 11400000, guid: 4d14c395a457a5a4287f3673ca1f21cd, type: 2}
   UseImage_: 0

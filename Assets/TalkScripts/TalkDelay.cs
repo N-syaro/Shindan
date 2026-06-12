@@ -49,7 +49,9 @@ public class TalkDelay : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
             text.text += Data[i];
         }
-        yield return new WaitForSeconds(1f);
+        isSkip = false;
+        yield return new WaitUntil(() => isSkip);
+       // yield return new WaitForSeconds(1f);
       
     }
 }

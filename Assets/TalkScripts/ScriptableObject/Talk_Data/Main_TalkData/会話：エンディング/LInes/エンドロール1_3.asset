@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be0c93688f7de047b94ab18306647e6, type: 3}
   m_Name: "\u30A8\u30F3\u30C9\u30ED\u30FC\u30EB1_3"
   m_EditorClassIdentifier: Assembly-CSharp::Setting_Text_Data
-  TextData: "\u300C\u805E\u3044\u3066\u3044\u305F\u306E\uFF1F\u300D"
+  TextData: "\u3044\u3064\u304B\u3089\u805E\u3044\u3066\u3044\u305F\u306E\uFF1F"
   Side: 0
   Talking_chara: {fileID: 11400000, guid: 469f0900844b39540b366b71de5d73e2, type: 2}
   CHImageNum_: 0
   SceneName: 
+  IsTalkEnd: 0

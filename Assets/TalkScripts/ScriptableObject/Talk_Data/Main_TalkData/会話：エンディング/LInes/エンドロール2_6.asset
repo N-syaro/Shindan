@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be0c93688f7de047b94ab18306647e6, type: 3}
   m_Name: "\u30A8\u30F3\u30C9\u30ED\u30FC\u30EB2_6"
   m_EditorClassIdentifier: Assembly-CSharp::Setting_Text_Data
-  TextData: "\u3082\u3057\u541B\u304C\u5F7C\u5973\u3092\u6551\u308F\u306A\u304B\u3063\u305F\u3089\u3001\u4E16\u754C\u304B\u3089\u5B85\u914D\u30B5\u30FC\u30D3\u30B9\u304C\u6D88\u3048\u3066\u3044\u305F\u3093\u3060\u3002"
+  TextData: "\u3042\u306E\u751F\u5F92\u3092\u6551\u308F\u306A\u304B\u3063\u305F\u3089\u3001\u4E16\u754C\u304B\u3089\u5B85\u914D\u304C\u6D88\u3048\u3066\u3044\u305F\u3057\uFF5E\u3002"
   Side: 0
   Talking_chara: {fileID: 0}
   CHImageNum_: 0

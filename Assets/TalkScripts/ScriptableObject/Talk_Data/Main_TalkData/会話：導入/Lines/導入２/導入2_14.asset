@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be0c93688f7de047b94ab18306647e6, type: 3}
   m_Name: "\u5C0E\u51652_14"
   m_EditorClassIdentifier: 
-  TextData: "\u50D5\u306F\u5484\u55DF\u306B\u907F\u3051\u305F\u304C\u50D5\u306E\u982C\u3092\u63A0\u3063\u305F\u3002"
+  TextData: "\u305D\u306E\u5239\u90A3\u3002"
   Side: 1
   Talking_chara: {fileID: 0}
   CHImageNum_: 0
   SceneName: 
+  IsTalkEnd: 0
