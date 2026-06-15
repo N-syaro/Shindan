@@ -10,7 +10,7 @@ public class Enm : MonoBehaviour
     [SerializeField] float damegerup=3f;//ダメージを受けた後の無敵時間
     [SerializeField] float cycle=1;
     private BoxCollider2D cpplid;
-    float taima = 0f;//タイマー
+    public  float taima = 0f;//タイマー
     float taima2 = 0f;//タイマーダメージ
     bool hit=false;//ダメージ判定
     float damgct;

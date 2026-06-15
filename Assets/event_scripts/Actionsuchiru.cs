@@ -62,7 +62,7 @@ IEnumerator ShowImage()
     {
         image.gameObject.SetActive(true);
         
-        float duration = 1f;
+        float duration = 0.5f;
         float time = 0f;
 
         image.transform.localScale = Vector3.one * 1.08f;
