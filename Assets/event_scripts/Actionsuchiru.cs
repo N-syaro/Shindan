@@ -1,11 +1,21 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using NUnit.Framework;
+using System.Collections.Generic;
 
 public class Actionsuchiru : MonoBehaviour
 {
     public TalkDelay talkDelay;
     public Image image;
+    [System.Serializable]
+    public class TextImagePair
+    { 
+        public string text;
+        public Sprite sprite;
+    }
+
+    public List<TextImagePair>imageList;
 
     private CanvasGroup canvasGroup;
     private bool hasShown = false;
@@ -26,22 +36,29 @@ public class Actionsuchiru : MonoBehaviour
 
     private void Update()
     {
-        if (hasShown) return;
-
-        if (talkDelay.currentText == "小さなラクダみたいなマスコットが話しかけてくる。"|| talkDelay.currentText == "そう言って、ドアの前で一度だけ立ち止まる。"  || talkDelay.currentText == "スピーカーが低く震え、本が一冊落ちてきた。")
+        if (!hasShown)
         {
-            hasShown = true;
-            StartCoroutine(ShowImage());
+            foreach (TextImagePair pair in imageList)
+            {
+                if (talkDelay.currentText == pair.text)
+                {
+                    image.sprite = pair.sprite;
+                    hasShown = true;
+                    StartCoroutine(ShowImage());
+                    
+                    break;
+                }
+            }
         }
-
-        if (talkDelay.currentText == "次の言葉が、刃物のような実体として僕の方に目掛けて降ってきた。"||talkDelay.currentText == "「相談ありがとうございました。」" || talkDelay.currentText == "ふと僕が見上げると、")
+        if (talkDelay.currentText == "次の言葉が、刃物のような実体として僕の方に目掛けて降ってきた。" || talkDelay.currentText == "「相談ありがとうございました。」" || talkDelay.currentText == "ふと僕が見上げると、")
         {
             hasShown = false;
             image.gameObject.SetActive(false);
         }
     }
 
-    IEnumerator ShowImage()
+   
+IEnumerator ShowImage()
     {
         image.gameObject.SetActive(true);
         
