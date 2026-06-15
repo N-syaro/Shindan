@@ -43,8 +43,8 @@ public class Enm : MonoBehaviour
         if (timeon == true)//タイマー処理
         {
             taima -= Time.deltaTime;
-            Text taimeli = temtext.GetComponent<Text>();
-            taimeli.text = taima.ToString("F0");
+         //   Text taimeli = temtext.GetComponent<Text>();
+           // taimeli.text = taima.ToString("F0");
 
             if (taima <= 0f)
             {

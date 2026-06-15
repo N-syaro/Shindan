@@ -17,7 +17,7 @@ public class gemu_obuge : MonoBehaviour
 
     GameObject gamemanager;
     GameManager dawe;
-
+    Testshooting tes_s;
 
 
 
@@ -25,8 +25,9 @@ public class gemu_obuge : MonoBehaviour
     void Start()
     {
 
-       /* gamemanager = GameObject.Find("GameManagar");
-        dawe = gamemanager.GetComponent<GameManager>();*/
+       gamemanager = GameObject.Find("GameManager");
+        dawe = gamemanager.GetComponent<GameManager>();
+        tes_s = gamemanager.GetComponent<Testshooting>();
 
 
 
@@ -43,26 +44,23 @@ public class gemu_obuge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (enemiobuject==null)return;
+        //if (enemiobuject==null)return;
             taimudl += Time.deltaTime;
         //タイマー
         if (next < taimudl && next < spulnt.Length)//順次生成処理
         {
-
+            
             if (taimudl > spulnt[next])
             {
                 sponw();
-                next++;
+                next++;              
             }
-
-            else if (next >= spulnt.Length) 
+            if (enemiobuject.Length <= next)
             {
-                dawe.endCount=true;
-                Debug.Log(dawe.endCount);
+                za();
+                Debug.Log("a");
+                return;
             }
-           
-           
-
         }
     }
     void sponw()//生成処理
@@ -70,6 +68,12 @@ public class gemu_obuge : MonoBehaviour
 
         Instantiate(enemiobuject[next]);
         Debug.Log("spon");
+    }
+    void za()
+    {
+        dawe.EndShooting(true);
+        tes_s.HitReaction(true);  
+        
     }
 }
 
