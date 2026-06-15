@@ -34,7 +34,6 @@ Transform:
 =======
   m_LocalPosition: {x: 5, y: 10, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
->>>>>>> origin/シューティングUI等
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
