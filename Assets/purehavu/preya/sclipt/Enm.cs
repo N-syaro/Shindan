@@ -52,9 +52,9 @@ public class Enm : MonoBehaviour
 
 
                 Debug.Log("タイムオーバー");
-                if (scenename == "JP Main")
+                if (scenename == "JP")
                 {
-                    SceneManager.LoadScene("BadEND");
+                    SceneManager.LoadScene("Bad END");
                 }
             }
 
