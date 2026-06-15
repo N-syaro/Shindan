@@ -15,6 +15,7 @@ public class gemu_obuge : MonoBehaviour
     int next = 0;//ê∂ê¨Ç∑ÇÈêî
     bool onstop;
 
+
     GameObject gamemanager;
     GameManager dawe;
 
@@ -24,9 +25,9 @@ public class gemu_obuge : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
-       /* gamemanager = GameObject.Find("GameManagar");
-        dawe = gamemanager.GetComponent<GameManager>();*/
+   
+         /*gamemanager = GameObject.Find("GameManagar");
+         dawe = gamemanager.GetComponent<GameManager>();*/
 
 
 
@@ -37,7 +38,7 @@ public class gemu_obuge : MonoBehaviour
          */
         // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-
+        SceneName = SceneManager.GetActiveScene().name;
     }
 
     // Update is called once per frame

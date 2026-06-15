@@ -110,7 +110,7 @@ public class Preya_min : MonoBehaviour
         //Destroy(newbalet, dstm);
 
     }
-    /*
+    
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (isHit)
@@ -139,5 +139,5 @@ public class Preya_min : MonoBehaviour
             sp.enabled = true;
         }
         isHit = false;
-    }*/
+    }
 }
