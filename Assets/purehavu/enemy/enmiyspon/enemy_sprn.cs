@@ -16,8 +16,8 @@ public class enemy_sprn : MonoBehaviour
     // Update is called once per frame
     private void Start()
     {
-        G_mana = GameObject.Find("GameManager");
-      G_mana.GetComponent<GameManager>();
+     /*   G_mana = GameObject.Find("GameManager");
+      G_mana.GetComponent<GameManager>();*/
     }   
     private void OnCollisionEnter2D(Collision2D collision)//“–‚½‚è”»’è
     {
