@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
@@ -47,30 +48,8 @@ public class MenuManager : MonoBehaviour
         }
         
     }
-
-    void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    // 新しいシーンが読み込まれたときに自動で実行される
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        // 新しいシーン内から「FadeOutIn」コンポーネントが付いているオブジェクトを探す
-        fadeout = FindFirstObjectByType<FadeOutIn>();
-
-        if (fadeout == null)
-        {
-            Debug.LogWarning($"新しいシーン「{scene.name}」に FadeOutIn が見つかりません！");
-        }
-    }
-
-    void Start()
+    
+    IEnumerator Start()
     {
         menuCanvas.SetActive(false);
         //BGM
@@ -79,11 +58,18 @@ public class MenuManager : MonoBehaviour
         InitializeSlider("SE", seSlider, seText);
         //Voice
         //InitializeSlider("Voice", voiceSlider, voiceText);
-
         audioMixer.SetFloat("BGM_1", 0f);
         audioMixer.SetFloat("BGM_2", -80f);
+
+        //1フレーム待つ(消えてしまうオブジェクトを参照しないようにするため) 
+        yield return null; 
+
+
+　       fadeout = FindFirstObjectByType<FadeOutIn>();
+
     }
 
+    
     void Update()
     {
         // エスケープキーが押されたら
@@ -190,7 +176,7 @@ public class MenuManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("フェードオブジェクトが割り当てられていないため、フェードできません。");
+            Debug.LogError("フェードオブジェクトがない");
         }
 
         //タイトル画面に戻る
