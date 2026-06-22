@@ -24,7 +24,7 @@ public class CheakBUllet : MonoBehaviour
         }
         if (collision.gameObject.layer == layerB)
         {
-            enm.taima += 15f; //‰¼‚È‚Ì‚ÅŒˆ‚Ü‚ê‚Î•Ï‚¦‚é
+            //enm.taima += 15f; //‰¼‚È‚Ì‚ÅŒˆ‚Ü‚ê‚Î•Ï‚¦‚é
             talkController.CTalk(noData);
         }
 
