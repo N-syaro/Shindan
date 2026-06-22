@@ -1,14 +1,15 @@
 using System.Collections;
 using Unity.VectorGraphics;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class Testshooting : MonoBehaviour
 {
     public Shootingstart fall;
-    
+    GameManager gameManager;
     public Shootingcom com;
     public GameObject player;
-    public GameObject[] Triangle;
+    public GameObject[] Enemy;
 
     public bool isHit = false;
 
@@ -18,7 +19,7 @@ public class Testshooting : MonoBehaviour
         //yield return new WaitForSeconds(2f);
         yield return new WaitForSeconds(0.1f);
         player.SetActive(true);
-        Triangle[i].SetActive(true);
+        Enemy[i].SetActive(true);
         //com.StartGame();
         yield return new WaitUntil(() => isHit);
         isHit = false;

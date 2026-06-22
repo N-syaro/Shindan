@@ -30,20 +30,26 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject Player_obj;
     [SerializeField]
-    GameObject Triangle_obj;
+    public GameObject[] Enemy_obj;
     [SerializeField]
     GameObject Exp_Panel;//説明用パネル
     [SerializeField]
     Image Exp_Image;//説明用イメージ
 
     //private int Conv_Count  = 0;//会話量
+    public int mainloopcount = 0;  
+    public int Enemycount = 0;
     public int Conv_Count = 0;
+    public int Talk_Count = 0;
     public bool endCount = false;
     public bool Talkend= false;//会話終了判定
     public bool Exp_end = false;//説明1終了判定
     public bool Exp2_end = false;//説明2終了判定
+    public bool isloop = false;
+    public bool isbattleloop = true;
     private string sceneName;
     public string NextScene;
+      
     private GameObject ContinuePanel;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -97,6 +103,7 @@ public class GameManager : MonoBehaviour
 
                             Debug.Log("シューティングゲーム開始");
                             t_controller.TalkUI.SetActive(false);
+                            Enemycount = 0;
                             yield return StartCoroutine(Testshooting.S_Start(0));                            
                             yield return new WaitUntil(() => endCount);// シューティング終了待ち
                             endCount = false; 
@@ -110,8 +117,10 @@ public class GameManager : MonoBehaviour
                              
                             
                             Debug.Log("シューティングゲーム再突入");
+                            Enemycount = 1;
                             yield return StartCoroutine(Testshooting.S_Start(1));
-                        　　yield return new WaitUntil(() => Exp2_end);// シューティング終了待ち
+                        　　yield return new WaitUntil(() => endCount);// シューティング終了待ち
+                            endCount = false;
                             t_controller.TalkUI.SetActive(true);// UI再表示
                         }
                         if (Conv_Count == 2)
@@ -125,24 +134,42 @@ public class GameManager : MonoBehaviour
                         NextScene = "END Credits";
                         Debug.Log("本編シーン用処理");
                         Debug.Log("シューティングゲーム開始");
-
                         t_controller.TalkUI.SetActive(false);
-
-                        yield return new WaitForSeconds(5f);
-                        /*
-                        yield return StartCoroutine(Testshooting.S_Start());
-
-                        // シューティング終了待ち
-                        yield return new WaitUntil(() => endCount > 0);
-                        */
-                        if (Conv_Count == 3)
+                        Enemycount = 0;
+                        Talk_Count = 1;
+                        while (isloop)
                         {
-                            Debug.Log("シーン遷移");
-                            SceneManager.LoadScene(NextScene);
+                            yield return StartCoroutine(Testshooting.S_Start(mainloopcount));
+                            switch (mainloopcount)
+                            {
+                                case 0: case 1:case 2: //3バトル分同じ処理
+                                    if(isbattleloop!)
+                                    {
+                                        isbattleloop = true;
+                                        mainloopcount++;
+                                        Enemycount++;
+                                        Talk_Count++;
+                                    }
+                                    MainShooting();
+                                    t_controller.TalkUI.SetActive(true);// UI再表示
+                                    t_controller.SetObject(makeConversations[Talk_Count]);
+                                    yield return new WaitUntil(() => Talkend);
+                                    Talkend = false;
+                              break;
+                             case 3://最後のバトル
+                                    if(isbattleloop!)
+                                    {
+                                        Debug.Log("シーン遷移");
+                                        SceneManager.LoadScene(NextScene);
+                                    }
+                                    MainShooting();
+                                    t_controller.TalkUI.SetActive(true);// UI再表示
+                                    t_controller.SetObject(makeConversations[4]);
+                                    yield return new WaitUntil(() => Talkend);
+                                    Talkend = false;
+                              break;
+                            }
                         }
-                       
-                        t_controller.TalkUI.SetActive(true); // UI再表示
-
                         break;
                     }
                 case "END Credits"://エンドクレジット用処理
@@ -185,16 +212,22 @@ public class GameManager : MonoBehaviour
             endCount = true;
         }
         Player_obj.SetActive(false);
-        Triangle_obj.SetActive(false);
+        Enemy_obj[Enemycount].SetActive(false);
     }
     public void EndExp()
     {
         Debug.Log("EndExp");
             Exp_end = true;      
     }
-    private void Exp_Shooting()
+    public void MainShooting()
     {
+        Enemy_obj[Enemycount].SetActive(false);
+        //主人公のタイマーを止めるのを書く
 
+    }
+    public void IsBattle()
+    {
+        isbattleloop = false;
     }
     
 }
