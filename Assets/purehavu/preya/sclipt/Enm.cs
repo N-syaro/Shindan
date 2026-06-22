@@ -8,7 +8,7 @@ public class Enm : MonoBehaviour
 {
     //プレイヤーの効果処理のスクリプト
 
-    [SerializeField] bool timeon = false;//タイマースタート
+     public bool timeon = false;//タイマースタート
      [SerializeField] float timelemt = 60f;//時間制限
     [SerializeField] float damegerup=3f;//ダメージを受けた後の無敵時間
     [SerializeField] float cycle=1;
@@ -72,14 +72,13 @@ public class Enm : MonoBehaviour
         }  
     }
 
-    void taimstop() 
+    public void taimstop() 
     {
         if (timeon == true)
         {
             timeon = false;
         }
-        else { timeon = true
-                ; }
+        else { timeon = true; }
     }
     
     void OnTriggerEnter2D(Collider2D collision)
