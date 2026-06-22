@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,6 +15,7 @@ public class gemu_obuge : MonoBehaviour
     float taimudl;//åoâﬂéûä‘
     int next = 0;//ê∂ê¨Ç∑ÇÈêî
     bool onstop;
+    bool searchstop = false;    
 
     GameObject gamemanager;
     GameManager dawe;
@@ -28,7 +30,7 @@ public class gemu_obuge : MonoBehaviour
        gamemanager = GameObject.Find("GameManager");
         dawe = gamemanager.GetComponent<GameManager>();
         tes_s = gamemanager.GetComponent<Testshooting>();
-
+        SceneName = SceneManager.GetActiveScene().name;
 
 
         /*
@@ -57,7 +59,7 @@ public class gemu_obuge : MonoBehaviour
             }
             if (enemiobuject.Length <= next)
             {
-                za();
+                StartCoroutine(endcreate());
                 Debug.Log("a");
                 return;
             }
@@ -69,11 +71,27 @@ public class gemu_obuge : MonoBehaviour
         Instantiate(enemiobuject[next]);
         Debug.Log("spon");
     }
+    
     void za()
     {
         dawe.EndShooting(true);
         tes_s.HitReaction(true);  
+        searchstop = false;
+    }
+    IEnumerator endcreate()
+    {
+        Debug.Log("endcreateÇ™ì«Ç›çûÇ‹ÇÍÇ‹ÇµÇΩ");
+        switch (SceneName)
+        {
+            case "JP":
+                yield return new WaitForSeconds(5f);
+                          za();
+                        searchstop = true;
+                break;
+        }
+
         
+        yield break;
     }
 }
 
