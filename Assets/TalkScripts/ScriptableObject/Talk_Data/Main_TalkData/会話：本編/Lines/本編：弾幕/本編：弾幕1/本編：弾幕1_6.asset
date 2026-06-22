@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Setting_Text_Data
   TextData: "\u6700\u521D\u306F\u307F\u3093\u306A\u6238\u60D1\u3063\u3066\u3044\u305F\u3093\u3067\u3059\u304C\u3001"
   Side: 0
-  Talking_chara: {fileID: 0}
+  Talking_chara: {fileID: 11400000, guid: 469f0900844b39540b366b71de5d73e2, type: 2}
   CHImageNum_: 0
   SceneName: 
+  IsTalkEnd: 0
