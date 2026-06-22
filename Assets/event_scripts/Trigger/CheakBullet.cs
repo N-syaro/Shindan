@@ -11,6 +11,8 @@ public class CheakBUllet : MonoBehaviour
     private const string LAYER_NAME_coreect = "coreect";
     private const string LAYER_NAME_incoreect = "incoreect";
 
+    [SerializeField] private Enm enm;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         int layerA = LayerMask.NameToLayer(LAYER_NAME_coreect);
@@ -22,7 +24,7 @@ public class CheakBUllet : MonoBehaviour
         }
         if (collision.gameObject.layer == layerB)
         {
-            //タイマー減少処理
+            enm.taima += 15f; //仮なので決まれば変える
             talkController.CTalk(noData);
         }
 
