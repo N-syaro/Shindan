@@ -10,14 +10,15 @@ public class enemy_sprn : MonoBehaviour
     int pint=0;//移動ポイントの数
     [SerializeField] bool next=false;//クリア用オブジェクトはtrue
     [SerializeField] GameManager gameManager;
+    
     GameObject G_mana;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     // Update is called once per frame
     private void Start()
     {
-     /*   G_mana = GameObject.Find("GameManager");
-      G_mana.GetComponent<GameManager>();*/
+      G_mana = GameObject.Find("GameManager");
+      
     }   
     private void OnCollisionEnter2D(Collision2D collision)//当たり判定
     {
@@ -32,6 +33,7 @@ public class enemy_sprn : MonoBehaviour
             culafl = true;
                 Debug.Log(culafl);
                 Debug.Log("当たった！！");
+                G_mana.GetComponent<Testshooting>().HitReaction(true);
                 //ここにコルーチン
             }
 

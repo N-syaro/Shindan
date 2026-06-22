@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
 
                             Debug.Log("シューティングゲーム開始");
                             t_controller.TalkUI.SetActive(false);
-                            yield return StartCoroutine(Testshooting.S_Start());                            
+                            yield return StartCoroutine(Testshooting.S_Start(0));                            
                             yield return new WaitUntil(() => endCount);// シューティング終了待ち
                             endCount = false; 
 
@@ -108,9 +108,10 @@ public class GameManager : MonoBehaviour
                             Exp_Panel.SetActive(false);
                             Exp_end = false;
                              
-                            /*
-                           Debug.Log("シューティングゲーム再突入");
-                        　　yield return new WaitUntil(() => Exp2_end);// シューティング終了待ち*/
+                            
+                            Debug.Log("シューティングゲーム再突入");
+                            yield return StartCoroutine(Testshooting.S_Start(1));
+                        　　yield return new WaitUntil(() => Exp2_end);// シューティング終了待ち
                             t_controller.TalkUI.SetActive(true);// UI再表示
                         }
                         if (Conv_Count == 2)
