@@ -71,6 +71,16 @@ public class Enm : MonoBehaviour
             }
         }  
     }
+
+    void taimstop() 
+    {
+        if (timeon == true)
+        {
+            timeon = false;
+        }
+        else { timeon = true
+                ; }
+    }
     
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -84,6 +94,8 @@ public class Enm : MonoBehaviour
             taima -= demegte;
             hit = true;
             Debug.Log("Hit");
+
+            
 
             StartCoroutine(EnemyHit());
         }
