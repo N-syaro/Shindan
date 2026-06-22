@@ -17,8 +17,8 @@ public class Enm : MonoBehaviour
 
     [SerializeField] float taima = 60f;//タイマー
     bool hit=false;//ダメージ判定
-    float damgct;
-    string scenename;
+    float damgct;//ダメージ時からの経過時間
+    string scenename;//スコアテキスト
     private BoxCollider2D cpplid;
     [Header("点滅用")]
     float flashIntarval = 0.02f;
