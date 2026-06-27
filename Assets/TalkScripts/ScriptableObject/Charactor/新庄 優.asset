@@ -10,8 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5598be981560a014799b81903071c738, type: 3}
-  m_Name: "\u4E3B\u4EBA\u516C"
+  m_Name: "\u65B0\u5E84 \u512A"
   m_EditorClassIdentifier: Assembly-CSharp::Chara_data
   Name: "\u65B0\u5E84 \u512A "
   Image:
-  - {fileID: -4576341166080087489, guid: b69a0b9943bf0f44f8f77bb4d2eddf6a, type: 3}
+  - {fileID: -8856071763541108769, guid: e5ec2fb1b360d314aa1b0c413cb20ad8, type: 3}
+  - {fileID: -8912469013084556299, guid: a83c4dbd2db66274dbd5099773811b7f, type: 3}
+  - {fileID: -9106879982593671255, guid: 6a0fd9fcb17486240adbb4bfbb6ced8e, type: 3}
+  - {fileID: -9028965081266180009, guid: f04bb0eae6852ae4d973caca11f6df71, type: 3}

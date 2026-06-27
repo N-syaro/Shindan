@@ -14,4 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Chara_data
   Name: "\u6D5C\u4E95 \u4E39\u82B1"
   Image:
-  - {fileID: -4682442894999169917, guid: 52622c9acd8e2cb45bc16bbc9a11e2c1, type: 3}
+  - {fileID: -5997822902910766713, guid: 10ccc9d603c915949a2f65768fe72657, type: 3}
+  - {fileID: -5826234321751180003, guid: 62d7729d85553db4fb109a69f006400f, type: 3}
+  - {fileID: 1550376779807049339, guid: bb2d78ffba66e3341be91fb0bc115e89, type: 3}
+  - {fileID: 7674687888224233009, guid: d897795e2eed9a54fadced01985bcd1f, type: 3}
+  - {fileID: -4957508855710234894, guid: e81bba3f7faedc9499b59fbc5c61edb6, type: 3}
