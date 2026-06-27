@@ -166,7 +166,7 @@ public class GameManager : MonoBehaviour
                                     }
                                     else if(isIncorrect)
                                     {
-
+                                        break;
                                     }
                                     else
                                     {                                    
@@ -188,6 +188,10 @@ public class GameManager : MonoBehaviour
                                     {
                                         Debug.Log("ÉVÅ[ÉìëJà⁄");
                                         SceneManager.LoadScene(NextScene);
+                                        break;
+                                    }
+                                    else if (isIncorrect)
+                                    {
                                         break;
                                     }
                                     else
