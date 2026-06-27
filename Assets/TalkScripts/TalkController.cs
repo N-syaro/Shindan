@@ -124,7 +124,7 @@ public class TalkController : MonoBehaviour
                     {
                         PlayerImage.enabled = false; // ‰æ‘œ‚È‚¯‚ê‚Î”ñ•\Ž¦
                         Nametext.enabled = false;
-                        backlogLogTextList.Add((charaName, item.Talking_chara.Image[2/*2‚Í‰¼*/], item.TextData));
+                        backlogLogTextList.Add((charaName, PlayerImage.sprite, item.TextData));
                     }
                   //  backlogLogTextList.Add((charaName, item.TextData));
                 }
@@ -140,7 +140,7 @@ public class TalkController : MonoBehaviour
                     {
                         FriendsImage.enabled = false; // ‰æ‘œ‚È‚¯‚ê‚Î”ñ•\Ž¦
                         Nametext.enabled = false;
-                        backlogLogTextList.Add((charaName, item.Talking_chara.Image[2/*2‚Í‰¼*/], item.TextData));
+                        backlogLogTextList.Add((charaName, FriendsImage.sprite, item.TextData));
                     }
                    // backlogLogTextList.Add((charaName, item.TextData));
                 }

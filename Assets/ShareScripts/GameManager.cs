@@ -156,7 +156,7 @@ public class GameManager : MonoBehaviour
                                     if(isbattleloop)
                                     {
                                         Debug.Log(Battle_Count + "‰ñ–Ú");
-                                        isbattleloop = true;
+                                        isbattleloop = false;
                                         mainloopcount++;
                                         Enemycount++;
                                         Talk_Count++;
