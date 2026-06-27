@@ -118,13 +118,13 @@ public class TalkController : MonoBehaviour
                     {
                         PlayerImage.sprite = item.Talking_chara.Image[item.CHImageNum_];
                         PlayerImage.color = new Color(1, 1, 1, 1);
-                        backlogLogTextList.Add((charaName,PlayerImage.sprite, item.TextData));
+                        backlogLogTextList.Add((charaName, item.Talking_chara.Image[2/*2‚Í‰¼*/], item.TextData));
                     }
                     else
                     {
                         PlayerImage.enabled = false; // ‰æ‘œ‚È‚¯‚ê‚Î”ñ•\Ž¦
                         Nametext.enabled = false;
-                        backlogLogTextList.Add((charaName,PlayerImage.sprite, item.TextData));
+                        backlogLogTextList.Add((charaName, item.Talking_chara.Image[2/*2‚Í‰¼*/], item.TextData));
                     }
                   //  backlogLogTextList.Add((charaName, item.TextData));
                 }
@@ -134,13 +134,13 @@ public class TalkController : MonoBehaviour
                     {
                         FriendsImage.sprite = item.Talking_chara.Image[item.CHImageNum_];
                         FriendsImage.color = new Color(1, 1, 1, 1);
-                        backlogLogTextList.Add((charaName,FriendsImage.sprite, item.TextData));
+                        backlogLogTextList.Add((charaName, item.Talking_chara.Image[2/*2‚Í‰¼*/], item.TextData));
                     }
                     else
                     {
                         FriendsImage.enabled = false; // ‰æ‘œ‚È‚¯‚ê‚Î”ñ•\Ž¦
                         Nametext.enabled = false;
-                        backlogLogTextList.Add((charaName, FriendsImage.sprite, item.TextData));
+                        backlogLogTextList.Add((charaName, item.Talking_chara.Image[2/*2‚Í‰¼*/], item.TextData));
                     }
                    // backlogLogTextList.Add((charaName, item.TextData));
                 }

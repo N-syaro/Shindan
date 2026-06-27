@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
     public bool Exp2_end = false;//説明2終了判定
     private bool isloop = true;
     private bool isbattleloop = false;
+    private bool isIncorrect = false;
     private string sceneName;
     public string NextScene;
       
@@ -162,6 +163,10 @@ public class GameManager : MonoBehaviour
                                         Battle_Count++;
 
                                         break;
+                                    }
+                                    else if(isIncorrect)
+                                    {
+
                                     }
                                     else
                                     {                                    
@@ -282,6 +287,7 @@ public class GameManager : MonoBehaviour
 
                     case 2://否定
                         Debug.Log("不正解");
+                        isIncorrect = true;
                         t_controller.SetObject(makeConversations[5]);
                         break;
                 }
@@ -292,11 +298,13 @@ public class GameManager : MonoBehaviour
                 {
                     case 1://肯定
                         Debug.Log("不正解");
+                        isIncorrect = true;
                         t_controller.SetObject(makeConversations[6]);
                         break;
 
                     case 2://否定
                         Debug.Log("不正解");
+                        isIncorrect = true;
                         t_controller.SetObject(makeConversations[7]);
                         break;
 
@@ -321,6 +329,7 @@ public class GameManager : MonoBehaviour
                         break;
                     case 2://否定
                         Debug.Log("不正解");
+                        isIncorrect = true;
                         t_controller.SetObject(makeConversations[10]);
                         break;
                 }
@@ -331,6 +340,7 @@ public class GameManager : MonoBehaviour
                 {
                     case 1://肯定
                         Debug.Log("不正解");
+                        isIncorrect = true;
                         t_controller.SetObject(makeConversations[11]);
                         break;
 
@@ -343,6 +353,7 @@ public class GameManager : MonoBehaviour
 
                     case 3://謎
                         Debug.Log("不正解");
+                        isIncorrect = true;
                         t_controller.SetObject(makeConversations[13]);
                         break;
                 }
@@ -353,11 +364,13 @@ public class GameManager : MonoBehaviour
                 {
                     case 1://共感
                         Debug.Log("不正解");
+                        isIncorrect = true;
                         t_controller.SetObject(makeConversations[14]);
                         break;
 
                     case 2://ポジティブ否定
                         Debug.Log("不正解");
+                        isIncorrect = true;
                         t_controller.SetObject(makeConversations[15]);
                         break;
 
@@ -370,6 +383,7 @@ public class GameManager : MonoBehaviour
 
                     case 4://ネガティブ否定
                         Debug.Log("不正解");
+                        isIncorrect = true;
                         t_controller.SetObject(makeConversations[17]);
                         break;
                 }
