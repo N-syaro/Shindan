@@ -41,12 +41,13 @@ public class GameManager : MonoBehaviour
     public int Enemycount = 0;
     public int Conv_Count = 0;
     public int Talk_Count = 0;
+    public int Battle_Count = 1;
     public bool endCount = false;
     public bool Talkend= false;//会話終了判定
     public bool Exp_end = false;//説明1終了判定
     public bool Exp2_end = false;//説明2終了判定
-    public bool isloop = false;
-    public bool isbattleloop = true;
+    private bool isloop = true;
+    private bool isbattleloop = false;
     private string sceneName;
     public string NextScene;
       
@@ -88,7 +89,7 @@ public class GameManager : MonoBehaviour
             Talkend = false;
             switch (sceneName)
             {
-                case "JP":
+                case "JP"://導入シーン用処理-------------------------------------------------------------------------------------------------------------------
                     {
                         NextScene = "JP Main";
                         Debug.Log("導入シーン用処理");
@@ -129,50 +130,78 @@ public class GameManager : MonoBehaviour
                         }
                         break;
                     }
-                case "JP Main":
+                case "JP Main"://本編シーン処理----------------------------------------------------------------------------------------------------------------
                     {
-                        NextScene = "END Credits";
+                        NextScene = "END Credits";//次のシーン決め
                         Debug.Log("本編シーン用処理");
-                        Debug.Log("シューティングゲーム開始");
-                        t_controller.TalkUI.SetActive(false);
                         Enemycount = 0;
                         Talk_Count = 1;
                         while (isloop)
                         {
+                            Debug.Log("本編ループ開始");
+                            Debug.Log("シューティングゲーム開始");
+                            Debug.Log(mainloopcount);
+                            t_controller.TalkUI.SetActive(false);
                             yield return StartCoroutine(Testshooting.S_Start(mainloopcount));
+                            yield return new WaitUntil(() => endCount);// シューティング終了待ち
+                            Debug.Log("シューティング終わり");
+                            endCount = false;
                             switch (mainloopcount)
                             {
-                                case 0: case 1:case 2: //3バトル分同じ処理
-                                    if(isbattleloop!)
+                                case 0: case 1:case 2:case 3: //4バトル分同じ処理
+                                    yield return new WaitUntil(() => Talkend);
+                                    Talkend = false;
+                                    Debug.Log("カウンセリング開始");
+                                    if(isbattleloop)
                                     {
+                                        Debug.Log(Battle_Count + "回目");
                                         isbattleloop = true;
                                         mainloopcount++;
                                         Enemycount++;
                                         Talk_Count++;
+                                        Battle_Count++;
+
+                                        break;
                                     }
-                                    MainShooting();
+                                    else
+                                    {                                    
+                                    Debug.Log("dd");
+                                    EnemyReset();
                                     t_controller.TalkUI.SetActive(true);// UI再表示
                                     t_controller.SetObject(makeConversations[Talk_Count]);
                                     yield return new WaitUntil(() => Talkend);
                                     Talkend = false;
-                              break;
-                             case 3://最後のバトル
-                                    if(isbattleloop!)
+
+                                    }
+
+                                 break;
+
+                                case 4://最後のバトル
+                                    yield return new WaitUntil(() => Talkend);
+                                    Talkend = false;
+                                    if (isbattleloop)
                                     {
                                         Debug.Log("シーン遷移");
                                         SceneManager.LoadScene(NextScene);
+                                        break;
                                     }
-                                    MainShooting();
+                                    else
+                                    {
+                                        EnemyReset();
                                     t_controller.TalkUI.SetActive(true);// UI再表示
-                                    t_controller.SetObject(makeConversations[4]);
+                                    t_controller.SetObject(makeConversations[3]);
                                     yield return new WaitUntil(() => Talkend);
                                     Talkend = false;
-                              break;
+                                    }
+
+                                 break;
                             }
+                            Debug.Log("switch抜け出し");
                         }
+                        Debug.Log("loop抜け出し");
                         break;
                     }
-                case "END Credits"://エンドクレジット用処理
+                case "END Credits"://エンドクレジット用処理-----------------------------------------------------------------------------------------------------
                     {   
                         NextScene = "EndingScene";
                         if (Conv_Count == 1)
@@ -182,7 +211,7 @@ public class GameManager : MonoBehaviour
                         }    
                         break;            
                     }
-                case "Bad END"://バッドエンド用処理
+                case "Bad END"://バッドエンド用処理--------------------------------------------------------------------------------------------------------------
                     {
                         Debug.Log("バッドエンド用処理");
                         if(Conv_Count == 1)
@@ -210,24 +239,144 @@ public class GameManager : MonoBehaviour
         if (i == true)
         {
             endCount = true;
+            Debug.Log(endCount);
         }
-        Player_obj.SetActive(false);
-        Enemy_obj[Enemycount].SetActive(false);
+        if(sceneName == "JP")
+        {   
+            Player_obj.SetActive(false);
+            Enemy_obj[Enemycount].SetActive(false);
+        }
+    
     }
     public void EndExp()
     {
         Debug.Log("EndExp");
             Exp_end = true;      
     }
-    public void MainShooting()
+    public void EnemyReset()//敵のリセット
     {
+        Debug.Log("EnemyReset読み込み");
+        Debug.Log(Enemycount);
         Enemy_obj[Enemycount].SetActive(false);
-        //主人公のタイマーを止めるのを書く
-
+        //主人公のタイマーを止めるプログラム挿入箇所
     }
     public void IsBattle()
     {
-        isbattleloop = false;
+        isbattleloop = true;
+    }
+    public void HitBalletNumber(int i)//本編以外でも使いまわしできます。
+    {
+        EnemyReset();
+        t_controller.TalkUI.SetActive(true);// TalkUI再表示
+        switch(Battle_Count)
+        { 
+                case 1: //バトル1----------------------------------
+                switch (i)
+                {
+                    case 1://肯定
+                        Debug.Log("正解");
+                        isbattleloop = true;
+                        t_controller.SetObject(makeConversations[4]);
+                        
+                        break;
+
+                    case 2://否定
+                        Debug.Log("不正解");
+                        t_controller.SetObject(makeConversations[5]);
+                        break;
+                }
+                break;　
+
+                case 2: //バトル2----------------------------------
+                switch (i)
+                {
+                    case 1://肯定
+                        Debug.Log("不正解");
+                        t_controller.SetObject(makeConversations[6]);
+                        break;
+
+                    case 2://否定
+                        Debug.Log("不正解");
+                        t_controller.SetObject(makeConversations[7]);
+                        break;
+
+                    case 3://反論
+                        Debug.Log("正解");
+                        isbattleloop = true;
+                        t_controller.SetObject(makeConversations[8]);
+                        
+                        break;
+
+                }
+                break;
+
+                case 3: //バトル3----------------------------------
+                switch (i)
+                {
+                    case 1://肯定
+                        Debug.Log("正解");
+                        isbattleloop = true;
+                        t_controller.SetObject(makeConversations[9]);
+                        
+                        break;
+                    case 2://否定
+                        Debug.Log("不正解");
+                        t_controller.SetObject(makeConversations[10]);
+                        break;
+                }
+                break;
+
+                case 4: //バトル4----------------------------------
+                switch (i)
+                {
+                    case 1://肯定
+                        Debug.Log("不正解");
+                        t_controller.SetObject(makeConversations[11]);
+                        break;
+
+                    case 2://否定
+                        Debug.Log("正解");
+                        isbattleloop = true;
+                        t_controller.SetObject(makeConversations[12]);
+                        
+                        break;
+
+                    case 3://謎
+                        Debug.Log("不正解");
+                        t_controller.SetObject(makeConversations[13]);
+                        break;
+                }
+                break;
+
+                case 5: //バトル5----------------------------------
+                switch (i)
+                {
+                    case 1://共感
+                        Debug.Log("不正解");
+                        t_controller.SetObject(makeConversations[14]);
+                        break;
+
+                    case 2://ポジティブ否定
+                        Debug.Log("不正解");
+                        t_controller.SetObject(makeConversations[15]);
+                        break;
+
+                    case 3://ネガティブ肯定
+                        Debug.Log("正解");
+                        isbattleloop = true;
+                        t_controller.SetObject(makeConversations[16]);
+                       
+                        break;
+
+                    case 4://ネガティブ否定
+                        Debug.Log("不正解");
+                        t_controller.SetObject(makeConversations[17]);
+                        break;
+                }
+                break;
+
+        }
+        Debug.Log("ここまで抜けた");
     }
     
 }

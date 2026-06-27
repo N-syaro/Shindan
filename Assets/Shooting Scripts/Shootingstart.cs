@@ -23,7 +23,7 @@ public class Shootingstart : MonoBehaviour
     private void Update()
     {
         
-        if (talkDelay.currentText == "（話に耳を傾けた。）"/*||*/ & !hasFallen)
+        if (talkDelay.currentText == "（話に耳を傾けた。）"|| talkDelay.currentText == "部活を辞めようか迷っていて" & !hasFallen)
         {
             Debug.Log("物が落ち始めました");
             hasFallen = true;

@@ -9,6 +9,10 @@ TagManager:
   - Enemy
   - EnemyBullet
   - neo
+  - Ballet1
+  - Ballet2
+  - Ballet3
+  - Ballet4
   layers:
   - Default
   - TransparentFX

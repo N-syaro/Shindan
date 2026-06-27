@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7518879238868943371}
   - component: {fileID: 6441814659980509908}
   - component: {fileID: 4476334409361614911}
+  - component: {fileID: -4900637873448278137}
   m_Layer: 0
   m_Name: Square (9)
   m_TagString: neo
@@ -156,3 +157,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.61, y: 0.62}
   m_EdgeRadius: 0
+--- !u!114 &-4900637873448278137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2883314946770698685}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ca079b9cf81d93428ca61d8b185b77b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy_Col
+  manager: {fileID: 0}

@@ -18,7 +18,7 @@ public class gemu_obuge : MonoBehaviour
     bool searchstop = false;
 
     GameObject gamemanager;
-    GameManager dawe;
+    GameManager G_Manager;
     Testshooting tes_s;
 
 
@@ -28,7 +28,7 @@ public class gemu_obuge : MonoBehaviour
     {
 
         gamemanager = GameObject.Find("GameManager");
-        dawe = gamemanager.GetComponent<GameManager>();
+        G_Manager = gamemanager.GetComponent<GameManager>();
         tes_s = gamemanager.GetComponent<Testshooting>();
         SceneName = SceneManager.GetActiveScene().name;
 
@@ -72,9 +72,9 @@ public class gemu_obuge : MonoBehaviour
         Debug.Log("spon");
     }
 
-    void za()
+    void Flagtrue()
     {
-        dawe.EndShooting(true);
+        G_Manager.EndShooting(true);
         tes_s.HitReaction(true);
         searchstop = false;
     }
@@ -85,13 +85,13 @@ public class gemu_obuge : MonoBehaviour
         {
             case "JP":
                 yield return new WaitForSeconds(5f);
-                za();
+                Flagtrue();
                 searchstop = true;
             break;
 
             case "JP Main":
                 yield return new WaitForSeconds(6f);
-
+                Flagtrue();
             break;
         }
 

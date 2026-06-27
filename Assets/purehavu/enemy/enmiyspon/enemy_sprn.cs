@@ -1,56 +1,91 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class enemy_sprn : MonoBehaviour
 {
     //敵のアクション処理スクリプト
 
     public Vector2[] weipos;//移動の目標地点
-    public float mube=5f;//移動時間
-    public bool culafl=false;//クリアフラグ
-    int pint=0;//移動ポイントの数
-    [SerializeField] bool next=false;//クリア用オブジェクトはtrue
+    public float mube = 5f;//移動時間
+    public bool culafl = false;//クリアフラグ
+    int pint = 0;//移動ポイントの数
+    [SerializeField] bool next = false;//クリア用オブジェクトはtrue
     [SerializeField] GameManager gameManager;
-    
+    string ActiveSceneName;
     GameObject G_mana;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     // Update is called once per frame
     private void Start()
     {
-      G_mana = GameObject.Find("GameManager");
-      
-    }   
+        ActiveSceneName = SceneManager.GetActiveScene().name;
+        G_mana = GameObject.Find("GameManager");
+    }
     private void OnCollisionEnter2D(Collision2D collision)//当たり判定
     {
-       // if (next!)
-        //{
-            if (collision.gameObject.tag == "ballt")//balltタグに当たったらクリアフラグを立てる
-            {
-            if(G_mana!=null)
-            {
-                G_mana.GetComponent<GameManager>().EndShooting(true);
-            }
-            culafl = true;
-                Debug.Log(culafl);
-                Debug.Log("当たった！！");
-                G_mana.GetComponent<Testshooting>().HitReaction(true);
-                //ここにコルーチン
-            }
 
-       // }
+        //ここにコルーチン         
+        switch (ActiveSceneName)
+        {
+            case "JP":
+                if (collision.gameObject.tag == "Ballet1")//balltタグに当たったらクリアフラグを立てる
+                {
+                    if (G_mana != null)
+                    {
+                        G_mana.GetComponent<GameManager>().EndShooting(true);
+                    }
+                    culafl = true;
+                    Debug.Log(culafl);
+                    Debug.Log("当たった！！");
+                    G_mana.GetComponent<Testshooting>().HitReaction(true);
+                }
 
-
+                break;
+            case "JP Main":
+                switch (collision.gameObject.tag)
+                {
+                    case "Ballet1":
+                        Debug.Log("弾1");
+                        G_mana.GetComponent<Testshooting>().HitReaction(true);
+                        G_mana.GetComponent<GameManager>().EndShooting(true);
+                        G_mana.GetComponent<GameManager>().HitBalletNumber(1);
+                        
+                        break;
+                    case "Ballet2":
+                        Debug.Log("弾2");
+                        G_mana.GetComponent<Testshooting>().HitReaction(true);
+                        G_mana.GetComponent<GameManager>().EndShooting(true);
+                        G_mana.GetComponent<GameManager>().HitBalletNumber(2);
+                        
+                        break;
+                    case "Ballet3":
+                        Debug.Log("弾3");
+                        G_mana.GetComponent<Testshooting>().HitReaction(true);
+                        G_mana.GetComponent<GameManager>().EndShooting(true);
+                        G_mana.GetComponent<GameManager>().HitBalletNumber(3);
+                        
+                        break;
+                    case "Ballet4":
+                        Debug.Log("弾4");
+                        G_mana.GetComponent<Testshooting>().HitReaction(true);
+                        G_mana.GetComponent<GameManager>().EndShooting(true);
+                        G_mana.GetComponent<GameManager>().HitBalletNumber(4);
+                        
+                        break;
+                }
+                break;
+        }
     }
     void Update()
     {
 
-        if (weipos==null||weipos.Length==0) return;//未設定の際の処理
+        if (weipos == null || weipos.Length == 0) return;//未設定の際の処理
 
-         //ウェイポイントへ向けて移動する
-         Vector2 taget = weipos[pint];
-         transform.position=Vector2.MoveTowards(transform.position, taget, mube * Time.deltaTime);
+        //ウェイポイントへ向けて移動する
+        Vector2 taget = weipos[pint];
+        transform.position = Vector2.MoveTowards(transform.position, taget, mube * Time.deltaTime);
 
-        if(Vector2.Distance(transform.position, taget)<0.001f)//移動した後のポイント更新
+        if (Vector2.Distance(transform.position, taget) < 0.001f)//移動した後のポイント更新
         {
             pint++;
             if (pint >= weipos.Length) //移動完了後削除
@@ -58,10 +93,7 @@ public class enemy_sprn : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
-        
-        
+
+
     }
-   
-
-
-}
+} 
