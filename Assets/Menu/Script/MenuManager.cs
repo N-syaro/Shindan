@@ -123,8 +123,9 @@ public class MenuManager : MonoBehaviour
         // Mixerから現在のデシベルを取得し、スライダーの値(0-1)に逆換算して適用
         if (audioMixer.GetFloat(name, out float volumeDB))
         {
-            slider.value = Mathf.Pow(10, volumeDB / 20);
-            UpdateText(slider, text);
+            float volumeValue = Mathf.Pow(10, volumeDB / 20);
+            if (slider != null) slider.value = volumeValue;
+            UpdateText(text, volumeValue);
         }
     }
     // 各メソッドをUIのOnValueChangedから呼ぶ
@@ -138,15 +139,21 @@ public class MenuManager : MonoBehaviour
         float db = Mathf.Log10(Mathf.Max(0.0001f, value)) * 20;
         audioMixer.SetFloat(name, db);
 
-        UpdateText(null, text, value);
+        UpdateText(text, value);
     }
-   
-    private void UpdateText(Slider slider, Text text, float value = -1)
+
+    private void UpdateText(Text text, float value)
     {
-        float val = value < 0 ? slider.value : value;
         //%表示にする
-        text.text = Mathf.FloorToInt(val * 100).ToString() + "%";
-        
+        if (text != null)
+        {
+            text.text = Mathf.FloorToInt(value * 100).ToString() + "%";
+        }
+        else
+        {
+            Debug.LogWarning("Textコンポーネントがアタッチされていません。");
+        }
+
     }
 
 
