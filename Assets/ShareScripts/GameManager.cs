@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     Image Exp_Image;//説明用イメージ
     [SerializeField]
+    GameObject Current_Img;
+    [SerializeField]
     GameObject ShootingPanel;
 
     //private int Conv_Count  = 0;//会話量
@@ -169,7 +171,7 @@ public class GameManager : MonoBehaviour
                                     }
                                     else if(isIncorrect)
                                     {
-                                        Debug.Log("adt");
+                                        isIncorrect = false;
                                         break;
                                     }
                                     else
@@ -196,11 +198,12 @@ public class GameManager : MonoBehaviour
                                     }
                                     else if (isIncorrect)
                                     {
+                                        isIncorrect = false;
                                         break;
                                     }
                                     else
                                     {
-                                        EnemyReset();
+                                    EnemyReset();
                                     t_controller.TalkUI.SetActive(true);// UI再表示
                                     t_controller.SetObject(makeConversations[3]);
                                     yield return new WaitUntil(() => Talkend);
@@ -278,10 +281,19 @@ public class GameManager : MonoBehaviour
     {
         isbattleloop = true;
     }
+    IEnumerator CurrentImage()
+    {
+        Debug.Log("CurrentImg読み込み");
+        Current_Img.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        Current_Img.SetActive(false);
+        t_controller.TalkUI.SetActive(true);
+        yield break;
+    }
     public void HitBalletNumber(int i)//本編以外でも使いまわしできます。
     {
         EnemyReset();
-        t_controller.TalkUI.SetActive(true);// TalkUI再表示
+       
         switch(Battle_Count)
         { 
                 case 1: //バトル1----------------------------------
@@ -289,15 +301,21 @@ public class GameManager : MonoBehaviour
                 {
                     case 1://肯定
                         Debug.Log("正解");
+                        StartCoroutine(CurrentImage());
+                       // t_controller.TalkUI.SetActive(true);
                         isbattleloop = true;
-                        t_controller.SetObject(makeConversations[4]);
-                        
+                        t_controller.SetObject(makeConversations[4]);                        
                         break;
 
                     case 2://否定
                         Debug.Log("不正解");
+                        t_controller.TalkUI.SetActive(true);
                         isIncorrect = true;
                         t_controller.SetObject(makeConversations[5]);
+                    break;
+                    default:
+                        Debug.Log("回答以外の弾");
+                        Talkend = true;
                         break;
                 }
                 break;　
@@ -307,23 +325,29 @@ public class GameManager : MonoBehaviour
                 {
                     case 1://肯定
                         Debug.Log("不正解");
+                        t_controller.TalkUI.SetActive(true);
                         isIncorrect = true;
                         t_controller.SetObject(makeConversations[6]);
                         break;
 
                     case 2://否定
                         Debug.Log("不正解");
+                        t_controller.TalkUI.SetActive(true);
                         isIncorrect = true;
                         t_controller.SetObject(makeConversations[7]);
                         break;
 
                     case 3://反論
                         Debug.Log("正解");
+                        StartCoroutine(CurrentImage());
+                       // t_controller.TalkUI.SetActive(true);
                         isbattleloop = true;
-                        t_controller.SetObject(makeConversations[8]);
-                        
+                        t_controller.SetObject(makeConversations[8]);  
                         break;
-
+                    default:
+                        Debug.Log("回答以外の弾");
+                        Talkend = true;
+                        break;
                 }
                 break;
 
@@ -332,14 +356,21 @@ public class GameManager : MonoBehaviour
                 {
                     case 1://肯定
                         Debug.Log("正解");
+                        StartCoroutine(CurrentImage());
+                       // t_controller.TalkUI.SetActive(true);
                         isbattleloop = true;
                         t_controller.SetObject(makeConversations[9]);
                         
                         break;
                     case 2://否定
                         Debug.Log("不正解");
+                        t_controller.TalkUI.SetActive(true);
                         isIncorrect = true;
                         t_controller.SetObject(makeConversations[10]);
+                        break;
+                    default:
+                        Debug.Log("回答以外の弾");
+                        Talkend = true;
                         break;
                 }
                 break;
@@ -349,12 +380,15 @@ public class GameManager : MonoBehaviour
                 {
                     case 1://肯定
                         Debug.Log("不正解");
+                        t_controller.TalkUI.SetActive(true);
                         isIncorrect = true;
                         t_controller.SetObject(makeConversations[11]);
                         break;
 
                     case 2://否定
                         Debug.Log("正解");
+                        StartCoroutine(CurrentImage());
+                        //t_controller.TalkUI.SetActive(true);
                         isbattleloop = true;
                         t_controller.SetObject(makeConversations[12]);
                         
@@ -362,8 +396,13 @@ public class GameManager : MonoBehaviour
 
                     case 3://謎
                         Debug.Log("不正解");
+                        t_controller.TalkUI.SetActive(true);
                         isIncorrect = true;
                         t_controller.SetObject(makeConversations[13]);
+                        break;
+                    default:
+                        Debug.Log("回答以外の弾");
+                        Talkend = true;
                         break;
                 }
                 break;
@@ -373,18 +412,22 @@ public class GameManager : MonoBehaviour
                 {
                     case 1://共感
                         Debug.Log("不正解");
+                        t_controller.TalkUI.SetActive(true);
                         isIncorrect = true;
                         t_controller.SetObject(makeConversations[14]);
                         break;
 
                     case 2://ポジティブ否定
                         Debug.Log("不正解");
+                        t_controller.TalkUI.SetActive(true);
                         isIncorrect = true;
                         t_controller.SetObject(makeConversations[15]);
                         break;
 
                     case 3://ネガティブ肯定
                         Debug.Log("正解");
+                        StartCoroutine(CurrentImage());
+                        //t_controller.TalkUI.SetActive(true);
                         isbattleloop = true;
                         t_controller.SetObject(makeConversations[16]);
                        
@@ -392,6 +435,7 @@ public class GameManager : MonoBehaviour
 
                     case 4://ネガティブ否定
                         Debug.Log("不正解");
+                        t_controller.TalkUI.SetActive(true);
                         isIncorrect = true;
                         t_controller.SetObject(makeConversations[17]);
                         break;
