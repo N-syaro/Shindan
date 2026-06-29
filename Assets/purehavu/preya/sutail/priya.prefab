@@ -181,7 +181,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enm
   timeon: 0
   timelemt: 30
+  damegerup: 3
+  cycle: 1
   demegte: 5
+  temtext: {fileID: 0}
+  taima: 60
 --- !u!1 &6709039165275460961
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,7 +205,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8657828326927109853
 Transform:
   m_ObjectHideFlags: 0

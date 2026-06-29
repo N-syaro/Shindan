@@ -1,6 +1,7 @@
 
 using System;
 using System.Collections;
+using System.Net;
 using Unity.Collections;
 using Unity.Collections.LowLevel.Unsafe;
 using Unity.VectorGraphics;
@@ -35,6 +36,8 @@ public class GameManager : MonoBehaviour
     GameObject Exp_Panel;//説明用パネル
     [SerializeField]
     Image Exp_Image;//説明用イメージ
+    [SerializeField]
+    GameObject ShootingPanel;
 
     //private int Conv_Count  = 0;//会話量
     public int mainloopcount = 0;  
@@ -166,6 +169,7 @@ public class GameManager : MonoBehaviour
                                     }
                                     else if(isIncorrect)
                                     {
+                                        Debug.Log("adt");
                                         break;
                                     }
                                     else
@@ -267,6 +271,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("EnemyReset読み込み");
         Debug.Log(Enemycount);
         Enemy_obj[Enemycount].SetActive(false);
+        Player_obj.SetActive(false);
         //主人公のタイマーを止めるプログラム挿入箇所
     }
     public void IsBattle()

@@ -23,7 +23,10 @@ public class enemy_sprn : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)//“–‚½‚è”»’è
     {
-
+        if (this.tag != "neo")
+        {
+            return;
+        }
         //‚±‚±‚ÉƒRƒ‹[ƒ`ƒ“         
         switch (ActiveSceneName)
         {

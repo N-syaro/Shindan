@@ -16,7 +16,7 @@ public class gemu_obuge : MonoBehaviour
     int next = 0;//生成する数
     bool onstop;
     bool searchstop = false;
-
+    bool isReactive = false;    
     GameObject gamemanager;
     GameManager G_Manager;
     Testshooting tes_s;
@@ -31,6 +31,7 @@ public class gemu_obuge : MonoBehaviour
         G_Manager = gamemanager.GetComponent<GameManager>();
         tes_s = gamemanager.GetComponent<Testshooting>();
         SceneName = SceneManager.GetActiveScene().name;
+        //StartCoroutine(ReCreate());
 
 
         /*
@@ -42,11 +43,10 @@ public class gemu_obuge : MonoBehaviour
 
 
     }
-
     // Update is called once per frame
     void Update()
     {
-        //if (enemiobuject==null)return;
+
         taimudl += Time.deltaTime;
         //タイマー
         if (next < taimudl && next < spulnt.Length)//順次生成処理
@@ -58,7 +58,7 @@ public class gemu_obuge : MonoBehaviour
                 next++;
             }
             if (enemiobuject.Length <= next)
-            {
+            {               
                 StartCoroutine(endcreate());
                 Debug.Log("a");
                 return;
@@ -67,7 +67,6 @@ public class gemu_obuge : MonoBehaviour
     }
     void sponw()//生成処理
     {
-
         Instantiate(enemiobuject[next]);
         Debug.Log("spon");
     }
@@ -98,4 +97,32 @@ public class gemu_obuge : MonoBehaviour
 
         yield break;
     }
+    public void LoadReCreate()
+    {
+       StartCoroutine(ReCreate());  
+    }
+    public IEnumerator ReCreate()
+    {
+        Debug.Log("ReCreate");
+        taimudl = 0;//タイマーリセット
+        next = 0;
+        taimudl += Time.deltaTime;
+        //タイマー
+        if (next < taimudl && next < spulnt.Length)//順次生成処理
+        {
+
+            if (taimudl > spulnt[next])
+            {
+                sponw();
+                next++;
+            }
+            if (enemiobuject.Length <= next)
+            {
+                StartCoroutine(endcreate());
+                Debug.Log("b");
+                yield break;
+            }
+        }
+    }
+
 }
