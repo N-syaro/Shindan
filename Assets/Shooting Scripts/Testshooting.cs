@@ -1,6 +1,5 @@
 using System.Collections;
 using Unity.VectorGraphics;
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class Testshooting : MonoBehaviour

@@ -1,8 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Rendering.LookDev;
-using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -14,8 +11,8 @@ public class TalkController : MonoBehaviour
     [SerializeField]public GameObject TalkUI;
     [SerializeField] Text Talktext;
     [SerializeField] Text Nametext;
-   // [SerializeField] Text left;
-    //[SerializeField] Text right;
+    [SerializeField] GameObject P_Image;
+    [SerializeField] GameObject E_Image;
    [SerializeField] Image PlayerImage;
    [SerializeField] Image FriendsImage;
     [Header("ã@î\éQè∆")]
