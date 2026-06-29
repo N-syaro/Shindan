@@ -21,8 +21,7 @@ public class gemu_obuge : MonoBehaviour
     GameManager G_Manager;
     Testshooting tes_s;
 
-
-
+  
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,6 +30,7 @@ public class gemu_obuge : MonoBehaviour
         G_Manager = gamemanager.GetComponent<GameManager>();
         tes_s = gamemanager.GetComponent<Testshooting>();
         SceneName = SceneManager.GetActiveScene().name;
+        Debug.Log("mmmmmm");
         //StartCoroutine(ReCreate());
 
 
@@ -64,6 +64,11 @@ public class gemu_obuge : MonoBehaviour
                 return;
             }
         }
+    }
+    void OnDisable()//無効化されたときにタイマーと生成数をリセット
+    {
+        taimudl = 0;
+        next = 0;
     }
     void sponw()//生成処理
     {
@@ -124,5 +129,7 @@ public class gemu_obuge : MonoBehaviour
             }
         }
     }
+
+   
 
 }

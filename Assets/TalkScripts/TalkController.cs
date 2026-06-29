@@ -134,7 +134,7 @@ public class TalkController : MonoBehaviour
                     {
                         FriendsImage.sprite = item.Talking_chara.Image[item.CHImageNum_];
                         FriendsImage.color = new Color(1, 1, 1, 1);
-                        backlogLogTextList.Add((charaName, item.Talking_chara.Image[2/*2‚Í‰¼*/], item.TextData));
+                        backlogLogTextList.Add((charaName, FriendsImage.sprite, item.TextData));
                     }
                     else
                     {
