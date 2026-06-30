@@ -39,6 +39,12 @@ public class GameManager : MonoBehaviour
     GameObject Current_Img;
     [SerializeField]
     GameObject ShootingPanel;
+    [Header("ShootingUI参照")]
+    [SerializeField]
+    GameObject[] AmmosUI;
+    [SerializeField]
+    Text[] AmmosName;
+
 
     //private int Conv_Count  = 0;//会話量
     public int mainloopcount = 0;  
@@ -147,6 +153,7 @@ public class GameManager : MonoBehaviour
                             Debug.Log("シューティングゲーム開始");
                             Debug.Log(mainloopcount);
                             t_controller.TalkUI.SetActive(false);
+                            AmmoUIManagment(Battle_Count);
                             yield return StartCoroutine(Testshooting.S_Start(mainloopcount));
                             yield return new WaitUntil(() => endCount);// シューティング終了待ち
                             Debug.Log("シューティング終わり");
@@ -272,6 +279,10 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("EnemyReset読み込み");
         Debug.Log(Enemycount);
+        foreach(GameObject E_bullet in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            Destroy(E_bullet);
+        }
         Enemy_obj[Enemycount].SetActive(false);
         Player_obj.SetActive(false);
         //主人公のタイマーを止めるプログラム挿入箇所
@@ -280,16 +291,58 @@ public class GameManager : MonoBehaviour
     {
         isbattleloop = true;
     }
+    public void LoadImageCol(int i)
+    {
+        StartCoroutine(HitBalletNumber(i));
+    }
     IEnumerator CurrentImage()
     {
         Debug.Log("CurrentImg読み込み");
         Current_Img.SetActive(true);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         Current_Img.SetActive(false);
         t_controller.TalkUI.SetActive(true);
+        Debug.Log("CurrentImage読み込み終わり");
         yield break;
     }
-    public void HitBalletNumber(int i)//本編以外でも使いまわしできます。
+    private void AmmoUIManagment(int BattleCount)
+    {
+        Debug.Log("Ammos_mana読み込み");
+        switch (sceneName)
+        {
+            case "JP Main":
+                switch(BattleCount)
+                {
+                    case 1://バトル１
+                        AmmosUI[2].SetActive(false);
+                        AmmosUI[3].SetActive(false);
+                        AmmosName[0].text = "肯定";
+                        AmmosName[1].text = "否定";
+                        break;
+                    case 2://バトル２
+                        AmmosUI[2].SetActive(true);
+                        AmmosName[2].text = "反論";
+                        break;
+                    case 3://バトル３
+                        AmmosUI[2].SetActive(false);
+                        break;
+                    case 4://バトル４
+                        AmmosUI[2].SetActive(true);
+                        AmmosName[2].text = "......";
+                        break;
+                    case 5://バトル５
+                        AmmosUI[3].SetActive(true);
+                        AmmosName[0].text = "共感";
+                        AmmosName[1].text = "ポジティブ否定";
+                        AmmosName[2].text = "ネガティブ肯定";
+                        AmmosName[3].text = "ネガティブ否定";
+                        break;
+                }
+            break;
+        }
+        Debug.Log("Ammos_mana抜け出し");
+    }
+    public IEnumerator HitBalletNumber(int i)//本編以外でも使いまわしできます。
     {
         EnemyReset();
        
@@ -300,10 +353,11 @@ public class GameManager : MonoBehaviour
                 {
                     case 1://肯定
                         Debug.Log("正解");
-                        StartCoroutine(CurrentImage());
-                       // t_controller.TalkUI.SetActive(true);
+                        yield return StartCoroutine(CurrentImage());                       
                         isbattleloop = true;
-                        t_controller.SetObject(makeConversations[4]);                        
+                        Debug.Log("Setobject前");
+                        t_controller.SetObject(makeConversations[4]);
+                        Debug.Log("バトル1終了");
                         break;
 
                     case 2://否定
@@ -338,8 +392,7 @@ public class GameManager : MonoBehaviour
 
                     case 3://反論
                         Debug.Log("正解");
-                        StartCoroutine(CurrentImage());
-                       // t_controller.TalkUI.SetActive(true);
+                        yield return StartCoroutine(CurrentImage());
                         isbattleloop = true;
                         t_controller.SetObject(makeConversations[8]);  
                         break;
@@ -355,11 +408,9 @@ public class GameManager : MonoBehaviour
                 {
                     case 1://肯定
                         Debug.Log("正解");
-                        StartCoroutine(CurrentImage());
-                       // t_controller.TalkUI.SetActive(true);
+                        yield return StartCoroutine(CurrentImage());
                         isbattleloop = true;
-                        t_controller.SetObject(makeConversations[9]);
-                        
+                        t_controller.SetObject(makeConversations[9]);                        
                         break;
                     case 2://否定
                         Debug.Log("不正解");
@@ -386,11 +437,9 @@ public class GameManager : MonoBehaviour
 
                     case 2://否定
                         Debug.Log("正解");
-                        StartCoroutine(CurrentImage());
-                        //t_controller.TalkUI.SetActive(true);
+                        yield return StartCoroutine(CurrentImage());
                         isbattleloop = true;
-                        t_controller.SetObject(makeConversations[12]);
-                        
+                        t_controller.SetObject(makeConversations[12]);                        
                         break;
 
                     case 3://謎
@@ -425,11 +474,9 @@ public class GameManager : MonoBehaviour
 
                     case 3://ネガティブ肯定
                         Debug.Log("正解");
-                        StartCoroutine(CurrentImage());
-                        //t_controller.TalkUI.SetActive(true);
+                        yield return StartCoroutine(CurrentImage());
                         isbattleloop = true;
                         t_controller.SetObject(makeConversations[16]);
-                       
                         break;
 
                     case 4://ネガティブ否定
@@ -440,7 +487,6 @@ public class GameManager : MonoBehaviour
                         break;
                 }
                 break;
-
         }
         Debug.Log("ここまで抜けた");
     }

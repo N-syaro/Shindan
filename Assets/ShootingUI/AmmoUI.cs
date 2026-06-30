@@ -7,7 +7,6 @@ public class AmmoUI : MonoBehaviour
     [SerializeField]
     GameObject[] ammos;
     
-
     [SerializeField]
     Preya_min preya_Min;
 

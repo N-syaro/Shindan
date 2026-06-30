@@ -10,9 +10,11 @@ public class enemy_sprn : MonoBehaviour
     public bool culafl = false;//クリアフラグ
     int pint = 0;//移動ポイントの数
     [SerializeField] bool next = false;//クリア用オブジェクトはtrue
-    [SerializeField] GameManager gameManager;
+     GameManager Gm;
+    Testshooting Ts;
     string ActiveSceneName;
     GameObject G_mana;
+    private bool isHitProcessing = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     // Update is called once per frame
@@ -20,10 +22,17 @@ public class enemy_sprn : MonoBehaviour
     {
         ActiveSceneName = SceneManager.GetActiveScene().name;
         G_mana = GameObject.Find("GameManager");
+        Gm = G_mana.GetComponent<GameManager>();
+        Ts = G_mana.GetComponent<Testshooting>();
     }
     private void OnCollisionEnter2D(Collision2D collision)//当たり判定
     {
+
         if (this.tag != "neo")
+        {
+            return;
+        }
+        if (isHitProcessing)
         {
             return;
         }
@@ -49,35 +58,36 @@ public class enemy_sprn : MonoBehaviour
                 {
                     case "Ballet1":
                         Debug.Log("弾1");
-                        G_mana.GetComponent<Testshooting>().HitReaction(true);
-                        G_mana.GetComponent<GameManager>().EndShooting(true);
-                        G_mana.GetComponent<GameManager>().HitBalletNumber(1);
+                        Ts.HitReaction(true);
+                        Gm.EndShooting(true);
+                        Gm.LoadImageCol(1);
                         
                         break;
                     case "Ballet2":
                         Debug.Log("弾2");
-                        G_mana.GetComponent<Testshooting>().HitReaction(true);
-                        G_mana.GetComponent<GameManager>().EndShooting(true);
-                        G_mana.GetComponent<GameManager>().HitBalletNumber(2);
-                        
+                        Ts.HitReaction(true);
+                        Gm.EndShooting(true);
+                        Gm.LoadImageCol(2);
                         break;
                     case "Ballet3":
                         Debug.Log("弾3");
-                        G_mana.GetComponent<Testshooting>().HitReaction(true);
-                        G_mana.GetComponent<GameManager>().EndShooting(true);
-                        G_mana.GetComponent<GameManager>().HitBalletNumber(3);
-                        
+                        Ts.HitReaction(true);
+                        Gm.EndShooting(true);
+                        Gm.LoadImageCol(3);
                         break;
                     case "Ballet4":
                         Debug.Log("弾4");
-                        G_mana.GetComponent<Testshooting>().HitReaction(true);
-                        G_mana.GetComponent<GameManager>().EndShooting(true);
-                        G_mana.GetComponent<GameManager>().HitBalletNumber(4);
-                        
+                        Ts.HitReaction(true);
+                        Gm.EndShooting(true);
+                        Gm.LoadImageCol(4);
                         break;
                 }
                 break;
         }
+    }
+    public void ResetHit()
+    {
+        isHitProcessing = false;
     }
     void Update()
     {

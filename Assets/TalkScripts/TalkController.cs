@@ -47,10 +47,7 @@ public class TalkController : MonoBehaviour
     public void SetObject(MakeConversation d)
     {
         if (d == null) { Debug.LogWarning("TextDataNull"); }
-       // if (c == null) { Debug.LogWarning("CharaDataNull"); }
-        Textdata = d;
-        //NPCData = c;
-        //gameManager.c(false);//âºè¡Çµ    
+        Textdata = d;    
         Talk();
     }
     void Talk()

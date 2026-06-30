@@ -29,7 +29,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7347996175561008246}
   m_Father: {fileID: 1907245485070726786}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -104,7 +105,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1358559988864228552}
   m_Father: {fileID: 1907245485070726786}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -254,7 +256,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3250141129131658656}
   m_Father: {fileID: 1907245485070726786}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -312,7 +315,7 @@ GameObject:
   - component: {fileID: 3989184778919944614}
   - component: {fileID: 2053147836784051359}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: ShootingUIPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -334,13 +337,9 @@ RectTransform:
   - {fileID: 4265615692876063061}
   - {fileID: 4182380242853618885}
   - {fileID: 6442964734656924349}
-  - {fileID: 7347996175561008246}
   - {fileID: 4563054961190169647}
-  - {fileID: 884850357231744347}
   - {fileID: 395065836981002194}
-  - {fileID: 1358559988864228552}
   - {fileID: 7269790192664400845}
-  - {fileID: 3250141129131658656}
   - {fileID: 8564130146858957198}
   - {fileID: 8616529241608178917}
   m_Father: {fileID: 0}
@@ -400,7 +399,7 @@ GameObject:
   - component: {fileID: 5882579764308496092}
   - component: {fileID: 7884175119532470404}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: AmmoText2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -418,11 +417,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1907245485070726786}
+  m_Father: {fileID: 4563054961190169647}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -776.75, y: -30}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 240, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5882579764308496092
@@ -554,7 +553,7 @@ GameObject:
   - component: {fileID: 2459278606910548198}
   - component: {fileID: 6106467000882832695}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: AmmoText1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -572,11 +571,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1907245485070726786}
+  m_Father: {fileID: 6442964734656924349}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -776.75, y: 120}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 240, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2459278606910548198
@@ -862,7 +861,7 @@ GameObject:
   - component: {fileID: 1745331768654853784}
   - component: {fileID: 5768754470531163541}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: AmmoText3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -880,11 +879,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1907245485070726786}
+  m_Father: {fileID: 395065836981002194}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -776.75, y: -180}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 240, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1745331768654853784
@@ -958,7 +957,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 884850357231744347}
   m_Father: {fileID: 1907245485070726786}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1016,7 +1016,7 @@ GameObject:
   - component: {fileID: 4576448909400315583}
   - component: {fileID: 4691957570125770915}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: AmmoText4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1034,11 +1034,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1907245485070726786}
+  m_Father: {fileID: 7269790192664400845}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -776.75, y: -330}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 240, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4576448909400315583

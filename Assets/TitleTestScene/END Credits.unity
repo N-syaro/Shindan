@@ -405,6 +405,8 @@ MonoBehaviour:
   TalkUI: {fileID: 2032199792}
   Talktext: {fileID: 600239531}
   Nametext: {fileID: 2080288359}
+  P_Image: {fileID: 0}
+  E_Image: {fileID: 0}
   PlayerImage: {fileID: 1948557509}
   FriendsImage: {fileID: 1155945263}
   conttext: {fileID: 600239528}
@@ -588,7 +590,10 @@ MonoBehaviour:
   Enemy_obj: []
   Exp_Panel: {fileID: 0}
   Exp_Image: {fileID: 0}
+  Current_Img: {fileID: 0}
   ShootingPanel: {fileID: 0}
+  AmmosUI: []
+  AmmosName: []
   mainloopcount: 0
   Enemycount: 0
   Conv_Count: 0
@@ -1320,6 +1325,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TalkPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 2540973550256199656, guid: 46abf47842062e94da3993630bb4870d, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8122642984910880954, guid: 46abf47842062e94da3993630bb4870d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1398,6 +1407,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8122642984910880954, guid: 46abf47842062e94da3993630bb4870d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8837824525935996126, guid: 46abf47842062e94da3993630bb4870d, type: 3}
+      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
