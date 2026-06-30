@@ -114,6 +114,7 @@ public class GameManager : MonoBehaviour
                             Exp_end = false;    
 
                             Debug.Log("シューティングゲーム開始");
+                            AmmoUIManagment(0);
                             t_controller.TalkUI.SetActive(false);
                             Enemycount = 0;
                             yield return StartCoroutine(Testshooting.S_Start(0));                            
@@ -129,6 +130,7 @@ public class GameManager : MonoBehaviour
                              
                             
                             Debug.Log("シューティングゲーム再突入");
+                            AmmoUIManagment(1);
                             Enemycount = 1;
                             yield return StartCoroutine(Testshooting.S_Start(1));
                         　　yield return new WaitUntil(() => endCount);// シューティング終了待ち
@@ -310,6 +312,21 @@ public class GameManager : MonoBehaviour
         Debug.Log("Ammos_mana読み込み");
         switch (sceneName)
         {
+            case "JP":
+                switch (BattleCount)
+                {
+                    case 0:
+                        AmmosUI[0].SetActive(false);
+                        AmmosUI[1].SetActive(false);
+                        AmmosUI[2].SetActive(false);
+                        AmmosUI[3].SetActive(false);
+                    break;
+                    case 1:
+                        AmmosUI[0].SetActive(true);
+                        AmmosName[0].text = "質問";
+                    break;
+                }               
+            break;
             case "JP Main":
                 switch(BattleCount)
                 {
