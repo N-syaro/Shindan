@@ -26,11 +26,11 @@ public class AmmoUI : MonoBehaviour
         float wh = Input.mouseScrollDelta.y;
         if (wh != 0)
         {
-            if (wh < 0)
+            if (wh > 0)
             {
                 uiBalet++;
             }
-            if (wh > 0) 
+            if (wh < 0) 
             {
                 uiBalet--;
             }
