@@ -2,10 +2,13 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 public class Preya_min : MonoBehaviour
 {
     //プレイヤー操作のスクリプト
+    [SerializeField]
+    Enm enm;
 
     Vector2 mousePos;
     Vector2 mouseworldPos;//マウスポインタ位置
@@ -19,7 +22,7 @@ public class Preya_min : MonoBehaviour
     public float ylimit=7.5f;
     bool hit = false;//ダメージ判定
     public GameObject[] bart;//弾丸のプレハブ
-
+    private string ActiveScene;
     private int balet ;//弾丸の種類
     private float wh;//マウスホイールの数値
     private bool faia=true;
@@ -33,7 +36,7 @@ public class Preya_min : MonoBehaviour
 
     private void Start()
     {
-       
+       ActiveScene = SceneManager.GetActiveScene().name;
         sp = GetComponent<SpriteRenderer>();
         Debug.Log("SpriteRenderer: " + sp);
         Debug.Log("このオブジェクト名: " + gameObject.name);
@@ -139,5 +142,32 @@ public class Preya_min : MonoBehaviour
             sp.enabled = true;
         }
         isHit = false;
+    }
+    public void SetFBattlephase(int BattlePhase)
+    {
+        switch (ActiveScene)
+        {
+            case "JP":
+                //フェーズごとに選択できる弾丸の数の調整と制限時間の設定
+                switch (BattlePhase)
+                {
+                    case 0://バトルフェーズ数
+                        enm.ResetToTime(0);//タイマーのリセット
+
+                        break;
+                }
+                break;
+            case "JP Main":
+                switch (BattlePhase)
+                {
+                    case 0://バトルフェーズ数
+                        enm.ResetToTime(0);//タイマーのリセット
+
+                        break;
+                }
+                break;
+        
+        }
+
     }
 }

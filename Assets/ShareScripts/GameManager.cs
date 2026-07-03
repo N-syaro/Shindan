@@ -341,11 +341,10 @@ public class GameManager : MonoBehaviour
                         AmmosName[2].text = "反論";
                         break;
                     case 3://バトル３
-                        AmmosUI[2].SetActive(false);
-                        break;
-                    case 4://バトル４
                         AmmosUI[2].SetActive(true);
                         AmmosName[2].text = "......";
+                        break;
+                    case 4://バトル４
                         break;
                     case 5://バトル５
                         AmmosUI[3].SetActive(true);
@@ -435,6 +434,12 @@ public class GameManager : MonoBehaviour
                         isIncorrect = true;
                         t_controller.SetObject(makeConversations[10]);
                         break;
+                    case 3://聞いてない
+                        Debug.Log("不正解");
+                        t_controller.TalkUI.SetActive(true);
+                        isIncorrect = true;
+                        t_controller.SetObject(makeConversations[13]);
+                        break;
                     default:
                         Debug.Log("回答以外の弾");
                         Talkend = true;
@@ -459,7 +464,7 @@ public class GameManager : MonoBehaviour
                         t_controller.SetObject(makeConversations[12]);                        
                         break;
 
-                    case 3://謎
+                    case 3://聞いてない
                         Debug.Log("不正解");
                         t_controller.TalkUI.SetActive(true);
                         isIncorrect = true;

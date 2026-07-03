@@ -111,6 +111,7 @@ public class TalkController : MonoBehaviour
                     if (hasValidImage)
                     {
                         PlayerImage.sprite = item.Talking_chara.Image[item.CHImageNum_];
+                        PlayerImage.preserveAspect = true;
                         PlayerImage.color = new Color(1, 1, 1, 1);
                         backlogLogTextList.Add((charaName, item.Talking_chara.Image[2/*2‚Í‰¼*/], item.TextData));
                     }
@@ -127,6 +128,7 @@ public class TalkController : MonoBehaviour
                     if (hasValidImage)
                     {
                         FriendsImage.sprite = item.Talking_chara.Image[item.CHImageNum_];
+                        FriendsImage.preserveAspect = true;
                         FriendsImage.color = new Color(1, 1, 1, 1);
                         backlogLogTextList.Add((charaName, FriendsImage.sprite, item.TextData));
                     }
