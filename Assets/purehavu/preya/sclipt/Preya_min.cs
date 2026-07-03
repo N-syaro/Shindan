@@ -27,6 +27,7 @@ public class Preya_min : MonoBehaviour
     private float wh;//マウスホイールの数値
     private bool faia=true;
     float taime = 0;//タイマー用の関数
+    private float bartcount = 0;
 
     [Header("点滅用")]
     float flashIntarval = 0.02f;
@@ -41,6 +42,7 @@ public class Preya_min : MonoBehaviour
         Debug.Log("SpriteRenderer: " + sp);
         Debug.Log("このオブジェクト名: " + gameObject.name);
         this.Rigidbody2D = GetComponent<Rigidbody2D>();
+         bartcount = bart.Length;
     }
 
     // Update is called once per frame
@@ -62,7 +64,7 @@ public class Preya_min : MonoBehaviour
                 balet--;
             }
             //範囲の指定
-            if(balet >= bart.Length) 
+            if(balet >=bartcount)　 //bart.Length) 
             {
                 balet = 0;
             }else if (balet < 0)
@@ -169,5 +171,9 @@ public class Preya_min : MonoBehaviour
         
         }
 
+    }
+    private void OnDisable()
+    {
+        bartcount = 0;
     }
 }
