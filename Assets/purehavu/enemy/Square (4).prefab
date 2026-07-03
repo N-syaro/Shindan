@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4762410051703667391}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 0, z: 0}
+  m_LocalPosition: {x: -5, y: 10, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -106,12 +106,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::enemy_sprn
   weipos:
-  - {x: 1, y: 0}
-  - {x: -10, y: 0}
-  mube: 4
+  - {x: -5, y: -10}
+  mube: 3
   culafl: 0
   next: 0
-  gameManager: {fileID: 0}
 --- !u!61 &3144032422845291667
 BoxCollider2D:
   m_ObjectHideFlags: 0

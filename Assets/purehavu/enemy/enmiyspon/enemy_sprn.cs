@@ -44,12 +44,14 @@ public class enemy_sprn : MonoBehaviour
                 {
                     if (G_mana != null)
                     {
+                        Gm.EnemyReset();
                         G_mana.GetComponent<GameManager>().EndShooting(true);
                     }
                     culafl = true;
                     Debug.Log(culafl);
                     Debug.Log("ìñÇΩÇ¡ÇΩÅIÅI");
                     G_mana.GetComponent<Testshooting>().HitReaction(true);
+                    
                 }
 
                 break;

@@ -111,7 +111,6 @@ MonoBehaviour:
   mube: 3
   culafl: 0
   next: 0
-  gameManager: {fileID: 0}
 --- !u!61 &6917799624763874945
 BoxCollider2D:
   m_ObjectHideFlags: 0
