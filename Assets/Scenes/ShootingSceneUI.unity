@@ -188,9 +188,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 372481483105046385, guid: 87625a4aeb3d01b4099b2328bbe66328, type: 3}
+      propertyPath: holdtm
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 372481483105046385, guid: 87625a4aeb3d01b4099b2328bbe66328, type: 3}
+      propertyPath: poshold
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 372481483105046385, guid: 87625a4aeb3d01b4099b2328bbe66328, type: 3}
+      propertyPath: sp_delay
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6709039165275460961, guid: 87625a4aeb3d01b4099b2328bbe66328, type: 3}
       propertyPath: m_Name
       value: priya
+      objectReference: {fileID: 0}
+    - target: {fileID: 6709039165275460961, guid: 87625a4aeb3d01b4099b2328bbe66328, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8657828326927109853, guid: 87625a4aeb3d01b4099b2328bbe66328, type: 3}
       propertyPath: m_LocalPosition.x

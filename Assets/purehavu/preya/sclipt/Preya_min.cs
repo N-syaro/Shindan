@@ -19,11 +19,20 @@ public class Preya_min : MonoBehaviour
     public float ylimit=7.5f;
     bool hit = false;//ダメージ判定
     public GameObject[] bart;//弾丸のプレハブ
+    [SerializeField] float sp_delay=0.3f;//動き出すまでの時間
+    [SerializeField] float holdtm = 0.5f;//止まっている判定の時間
+    [SerializeField] float poshold = 0.3f;//動きの誤差の許容値
 
     private int balet ;//弾丸の種類
     private float wh;//マウスホイールの数値
     private bool faia=true;
     float taime = 0;//タイマー用の関数
+    private Vector3 holdposition;//位置記録用
+    float counttaime=0.0f;//経過時間
+    bool istriggered;//連続実行ブロック
+    float dleitaime =0.0f;//動き出すまでのカウント
+
+    
 
     [Header("点滅用")]
     float flashIntarval = 0.02f;
@@ -38,6 +47,8 @@ public class Preya_min : MonoBehaviour
         Debug.Log("SpriteRenderer: " + sp);
         Debug.Log("このオブジェクト名: " + gameObject.name);
         this.Rigidbody2D = GetComponent<Rigidbody2D>();
+        holdposition = transform.position;
+
     }
 
     // Update is called once per frame
@@ -46,8 +57,13 @@ public class Preya_min : MonoBehaviour
         //マウスポインタの変換
         mousePos = Input.mousePosition;
         mouseworldPos = Camera.main.ScreenToWorldPoint(mousePos);
+        //現在位置の記録
+        float movement =Vector3.Distance(transform.position, holdposition);
+
         
-        wh = Input.mouseScrollDelta.y;//マウスホイール取得
+       
+
+            wh = Input.mouseScrollDelta.y;//マウスホイール取得
        if (wh !=0)//弾丸選択
        {    //マウスホイールの移動
             if (wh < 0) 
@@ -69,16 +85,45 @@ public class Preya_min : MonoBehaviour
        }
         
         if (point)//キャラ操作用
-        {//マウスの位置へ向けて移動する
-            transform.position = Vector2.MoveTowards(transform.position, mouseworldPos, sped * Time.deltaTime);
-          
+        {
+            
+
+            dleitaime += Time.deltaTime;
+
+            if (dleitaime >= sp_delay)
+            {
+                Debug.Log("移動");
+                //マウスの位置へ向けて移動する
+                transform.position = Vector2.MoveTowards(transform.position, mouseworldPos, sped * Time.deltaTime);
+            }
+            if (movement < poshold)
+            {
+                if (!istriggered)
+                {
+                    counttaime += Time.deltaTime;
+                    if (counttaime >= holdtm)
+                    {
+                        dleitaime = 0.0f;
+                        istriggered = true;
+                        Debug.Log("リセット");
+                    }
+                }
+
+            }
+            else
+            {
+                counttaime = 0.0f;
+                istriggered = false;
+            }
+
+            holdposition = transform.position;
             Vector2 pozi = transform.position;
             pozi.x =Mathf.Clamp(pozi.x,-xlimit,xlimit);
             pozi.y =Mathf.Clamp(pozi.y,-ylimit,ylimit);
             transform.position = pozi;
             taime += Time.deltaTime;
-          
-            if(Input.GetMouseButtonDown(0))
+            
+            if (Input.GetMouseButtonDown(0))
             { //弾丸発射入力 
                 if(faia)
                 {
