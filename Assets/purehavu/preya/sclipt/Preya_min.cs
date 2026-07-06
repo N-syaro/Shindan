@@ -19,6 +19,7 @@ public class Preya_min : MonoBehaviour
     public float ylimit=7.5f;
     bool hit = false;//ダメージ判定
     public GameObject[] bart;//弾丸のプレハブ
+    private float bartcount = 0;//球数カウント
 
     private int balet ;//弾丸の種類
     private float wh;//マウスホイールの数値
@@ -38,6 +39,7 @@ public class Preya_min : MonoBehaviour
         Debug.Log("SpriteRenderer: " + sp);
         Debug.Log("このオブジェクト名: " + gameObject.name);
         this.Rigidbody2D = GetComponent<Rigidbody2D>();
+        bartcount=bart.Length;
     }
 
     // Update is called once per frame
@@ -59,7 +61,7 @@ public class Preya_min : MonoBehaviour
                 balet--;
             }
             //範囲の指定
-            if(balet >= bart.Length) 
+            if(balet >= bartcount)//bart.Lenght) 
             {
                 balet = 0;
             }else if (balet < 0)
@@ -139,5 +141,10 @@ public class Preya_min : MonoBehaviour
             sp.enabled = true;
         }
         isHit = false;
+    }
+
+    private void OnDisable()
+    {
+        bartcount = 0;
     }
 }
