@@ -2,13 +2,10 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
-using UnityEngine.SceneManagement;
 
 public class Preya_min : MonoBehaviour
 {
     //プレイヤー操作のスクリプト
-    [SerializeField]
-    Enm enm;
 
     Vector2 mousePos;
     Vector2 mouseworldPos;//マウスポインタ位置
@@ -22,13 +19,12 @@ public class Preya_min : MonoBehaviour
     public float ylimit=7.5f;
     bool hit = false;//ダメージ判定
     public GameObject[] bart;//弾丸のプレハブ
-    private string ActiveScene;
+    private float bartcount = 0;//球数カウント
+
     private int balet ;//弾丸の種類
     private float wh;//マウスホイールの数値
     private bool faia=true;
     float taime = 0;//タイマー用の関数
-    private float bartcount = 0;
-    private int phazecount = 0;
 
     [Header("点滅用")]
     float flashIntarval = 0.02f;
@@ -38,12 +34,12 @@ public class Preya_min : MonoBehaviour
 
     private void Start()
     {
-       ActiveScene = SceneManager.GetActiveScene().name;
+       
         sp = GetComponent<SpriteRenderer>();
         Debug.Log("SpriteRenderer: " + sp);
         Debug.Log("このオブジェクト名: " + gameObject.name);
         this.Rigidbody2D = GetComponent<Rigidbody2D>();
-         bartcount = bart.Length;
+        bartcount=bart.Length;
     }
 
     // Update is called once per frame
@@ -65,7 +61,7 @@ public class Preya_min : MonoBehaviour
                 balet--;
             }
             //範囲の指定
-            if(balet >=bartcount)　 //bart.Length) 
+            if(balet >= bartcount)//bart.Lenght) 
             {
                 balet = 0;
             }else if (balet < 0)
@@ -88,11 +84,6 @@ public class Preya_min : MonoBehaviour
             { //弾丸発射入力 
                 if(faia)
                 {
-                    if(ActiveScene == "JP")
-                    {
-                        if(phazecount == 0)
-                        { return; }
-                    }
                     Debug.Log("弾を打ちました");
                     Shot();
                     faia = false;
@@ -151,38 +142,7 @@ public class Preya_min : MonoBehaviour
         }
         isHit = false;
     }
-    public void SetBattlephase(int BattlePhase)
-    {
-        switch (ActiveScene)
-        {
-            case "JP":
-                //フェーズごとに選択できる弾丸の数の調整と制限時間の設定
-                switch (BattlePhase)
-                {
-                    case 0://バトルフェーズ数
-                       // enm.ResetToTime(0);//タイマーのリセット
 
-                    break;
-
-                    case 1:
-                        phazecount = 1;
-                        //enm.ResetToTime(1);
-                    break;
-                }
-                break;
-            case "JP Main":
-                switch (BattlePhase)
-                {
-                    case 0://バトルフェーズ数
-                        enm.ResetToTime(0);//タイマーのリセット
-
-                        break;
-                }
-                break;
-        
-        }
-
-    }
     private void OnDisable()
     {
         bartcount = 0;
