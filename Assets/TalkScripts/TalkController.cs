@@ -100,8 +100,22 @@ public class TalkController : MonoBehaviour
                 Nametext.enabled = true;
                 PlayerImage.enabled = true;
                 FriendsImage.enabled = true;
-                PlayerImage.color = new Color(0.5f, 0.5f, 0.5f, 1);
-                FriendsImage.color = new Color(0.5f, 0.5f, 0.5f, 1);
+                if (PlayerImage.sprite == null)
+                {
+                    PlayerImage.color = new Color(0, 0, 0, 0);
+                }
+                else
+                {
+                    PlayerImage.color = new Color(0.5f, 0.5f, 0.5f, 1);
+                }
+                if(FriendsImage.sprite == null)
+                {
+                    FriendsImage.color = new Color(0,0,0,0);  
+                }
+                else
+                {
+                    FriendsImage.color = new Color(0.5f, 0.5f, 0.5f, 1);
+                }
               
                 string charaName = item.Talking_chara?.Name ?? "";
                 Nametext.text = charaName;

@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     TalkController t_controller;//トークコントローラー（会話制御スクリプト）
     [SerializeField]
     Testshooting Testshooting;
+    [SerializeField]
+    Preya_min player_;
     [Header("データ参照")]
     [SerializeField]
     MakeConversation[] makeConversations;//会話データ配列(体験版使用)本番はリスト化したい
@@ -115,6 +117,7 @@ public class GameManager : MonoBehaviour
 
                             Debug.Log("シューティングゲーム開始");
                             AmmoUIManagment(0);
+                            
                             t_controller.TalkUI.SetActive(false);
                             Enemycount = 0;
                             yield return StartCoroutine(Testshooting.S_Start(0));                            

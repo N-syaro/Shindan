@@ -765,6 +765,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Testshooting
   fall: {fileID: 677711257}
   com: {fileID: 677711259}
+  Player_: {fileID: 717784532}
   player: {fileID: 717784527}
   Enemy:
   - {fileID: 1919322169}
@@ -784,6 +785,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   t_controller: {fileID: 492223868}
   Testshooting: {fileID: 492223871}
+  player_: {fileID: 0}
   makeConversations:
   - {fileID: 11400000, guid: ee1d23c951931834d87a405ae3d901ed, type: 2}
   - {fileID: 11400000, guid: 4a517cd439a126a42bb648b6bf204298, type: 2}

@@ -28,6 +28,7 @@ public class Preya_min : MonoBehaviour
     private bool faia=true;
     float taime = 0;//タイマー用の関数
     private float bartcount = 0;
+    private int phazecount = 0;
 
     [Header("点滅用")]
     float flashIntarval = 0.02f;
@@ -87,6 +88,11 @@ public class Preya_min : MonoBehaviour
             { //弾丸発射入力 
                 if(faia)
                 {
+                    if(ActiveScene == "JP")
+                    {
+                        if(phazecount == 0)
+                        { return; }
+                    }
                     Debug.Log("弾を打ちました");
                     Shot();
                     faia = false;
@@ -145,7 +151,7 @@ public class Preya_min : MonoBehaviour
         }
         isHit = false;
     }
-    public void SetFBattlephase(int BattlePhase)
+    public void SetBattlephase(int BattlePhase)
     {
         switch (ActiveScene)
         {
@@ -154,9 +160,14 @@ public class Preya_min : MonoBehaviour
                 switch (BattlePhase)
                 {
                     case 0://バトルフェーズ数
-                        enm.ResetToTime(0);//タイマーのリセット
+                       // enm.ResetToTime(0);//タイマーのリセット
 
-                        break;
+                    break;
+
+                    case 1:
+                        phazecount = 1;
+                        //enm.ResetToTime(1);
+                    break;
                 }
                 break;
             case "JP Main":

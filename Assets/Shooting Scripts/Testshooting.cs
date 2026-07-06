@@ -7,6 +7,8 @@ public class Testshooting : MonoBehaviour
     public Shootingstart fall;
     GameManager gameManager;
     public Shootingcom com;
+    [SerializeField]
+    Preya_min Player_;
     public GameObject player;
     public GameObject[] Enemy;
 
@@ -19,6 +21,7 @@ public class Testshooting : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         player.SetActive(true);
         Enemy[i].SetActive(true);
+        Player_.SetBattlephase(i);   
         //com.StartGame();
         yield return new WaitUntil(() => isHit);
         isHit = false;
