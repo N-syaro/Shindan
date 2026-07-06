@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2062398652600227379}
   m_Layer: 0
   m_Name: Circle 4
-  m_TagString: Ballet1
+  m_TagString: Ballet4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

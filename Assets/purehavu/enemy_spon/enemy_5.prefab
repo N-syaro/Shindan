@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7859497343770323499
+--- !u!1 &3553889301742408745
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6802020396855181773}
-  - component: {fileID: 6643246299947039696}
+  - component: {fileID: 1277311228591281953}
+  - component: {fileID: 4700009506405193260}
   m_Layer: 0
   m_Name: enemy_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6802020396855181773
+  m_IsActive: 0
+--- !u!4 &1277311228591281953
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7859497343770323499}
+  m_GameObject: {fileID: 3553889301742408745}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.01459, y: -2.55777, z: 0}
@@ -32,13 +32,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6643246299947039696
+--- !u!114 &4700009506405193260
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7859497343770323499}
+  m_GameObject: {fileID: 3553889301742408745}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a5f9ecd976d7c864494c3e5741a15963, type: 3}
@@ -47,10 +47,24 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   stat: 1
   enemiobuject:
-  - {fileID: 1830444851154177759, guid: 25eff9f7806bece478acc6f7bee364fc, type: 3}
-  - {fileID: 622250625303556928, guid: 8a0e0611c9c331c47a39569293ff0483, type: 3}
-  - {fileID: 5494060773546856268, guid: bed82c5b48261b541a7f6963e74c2580, type: 3}
+  - {fileID: 2903007870557066865, guid: 41042af30110a25408c854509d847f8a, type: 3}
+  - {fileID: 2589397398917072235, guid: b97bd5d1c2372cb499bf375b30c4c7c0, type: 3}
+  - {fileID: 5266250568479550607, guid: 9eebb2d0d5b78684f9af85a5ea8a3f13, type: 3}
+  - {fileID: 3221364274516005026, guid: 64615d023dbc4ca4cb9b1b2343775402, type: 3}
+  - {fileID: 6094233270177966795, guid: 0a9b87b5cc2d7e54f9f391f9644349b2, type: 3}
+  - {fileID: 4503857985925401148, guid: ef493ef9a7e19094aacd356026905f8f, type: 3}
+  - {fileID: 7568927711287677650, guid: c48e2b62f143a484fa06572fdee92bbc, type: 3}
+  - {fileID: 4339335865633811204, guid: 3094dfffdc61eae458955d8a312b4c3c, type: 3}
+  - {fileID: 8785792715039904078, guid: 69264d5c6084aab47ac0d2accf390f31, type: 3}
+  - {fileID: 5415466358066244314, guid: f353880eb380f944ea1a602be275299e, type: 3}
   spulnt:
-  - 1
   - 2
-  - 3
+  - 4
+  - 6
+  - 8
+  - 10
+  - 12
+  - 14
+  - 16
+  - 17
+  - 18
