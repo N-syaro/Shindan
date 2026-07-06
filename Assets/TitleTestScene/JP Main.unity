@@ -881,6 +881,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Testshooting
   fall: {fileID: 677711257}
   com: {fileID: 677711259}
+  Player_: {fileID: 1194786874}
   player: {fileID: 1194786870}
   Enemy:
   - {fileID: 688157682}
@@ -903,6 +904,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   t_controller: {fileID: 492223868}
   Testshooting: {fileID: 492223871}
+  player_: {fileID: 1194786874}
   makeConversations:
   - {fileID: 11400000, guid: 656b193139c18294fb15a5504fd3d10c, type: 2}
   - {fileID: 11400000, guid: 02550aac04892d44091f255e6d22630c, type: 2}
@@ -1186,6 +1188,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2403642158535277399, guid: 68b47b680f3d3f54f94ffe0a0c96d660, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 492223872}
     - target: {fileID: 3340450951452966620, guid: 68b47b680f3d3f54f94ffe0a0c96d660, type: 3}
       propertyPath: m_LocalPosition.x
       value: 18.03522
