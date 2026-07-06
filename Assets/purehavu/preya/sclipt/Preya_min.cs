@@ -2,9 +2,12 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 public class Preya_min : MonoBehaviour
 {
+    [SerializeField]
+    Enm enm;
     //プレイヤー操作のスクリプト
 
     Vector2 mousePos;
@@ -20,6 +23,8 @@ public class Preya_min : MonoBehaviour
     bool hit = false;//ダメージ判定
     public GameObject[] bart;//弾丸のプレハブ
     private float bartcount = 0;//球数カウント
+    private string ActiveScene;
+    private int phazecount = 0;
 
     private int balet ;//弾丸の種類
     private float wh;//マウスホイールの数値
@@ -34,7 +39,7 @@ public class Preya_min : MonoBehaviour
 
     private void Start()
     {
-       
+        ActiveScene = SceneManager.GetActiveScene().name;
         sp = GetComponent<SpriteRenderer>();
         Debug.Log("SpriteRenderer: " + sp);
         Debug.Log("このオブジェクト名: " + gameObject.name);
@@ -84,6 +89,11 @@ public class Preya_min : MonoBehaviour
             { //弾丸発射入力 
                 if(faia)
                 {
+                    if (ActiveScene == "JP")
+                    {
+                        if (phazecount == 0)
+                        { return; }
+                    }
                     Debug.Log("弾を打ちました");
                     Shot();
                     faia = false;
@@ -110,9 +120,7 @@ public class Preya_min : MonoBehaviour
         Rigidbody2D bllet2d= newbalet.GetComponent<Rigidbody2D>();
         bllet2d.AddForce(this.transform.up* brsp);
         //Destroy(newbalet, dstm);
-
-    }
-    
+    }   
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (isHit)
@@ -142,7 +150,37 @@ public class Preya_min : MonoBehaviour
         }
         isHit = false;
     }
+    public void SetBattlephase(int BattlePhase)
+    {
+        switch (ActiveScene)
+        {
+            case "JP":
+                //フェーズごとに選択できる弾丸の数の調整と制限時間の設定
+                switch (BattlePhase)
+                {
+                    case 0://バトルフェーズ数
+                          // enm.ResetToTime(0);//タイマーのリセット
+                        break;
 
+                    case 1:
+                        phazecount = 1;
+                        //enm.ResetToTime(1);
+                        break;
+                }
+                break;
+            case "JP Main":
+                switch (BattlePhase)
+                {
+                    case 0://バトルフェーズ数
+                        enm.ResetToTime(0);//タイマーのリセット
+
+                        break;
+                }
+                break;
+
+        }
+
+    }
     private void OnDisable()
     {
         bartcount = 0;

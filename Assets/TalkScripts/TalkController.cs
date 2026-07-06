@@ -38,8 +38,7 @@ public class TalkController : MonoBehaviour
         TalkUI.SetActive(false);
     }
     private void Start()
-    {
-        
+    {      
        // Manage();
     }
     public void SetObject(MakeConversation d)

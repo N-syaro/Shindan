@@ -116,8 +116,7 @@ public class GameManager : MonoBehaviour
                             Exp_end = false;    
 
                             Debug.Log("シューティングゲーム開始");
-                            AmmoUIManagment(0);
-                            
+                            AmmoUIManagment(0);                            
                             t_controller.TalkUI.SetActive(false);
                             Enemycount = 0;
                             yield return StartCoroutine(Testshooting.S_Start(0));                            
