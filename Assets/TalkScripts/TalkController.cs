@@ -42,8 +42,6 @@ public class TalkController : MonoBehaviour
         
        // Manage();
     }
- 
-
     public void SetObject(MakeConversation d)
     {
         if (d == null) { Debug.LogWarning("TextDataNull"); }
@@ -190,19 +188,4 @@ public class TalkController : MonoBehaviour
         }
         return backlogLogTextList;
     }
-    /*  public void c(bool a)  gamemanager‚É‹L“üiUI‘€ì‚ÌØ‚è‘Ö‚¦)
-      {
-          if (a)
-          {
-              Ui.enabled = !a;
-              player.enabled = a;
-          }
-          else
-          {
-              player.enabled = a;
-              Ui.enabled = !a;
-          }
-
-      
-      }*/
 }
