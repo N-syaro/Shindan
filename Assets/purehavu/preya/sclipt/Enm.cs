@@ -101,4 +101,21 @@ public class Enm : MonoBehaviour
         }
         isHit = false;
     }
+    public void ResetToTime(int BattlePhase)
+    {
+       switch(scenename)
+        {
+            case "JP":
+
+           Å@   break;
+            case "JP Main":
+                switch (BattlePhase)
+                {
+                    case 0:
+
+                    break;
+                }
+                break;
+        }
+    }
 }
