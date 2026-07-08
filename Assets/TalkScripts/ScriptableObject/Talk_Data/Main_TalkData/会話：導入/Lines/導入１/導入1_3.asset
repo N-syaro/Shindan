@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: "\u5C0E\u51651_3"
   m_EditorClassIdentifier: 
   TextData: "\u8EAB\u306B\u899A\u3048\u306E\u306A\u3044\u5B66\u6821\u306B\u50D5\u306F\u3044\u305F\u3002"
-  Side: 0
-  Talking_chara: {fileID: 0}
+  Side: 1
+  Talking_chara: {fileID: 11400000, guid: ded8c1da108e22949aacd4bbff097354, type: 2}
   CHImageNum_: 0
   SceneName: 
+  IsTalkEnd: 0
