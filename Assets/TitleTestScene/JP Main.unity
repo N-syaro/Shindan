@@ -1350,15 +1350,15 @@ PrefabInstance:
     - target: {fileID: 1839876100494194071, guid: 0c4ed67cfeaf28c48b97b748a203705d, type: 3}
       propertyPath: 'bart.Array.data[1]'
       value: 
-      objectReference: {fileID: 4785635057628691438, guid: 248c9c0f63383be44870cd08a04cf78f, type: 3}
+      objectReference: {fileID: 1957253816760516541, guid: 0c34e64a1cd28184fb418993c1075702, type: 3}
     - target: {fileID: 1839876100494194071, guid: 0c4ed67cfeaf28c48b97b748a203705d, type: 3}
       propertyPath: 'bart.Array.data[2]'
       value: 
-      objectReference: {fileID: 8352446950663639077, guid: e9659e3bdfc538044a8e3bb27fc656f1, type: 3}
+      objectReference: {fileID: 1957253816760516541, guid: c2089fc5c567c654e8476d3f1ae4405b, type: 3}
     - target: {fileID: 1839876100494194071, guid: 0c4ed67cfeaf28c48b97b748a203705d, type: 3}
       propertyPath: 'bart.Array.data[3]'
       value: 
-      objectReference: {fileID: 7381547753755427899, guid: 7ccd0eb37b34ccd41a779373cafed1fd, type: 3}
+      objectReference: {fileID: 1957253816760516541, guid: 03218567da0ecef4c9e453c1963db5bb, type: 3}
     - target: {fileID: 1994328253959564223, guid: 0c4ed67cfeaf28c48b97b748a203705d, type: 3}
       propertyPath: m_Enabled
       value: 0
