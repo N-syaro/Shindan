@@ -57,11 +57,11 @@ public class Preya_min : MonoBehaviour
         wh = Input.mouseScrollDelta.y;//マウスホイール取得
        if (wh !=0)//弾丸選択
        {    //マウスホイールの移動
-            if (wh < 0) 
+            if (wh > 0) 
             {
                 balet++;
             }
-            if (wh > 0) 
+            if (wh < 0) 
             {
                 balet--;
             }

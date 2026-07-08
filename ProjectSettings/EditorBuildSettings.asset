@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/TitleTestScene/Bad END.unity
     guid: f9ead77a34afc704b8930724cbd6c9bf
+  - enabled: 1
+    path: Assets/Scenes/Gallery.unity
+    guid: 9144079d040d1bd48b44e432b4c9a1b5
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
