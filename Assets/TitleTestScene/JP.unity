@@ -568,6 +568,7 @@ GameObject:
   - component: {fileID: 492223870}
   - component: {fileID: 492223871}
   - component: {fileID: 492223872}
+  - component: {fileID: 492223873}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -607,6 +608,7 @@ MonoBehaviour:
   Nametext: {fileID: 1209155918}
   P_Image: {fileID: 0}
   E_Image: {fileID: 0}
+  NameUI: {fileID: 1228920706}
   PlayerImage: {fileID: 946201723}
   FriendsImage: {fileID: 1183704117}
   conttext: {fileID: 1927479703}
@@ -821,6 +823,22 @@ MonoBehaviour:
   Exp_end: 0
   Exp2_end: 0
   NextScene: 
+--- !u!114 &492223873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492223865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a50c1e73eb758784296b2e5ce1935a0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StillPopUp
+  T_deray: {fileID: 1927479703}
+  StillImage: {fileID: 154559911409225203}
+  Still_Image: {fileID: 0}
+  Still_Sprite: []
 --- !u!224 &554202663 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1907245485070726786, guid: 5eec1ece2d4d27f48a1d8b0ad64985ac, type: 3}
@@ -1376,6 +1394,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216606486}
   m_CullTransparentMesh: 1
+--- !u!1 &1228920706 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5883611471211350013, guid: 46abf47842062e94da3993630bb4870d, type: 3}
+  m_PrefabInstance: {fileID: 154559911409225202}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1232049517
 GameObject:
   m_ObjectHideFlags: 0
@@ -2091,6 +2114,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1485445607}
     m_Modifications:
+    - target: {fileID: 899822436823677323, guid: 46abf47842062e94da3993630bb4870d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1567218307808746151, guid: 46abf47842062e94da3993630bb4870d, type: 3}
       propertyPath: m_Name
       value: TalkPanel
@@ -2100,6 +2127,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2540973550256199656, guid: 46abf47842062e94da3993630bb4870d, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2748581490060161486, guid: 46abf47842062e94da3993630bb4870d, type: 3}
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
@@ -2134,6 +2165,22 @@ PrefabInstance:
     - target: {fileID: 5065343705010402248, guid: 46abf47842062e94da3993630bb4870d, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.0021629
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467790943657849620, guid: 46abf47842062e94da3993630bb4870d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1963.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467790943657849620, guid: 46abf47842062e94da3993630bb4870d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1115.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467790943657849620, guid: 46abf47842062e94da3993630bb4870d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.022107
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467790943657849620, guid: 46abf47842062e94da3993630bb4870d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.002655
       objectReference: {fileID: 0}
     - target: {fileID: 5496002380772133395, guid: 46abf47842062e94da3993630bb4870d, type: 3}
       propertyPath: m_SizeDelta.x
@@ -2256,6 +2303,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46abf47842062e94da3993630bb4870d, type: 3}
+--- !u!1 &154559911409225203 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 899822436823677323, guid: 46abf47842062e94da3993630bb4870d, type: 3}
+  m_PrefabInstance: {fileID: 154559911409225202}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

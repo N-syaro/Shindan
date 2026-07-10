@@ -13,6 +13,7 @@ public class TalkController : MonoBehaviour
     [SerializeField] Text Nametext;
     [SerializeField] GameObject P_Image;
     [SerializeField] GameObject E_Image;
+    [SerializeField] GameObject NameUI;
    [SerializeField] Image PlayerImage;
    [SerializeField] Image FriendsImage;
     [Header("‹@”\ŽQÆ")]
@@ -114,8 +115,10 @@ public class TalkController : MonoBehaviour
                     FriendsImage.color = new Color(0.5f, 0.5f, 0.5f, 1);
                 }
               
-                string charaName = item.Talking_chara?.Name ?? "";
+                string charaName = item.Talking_chara?.Name ?? "";               
                 Nametext.text = charaName;
+                bool hasName = !string.IsNullOrEmpty(charaName);
+                NameUI.SetActive(hasName);
                 bool hasValidImage = item.Talking_chara?.Image != null && item.Talking_chara.Image.Length > item.CHImageNum_ &&item.Talking_chara.Image[item.CHImageNum_] != null;
                 if (item.Side)
                 {
