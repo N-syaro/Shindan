@@ -16,6 +16,10 @@ public class AmmoUI : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if (ammos.Length > 0 && !IsActiveAmmo(uiBalet))
+        {
+            FindNextActive(1); // 前方に探す
+        }
         UpdateScale();
     }
 
@@ -25,32 +29,61 @@ public class AmmoUI : MonoBehaviour
         float wh = Input.mouseScrollDelta.y;
         if (wh != 0)
         {
-            if (wh > 0)
-            {
-                uiBalet++;
-            }
-            if (wh < 0) 
-            {
-                uiBalet--;
-            }
-            
-            int maxLenght = preya_Min.bart.Length;
+            int direction = wh > 0 ? 1 : -1;
 
-            if (uiBalet >= maxLenght) 
-            {
-                uiBalet = 0;
-            }
-            else if (uiBalet < 0) 
-            {
-                uiBalet = maxLenght - 1;
-            }
+            // 非アクティブなものをスキップして次の要素を探す
+            FindNextActive(direction);
+
             UpdateScale();
         }
 
 
+    }
 
-        
+    void FindNextActive(int direction)
+    {
+        int maxLenght = ammos.Length; // 基準をammosの数に合わせます
+        if (maxLenght == 0) return;
 
+        int originalBalet = uiBalet;
+        bool foundActive = false;
+
+        while (!foundActive)
+        {
+            // インデックスの増減
+            uiBalet += direction;
+
+            // 境界チェック（ループ処理）
+            if (uiBalet >= maxLenght)
+            {
+                uiBalet = 0;
+            }
+            else if (uiBalet < 0)
+            {
+                uiBalet = maxLenght - 1;
+            }
+
+            // 指定したインデックスのAmmoがアクティブかチェック
+            if (IsActiveAmmo(uiBalet))
+            {
+                foundActive = true;
+            }
+
+            // 1周してもアクティブなものがなければ無限ループを防ぐために抜ける
+            if (uiBalet == originalBalet)
+            {
+                break;
+            }
+        }
+    }
+
+    bool IsActiveAmmo(int index)
+    {
+        if (index < 0 || index >= ammos.Length) return false;
+
+        GameObject ammo = ammos[index];
+        // GameObjectが存在し、かつヒエラルキー上でアクティブ（表示状態）であるか
+        return ammo != null && ammo.activeInHierarchy;
     }
 
 
@@ -59,6 +92,11 @@ public class AmmoUI : MonoBehaviour
         for (int i = 0; i < ammos.Length; i++)
         {
             if (ammos[i] == null) continue;
+            // 非アクティブなものは拡大縮小の更新をスキップ
+            if (!ammos[i].activeInHierarchy)
+            {
+                continue;
+            }
 
             Image ammoImage = ammos[i].GetComponent<Image>();
 

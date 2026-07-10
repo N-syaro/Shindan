@@ -15,7 +15,6 @@ public class StillPopUp : MonoBehaviour
     void Start()
     {
         Scenename = SceneManager.GetActiveScene().name;
-        StillImage = GameObject.Find("StillImage");
         if(StillImage != null)
         {
             StillImage.SetActive(false);
@@ -34,14 +33,16 @@ public class StillPopUp : MonoBehaviour
         {
             case "JP"://導入
                 {
-                    if (T_deray.currentText =="小さなラクダみたいなマスコットが話しかけてくる。")
+                    Debug.Log("JP用処理");
+                    if (T_deray.currentText == "小さなラクダみたいなマスコットが話しかけてくる。 ")
                     {//後で色変え処理を書きたい
+                        Debug.Log("スチル立ち上げ");
                         Still_Image.sprite = Still_Sprite[0];
                         Still_Image .color = new Color(1, 1, 1, 1);
                         Still_Image.preserveAspect = true;
                         StillImage.SetActive(true);
                     }
-                    else if(T_deray.currentText =="（こぶりボン？の話に耳を傾けた。）")
+                    else if(T_deray.currentText == "その刹那。")
                     {
                         StillImage.SetActive(false);
                     }
