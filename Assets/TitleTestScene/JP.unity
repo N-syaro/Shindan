@@ -903,8 +903,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StillPopUp
   T_deray: {fileID: 1927479703}
   StillImage: {fileID: 154559911409225203}
-  Still_Image: {fileID: 0}
-  Still_Sprite: []
+  Still_Image: {fileID: 154559911409225204}
+  Still_Sprite:
+  - {fileID: 7040152586507487623, guid: 374fad0add856db44aab3679c0d9fcf6, type: 3}
 --- !u!224 &554202663 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1907245485070726786, guid: 5eec1ece2d4d27f48a1d8b0ad64985ac, type: 3}
@@ -2327,6 +2328,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 899822436823677323, guid: 46abf47842062e94da3993630bb4870d, type: 3}
   m_PrefabInstance: {fileID: 154559911409225202}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &154559911409225204 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2748581490060161486, guid: 46abf47842062e94da3993630bb4870d, type: 3}
+  m_PrefabInstance: {fileID: 154559911409225202}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154559911409225203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

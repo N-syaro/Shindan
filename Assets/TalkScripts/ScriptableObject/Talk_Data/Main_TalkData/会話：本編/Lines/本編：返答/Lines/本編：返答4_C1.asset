@@ -15,6 +15,6 @@ MonoBehaviour:
   TextData: "\u30FB\u30FB\u30FB\u30FB\u30FB\u30FB\u5148\u751F\uFF1F\u805E\u3044\u3066\u307E\u3059\u304B\uFF1F"
   Side: 0
   Talking_chara: {fileID: 11400000, guid: 469f0900844b39540b366b71de5d73e2, type: 2}
-  CHImageNum_: 0
+  CHImageNum_: 16
   SceneName: 
   IsTalkEnd: 0

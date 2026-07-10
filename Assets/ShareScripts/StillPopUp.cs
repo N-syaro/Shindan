@@ -36,8 +36,9 @@ public class StillPopUp : MonoBehaviour
                 {
                     if (T_deray.currentText =="小さなラクダみたいなマスコットが話しかけてくる。")
                     {//後で色変え処理を書きたい
-                        Still_Image .color = new Color(1, 1, 1, 1);
                         Still_Image.sprite = Still_Sprite[0];
+                        Still_Image .color = new Color(1, 1, 1, 1);
+                        Still_Image.preserveAspect = true;
                         StillImage.SetActive(true);
                     }
                     else if(T_deray.currentText =="（こぶりボン？の話に耳を傾けた。）")
