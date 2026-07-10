@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &94243446115502425
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4369979008848843374}
+  - component: {fileID: 1544486518943258875}
+  m_Layer: 0
+  m_Name: enemy_0 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4369979008848843374
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94243446115502425}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.01459, y: -2.55777, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1544486518943258875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94243446115502425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5f9ecd976d7c864494c3e5741a15963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::gemu_obuge
+  gameManager: {fileID: 0}
+  stat: 1
+  enemiobuject:
+  - {fileID: 2023132951647442229, guid: f49cd87bffcdaa7468dd8bf7b21fca19, type: 3}
+  - {fileID: 1443395142843203544, guid: 21006ff409608234c8ef535f48a9b11e, type: 3}
+  - {fileID: 1750529250872633787, guid: 8a88f0f4e294c3c4d870b74a8ce38dcc, type: 3}
+  - {fileID: 2821295272000632199, guid: c9c1a3614c43e5b4fb9091492dbe107d, type: 3}
+  - {fileID: 4762410051703667391, guid: 4743abbcf1ac9284083e2111d25e6909, type: 3}
+  - {fileID: 3451988189460600851, guid: 52d2e293dccb4964ba65c448ca76cd7f, type: 3}
+  - {fileID: 7028706995951502201, guid: 61b491c8b928b414c8bb49c2465fe279, type: 3}
+  - {fileID: 3124233630063930585, guid: b2466e1f3a33e144fa8a492052a48e38, type: 3}
+  spulnt:
+  - 0
+  - 4
+  - 10
+  - 16
+  - 20
+  - 24
+  - 28
+  - 30

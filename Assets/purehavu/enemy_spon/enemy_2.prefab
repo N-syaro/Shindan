@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6673299567726059901
 Transform:
   m_ObjectHideFlags: 0
@@ -69,10 +69,10 @@ MonoBehaviour:
   - 10
   - 12
   - 14
-  - 16
   - 18
   - 20
   - 22
-  - 25
   - 26
-  - 26
+  - 29
+  - 30
+  - 30
