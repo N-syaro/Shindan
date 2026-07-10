@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TextData: "\u4F55\u304C\u76EE\u7684\u306A\u3093\u3060\uFF1F"
   Side: 1
-  Talking_chara: {fileID: 0}
-  CHImageNum_: 0
+  Talking_chara: {fileID: 11400000, guid: 15cc553e12b581349b0536e4824d69ed, type: 2}
+  CHImageNum_: 9
   SceneName: 
+  IsTalkEnd: 0

@@ -14,9 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Chara_data
   Name: "\u5F8C\u8F29"
   Image:
-  - {fileID: 5142801084792596747, guid: 4be6c966e66b4354299f7fe61699a933, type: 3}
-  - {fileID: 144851826181700102, guid: cf63528151127f141a3f000a7c38b17f, type: 3}
-  - {fileID: -2540481250385913149, guid: b8ac4c00f0080d74caab039dd02ebf3a, type: 3}
-  - {fileID: 6374562801434532248, guid: 899c4b93f76cd5749baf0a7aac1d86ac, type: 3}
-  - {fileID: 5560567694949278894, guid: 01375a9b66aadd640a42b2a092729292, type: 3}
-  - {fileID: -5006393866707931231, guid: a7912c1fb5b1ec84a99dc4007e799189, type: 3}
+  - {fileID: 21300000, guid: 4be6c966e66b4354299f7fe61699a933, type: 3}
+  - {fileID: 21300000, guid: cf63528151127f141a3f000a7c38b17f, type: 3}
+  - {fileID: 21300000, guid: 9c2083ea664ffaa4cb2a8a2b2a84ebd8, type: 3}
+  - {fileID: 21300000, guid: 8c6f69644d07de24ca064924ea0b35f9, type: 3}
+  - {fileID: 21300000, guid: b8ac4c00f0080d74caab039dd02ebf3a, type: 3}
+  - {fileID: 21300000, guid: 899c4b93f76cd5749baf0a7aac1d86ac, type: 3}
+  - {fileID: 21300000, guid: 01375a9b66aadd640a42b2a092729292, type: 3}
+  - {fileID: 21300000, guid: a7912c1fb5b1ec84a99dc4007e799189, type: 3}
+  - {fileID: 21300000, guid: 29fb84b1671a21245b80d0bff37edeab, type: 3}
+  - {fileID: 21300000, guid: 4dd6228119d382d48980dc9e7131fb00, type: 3}
+  - {fileID: 21300000, guid: 80ea55d8535fb3246a6cdb4e72034b66, type: 3}
+  - {fileID: 21300000, guid: 10a76bdd8c1951243b883b33016e7c48, type: 3}
+  - {fileID: 21300000, guid: e5d4290670df84f47a2bd5b2e3193a06, type: 3}
+  - {fileID: 21300000, guid: 717b1c07a77a8e3498fe050524867517, type: 3}
+  - {fileID: 21300000, guid: c0f554b2f83246b4e9ed1079c1478a4c, type: 3}
+  - {fileID: 21300000, guid: 75ada5cdd02f06a4b97602de72f691b9, type: 3}
+  - {fileID: 21300000, guid: 8d4ad379f7b9be64eaa4ad2a555f05dc, type: 3}
+  - {fileID: 21300000, guid: 939e86af383853046854d91b052577b3, type: 3}
