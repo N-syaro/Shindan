@@ -811,6 +811,7 @@ MonoBehaviour:
   - {fileID: 1150628401}
   - {fileID: 1150628400}
   - {fileID: 1150628399}
+  fadeImagePrefab: {fileID: 6042285844435132860, guid: 7bda22b2c9a7eba48968909ba7196360, type: 3}
   mainloopcount: 0
   Enemycount: 0
   Conv_Count: 0
@@ -821,6 +822,7 @@ MonoBehaviour:
   Exp_end: 0
   Exp2_end: 0
   NextScene: 
+  canvasTransform: {fileID: 1485445607}
 --- !u!224 &554202663 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1907245485070726786, guid: 5eec1ece2d4d27f48a1d8b0ad64985ac, type: 3}
