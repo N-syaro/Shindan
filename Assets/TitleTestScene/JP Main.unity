@@ -189,7 +189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1907245485070726786, guid: 5eec1ece2d4d27f48a1d8b0ad64985ac, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.00018310547
+      value: -0.00024414062
       objectReference: {fileID: 0}
     - target: {fileID: 1907245485070726786, guid: 5eec1ece2d4d27f48a1d8b0ad64985ac, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1090,8 +1090,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: eacd7b58c51eacd4192389ce748431b8, type: 2}
   - {fileID: 11400000, guid: abc5caa96fb3cb443b80c7a8f29caa11, type: 2}
   - {fileID: 11400000, guid: b86dad340d0d425498e1c4b94a0af818, type: 2}
-  Exp_Sprites:
-  - {fileID: 0}
+  Exp_Sprites: []
   Player_obj: {fileID: 1194786870}
   Enemy_obj:
   - {fileID: 688157682}
@@ -1412,6 +1411,14 @@ PrefabInstance:
       objectReference: {fileID: 1957253816760516541, guid: 03218567da0ecef4c9e453c1963db5bb, type: 3}
     - target: {fileID: 1994328253959564223, guid: 0c4ed67cfeaf28c48b97b748a203705d, type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377046350189068657, guid: 0c4ed67cfeaf28c48b97b748a203705d, type: 3}
+      propertyPath: taima
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377046350189068657, guid: 0c4ed67cfeaf28c48b97b748a203705d, type: 3}
+      propertyPath: timeon
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2377046350189068657, guid: 0c4ed67cfeaf28c48b97b748a203705d, type: 3}
@@ -1934,7 +1941,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8122642984910880954, guid: 46abf47842062e94da3993630bb4870d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 5.0025024
+      value: 5.0024414
       objectReference: {fileID: 0}
     - target: {fileID: 8122642984910880954, guid: 46abf47842062e94da3993630bb4870d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

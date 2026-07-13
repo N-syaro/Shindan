@@ -15,6 +15,8 @@ public class Enm : MonoBehaviour
     [SerializeField] GameObject temtext=null;
 
     [SerializeField] float taima = 60f;//タイマー
+    float kunt = 3.0f;
+    bool kunon=true;
     bool hit=false;//ダメージ判定
     float damgct;//ダメージ時からの経過時間
     string scenename;//スコアテキスト
@@ -34,11 +36,24 @@ public class Enm : MonoBehaviour
         
         damgct = 0f;
         cpplid =  GetComponent<BoxCollider2D>();
+       
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (kunon == true)
+        {
+            kunt -= Time.deltaTime;
+            if (kunt <= 3)
+            {
+                timeon = true;
+                Debug.Log(timeon);
+            }
+
+        }
+
+
         if (timeon == true)//タイマー処理
         {
             taima -= Time.deltaTime;
