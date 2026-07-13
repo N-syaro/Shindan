@@ -31,7 +31,7 @@ public class gemu_obuge : MonoBehaviour
         tes_s = gamemanager.GetComponent<Testshooting>();
         SceneName = SceneManager.GetActiveScene().name;
         Debug.Log("mmmmmm");
-        //StartCoroutine(ReCreate());
+        StartCoroutine(ReCreate());
 
 
         /*

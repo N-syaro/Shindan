@@ -5,7 +5,7 @@ public class Shootingstart : MonoBehaviour
 {
     private RectTransform rectTransform;
     public TalkDelay talkDelay;
-    public GameObject[] targetObject;
+    //public GameObject[] targetObject;
 
     public float fallDuration = 2.0f;
     public float startY = 1000f;

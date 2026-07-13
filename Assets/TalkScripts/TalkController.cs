@@ -172,10 +172,11 @@ public class TalkController : MonoBehaviour
     private void Update()
     {
         Debug.Log("バックログ件数: " + backlogLogTextList.Count);
-        if (Input.GetKeyDown(KeyCode.W/*KeypadEnter*/))
-        {
+
+      // if (Input.GetKeyDown(KeyCode.W/*KeypadEnter*/))
+       /* {
             StartCoroutine(Manage());
-        }  
+        }  */
     }
 
     public List<(string Name, Sprite p_image, string Text)> GetBacklogList()

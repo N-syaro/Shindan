@@ -45,7 +45,7 @@ public class TalkDelay : MonoBehaviour
         isSkip = true;
 
         //------------------
-        sourceManager.seChange(3);
+        //sourceManager.seChange(3);
         //------------------
 
     }
