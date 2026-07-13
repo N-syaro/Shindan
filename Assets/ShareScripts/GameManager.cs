@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     Testshooting Testshooting;
     [SerializeField]
     Preya_min player_;
+    [SerializeField]
+    FadeOutIn fadeout;
     [Header("データ参照")]
     [SerializeField]
     MakeConversation[] makeConversations;//会話データ配列(体験版使用)本番はリスト化したい
@@ -46,8 +48,7 @@ public class GameManager : MonoBehaviour
     GameObject[] AmmosUI;
     [SerializeField]
     Text[] AmmosName;
-    [SerializeField]
-    public GameObject fadeImagePrefab;
+   
 
 
     //private int Conv_Count  = 0;//会話量
@@ -65,7 +66,6 @@ public class GameManager : MonoBehaviour
     private bool isIncorrect = false;
     private string sceneName;
     public string NextScene;
-    public Transform canvasTransform;
       
     private GameObject ContinuePanel;
     private float fadeOutDuration = 1.5f;
@@ -146,8 +146,16 @@ public class GameManager : MonoBehaviour
                         }
                         if (Conv_Count == 2)
                         {
-                            StartCoroutine(FadeToBlack());   
-                         
+                            yield return null;
+
+                            fadeout.fadeOut(2f);
+
+                            yield return new WaitForSeconds(2f);
+
+                            SceneManager.LoadScene(NextScene);
+
+                           //シーンが変わったとき　そちらにフェードインをさせる
+
                         }
                         break;
                     }
@@ -209,7 +217,7 @@ public class GameManager : MonoBehaviour
                                     if (isbattleloop)
                                     {
                                         Debug.Log("シーン遷移");
-                                        FadeToBlack();
+                                        
                                         SceneManager.LoadScene(NextScene);
                                         break;
                                     }
@@ -239,7 +247,7 @@ public class GameManager : MonoBehaviour
                         NextScene = "EndingScene";
                         if (Conv_Count == 1)
                         {
-                            FadeToBlack();
+                            
                             SceneManager.LoadScene(NextScene);
                            
                         }    
@@ -522,9 +530,9 @@ public class GameManager : MonoBehaviour
         }
         Debug.Log("ここまで抜けた");
     }
-    IEnumerator FadeToBlack()
+    /*IEnumerator FadeToBlack()
     {
-
+        
         GameObject fadeObj = Instantiate(fadeImagePrefab, canvasTransform);
         Image blackFadeImage = fadeObj.GetComponent<Image>();
         //// フェードアウトして画面を黒くするシーケンス
@@ -547,7 +555,8 @@ public class GameManager : MonoBehaviour
 
         color.a = 1;
         blackFadeImage.color = color;
-
+        
         SceneManager.LoadScene(NextScene);
     }
+*/
 }
