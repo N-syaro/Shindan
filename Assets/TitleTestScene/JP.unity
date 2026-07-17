@@ -748,8 +748,8 @@ MonoBehaviour:
   TalkUI: {fileID: 74376224}
   Talktext: {fileID: 1927479706}
   Nametext: {fileID: 1209155918}
-  P_Image: {fileID: 0}
-  E_Image: {fileID: 0}
+  P_Image: {fileID: 825843440}
+  E_Image: {fileID: 1042490332}
   NameUI: {fileID: 1228920706}
   PlayerImage: {fileID: 946201723}
   FriendsImage: {fileID: 1183704117}
@@ -943,8 +943,8 @@ MonoBehaviour:
   - {fileID: 460481121}
   Exp_Panel: {fileID: 1901408441}
   Exp_Image: {fileID: 1620621455}
-  Current_Img: {fileID: 0}
-  ShootingPanel: {fileID: 0}
+  Current_Img: {fileID: 1306481290}
+  ShootingPanel: {fileID: 1200706024}
   AmmosUI:
   - {fileID: 1006359550}
   - {fileID: 1006359549}
@@ -981,7 +981,8 @@ MonoBehaviour:
   StillImage: {fileID: 154559911409225203}
   Still_Image: {fileID: 154559911409225204}
   Still_Sprite:
-  - {fileID: -2468626105649612252, guid: 37f25fb7a01d2e14ca7e103972bc5554, type: 3}
+  - {fileID: 21300000, guid: 37f25fb7a01d2e14ca7e103972bc5554, type: 3}
+  - {fileID: -7465474876107755776, guid: 44f91777291d9d343bb313fb15a5855e, type: 3}
 --- !u!1 &651735732
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,12 +1166,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5173819891296391209, guid: 7354f2af22967f64c8e16f6a0bc90fe5, type: 3}
   m_PrefabInstance: {fileID: 1021012000}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &825843440 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1909855535246735075, guid: 46abf47842062e94da3993630bb4870d, type: 3}
+  m_PrefabInstance: {fileID: 154559911409225202}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &946201723 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2540973550256199656, guid: 46abf47842062e94da3993630bb4870d, type: 3}
   m_PrefabInstance: {fileID: 154559911409225202}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 825843440}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -1489,17 +1495,27 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7354f2af22967f64c8e16f6a0bc90fe5, type: 3}
+--- !u!1 &1042490332 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5243648561043695074, guid: 46abf47842062e94da3993630bb4870d, type: 3}
+  m_PrefabInstance: {fileID: 154559911409225202}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1183704117 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8837824525935996126, guid: 46abf47842062e94da3993630bb4870d, type: 3}
   m_PrefabInstance: {fileID: 154559911409225202}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1042490332}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+--- !u!1 &1200706024 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3135858808300643533, guid: e5a6995fa8267e349932376e85691ffd, type: 3}
+  m_PrefabInstance: {fileID: 1006359541}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1209155918 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2699670078281899946, guid: 46abf47842062e94da3993630bb4870d, type: 3}
@@ -1630,8 +1646,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 1090}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -16.366028, y: 0.104003906}
+  m_SizeDelta: {x: 158, y: 156.45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1232049519
 MonoBehaviour:
@@ -1684,9 +1700,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shootingstart
   talkDelay: {fileID: 1927479703}
-  fallDuration: 2
-  startY: 1000
+  fallDuration: 0
+  startY: 0
   endY: 0
+--- !u!1 &1306481290 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3690956752820989076, guid: 7354f2af22967f64c8e16f6a0bc90fe5, type: 3}
+  m_PrefabInstance: {fileID: 1021012000}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1416804137
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2254,6 +2275,10 @@ PrefabInstance:
       propertyPath: m_FontData.m_Font
       value: 
       objectReference: {fileID: 12800000, guid: 2678156037692e84ba4ce04274d5b75c, type: 3}
+    - target: {fileID: 2748581490060161486, guid: 46abf47842062e94da3993630bb4870d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2748581490060161486, guid: 46abf47842062e94da3993630bb4870d, type: 3}
       propertyPath: m_Color.a
       value: 0

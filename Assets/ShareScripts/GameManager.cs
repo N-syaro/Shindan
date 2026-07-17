@@ -94,6 +94,7 @@ public class GameManager : MonoBehaviour
 
         while (Conv_Count < makeConversations.Length)
         {
+            ShootingPanel.SetActive(false);
             // 会話開始
             t_controller.SetObject(makeConversations[Conv_Count]);
 
@@ -156,10 +157,12 @@ public class GameManager : MonoBehaviour
                             Debug.Log("本編ループ開始");
                             Debug.Log("シューティングゲーム開始");
                             Debug.Log(mainloopcount);
+                            ShootingPanel.SetActive(true);
                             t_controller.TalkUI.SetActive(false);
                             AmmoUIManagment(Battle_Count);
                             yield return StartCoroutine(Testshooting.S_Start(mainloopcount));
                             yield return new WaitUntil(() => endCount);// シューティング終了待ち
+                            ShootingPanel.SetActive(false);
                             Debug.Log("シューティング終わり");
                             endCount = false;
                             switch (mainloopcount)
@@ -186,13 +189,11 @@ public class GameManager : MonoBehaviour
                                     }
                                     else
                                     {                                    
-                                    Debug.Log("dd");
                                     EnemyReset();
                                     t_controller.TalkUI.SetActive(true);// UI再表示
                                     t_controller.SetObject(makeConversations[Talk_Count]);
                                     yield return new WaitUntil(() => Talkend);
                                     Talkend = false;
-
                                     }
 
                                  break;
@@ -286,6 +287,10 @@ public class GameManager : MonoBehaviour
         foreach(GameObject E_bullet in GameObject.FindGameObjectsWithTag("Enemy"))
         {
             Destroy(E_bullet);
+        }
+        foreach (GameObject E_SPbullet in GameObject.FindGameObjectsWithTag("neo"))
+        {
+            Destroy(E_SPbullet);
         }
         Enemy_obj[Enemycount].SetActive(false);
         Player_obj.SetActive(false);
