@@ -154,13 +154,19 @@ public class GameManager : MonoBehaviour
 
                             SceneManager.LoadScene(NextScene);
 
-                           //シーンが変わったとき　そちらにフェードインをさせる
+                            //シーンが変わったとき　そちらにフェードインをさせる
+
+
+                            //AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(NextScene);
+
 
                         }
                         break;
                     }
                 case "JP Main"://本編シーン処理----------------------------------------------------------------------------------------------------------------
                     {
+                        yield return null;
+                        fadeOutIn.fadeIn(2f,2f);
                         NextScene = "END Credits";//次のシーン決め
                         Debug.Log("本編シーン用処理");
                         Enemycount = 0;
