@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     Preya_min player_;
     [SerializeField]
-    FadeOutIn fadeout;
+    FadeOutIn fadeOutIn;
     [Header("データ参照")]
     [SerializeField]
     MakeConversation[] makeConversations;//会話データ配列(体験版使用)本番はリスト化したい
@@ -148,7 +148,7 @@ public class GameManager : MonoBehaviour
                         {
                             yield return null;
 
-                            fadeout.fadeOut(2f);
+                            fadeOutIn.fadeOut(2f);
 
                             yield return new WaitForSeconds(2f);
 
@@ -530,33 +530,5 @@ public class GameManager : MonoBehaviour
         }
         Debug.Log("ここまで抜けた");
     }
-    /*IEnumerator FadeToBlack()
-    {
-        
-        GameObject fadeObj = Instantiate(fadeImagePrefab, canvasTransform);
-        Image blackFadeImage = fadeObj.GetComponent<Image>();
-        //// フェードアウトして画面を黒くするシーケンス
-        float elapsed = 0;
-        Color color = blackFadeImage.color;
-
-        fadeObj.transform.SetParent(null);
-        DontDestroyOnLoad(fadeObj);
-
-        while (elapsed < fadeOutDuration)
-        {
-            elapsed += Time.deltaTime;
-            float t = elapsed / fadeOutDuration;
-
-            color.a = Mathf.Lerp(0, 1, t);
-            blackFadeImage.color = color;
-
-            yield return null;
-        }
-
-        color.a = 1;
-        blackFadeImage.color = color;
-        
-        SceneManager.LoadScene(NextScene);
-    }
-*/
+   
 }
