@@ -915,6 +915,7 @@ MonoBehaviour:
   t_controller: {fileID: 492223868}
   Testshooting: {fileID: 492223871}
   player_: {fileID: 0}
+  fadeOutIn: {fileID: 0}
   makeConversations:
   - {fileID: 11400000, guid: 656b193139c18294fb15a5504fd3d10c, type: 2}
   - {fileID: 11400000, guid: 02550aac04892d44091f255e6d22630c, type: 2}
@@ -1402,6 +1403,17 @@ PrefabInstance:
       addedObject: {fileID: 2044808537}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5a6995fa8267e349932376e85691ffd, type: 3}
+--- !u!114 &1099153833 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2548429008251265604, guid: e5a6995fa8267e349932376e85691ffd, type: 3}
+  m_PrefabInstance: {fileID: 1099153832}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e604d8e17eb32641bbdf5e8b15d6295, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AmmoSelectionUI
 --- !u!1 &1143142834 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6672169187740056614, guid: e5a6995fa8267e349932376e85691ffd, type: 3}
@@ -1435,6 +1447,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1839876100494194071, guid: 0c4ed67cfeaf28c48b97b748a203705d, type: 3}
+      propertyPath: ammoUI
+      value: 
+      objectReference: {fileID: 1099153833}
     - target: {fileID: 1839876100494194071, guid: 0c4ed67cfeaf28c48b97b748a203705d, type: 3}
       propertyPath: bart.Array.size
       value: 4

@@ -436,6 +436,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156051297}
   m_CullTransparentMesh: 1
+--- !u!114 &219987111 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2548429008251265604, guid: e5a6995fa8267e349932376e85691ffd, type: 3}
+  m_PrefabInstance: {fileID: 1006359541}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e604d8e17eb32641bbdf5e8b15d6295, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AmmoSelectionUI
 --- !u!1001 &227939538
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -930,6 +941,7 @@ MonoBehaviour:
   t_controller: {fileID: 492223868}
   Testshooting: {fileID: 492223871}
   player_: {fileID: 717784532}
+  fadeOutIn: {fileID: 0}
   makeConversations:
   - {fileID: 11400000, guid: ee1d23c951931834d87a405ae3d901ed, type: 2}
   - {fileID: 11400000, guid: 4a517cd439a126a42bb648b6bf204298, type: 2}
@@ -1699,6 +1711,10 @@ PrefabInstance:
       propertyPath: enm
       value: 
       objectReference: {fileID: 1416804138}
+    - target: {fileID: 1839876100494194071, guid: 0c4ed67cfeaf28c48b97b748a203705d, type: 3}
+      propertyPath: ammoUI
+      value: 
+      objectReference: {fileID: 219987111}
     - target: {fileID: 1839876100494194071, guid: 0c4ed67cfeaf28c48b97b748a203705d, type: 3}
       propertyPath: bart.Array.size
       value: 1
