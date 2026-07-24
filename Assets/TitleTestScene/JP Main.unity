@@ -1213,6 +1213,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: eacd7b58c51eacd4192389ce748431b8, type: 2}
   - {fileID: 11400000, guid: abc5caa96fb3cb443b80c7a8f29caa11, type: 2}
   - {fileID: 11400000, guid: b86dad340d0d425498e1c4b94a0af818, type: 2}
+  - {fileID: 11400000, guid: 258616717cdc4404c8fc7e6131da5a9f, type: 2}
   Exp_Sprites: []
   Player_obj: {fileID: 1194786870}
   Enemy_obj:
@@ -2492,7 +2493,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 2.64}
+  m_AnchoredPosition: {x: 0, y: 2.6399994}
   m_SizeDelta: {x: 1053.17, y: 663.32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1243515535
