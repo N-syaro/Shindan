@@ -94,8 +94,10 @@ public class gemu_obuge : MonoBehaviour
             break;
 
             case "JP Main":
-                yield return new WaitForSeconds(6f);
+                Debug.Log("endcreate JP Main—pˆ—");
+                yield return new WaitForSeconds(10f);
                 Flagtrue();
+                gameManager.Talkend = true; 
             break;
         }
 

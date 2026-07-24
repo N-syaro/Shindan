@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5598be981560a014799b81903071c738, type: 3}
   m_Name: "\u3053\u3076\u30EA\u30DC\u30F3"
   m_EditorClassIdentifier: Assembly-CSharp::Chara_data
-  Name: "\u3053\u3076\u30EA\u30DC\u30F3"
+  Name: "\u3053\u3076\u308A\u30DC\u30F3"
   Image:
   - {fileID: 7833340157310336438, guid: c6fb9e446beedfb43bb619a95796364f, type: 3}
