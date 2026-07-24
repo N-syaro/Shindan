@@ -34,6 +34,26 @@ public class MenuManager : MonoBehaviour
 
     public FadeOutIn fadeout;
 
+    //BGMÇÃìoò^èÍèä
+    public AudioClip[] bgmClips;
+    //SEÇÃìoò^èÍèä
+    public AudioClip[] seClips;
+
+    //VoiceÇÃìoò^èÍèä(âº)
+    //public AudioClip[] voiceClips;
+
+    //åªç›ó¨ÇÍÇƒÇ¢ÇÈBGM1
+    [SerializeField] AudioSource bgmSourceOne;
+    //åªç›ó¨ÇÍÇƒÇ¢ÇÈBGM2
+    [SerializeField] AudioSource bgmSourceTwo;
+
+    //åªç›ó¨ÇÍÇƒÇ¢ÇÈSE
+    [SerializeField] AudioSource seSource;
+
+    //åªç›ó¨ÇÍÇƒÇ¢ÇÈVoice
+    //[SerializeField] AudioSource voiceSource;
+
+
     void Awake()
     {
         //ÉQÅ[ÉÄè„Ç…àÍÇ¬à»â∫ÇµÇ©Ç»Ç¢ÇÊÇ§Ç…Ç∑ÇÈ
@@ -69,7 +89,83 @@ public class MenuManager : MonoBehaviour
 
     }
 
-    
+
+    //ÉIÅ[ÉfÉBÉIä÷åW----------------------------------------------------------------------------
+
+    //ìoò^Ç≥ÇÍÇΩBGMÇó¨Ç∑
+    public void bgmChangeOne(int bgmCount)
+    {
+        bgmStopOne();
+        bgmSourceOne.clip = bgmClips[bgmCount];
+        bgmSourceOne.Play();
+    }
+    public void bgmChangeTwo(int bgmCount)
+    {
+        bgmStopTwo();
+        bgmSourceTwo.clip = bgmClips[bgmCount];
+        bgmSourceTwo.Play();
+    }
+
+
+    //ìoò^Ç≥ÇÍÇΩSEÇó¨Ç∑
+    public void seChange(int seCount)
+    {
+        seSource.PlayOneShot(seClips[seCount]);
+    }
+
+    //ìoò^Ç≥ÇÍÇΩÉ{ÉCÉXÇó¨Ç∑
+    /*
+    public void voiceChange(int voiceCount)
+    {
+        voiceStop();
+        voiceSource.PlayOneShot(voiceClips[voiceCount]);
+    }
+    */
+
+
+
+    //BGMí‚é~
+    public void bgmStopOne()
+    {
+        bgmSourceOne.Stop();
+    }
+    public void bgmStopTwo()
+    {
+        bgmSourceTwo.Stop();
+    }
+
+    //SEí‚é~
+    public void seStop()
+    {
+        seSource.Stop();
+    }
+
+    //Voiceí‚é~
+    /*
+    public void voiceStop()
+    {
+        voiceSource.Stop();
+    }
+    */
+
+
+    public void bgmOneSwap()
+    {
+        //BGM1Ç™ï∑Ç±Ç¶ÇÈÇÊÇ§Ç…
+        audioMixer.SetFloat("BGM_1", 0f);
+        audioMixer.SetFloat("BGM_2", -80f);
+    }
+    public void bgmTwoSwap()
+    {
+        //BGM2Ç™ï∑Ç±Ç¶ÇÈÇÊÇ§Ç…
+        audioMixer.SetFloat("BGM_1", -80f);
+        audioMixer.SetFloat("BGM_2", 0f);
+    }
+
+    //-----------------------------------------------------
+
+
+    //ÉÅÉjÉÖÅ[ä÷òA---------------------------------------------------------
     void Update()
     {
         // ÉGÉXÉPÅ[ÉvÉLÅ[Ç™âüÇ≥ÇÍÇΩÇÁ
@@ -157,18 +253,7 @@ public class MenuManager : MonoBehaviour
     }
 
 
-    public void bgmOneSwap()
-    {
-        //BGM1Ç™ï∑Ç±Ç¶ÇÈÇÊÇ§Ç…
-        audioMixer.SetFloat("BGM_1", 0f);
-        audioMixer.SetFloat("BGM_2", -80f);
-    }
-    public void bgmTwoSwap()
-    {
-        //BGM2Ç™ï∑Ç±Ç¶ÇÈÇÊÇ§Ç…
-        audioMixer.SetFloat("BGM_1", -80f);
-        audioMixer.SetFloat("BGM_2", 0f);
-    }
+    
 
 
     public void TitleButton(string Title)
@@ -190,5 +275,7 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene(Title);
         
     }
+
+    //-----------------------------------------------------------------------------------------
     
 }
