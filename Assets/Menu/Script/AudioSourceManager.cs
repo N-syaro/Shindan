@@ -25,6 +25,10 @@ public class AudioSourceManager : MonoBehaviour
 
     
 
+    //使い方はギャラリーのフェード関係を参考にしてください
+
+
+
     //登録されたBGMを流す
     public void bgmChangeOne(int bgmCount)
     {
