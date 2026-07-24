@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Net;
+using System.Timers;
 using Unity.Collections;
 using Unity.Collections.LowLevel.Unsafe;
 using Unity.VectorGraphics;
@@ -41,6 +42,8 @@ public class GameManager : MonoBehaviour
     GameObject Current_Img;
     [SerializeField]
     GameObject ShootingPanel;
+    [SerializeField]
+    GameObject QuestionPanel;
     [Header("ShootingUI参照")]
     [SerializeField]
     GameObject[] AmmosUI;
@@ -58,9 +61,11 @@ public class GameManager : MonoBehaviour
     public bool Talkend= false;//会話終了判定
     public bool Exp_end = false;//説明1終了判定
     public bool Exp2_end = false;//説明2終了判定
+    public bool Questionend = false;//選択肢終了判定
     private bool isloop = true;
     private bool isbattleloop = false;
     private bool isIncorrect = false;
+    private bool isQuestion = false;
     private string sceneName;
     public string NextScene;
       
@@ -157,17 +162,18 @@ public class GameManager : MonoBehaviour
                             Debug.Log("本編ループ開始");
                             Debug.Log("シューティングゲーム開始");
                             Debug.Log(mainloopcount);
-                            ShootingPanel.SetActive(true);
-                            t_controller.TalkUI.SetActive(false);
-                            AmmoUIManagment(Battle_Count);
-                            yield return StartCoroutine(Testshooting.S_Start(mainloopcount));
-                            yield return new WaitUntil(() => endCount);// シューティング終了待ち
-                            ShootingPanel.SetActive(false);
-                            Debug.Log("シューティング終わり");
-                            endCount = false;
                             switch (mainloopcount)
                             {
-                                case 0: case 1:case 2:case 3: //4バトル分同じ処理
+                                case 0: case 1: case 2: //3バトル分同じ処理
+                                    QuestionPanel.SetActive(false);
+                                    ShootingPanel.SetActive(true);
+                                    t_controller.TalkUI.SetActive(false);
+                                    AmmoUIManagment(Battle_Count);
+                                    yield return StartCoroutine(Testshooting.S_Start(mainloopcount));
+                                    yield return new WaitUntil(() => endCount);// シューティング終了待ち
+                                    ShootingPanel.SetActive(false);
+                                    Debug.Log("シューティング終わり");
+                                    endCount = false;
                                     yield return new WaitUntil(() => Talkend);
                                     Talkend = false;
                                     Debug.Log("カウンセリング開始");
@@ -197,8 +203,45 @@ public class GameManager : MonoBehaviour
                                     }
 
                                  break;
-
+                                case 3://選択肢表示フェーズ
+                                    ShootingPanel.SetActive(false );
+                                    if(t_controller.TalkUI.activeSelf == false)
+                                    {
+                                        t_controller.TalkUI.SetActive(true);// UI再表示
+                                    }                                  
+                                    t_controller.SetObject(makeConversations[18]);//選択肢用特別配列
+                                    yield return new WaitUntil(() => Talkend);
+                                    Talkend = false;
+                                    QuestionPanel.SetActive(true);
+                                    yield return new WaitUntil(() => Questionend);
+                                    Questionend = false;
+                                    yield return new WaitUntil(() => Talkend);
+                                    Talkend = false;
+                                    if (isQuestion)
+                                    {
+                                        Battle_Count++;
+                                        mainloopcount++;
+                                    }
+                                    else
+                                    {
+                                        yield return new WaitUntil(() => Questionend);
+                                        Questionend = false;
+                                        QuestionPanel.SetActive(false);
+                                        t_controller.SetObject(makeConversations[13]);
+                                        yield return new WaitUntil(() => Talkend);
+                                        Talkend = false;
+                                    }
+                                    break;
                                 case 4://最後のバトル
+                                    QuestionPanel.SetActive(false);
+                                    ShootingPanel.SetActive(true);
+                                    t_controller.TalkUI.SetActive(false);
+                                    AmmoUIManagment(Battle_Count);
+                                    yield return StartCoroutine(Testshooting.S_Start(mainloopcount));
+                                    yield return new WaitUntil(() => endCount);// シューティング終了待ち
+                                    ShootingPanel.SetActive(false);
+                                    Debug.Log("シューティング終わり");
+                                    endCount = false;
                                     yield return new WaitUntil(() => Talkend);
                                     Talkend = false;
                                     if (isbattleloop)
@@ -303,6 +346,20 @@ public class GameManager : MonoBehaviour
     public void LoadImageCol(int i)
     {
         StartCoroutine(HitBalletNumber(i));
+    }
+    public void IsQuestion(bool i)//ボタンにアタッチ
+    {
+        QuestionPanel.SetActive(false);
+        if(i)
+        {
+            LoadImageCol(1);
+            isQuestion = true;
+        }
+        else
+        {
+            LoadImageCol(2);
+            isQuestion = false;
+        }
     }
     IEnumerator CurrentImage()
     {
