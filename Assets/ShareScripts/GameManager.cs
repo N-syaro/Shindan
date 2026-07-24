@@ -1,4 +1,4 @@
-
+ï»¿
 using System;
 using System.Collections;
 using System.Net;
@@ -13,51 +13,54 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     
-    //ƒQ[ƒ€ƒ}ƒl[ƒWƒƒ[||ƒƒCƒ“ƒV[ƒ“‚Ì‘S§Œä
-    //‰ï˜b•”•ª‚¾‚¯»ì‚µ‚Ü‚·
-    //c‚è‚Ì‚Â‚È‚¬‚ğ‚¨Šè‚¢‚µ‚Ü‚·B
-    [Header("ƒXƒNƒŠƒvƒgQÆ")]
+    //ã‚²ãƒ¼ãƒ ãƒãƒãƒ¼ã‚¸ãƒ£ãƒ¼||ãƒ¡ã‚¤ãƒ³ã‚·ãƒ¼ãƒ³ã®å…¨åˆ¶å¾¡
+    //ä¼šè©±éƒ¨åˆ†ã ã‘è£½ä½œã—ã¾ã™
+    //æ®‹ã‚Šã®ã¤ãªãã‚’ãŠé¡˜ã„ã—ã¾ã™ã€‚
+    [Header("ã‚¹ã‚¯ãƒªãƒ—ãƒˆå‚ç…§")]
     [SerializeField]
-    TalkController t_controller;//ƒg[ƒNƒRƒ“ƒgƒ[ƒ‰[i‰ï˜b§ŒäƒXƒNƒŠƒvƒgj
+    TalkController t_controller;//ãƒˆãƒ¼ã‚¯ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©ãƒ¼ï¼ˆä¼šè©±åˆ¶å¾¡ã‚¹ã‚¯ãƒªãƒ—ãƒˆï¼‰
     [SerializeField]
     Testshooting Testshooting;
     [SerializeField]
     Preya_min player_;
-    [Header("ƒf[ƒ^QÆ")]
     [SerializeField]
-    MakeConversation[] makeConversations;//‰ï˜bƒf[ƒ^”z—ñ(‘ÌŒ±”Åg—p)–{”Ô‚ÍƒŠƒXƒg‰»‚µ‚½‚¢
+    FadeOutIn fadeOutIn;
+    [Header("ãƒ‡ãƒ¼ã‚¿å‚ç…§")]
     [SerializeField]
-    Sprite[] Exp_Sprites;//à–¾—pƒCƒ[ƒW”z—ñ
-    [Header("ƒIƒuƒWƒFƒNƒgQÆ")]
+    MakeConversation[] makeConversations;//ä¼šè©±ãƒ‡ãƒ¼ã‚¿é…åˆ—(ä½“é¨“ç‰ˆä½¿ç”¨)æœ¬ç•ªã¯ãƒªã‚¹ãƒˆåŒ–ã—ãŸã„
+    [SerializeField]
+    Sprite[] Exp_Sprites;//èª¬æ˜ç”¨ã‚¤ãƒ¡ãƒ¼ã‚¸é…åˆ—
+    [Header("ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆå‚ç…§")]
     [SerializeField]
     GameObject Player_obj;
     [SerializeField]
     public GameObject[] Enemy_obj;
     [SerializeField]
-    GameObject Exp_Panel;//à–¾—pƒpƒlƒ‹
+    GameObject Exp_Panel;//èª¬æ˜ç”¨ãƒ‘ãƒãƒ«
     [SerializeField]
-    Image Exp_Image;//à–¾—pƒCƒ[ƒW
+    Image Exp_Image;//èª¬æ˜ç”¨ã‚¤ãƒ¡ãƒ¼ã‚¸
     [SerializeField]
     GameObject Current_Img;
     [SerializeField]
     GameObject ShootingPanel;
-    [Header("ShootingUIQÆ")]
+    [Header("ShootingUIå‚ç…§")]
     [SerializeField]
     GameObject[] AmmosUI;
     [SerializeField]
     Text[] AmmosName;
+   
 
 
-    //private int Conv_Count  = 0;//‰ï˜b—Ê
+    //private int Conv_Count  = 0;//ä¼šè©±é‡
     public int mainloopcount = 0;  
     public int Enemycount = 0;
     public int Conv_Count = 0;
     public int Talk_Count = 0;
     public int Battle_Count = 1;
     public bool endCount = false;
-    public bool Talkend= false;//‰ï˜bI—¹”»’è
-    public bool Exp_end = false;//à–¾1I—¹”»’è
-    public bool Exp2_end = false;//à–¾2I—¹”»’è
+    public bool Talkend= false;//ä¼šè©±çµ‚äº†åˆ¤å®š
+    public bool Exp_end = false;//èª¬æ˜1çµ‚äº†åˆ¤å®š
+    public bool Exp2_end = false;//èª¬æ˜2çµ‚äº†åˆ¤å®š
     private bool isloop = true;
     private bool isbattleloop = false;
     private bool isIncorrect = false;
@@ -65,6 +68,8 @@ public class GameManager : MonoBehaviour
     public string NextScene;
       
     private GameObject ContinuePanel;
+    private float fadeOutDuration = 1.5f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -94,36 +99,36 @@ public class GameManager : MonoBehaviour
 
         while (Conv_Count < makeConversations.Length)
         {
-            // ‰ï˜bŠJn
+            // ä¼šè©±é–‹å§‹
             t_controller.SetObject(makeConversations[Conv_Count]);
 
-            // ‰ï˜bI—¹‘Ò‚¿
+            // ä¼šè©±çµ‚äº†å¾…ã¡
             yield return new WaitUntil(() => Talkend);
             Talkend = false;
             switch (sceneName)
             {
-                case "JP"://“±“üƒV[ƒ“—pˆ—-------------------------------------------------------------------------------------------------------------------
+                case "JP"://å°å…¥ã‚·ãƒ¼ãƒ³ç”¨å‡¦ç†-------------------------------------------------------------------------------------------------------------------
                     {
                         NextScene = "JP Main";
-                        Debug.Log("“±“üƒV[ƒ“—pˆ—");
+                        Debug.Log("å°å…¥ã‚·ãƒ¼ãƒ³ç”¨å‡¦ç†");
                         if (Conv_Count == 1)
                         {
-                            Debug.Log("‘€ìà–¾‚P‚ÌUI•\¦");
+                            Debug.Log("æ“ä½œèª¬æ˜ï¼‘ã®UIè¡¨ç¤º");
                             Exp_Panel.SetActive(true);
                             Exp_Image.sprite = Exp_Sprites[0];
                             yield return new WaitUntil(() => Exp_end);
                             Exp_Panel.SetActive(false);
                             Exp_end = false;    
 
-                            Debug.Log("ƒVƒ…[ƒeƒBƒ“ƒOƒQ[ƒ€ŠJn");
+                            Debug.Log("ã‚·ãƒ¥ãƒ¼ãƒ†ã‚£ãƒ³ã‚°ã‚²ãƒ¼ãƒ é–‹å§‹");
                             AmmoUIManagment(0);                            
                             t_controller.TalkUI.SetActive(false);
                             Enemycount = 0;
                             yield return StartCoroutine(Testshooting.S_Start(0));                            
-                            yield return new WaitUntil(() => endCount);// ƒVƒ…[ƒeƒBƒ“ƒOI—¹‘Ò‚¿
+                            yield return new WaitUntil(() => endCount);// ã‚·ãƒ¥ãƒ¼ãƒ†ã‚£ãƒ³ã‚°çµ‚äº†å¾…ã¡
                             endCount = false; 
 
-                            Debug.Log("‘€ìà–¾2‚ÌUI•\¦");
+                            Debug.Log("æ“ä½œèª¬æ˜2ã®UIè¡¨ç¤º");
                             Exp_Panel.SetActive(true);
                             Exp_Image.sprite = Exp_Sprites[1];
                             yield return new WaitUntil(() => Exp_end);
@@ -131,46 +136,61 @@ public class GameManager : MonoBehaviour
                             Exp_end = false;
                              
                             
-                            Debug.Log("ƒVƒ…[ƒeƒBƒ“ƒOƒQ[ƒ€Ä“Ë“ü");
+                            Debug.Log("ã‚·ãƒ¥ãƒ¼ãƒ†ã‚£ãƒ³ã‚°ã‚²ãƒ¼ãƒ å†çªå…¥");
                             AmmoUIManagment(1);
                             Enemycount = 1;
                             yield return StartCoroutine(Testshooting.S_Start(1));
-                        @@yield return new WaitUntil(() => endCount);// ƒVƒ…[ƒeƒBƒ“ƒOI—¹‘Ò‚¿
+                        ã€€ã€€yield return new WaitUntil(() => endCount);// ã‚·ãƒ¥ãƒ¼ãƒ†ã‚£ãƒ³ã‚°çµ‚äº†å¾…ã¡
                             endCount = false;
-                            t_controller.TalkUI.SetActive(true);// UIÄ•\¦
+                            t_controller.TalkUI.SetActive(true);// UIå†è¡¨ç¤º
                         }
                         if (Conv_Count == 2)
                         {
+                            yield return null;
+
+                            fadeOutIn.fadeOut(2f);
+
+                            yield return new WaitForSeconds(2f);
+
                             SceneManager.LoadScene(NextScene);
+
+                            //ã‚·ãƒ¼ãƒ³ãŒå¤‰ã‚ã£ãŸã¨ãã€€ãã¡ã‚‰ã«ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¤ãƒ³ã‚’ã•ã›ã‚‹
+
+
+                            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(NextScene);
+
+                            fadeOutIn.fadeIn(0f, 1f);
                         }
                         break;
                     }
-                case "JP Main"://–{•ÒƒV[ƒ“ˆ—----------------------------------------------------------------------------------------------------------------
+                case "JP Main"://æœ¬ç·¨ã‚·ãƒ¼ãƒ³å‡¦ç†----------------------------------------------------------------------------------------------------------------
                     {
-                        NextScene = "END Credits";//Ÿ‚ÌƒV[ƒ“Œˆ‚ß
-                        Debug.Log("–{•ÒƒV[ƒ“—pˆ—");
+                        yield return null;
+                        fadeOutIn.fadeIn(2f,2f);
+                        NextScene = "END Credits";//æ¬¡ã®ã‚·ãƒ¼ãƒ³æ±ºã‚
+                        Debug.Log("æœ¬ç·¨ã‚·ãƒ¼ãƒ³ç”¨å‡¦ç†");
                         Enemycount = 0;
                         Talk_Count = 1;
                         while (isloop)
                         {
-                            Debug.Log("–{•Òƒ‹[ƒvŠJn");
-                            Debug.Log("ƒVƒ…[ƒeƒBƒ“ƒOƒQ[ƒ€ŠJn");
+                            Debug.Log("æœ¬ç·¨ãƒ«ãƒ¼ãƒ—é–‹å§‹");
+                            Debug.Log("ã‚·ãƒ¥ãƒ¼ãƒ†ã‚£ãƒ³ã‚°ã‚²ãƒ¼ãƒ é–‹å§‹");
                             Debug.Log(mainloopcount);
                             t_controller.TalkUI.SetActive(false);
                             AmmoUIManagment(Battle_Count);
                             yield return StartCoroutine(Testshooting.S_Start(mainloopcount));
-                            yield return new WaitUntil(() => endCount);// ƒVƒ…[ƒeƒBƒ“ƒOI—¹‘Ò‚¿
-                            Debug.Log("ƒVƒ…[ƒeƒBƒ“ƒOI‚í‚è");
+                            yield return new WaitUntil(() => endCount);// ã‚·ãƒ¥ãƒ¼ãƒ†ã‚£ãƒ³ã‚°çµ‚äº†å¾…ã¡
+                            Debug.Log("ã‚·ãƒ¥ãƒ¼ãƒ†ã‚£ãƒ³ã‚°çµ‚ã‚ã‚Š");
                             endCount = false;
                             switch (mainloopcount)
                             {
-                                case 0: case 1:case 2:case 3: //4ƒoƒgƒ‹•ª“¯‚¶ˆ—
+                                case 0: case 1:case 2:case 3: //4ãƒãƒˆãƒ«åˆ†åŒã˜å‡¦ç†
                                     yield return new WaitUntil(() => Talkend);
                                     Talkend = false;
-                                    Debug.Log("ƒJƒEƒ“ƒZƒŠƒ“ƒOŠJn");
+                                    Debug.Log("ã‚«ã‚¦ãƒ³ã‚»ãƒªãƒ³ã‚°é–‹å§‹");
                                     if(isbattleloop)
                                     {
-                                        Debug.Log(Battle_Count + "‰ñ–Ú");
+                                        Debug.Log(Battle_Count + "å›ç›®");
                                         isbattleloop = false;
                                         mainloopcount++;
                                         Enemycount++;
@@ -188,7 +208,7 @@ public class GameManager : MonoBehaviour
                                     {                                    
                                     Debug.Log("dd");
                                     EnemyReset();
-                                    t_controller.TalkUI.SetActive(true);// UIÄ•\¦
+                                    t_controller.TalkUI.SetActive(true);// UIå†è¡¨ç¤º
                                     t_controller.SetObject(makeConversations[Talk_Count]);
                                     yield return new WaitUntil(() => Talkend);
                                     Talkend = false;
@@ -197,12 +217,13 @@ public class GameManager : MonoBehaviour
 
                                  break;
 
-                                case 4://ÅŒã‚Ìƒoƒgƒ‹
+                                case 4://æœ€å¾Œã®ãƒãƒˆãƒ«
                                     yield return new WaitUntil(() => Talkend);
                                     Talkend = false;
                                     if (isbattleloop)
                                     {
-                                        Debug.Log("ƒV[ƒ“‘JˆÚ");
+                                        Debug.Log("ã‚·ãƒ¼ãƒ³é·ç§»");
+                                        
                                         SceneManager.LoadScene(NextScene);
                                         break;
                                     }
@@ -214,7 +235,7 @@ public class GameManager : MonoBehaviour
                                     else
                                     {
                                     EnemyReset();
-                                    t_controller.TalkUI.SetActive(true);// UIÄ•\¦
+                                    t_controller.TalkUI.SetActive(true);// UIå†è¡¨ç¤º
                                     t_controller.SetObject(makeConversations[3]);
                                     yield return new WaitUntil(() => Talkend);
                                     Talkend = false;
@@ -222,24 +243,25 @@ public class GameManager : MonoBehaviour
 
                                  break;
                             }
-                            Debug.Log("switch”²‚¯o‚µ");
+                            Debug.Log("switchæŠœã‘å‡ºã—");
                         }
-                        Debug.Log("loop”²‚¯o‚µ");
+                        Debug.Log("loopæŠœã‘å‡ºã—");
                         break;
                     }
-                case "END Credits"://ƒGƒ“ƒhƒNƒŒƒWƒbƒg—pˆ—-----------------------------------------------------------------------------------------------------
+                case "END Credits"://ã‚¨ãƒ³ãƒ‰ã‚¯ãƒ¬ã‚¸ãƒƒãƒˆç”¨å‡¦ç†-----------------------------------------------------------------------------------------------------
                     {   
                         NextScene = "EndingScene";
                         if (Conv_Count == 1)
                         {
+                            
                             SceneManager.LoadScene(NextScene);
                            
                         }    
                         break;            
                     }
-                case "Bad END"://ƒoƒbƒhƒGƒ“ƒh—pˆ—--------------------------------------------------------------------------------------------------------------
+                case "Bad END"://ãƒãƒƒãƒ‰ã‚¨ãƒ³ãƒ‰ç”¨å‡¦ç†--------------------------------------------------------------------------------------------------------------
                     {
-                        Debug.Log("ƒoƒbƒhƒGƒ“ƒh—pˆ—");
+                        Debug.Log("ãƒãƒƒãƒ‰ã‚¨ãƒ³ãƒ‰ç”¨å‡¦ç†");
                         if(Conv_Count == 1)
                         { 
                             if(ContinuePanel != null)
@@ -248,14 +270,14 @@ public class GameManager : MonoBehaviour
                             }
                             else
                             {
-                                Debug.Log("Conti_Panel‚ªnull‚Å‚·B");
+                                Debug.Log("Conti_PanelãŒnullã§ã™ã€‚");
                             }
                             
                         }
                         break;
                     }
             }                       
-            // Ÿ‚Ö
+            // æ¬¡ã¸
             Conv_Count++;
         }
     }
@@ -279,9 +301,9 @@ public class GameManager : MonoBehaviour
         Debug.Log("EndExp");
             Exp_end = true;      
     }
-    public void EnemyReset()//“G‚ÌƒŠƒZƒbƒg
+    public void EnemyReset()//æ•µã®ãƒªã‚»ãƒƒãƒˆ
     {
-        Debug.Log("EnemyReset“Ç‚İ‚İ");
+        Debug.Log("EnemyResetèª­ã¿è¾¼ã¿");
         Debug.Log(Enemycount);
         foreach(GameObject E_bullet in GameObject.FindGameObjectsWithTag("Enemy"))
         {
@@ -289,7 +311,7 @@ public class GameManager : MonoBehaviour
         }
         Enemy_obj[Enemycount].SetActive(false);
         Player_obj.SetActive(false);
-        //ålŒö‚Ìƒ^ƒCƒ}[‚ğ~‚ß‚éƒvƒƒOƒ‰ƒ€‘}“ü‰ÓŠ
+        //ä¸»äººå…¬ã®ã‚¿ã‚¤ãƒãƒ¼ã‚’æ­¢ã‚ã‚‹ãƒ—ãƒ­ã‚°ãƒ©ãƒ æŒ¿å…¥ç®‡æ‰€
     }
     public void IsBattle()
     {
@@ -301,17 +323,17 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator CurrentImage()
     {
-        Debug.Log("CurrentImg“Ç‚İ‚İ");
+        Debug.Log("CurrentImgèª­ã¿è¾¼ã¿");
         Current_Img.SetActive(true);
         yield return new WaitForSeconds(2f);
         Current_Img.SetActive(false);
         t_controller.TalkUI.SetActive(true);
-        Debug.Log("CurrentImage“Ç‚İ‚İI‚í‚è");
+        Debug.Log("CurrentImageèª­ã¿è¾¼ã¿çµ‚ã‚ã‚Š");
         yield break;
     }
     private void AmmoUIManagment(int BattleCount)
     {
-        Debug.Log("Ammos_mana“Ç‚İ‚İ");
+        Debug.Log("Ammos_manaèª­ã¿è¾¼ã¿");
         switch (sceneName)
         {
             case "JP":
@@ -325,186 +347,186 @@ public class GameManager : MonoBehaviour
                     break;
                     case 1:
                         AmmosUI[0].SetActive(true);
-                        AmmosName[0].text = "¿–â";
+                        AmmosName[0].text = "è³ªå•";
                     break;
                 }               
             break;
             case "JP Main":
                 switch(BattleCount)
                 {
-                    case 1://ƒoƒgƒ‹‚P
+                    case 1://ãƒãƒˆãƒ«ï¼‘
                         AmmosUI[2].SetActive(false);
                         AmmosUI[3].SetActive(false);
-                        AmmosName[0].text = "m’è";
-                        AmmosName[1].text = "”Û’è";
+                        AmmosName[0].text = "è‚¯å®š";
+                        AmmosName[1].text = "å¦å®š";
                         break;
-                    case 2://ƒoƒgƒ‹‚Q
+                    case 2://ãƒãƒˆãƒ«ï¼’
                         AmmosUI[2].SetActive(true);
-                        AmmosName[2].text = "”½˜_";
+                        AmmosName[2].text = "åè«–";
                         break;
-                    case 3://ƒoƒgƒ‹‚R
+                    case 3://ãƒãƒˆãƒ«ï¼“
                         AmmosUI[2].SetActive(true);
                         AmmosName[2].text = "......";
                         break;
-                    case 4://ƒoƒgƒ‹‚S
+                    case 4://ãƒãƒˆãƒ«ï¼”
                         break;
-                    case 5://ƒoƒgƒ‹‚T
+                    case 5://ãƒãƒˆãƒ«ï¼•
                         AmmosUI[3].SetActive(true);
-                        AmmosName[0].text = "‹¤Š´";
-                        AmmosName[1].text = "ƒ|ƒWƒeƒBƒu”Û’è";
-                        AmmosName[2].text = "ƒlƒKƒeƒBƒum’è";
-                        AmmosName[3].text = "ƒlƒKƒeƒBƒu”Û’è";
+                        AmmosName[0].text = "å…±æ„Ÿ";
+                        AmmosName[1].text = "ãƒã‚¸ãƒ†ã‚£ãƒ–å¦å®š";
+                        AmmosName[2].text = "ãƒã‚¬ãƒ†ã‚£ãƒ–è‚¯å®š";
+                        AmmosName[3].text = "ãƒã‚¬ãƒ†ã‚£ãƒ–å¦å®š";
                         break;
                 }
             break;
         }
-        Debug.Log("Ammos_mana”²‚¯o‚µ");
+        Debug.Log("Ammos_manaæŠœã‘å‡ºã—");
     }
-    public IEnumerator HitBalletNumber(int i)//–{•ÒˆÈŠO‚Å‚àg‚¢‚Ü‚í‚µ‚Å‚«‚Ü‚·B
+    public IEnumerator HitBalletNumber(int i)//æœ¬ç·¨ä»¥å¤–ã§ã‚‚ä½¿ã„ã¾ã‚ã—ã§ãã¾ã™ã€‚
     {
         EnemyReset();
        
         switch(Battle_Count)
         { 
-                case 1: //ƒoƒgƒ‹1----------------------------------
+                case 1: //ãƒãƒˆãƒ«1----------------------------------
                 switch (i)
                 {
-                    case 1://m’è
-                        Debug.Log("³‰ğ");
+                    case 1://è‚¯å®š
+                        Debug.Log("æ­£è§£");
                         yield return StartCoroutine(CurrentImage());                       
                         isbattleloop = true;
-                        Debug.Log("Setobject‘O");
+                        Debug.Log("Setobjectå‰");
                         t_controller.SetObject(makeConversations[4]);
-                        Debug.Log("ƒoƒgƒ‹1I—¹");
+                        Debug.Log("ãƒãƒˆãƒ«1çµ‚äº†");
                         break;
 
-                    case 2://”Û’è
-                        Debug.Log("•s³‰ğ");
+                    case 2://å¦å®š
+                        Debug.Log("ä¸æ­£è§£");
                         t_controller.TalkUI.SetActive(true);
                         isIncorrect = true;
                         t_controller.SetObject(makeConversations[5]);
                     break;
                     default:
-                        Debug.Log("‰ñ“šˆÈŠO‚Ì’e");
+                        Debug.Log("å›ç­”ä»¥å¤–ã®å¼¾");
                         Talkend = true;
                         break;
                 }
-                break;@
+                break;ã€€
 
-                case 2: //ƒoƒgƒ‹2----------------------------------
+                case 2: //ãƒãƒˆãƒ«2----------------------------------
                 switch (i)
                 {
-                    case 1://m’è
-                        Debug.Log("•s³‰ğ");
+                    case 1://è‚¯å®š
+                        Debug.Log("ä¸æ­£è§£");
                         t_controller.TalkUI.SetActive(true);
                         isIncorrect = true;
                         t_controller.SetObject(makeConversations[6]);
                         break;
 
-                    case 2://”Û’è
-                        Debug.Log("•s³‰ğ");
+                    case 2://å¦å®š
+                        Debug.Log("ä¸æ­£è§£");
                         t_controller.TalkUI.SetActive(true);
                         isIncorrect = true;
                         t_controller.SetObject(makeConversations[7]);
                         break;
 
-                    case 3://”½˜_
-                        Debug.Log("³‰ğ");
+                    case 3://åè«–
+                        Debug.Log("æ­£è§£");
                         yield return StartCoroutine(CurrentImage());
                         isbattleloop = true;
                         t_controller.SetObject(makeConversations[8]);  
                         break;
                     default:
-                        Debug.Log("‰ñ“šˆÈŠO‚Ì’e");
+                        Debug.Log("å›ç­”ä»¥å¤–ã®å¼¾");
                         Talkend = true;
                         break;
                 }
                 break;
 
-                case 3: //ƒoƒgƒ‹3----------------------------------
+                case 3: //ãƒãƒˆãƒ«3----------------------------------
                 switch (i)
                 {
-                    case 1://m’è
-                        Debug.Log("³‰ğ");
+                    case 1://è‚¯å®š
+                        Debug.Log("æ­£è§£");
                         yield return StartCoroutine(CurrentImage());
                         isbattleloop = true;
                         t_controller.SetObject(makeConversations[9]);                        
                         break;
-                    case 2://”Û’è
-                        Debug.Log("•s³‰ğ");
+                    case 2://å¦å®š
+                        Debug.Log("ä¸æ­£è§£");
                         t_controller.TalkUI.SetActive(true);
                         isIncorrect = true;
                         t_controller.SetObject(makeConversations[10]);
                         break;
-                    case 3://•·‚¢‚Ä‚È‚¢
-                        Debug.Log("•s³‰ğ");
+                    case 3://èã„ã¦ãªã„
+                        Debug.Log("ä¸æ­£è§£");
                         t_controller.TalkUI.SetActive(true);
                         isIncorrect = true;
                         t_controller.SetObject(makeConversations[13]);
                         break;
                     default:
-                        Debug.Log("‰ñ“šˆÈŠO‚Ì’e");
+                        Debug.Log("å›ç­”ä»¥å¤–ã®å¼¾");
                         Talkend = true;
                         break;
                 }
                 break;
 
-                case 4: //ƒoƒgƒ‹4----------------------------------
+                case 4: //ãƒãƒˆãƒ«4----------------------------------
                 switch (i)
                 {
-                    case 1://m’è
-                        Debug.Log("•s³‰ğ");
+                    case 1://è‚¯å®š
+                        Debug.Log("ä¸æ­£è§£");
                         t_controller.TalkUI.SetActive(true);
                         isIncorrect = true;
                         t_controller.SetObject(makeConversations[11]);
                         break;
 
-                    case 2://”Û’è
-                        Debug.Log("³‰ğ");
+                    case 2://å¦å®š
+                        Debug.Log("æ­£è§£");
                         yield return StartCoroutine(CurrentImage());
                         isbattleloop = true;
                         t_controller.SetObject(makeConversations[12]);                        
                         break;
 
-                    case 3://•·‚¢‚Ä‚È‚¢
-                        Debug.Log("•s³‰ğ");
+                    case 3://èã„ã¦ãªã„
+                        Debug.Log("ä¸æ­£è§£");
                         t_controller.TalkUI.SetActive(true);
                         isIncorrect = true;
                         t_controller.SetObject(makeConversations[13]);
                         break;
                     default:
-                        Debug.Log("‰ñ“šˆÈŠO‚Ì’e");
+                        Debug.Log("å›ç­”ä»¥å¤–ã®å¼¾");
                         Talkend = true;
                         break;
                 }
                 break;
 
-                case 5: //ƒoƒgƒ‹5----------------------------------
+                case 5: //ãƒãƒˆãƒ«5----------------------------------
                 switch (i)
                 {
-                    case 1://‹¤Š´
-                        Debug.Log("•s³‰ğ");
+                    case 1://å…±æ„Ÿ
+                        Debug.Log("ä¸æ­£è§£");
                         t_controller.TalkUI.SetActive(true);
                         isIncorrect = true;
                         t_controller.SetObject(makeConversations[14]);
                         break;
 
-                    case 2://ƒ|ƒWƒeƒBƒu”Û’è
-                        Debug.Log("•s³‰ğ");
+                    case 2://ãƒã‚¸ãƒ†ã‚£ãƒ–å¦å®š
+                        Debug.Log("ä¸æ­£è§£");
                         t_controller.TalkUI.SetActive(true);
                         isIncorrect = true;
                         t_controller.SetObject(makeConversations[15]);
                         break;
 
-                    case 3://ƒlƒKƒeƒBƒum’è
-                        Debug.Log("³‰ğ");
+                    case 3://ãƒã‚¬ãƒ†ã‚£ãƒ–è‚¯å®š
+                        Debug.Log("æ­£è§£");
                         yield return StartCoroutine(CurrentImage());
                         isbattleloop = true;
                         t_controller.SetObject(makeConversations[16]);
                         break;
 
-                    case 4://ƒlƒKƒeƒBƒu”Û’è
-                        Debug.Log("•s³‰ğ");
+                    case 4://ãƒã‚¬ãƒ†ã‚£ãƒ–å¦å®š
+                        Debug.Log("ä¸æ­£è§£");
                         t_controller.TalkUI.SetActive(true);
                         isIncorrect = true;
                         t_controller.SetObject(makeConversations[17]);
@@ -512,7 +534,7 @@ public class GameManager : MonoBehaviour
                 }
                 break;
         }
-        Debug.Log("‚±‚±‚Ü‚Å”²‚¯‚½");
+        Debug.Log("ã“ã“ã¾ã§æŠœã‘ãŸ");
     }
-    
+   
 }
