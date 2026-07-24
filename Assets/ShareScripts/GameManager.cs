@@ -157,9 +157,9 @@ public class GameManager : MonoBehaviour
                             //シーンが変わったとき　そちらにフェードインをさせる
 
 
-                            //AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(NextScene);
+                            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(NextScene);
 
-
+                            fadeOutIn.fadeIn(0f, 1f);
                         }
                         break;
                     }
