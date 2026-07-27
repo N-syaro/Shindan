@@ -148,7 +148,7 @@ public class GameManager : MonoBehaviour
                         {
                             yield return null;
 
-                            fadeOutIn.fadeOut(2f);
+                            //fadeOutIn.fadeOut(2f);
 
                             yield return new WaitForSeconds(2f);
 
@@ -159,14 +159,14 @@ public class GameManager : MonoBehaviour
 
                             AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(NextScene);
 
-                            fadeOutIn.fadeIn(0f, 1f);
+                            //fadeOutIn.fadeIn(0f, 1f);
                         }
                         break;
                     }
                 case "JP Main"://本編シーン処理----------------------------------------------------------------------------------------------------------------
                     {
                         yield return null;
-                        fadeOutIn.fadeIn(2f,2f);
+                        //fadeOutIn.fadeIn(2f,2f);
                         NextScene = "END Credits";//次のシーン決め
                         Debug.Log("本編シーン用処理");
                         Enemycount = 0;

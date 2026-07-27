@@ -28,7 +28,7 @@ public class Preya_min : MonoBehaviour
 
     private int balet ;//弾丸の種類
     private float wh;//マウスホイールの数値
-    private bool faia=true;
+    public bool faia=true;
     float taime = 0;//タイマー用の関数
 
     [Header("点滅用")]
@@ -88,8 +88,15 @@ public class Preya_min : MonoBehaviour
             pozi.y =Mathf.Clamp(pozi.y,-ylimit,ylimit);
             transform.position = pozi;
             taime += Time.deltaTime;
-          
-            if(Input.GetMouseButtonDown(0))
+
+            if (taime >= dlitm)
+            {
+                faia = true;
+                taime = 0;
+                Debug.Log("弾が打てます");
+            }
+
+            if (Input.GetMouseButtonDown(0))
             { //弾丸発射入力 
                 if(faia)
                 {
@@ -102,21 +109,17 @@ public class Preya_min : MonoBehaviour
                     Shot();
                     faia = false;
                     taime = 0;
-                    
+                    StartCoroutine(ammoUI.AmmoCool());
+
                 }
                 else
                 {//クールタイム
                     Debug.Log("cool中");
                    
-                    if (taime >= dlitm)
-                    {
-                        faia = true;
-                        taime = 0;
-                        Debug.Log("弾が打てます");
-                    }
                 }
             }
-        }    
+        }
+        
     }
     void Shot() 
     {//弾丸の発射処理
