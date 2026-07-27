@@ -118,6 +118,7 @@ public class Enm : MonoBehaviour
     }
     public void ResetToTime(int BattlePhase)
     {
+        Debug.Log(BattlePhase);
        switch(scenename)
         {
             case "JP":
@@ -127,8 +128,25 @@ public class Enm : MonoBehaviour
                 switch (BattlePhase)
                 {
                     case 0:
+                        taima = 60f;
 
                     break;
+                    case 1:
+                        taima = 60f;
+
+                        break;
+                    case 2:
+                        taima = 60f;
+
+                        break;
+                    case 3:
+                        taima = 60f;
+
+                        break;
+                    case 4:
+                        taima = 60f;
+
+                        break;
                 }
                 break;
         }

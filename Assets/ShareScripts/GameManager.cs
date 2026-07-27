@@ -68,6 +68,7 @@ public class GameManager : MonoBehaviour
     private bool isbattleloop = false;
     private bool isIncorrect = false;
     private bool isQuestion = false;
+    private bool ThinkingTimeOut = false;
     private string sceneName;
     public string NextScene;
       
@@ -245,7 +246,7 @@ public class GameManager : MonoBehaviour
                                         Battle_Count++;
                                         mainloopcount++;
                                     }
-                                    else
+                                    else  if(ThinkingTimeOut)
                                     {
                                         yield return new WaitUntil(() => Questionend);
                                         Questionend = false;

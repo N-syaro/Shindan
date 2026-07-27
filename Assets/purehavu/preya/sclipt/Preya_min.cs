@@ -10,6 +10,9 @@ public class Preya_min : MonoBehaviour
     Enm enm;
     //プレイヤー操作のスクリプト
 
+    [SerializeField] 
+     GameManager gameManager;
+
     Vector2 mousePos;
     Vector2 mouseworldPos;//マウスポインタ位置
     Rigidbody2D Rigidbody2D;
@@ -166,6 +169,7 @@ public class Preya_min : MonoBehaviour
     }
     public void SetBattlephase(int BattlePhase)
     {
+        BattlePhase = gameManager.Battle_Count;
         switch (ActiveScene)
         {
             case "JP":
@@ -187,7 +191,23 @@ public class Preya_min : MonoBehaviour
                 {
                     case 0://バトルフェーズ数
                         enm.ResetToTime(0);//タイマーのリセット
-
+                        Debug.Log("タイマーリセット");
+                        break;
+                    case 1://バトルフェーズ数
+                        enm.ResetToTime(0);//タイマーのリセット
+                        Debug.Log("タイマーリセット");
+                        break;
+                    case 2://バトルフェーズ数
+                        enm.ResetToTime(0);//タイマーのリセット
+                        Debug.Log("タイマーリセット");
+                        break;
+                    case 3://バトルフェーズ数
+                        enm.ResetToTime(0);//タイマーのリセット
+                        Debug.Log("タイマーリセット");
+                        break;
+                    case 4://バトルフェーズ数
+                        enm.ResetToTime(0);//タイマーのリセット
+                        Debug.Log("タイマーリセット");
                         break;
                 }
                 break;
