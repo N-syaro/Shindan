@@ -7,7 +7,8 @@ public class QuestionGauge : MonoBehaviour
     GameManager Gm;
     [SerializeField]
     Slider TimeGauge;//カウントダウンゲージ用スライダー
-
+    [SerializeField]
+    float taima = 5f;//タイマー
     private float QuestionTime;//シンキングタイム(ゲージに同期させたい）
     private void OnEnable()//アクティブ時処理
     {
