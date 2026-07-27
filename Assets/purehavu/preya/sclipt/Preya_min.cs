@@ -37,6 +37,8 @@ public class Preya_min : MonoBehaviour
     SpriteRenderer sp;
     bool isHit;
 
+    [SerializeField] private AmmoUI ammoUI;
+
     private void Start()
     {
         ActiveScene = SceneManager.GetActiveScene().name;
@@ -53,7 +55,7 @@ public class Preya_min : MonoBehaviour
         //マウスポインタの変換
         mousePos = Input.mousePosition;
         mouseworldPos = Camera.main.ScreenToWorldPoint(mousePos);
-        
+        /*
         wh = Input.mouseScrollDelta.y;//マウスホイール取得
        if (wh !=0)//弾丸選択
        {    //マウスホイールの移動
@@ -74,7 +76,9 @@ public class Preya_min : MonoBehaviour
                 balet = bart.Length-1;
             }       
        }
+       */
         
+
         if (point)//キャラ操作用
         {//マウスの位置へ向けて移動する
             transform.position = Vector2.MoveTowards(transform.position, mouseworldPos, sped * Time.deltaTime);
@@ -116,6 +120,16 @@ public class Preya_min : MonoBehaviour
     }
     void Shot() 
     {//弾丸の発射処理
+
+        balet = ammoUI.CurrentAmmoIndex;
+
+        if (balet < 0 || balet >= bart.Length)
+        {
+            Debug.LogWarning("選択されたインデックスに対応する弾プレハブがありません！");
+            return;
+        }
+
+
         GameObject newbalet = Instantiate(bart[balet],this.transform.position,Quaternion.identity);
         Rigidbody2D bllet2d= newbalet.GetComponent<Rigidbody2D>();
         bllet2d.AddForce(this.transform.up* brsp);

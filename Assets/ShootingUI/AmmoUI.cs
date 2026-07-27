@@ -12,7 +12,22 @@ public class AmmoUI : MonoBehaviour
 
     private int uiBalet = 0;
 
-    
+
+    public GameObject CurrentSelectedAmmo
+    {
+        get
+        {
+            if (IsActiveAmmo(uiBalet))
+            {
+                return ammos[uiBalet];
+            }
+            return null; // アクティブな弾がない場合
+        }
+    }
+
+    public int CurrentAmmoIndex => uiBalet;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
