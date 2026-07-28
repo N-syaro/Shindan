@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,9 +11,15 @@ public class AmmoUI : MonoBehaviour
     [SerializeField]
     Preya_min preya_Min;
 
+    [SerializeField]
+    Slider ammoSlider;
+
     private int uiBalet = 0;
-
-
+    /*
+    float correctionTimer = 3f;
+    bool correction = false;
+    float timer = 0f;
+    */
     public GameObject CurrentSelectedAmmo
     {
         get
@@ -51,6 +58,15 @@ public class AmmoUI : MonoBehaviour
 
             UpdateScale();
         }
+        /*
+        timer += Time.deltaTime;
+        if (timer > correctionTimer&&correction)
+        {
+            StartCoroutine(AmmoCorrection());
+        }
+        */
+
+
 
 
     }
@@ -138,4 +154,32 @@ public class AmmoUI : MonoBehaviour
             }
         }
     }
+
+    public IEnumerator AmmoCool()
+    {
+        //correction = false;
+        float time = 0f;
+        
+        while (time<preya_Min.dlitm)
+        {
+            time += Time.deltaTime;
+            ammoSlider.value = Mathf.Lerp(1, 0, time / preya_Min.dlitm);
+            
+            yield return null;
+        }
+        
+        ammoSlider.value = 1f;
+        //correction = true;
+        //timer = 0f;
+    }
+    /*
+    public IEnumerator AmmoCorrection()
+    {
+        correction = false;
+        yield return new WaitForSeconds(2.0f);
+        ammoSlider.value = 1f;
+        correction = true;
+        timer = 0f;
+    }
+    */
 }
