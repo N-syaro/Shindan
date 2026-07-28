@@ -13,9 +13,6 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     
-    //ゲームマネージャー||メインシーンの全制御
-    //会話部分だけ製作します
-    //残りのつなぎをお願いします。
     [Header("スクリプト参照")]
     [SerializeField]
     TalkController t_controller;//トークコントローラー（会話制御スクリプト）
@@ -45,6 +42,7 @@ public class GameManager : MonoBehaviour
     GameObject ShootingPanel;
     [SerializeField]
     GameObject QuestionPanel;
+    private GameObject ContinuePanel;
     [Header("ShootingUI参照")]
     [SerializeField]
     GameObject[] AmmosUI;
@@ -71,8 +69,7 @@ public class GameManager : MonoBehaviour
     private bool ThinkingTimeOut = false;
     private string sceneName;
     public string NextScene;
-      
-    private GameObject ContinuePanel;
+   
     private float fadeOutDuration = 1.5f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
