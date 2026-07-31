@@ -159,27 +159,29 @@ public class AmmoUI : MonoBehaviour
     {
         //correction = false;
         float time = 0f;
-        
-        while (time<preya_Min.dlitm)
+
+        float duration = preya_Min.dlitm > 0f ? preya_Min.dlitm : 0.001f;
+
+        ammoSlider.value = 0f;
+
+        while (time< duration)
         {
-            time += Time.deltaTime;
-            ammoSlider.value = Mathf.Lerp(1, 0, time / preya_Min.dlitm);
-            
-            yield return null;
+            time += Time.unscaledDeltaTime;
+            ammoSlider.value = Mathf.Lerp(0f, 1f, time / duration);
+
+            yield return new WaitForSecondsRealtime(0.0001f);
         }
         
         ammoSlider.value = 1f;
         //correction = true;
         //timer = 0f;
     }
-    /*
-    public IEnumerator AmmoCorrection()
+    
+    public IEnumerator AmmoInitialization()
     {
-        correction = false;
-        yield return new WaitForSeconds(2.0f);
         ammoSlider.value = 1f;
-        correction = true;
-        timer = 0f;
+
+        yield return null;
     }
-    */
+    
 }
