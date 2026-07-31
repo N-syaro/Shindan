@@ -586,6 +586,8 @@ MonoBehaviour:
   t_controller: {fileID: 492223868}
   Testshooting: {fileID: 492223871}
   player_: {fileID: 0}
+  fadeOutIn: {fileID: 0}
+  enm: {fileID: 0}
   makeConversations:
   - {fileID: 11400000, guid: f7613862c2dff614b92c3dde6d38c8fb, type: 2}
   - {fileID: 11400000, guid: 34bf1c2ad340e2f409312c2262889007, type: 2}
@@ -596,6 +598,7 @@ MonoBehaviour:
   Exp_Image: {fileID: 0}
   Current_Img: {fileID: 0}
   ShootingPanel: {fileID: 0}
+  QuestionPanel: {fileID: 0}
   AmmosUI: []
   AmmosName: []
   mainloopcount: 0
@@ -607,6 +610,7 @@ MonoBehaviour:
   Talkend: 0
   Exp_end: 0
   Exp2_end: 0
+  Questionend: 0
   NextScene: 
 --- !u!114 &492223873
 MonoBehaviour:
@@ -736,7 +740,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shootingstart
   talkDelay: {fileID: 0}
-  targetObject: []
   fallDuration: 2
   startY: 1000
   endY: 0
@@ -788,11 +791,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &858948047 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7558881561215859955, guid: 15b54a70c3c77724ea7ec9a47048fa26, type: 3}
-  m_PrefabInstance: {fileID: 1024611510}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1024611510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1038,9 +1036,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shootingstart
   talkDelay: {fileID: 0}
-  targetObject:
-  - {fileID: 32416784}
-  - {fileID: 858948047}
   fallDuration: 2
   startY: 1000
   endY: 0
@@ -1198,6 +1193,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6429843123099984422, guid: 46abf47842062e94da3993630bb4870d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0cd67d77fb046874a910c2ea809d6160, type: 3}
     - target: {fileID: 8122642984910880954, guid: 46abf47842062e94da3993630bb4870d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
