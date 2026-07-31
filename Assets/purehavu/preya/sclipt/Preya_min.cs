@@ -193,6 +193,7 @@ public class Preya_min : MonoBehaviour
                 switch (BattlePhase)
                 {
                     case 0://バトルフェーズ数
+                        Debug.Log(enm.onactiv);
                         enm.ResetToTime(0);//タイマーのリセット
                         Debug.Log("タイマーリセット");
                         break;

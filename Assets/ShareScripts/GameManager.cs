@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
     Preya_min player_;
     [SerializeField]
     FadeOutIn fadeOutIn;
+    [SerializeField]
+    Enm enm;
     [Header("データ参照")]
     [SerializeField]
     MakeConversation[] makeConversations;//会話データ配列(体験版使用)本番はリスト化したい
@@ -82,7 +84,8 @@ public class GameManager : MonoBehaviour
         { case "JP":
             {
                 Exp_Panel.SetActive(false);
-                break;
+                    ShootingPanel.SetActive(false);
+                    break;
             }
             case "JP Main":
                 QuestionPanel.SetActive(false);
@@ -127,12 +130,14 @@ public class GameManager : MonoBehaviour
                             Exp_end = false;    
 
                             Debug.Log("シューティングゲーム開始");
+                            ShootingPanel.SetActive(true);
                             AmmoUIManagment(0);                            
                             t_controller.TalkUI.SetActive(false);
                             Enemycount = 0;
                             yield return StartCoroutine(Testshooting.S_Start(0));                            
                             yield return new WaitUntil(() => endCount);// シューティング終了待ち
-                            endCount = false; 
+                            endCount = false;
+                            ShootingPanel.SetActive(false);
 
                             Debug.Log("操作説明2のUI表示");
                             Exp_Panel.SetActive(true);
@@ -143,11 +148,13 @@ public class GameManager : MonoBehaviour
                              
                             
                             Debug.Log("シューティングゲーム再突入");
+                            ShootingPanel.SetActive(true);
                             AmmoUIManagment(1);
                             Enemycount = 1;
                             yield return StartCoroutine(Testshooting.S_Start(1));
                         　　yield return new WaitUntil(() => endCount);// シューティング終了待ち
                             endCount = false;
+                            ShootingPanel.SetActive(false);
                             t_controller.TalkUI.SetActive(true);// UI再表示
                         }
                         if (Conv_Count == 2)
@@ -240,10 +247,8 @@ public class GameManager : MonoBehaviour
                                     QuestionPanel.SetActive(true);
                                     yield return new WaitUntil(() => Questionend);
                                     Questionend = false;
-                                    Debug.Log("a");
                                     yield return new WaitUntil(() => Talkend);
                                     Talkend = false;
-                                    Debug.Log("b");
                                     if (isQuestion)
                                     {
                                         Battle_Count++;
@@ -376,15 +381,13 @@ public class GameManager : MonoBehaviour
         QuestionPanel.SetActive(false);
         if(i)
         {
-            isQuestion = true;
             LoadImageCol(1);
-            
+            isQuestion = false;
         }
         else
         {
-            isQuestion = false;
             LoadImageCol(2);
-            
+            isQuestion = true;
         }
     }
     IEnumerator CurrentImage()
@@ -464,6 +467,7 @@ public class GameManager : MonoBehaviour
                         Debug.Log("Setobject前");
                         t_controller.SetObject(makeConversations[4]);
                         Debug.Log("バトル1終了");
+                        enm.onactiv=true;
                         break;
 
                     case 2://否定
@@ -500,7 +504,8 @@ public class GameManager : MonoBehaviour
                         Debug.Log("正解");
                         yield return StartCoroutine(CurrentImage());
                         isbattleloop = true;
-                        t_controller.SetObject(makeConversations[8]);  
+                        t_controller.SetObject(makeConversations[8]);
+                        enm.onactiv = true;
                         break;
                     default:
                         Debug.Log("回答以外の弾");
@@ -516,7 +521,8 @@ public class GameManager : MonoBehaviour
                         Debug.Log("正解");
                         yield return StartCoroutine(CurrentImage());
                         isbattleloop = true;
-                        t_controller.SetObject(makeConversations[9]);                        
+                        t_controller.SetObject(makeConversations[9]);
+                        enm.onactiv = true;
                         break;
                     case 2://否定
                         Debug.Log("不正解");
@@ -553,7 +559,8 @@ public class GameManager : MonoBehaviour
                         yield return StartCoroutine(CurrentImage());
                         isbattleloop = true;
                         Questionend = true;
-                        t_controller.SetObject(makeConversations[12]);                        
+                        t_controller.SetObject(makeConversations[12]);
+                        enm.onactiv = true;
                         break;
 
                     case 3://聞いてない
@@ -591,6 +598,7 @@ public class GameManager : MonoBehaviour
                         yield return StartCoroutine(CurrentImage());
                         isbattleloop = true;
                         t_controller.SetObject(makeConversations[16]);
+                        enm.onactiv = true;
                         break;
 
                     case 4://ネガティブ否定

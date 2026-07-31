@@ -27,7 +27,7 @@ public class Shootingstart : MonoBehaviour
         {
             Debug.Log("•¨‚ª—Ž‚¿Žn‚ß‚Ü‚µ‚½");
             hasFallen = true;
-          //  StartCoroutine(Fall());
+           StartCoroutine(Fall());
         }
        
 

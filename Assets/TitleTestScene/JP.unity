@@ -441,7 +441,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2548429008251265604, guid: e5a6995fa8267e349932376e85691ffd, type: 3}
   m_PrefabInstance: {fileID: 1006359541}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 593555000}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e604d8e17eb32641bbdf5e8b15d6295, type: 3}
@@ -670,11 +670,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1626596561338699639, guid: 0c4ed67cfeaf28c48b97b748a203705d, type: 3}
   m_PrefabInstance: {fileID: 1416804137}
   m_PrefabAsset: {fileID: 0}
---- !u!212 &366967748 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 4688903031405646773, guid: 0c4ed67cfeaf28c48b97b748a203705d, type: 3}
+--- !u!114 &366967745 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2377046350189068657, guid: 0c4ed67cfeaf28c48b97b748a203705d, type: 3}
   m_PrefabInstance: {fileID: 1416804137}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366967744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde0c39a1b6a4f54288b4ed15fbffbaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enm
 --- !u!1 &378107313 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 94243446115502425, guid: c682ee541bd2036469d696bd5d950002, type: 3}
@@ -967,6 +973,7 @@ MonoBehaviour:
   Testshooting: {fileID: 492223871}
   player_: {fileID: 717784532}
   fadeOutIn: {fileID: 1609351484}
+  enm: {fileID: 366967745}
   makeConversations:
   - {fileID: 11400000, guid: ee1d23c951931834d87a405ae3d901ed, type: 2}
   - {fileID: 11400000, guid: 4a517cd439a126a42bb648b6bf204298, type: 2}
@@ -1022,11 +1029,6 @@ MonoBehaviour:
   Still_Sprite:
   - {fileID: 21300000, guid: 37f25fb7a01d2e14ca7e103972bc5554, type: 3}
   - {fileID: -7465474876107755776, guid: 44f91777291d9d343bb313fb15a5855e, type: 3}
---- !u!1 &593555000 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3135858808300643533, guid: e5a6995fa8267e349932376e85691ffd, type: 3}
-  m_PrefabInstance: {fileID: 1006359541}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &651735732
 GameObject:
   m_ObjectHideFlags: 0
@@ -1415,6 +1417,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 539.92755
       objectReference: {fileID: 0}
+    - target: {fileID: 8738961866631959346, guid: e5a6995fa8267e349932376e85691ffd, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8738961866631959346, guid: e5a6995fa8267e349932376e85691ffd, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 9049187234957188124, guid: e5a6995fa8267e349932376e85691ffd, type: 3}
@@ -1736,7 +1746,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 1090}
+  m_AnchoredPosition: {x: 0, y: 1100}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1232049519
@@ -1805,6 +1815,10 @@ PrefabInstance:
       propertyPath: ammoUI
       value: 
       objectReference: {fileID: 219987111}
+    - target: {fileID: 1839876100494194071, guid: 0c4ed67cfeaf28c48b97b748a203705d, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 492223872}
     - target: {fileID: 2377046350189068657, guid: 0c4ed67cfeaf28c48b97b748a203705d, type: 3}
       propertyPath: temtext
       value: 
@@ -2271,18 +2285,6 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 9123589968819070882, guid: b95011829148ccb4689ed5ec920e1c4b, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 717784527}
-    - target: {fileID: 9123589968819070882, guid: b95011829148ccb4689ed5ec920e1c4b, type: 3}
-      propertyPath: playerSprite
-      value: 
-      objectReference: {fileID: 366967748}
-    - target: {fileID: 9123589968819070882, guid: b95011829148ccb4689ed5ec920e1c4b, type: 3}
-      propertyPath: targetObject
-      value: 
-      objectReference: {fileID: 593555000}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
