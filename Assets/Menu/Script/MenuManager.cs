@@ -54,8 +54,12 @@ public class MenuManager : MonoBehaviour
     //[SerializeField] AudioSource voiceSource;
 
     public GameObject targetObject;
-    private bool previousActiveState;
+    private bool targetActiveState;
     private AmmoUI ammoUI;
+
+    public GameObject player;
+    private bool playerActiveState;
+    public SpriteRenderer playerSprite;
 
 
     void Awake()
@@ -88,9 +92,15 @@ public class MenuManager : MonoBehaviour
         if (targetObject != null)
         {
             // 初期状態を保持
-            previousActiveState = targetObject.activeSelf;
+            targetActiveState = targetObject.activeSelf;
 
             ammoUI = targetObject.GetComponent<AmmoUI>();
+        }
+        if (player != null)
+        {
+            // 初期状態を保持
+            playerActiveState = targetObject.activeSelf;
+
         }
 
         //1フレーム待つ(消えてしまうオブジェクトを参照しないようにするため) 
@@ -188,14 +198,25 @@ public class MenuManager : MonoBehaviour
         if (targetObject != null)
         {
             bool currentActiveState = targetObject.activeSelf;
-            if (!previousActiveState && currentActiveState)
+            if (!targetActiveState && currentActiveState)
             {
                 Debug.Log("対象のGameObjectが非アクティブからアクティブになりました！");
 
                 
                 StartCoroutine(ammoUI.AmmoInitialization()); 
             }
-            previousActiveState = currentActiveState;
+            targetActiveState = currentActiveState;
+        }
+        if (player != null)
+        {
+            bool currentActiveState = player.activeSelf;
+            if (!playerActiveState && currentActiveState)
+            {
+                Debug.Log("対象のGameObjectが非アクティブからアクティブになりました！");
+
+                PlayerSpriteInitialization();
+            }
+            playerActiveState = currentActiveState;
         }
 
     }
@@ -303,4 +324,10 @@ public class MenuManager : MonoBehaviour
 
     //-----------------------------------------------------------------------------------------
     
+
+    void PlayerSpriteInitialization()
+    {
+        playerSprite.enabled = true;
+    }
+
 }

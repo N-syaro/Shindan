@@ -3054,6 +3054,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e604d8e17eb32641bbdf5e8b15d6295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoSelectionUI
+--- !u!212 &1947328169 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4688903031405646773, guid: 0c4ed67cfeaf28c48b97b748a203705d, type: 3}
+  m_PrefabInstance: {fileID: 2058932678}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1952714535 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7859497343770323499, guid: c189cebb89254a648a8b2cefd9610758, type: 3}
@@ -3188,6 +3193,18 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9123589968819070882, guid: b95011829148ccb4689ed5ec920e1c4b, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 802586606}
+    - target: {fileID: 9123589968819070882, guid: b95011829148ccb4689ed5ec920e1c4b, type: 3}
+      propertyPath: playerSprite
+      value: 
+      objectReference: {fileID: 1947328169}
+    - target: {fileID: 9123589968819070882, guid: b95011829148ccb4689ed5ec920e1c4b, type: 3}
+      propertyPath: targetObject
+      value: 
+      objectReference: {fileID: 1930378474}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
