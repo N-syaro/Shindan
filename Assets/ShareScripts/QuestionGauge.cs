@@ -13,10 +13,12 @@ public class QuestionGauge : MonoBehaviour
     private void OnEnable()//アクティブ時処理
     {
         //タイムカウントダウン開始処理
+        taima = 5f;
+
     }
     private void OnDisable()//非アクティブ時処理
     {
-        //タイムのリセット
+        
     }
     void Start()
     {
@@ -34,6 +36,15 @@ public class QuestionGauge : MonoBehaviour
           ・上記の二つのOnEna.OnDisの処理
           ・追加あれば制作お願いします。
          */
-        //Gm.Questionend = true; Gm.Talkend = true;  カウントダウン終了と同時に呼び出す
+        taima -= Time.deltaTime;
+        TimeGauge.value = taima;
+
+
+        if (taima <= 0 )
+        {
+            Gm.Questionend = true; Gm.Talkend = true;
+        }
+
+        
     }
 }
