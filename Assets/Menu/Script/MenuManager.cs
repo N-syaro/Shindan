@@ -53,6 +53,10 @@ public class MenuManager : MonoBehaviour
     //現在流れているVoice
     //[SerializeField] AudioSource voiceSource;
 
+    public GameObject targetObject;
+    private bool previousActiveState;
+    private AmmoUI ammoUI;
+
 
     void Awake()
     {
@@ -80,6 +84,14 @@ public class MenuManager : MonoBehaviour
         //InitializeSlider("Voice", voiceSlider, voiceText);
         audioMixer.SetFloat("BGM_1", 0f);
         audioMixer.SetFloat("BGM_2", -80f);
+
+        if (targetObject != null)
+        {
+            // 初期状態を保持
+            previousActiveState = targetObject.activeSelf;
+
+            ammoUI = targetObject.GetComponent<AmmoUI>();
+        }
 
         //1フレーム待つ(消えてしまうオブジェクトを参照しないようにするため) 
         yield return null; 
@@ -173,6 +185,19 @@ public class MenuManager : MonoBehaviour
         {
             ToggleMenu();
         }
+        if (targetObject != null)
+        {
+            bool currentActiveState = targetObject.activeSelf;
+            if (!previousActiveState && currentActiveState)
+            {
+                Debug.Log("対象のGameObjectが非アクティブからアクティブになりました！");
+
+                
+                StartCoroutine(ammoUI.AmmoInitialization()); 
+            }
+            previousActiveState = currentActiveState;
+        }
+
     }
     public void ToggleMenu()
     {
