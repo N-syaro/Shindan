@@ -12,7 +12,7 @@ public class QuestionGauge : MonoBehaviour
     private float QuestionTime;//シンキングタイム(ゲージに同期させたい）
     private void OnEnable()//アクティブ時処理
     {
-        //タイムカウントダウン開始処理
+        taima = 5f;
     }
     private void OnDisable()//非アクティブ時処理
     {
@@ -34,6 +34,15 @@ public class QuestionGauge : MonoBehaviour
           ・上記の二つのOnEna.OnDisの処理
           ・追加あれば制作お願いします。
          */
-        //Gm.Questionend = true; Gm.Talkend = true;  カウントダウン終了と同時に呼び出す
+        //  カウントダウン終了と同時に呼び出す
+        taima -= Time.deltaTime;
+        TimeGauge.value = taima;
+
+        if (TimeGauge.value <= 0)
+        {
+            Gm.Questionend = true; Gm.Talkend = true;
+        }
+
+
     }
 }
