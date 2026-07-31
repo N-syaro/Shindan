@@ -1033,11 +1033,11 @@ MonoBehaviour:
   - {fileID: 1631619459}
   - {fileID: 791911692}
   - {fileID: 1373108535}
-  mainloopcount: 3
+  mainloopcount: 0
   Enemycount: 0
   Conv_Count: 0
   Talk_Count: 0
-  Battle_Count: 4
+  Battle_Count: 1
   endCount: 0
   Talkend: 0
   Exp_end: 0
@@ -2078,8 +2078,12 @@ PrefabInstance:
       value: 135.73
       objectReference: {fileID: 0}
     - target: {fileID: 568853392806854477, guid: e5a6995fa8267e349932376e85691ffd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -721
+      objectReference: {fileID: 0}
+    - target: {fileID: 568853392806854477, guid: e5a6995fa8267e349932376e85691ffd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.89
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 3135858808300643533, guid: e5a6995fa8267e349932376e85691ffd, type: 3}
       propertyPath: m_Name
@@ -2159,7 +2163,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5067981703207981069, guid: e5a6995fa8267e349932376e85691ffd, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1926.7
+      value: 1814.97
       objectReference: {fileID: 0}
     - target: {fileID: 5067981703207981069, guid: e5a6995fa8267e349932376e85691ffd, type: 3}
       propertyPath: m_SizeDelta.y
@@ -2167,11 +2171,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5067981703207981069, guid: e5a6995fa8267e349932376e85691ffd, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.9488566
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5067981703207981069, guid: e5a6995fa8267e349932376e85691ffd, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.9326619
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5067981703207981069, guid: e5a6995fa8267e349932376e85691ffd, type: 3}
       propertyPath: m_LocalScale.z
@@ -2191,7 +2195,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5067981703207981069, guid: e5a6995fa8267e349932376e85691ffd, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 916.12
+      value: 926.16
       objectReference: {fileID: 0}
     - target: {fileID: 5067981703207981069, guid: e5a6995fa8267e349932376e85691ffd, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2222,8 +2226,12 @@ PrefabInstance:
       value: 688.68
       objectReference: {fileID: 0}
     - target: {fileID: 7289488511002138219, guid: e5a6995fa8267e349932376e85691ffd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -734.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 7289488511002138219, guid: e5a6995fa8267e349932376e85691ffd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -142.88
+      value: -153.77003
       objectReference: {fileID: 0}
     - target: {fileID: 7778419549071131614, guid: e5a6995fa8267e349932376e85691ffd, type: 3}
       propertyPath: m_fontAsset

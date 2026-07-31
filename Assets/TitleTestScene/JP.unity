@@ -1885,6 +1885,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c4ed67cfeaf28c48b97b748a203705d, type: 3}
+--- !u!212 &1416804138 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4688903031405646773, guid: 0c4ed67cfeaf28c48b97b748a203705d, type: 3}
+  m_PrefabInstance: {fileID: 1416804137}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1485445603
 GameObject:
   m_ObjectHideFlags: 0
@@ -2303,6 +2308,18 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9123589968819070882, guid: b95011829148ccb4689ed5ec920e1c4b, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 717784527}
+    - target: {fileID: 9123589968819070882, guid: b95011829148ccb4689ed5ec920e1c4b, type: 3}
+      propertyPath: playerSprite
+      value: 
+      objectReference: {fileID: 1416804138}
+    - target: {fileID: 9123589968819070882, guid: b95011829148ccb4689ed5ec920e1c4b, type: 3}
+      propertyPath: targetObject
+      value: 
+      objectReference: {fileID: 573359692}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
