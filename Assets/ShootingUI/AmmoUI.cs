@@ -159,11 +159,13 @@ public class AmmoUI : MonoBehaviour
     {
         //correction = false;
         float time = 0f;
-        
+
+        ammoSlider.value = 0f;
+
         while (time<preya_Min.dlitm)
         {
             time += Time.deltaTime;
-            ammoSlider.value = Mathf.Lerp(1, 0, time / preya_Min.dlitm);
+            ammoSlider.value = Mathf.Lerp(0, 1, time / preya_Min.dlitm);
             
             yield return null;
         }
