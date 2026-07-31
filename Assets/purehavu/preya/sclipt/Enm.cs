@@ -14,7 +14,7 @@ public class Enm : MonoBehaviour
     [SerializeField] float demegte = 5f;//ダメージで減らす時間
     [SerializeField] GameObject temtext=null;
 
-    [SerializeField] float taima = 60f;//タイマー
+    [SerializeField] float taima = 150f;//タイマー
     float kunt = 3.0f;
     bool kunon=true;
     bool hit=false;//ダメージ判定
@@ -26,6 +26,7 @@ public class Enm : MonoBehaviour
     int loopCount = 60;
     SpriteRenderer sp;
     bool isHit;
+   public bool onactiv=true;//オブジェクトがアクティブになったかどうか
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -42,13 +43,14 @@ public class Enm : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+      
         if (kunon == true)
         {
             kunt -= Time.deltaTime;
             if (kunt <= 3)
             {
                 timeon = true;
-                Debug.Log(timeon);
+               
             }
 
         }
@@ -80,7 +82,7 @@ public class Enm : MonoBehaviour
                     
                     hit = false;
                     damgct = 0f;
-                    Debug.Log(hit);
+                    
                 }
             }
         }  
@@ -118,37 +120,45 @@ public class Enm : MonoBehaviour
     }
     public void ResetToTime(int BattlePhase)
     {
-        Debug.Log(BattlePhase);
-       switch(scenename)
+        Debug.Log("ResetToTimeが読み込まれました。");
+        Debug.Log(onactiv);
+        if (onactiv == true)
         {
-            case "JP":
-
-           　   break;
-            case "JP Main":
-                switch (BattlePhase)
-                {
-                    case 0:
-                        taima = 60f;
+            Debug.Log(BattlePhase);
+            switch (scenename)
+            {
+                case "JP":
 
                     break;
-                    case 1:
-                        taima = 60f;
+                case "JP Main":
+                    switch (BattlePhase)
+                    {
+                        case 0:
+                            taima = 150f;
+                            onactiv = false;
+                            Debug.Log(onactiv);
 
-                        break;
-                    case 2:
-                        taima = 60f;
-
-                        break;
-                    case 3:
-                        taima = 60f;
-
-                        break;
-                    case 4:
-                        taima = 60f;
-
-                        break;
-                }
-                break;
+                            break;
+                        case 1:
+                            taima = 150f;
+                            onactiv = false;
+                            break;
+                        case 2:
+                            taima = 150f;
+                            onactiv = false;
+                            break;
+                        case 3:
+                            taima = 150f;
+                            onactiv = false;
+                            break;
+                        case 4:
+                            taima = 150f;
+                            onactiv = false;
+                            break;
+                    }
+                    break;
+            }
+            
         }
     }
 }

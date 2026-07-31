@@ -989,6 +989,7 @@ MonoBehaviour:
   Testshooting: {fileID: 492223871}
   player_: {fileID: 802586610}
   fadeOutIn: {fileID: 1289127863}
+  enm: {fileID: 763501929}
   makeConversations:
   - {fileID: 11400000, guid: 656b193139c18294fb15a5504fd3d10c, type: 2}
   - {fileID: 11400000, guid: 02550aac04892d44091f255e6d22630c, type: 2}
@@ -1722,6 +1723,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8811480274290456979, guid: 68b47b680f3d3f54f94ffe0a0c96d660, type: 3}
   m_PrefabInstance: {fileID: 688157681}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &763501929 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2377046350189068657, guid: 0c4ed67cfeaf28c48b97b748a203705d, type: 3}
+  m_PrefabInstance: {fileID: 2058932678}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde0c39a1b6a4f54288b4ed15fbffbaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enm
 --- !u!114 &791911692 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1093530449508095803, guid: e5a6995fa8267e349932376e85691ffd, type: 3}
@@ -3311,7 +3323,7 @@ PrefabInstance:
       objectReference: {fileID: 1957253816760516541, guid: 03218567da0ecef4c9e453c1963db5bb, type: 3}
     - target: {fileID: 2377046350189068657, guid: 0c4ed67cfeaf28c48b97b748a203705d, type: 3}
       propertyPath: taima
-      value: 59.7
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 2377046350189068657, guid: 0c4ed67cfeaf28c48b97b748a203705d, type: 3}
       propertyPath: temtext
