@@ -1032,11 +1032,11 @@ MonoBehaviour:
   - {fileID: 1631619459}
   - {fileID: 791911692}
   - {fileID: 1373108535}
-  mainloopcount: 0
+  mainloopcount: 3
   Enemycount: 0
   Conv_Count: 0
   Talk_Count: 0
-  Battle_Count: 1
+  Battle_Count: 4
   endCount: 0
   Talkend: 0
   Exp_end: 0
@@ -1957,7 +1957,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 2678156037692e84ba4ce04274d5b75c, type: 3}
     m_FontSize: 91
     m_FontStyle: 0
     m_BestFit: 0
@@ -2579,7 +2579,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 2678156037692e84ba4ce04274d5b75c, type: 3}
     m_FontSize: 91
     m_FontStyle: 0
     m_BestFit: 0
@@ -2620,7 +2620,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1842805490
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2727,7 +2727,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2771,6 +2771,10 @@ PrefabInstance:
       propertyPath: m_FontData.m_Font
       value: 
       objectReference: {fileID: 12800000, guid: 2678156037692e84ba4ce04274d5b75c, type: 3}
+    - target: {fileID: 3620376230541554946, guid: 46abf47842062e94da3993630bb4870d, type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4455984634518403642, guid: 46abf47842062e94da3993630bb4870d, type: 3}
       propertyPath: m_Color.a
       value: 1

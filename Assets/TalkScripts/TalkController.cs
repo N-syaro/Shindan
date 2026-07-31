@@ -8,24 +8,20 @@ public class TalkController : MonoBehaviour
 {
     //------  参照  ------
     [Header("UI参照")]
-    [SerializeField]public GameObject TalkUI;
-    [SerializeField] Text Talktext;
-    [SerializeField] Text Nametext;
-    [SerializeField] GameObject P_Image;
-    [SerializeField] GameObject E_Image;
-    [SerializeField] GameObject NameUI;
-   [SerializeField] Image PlayerImage;
-   [SerializeField] Image FriendsImage;
+    [SerializeField]public GameObject TalkUI;//会話UI
+    [SerializeField] Text Talktext;//会話テキスト
+    [SerializeField] Text Nametext;//名前テキスト
+    [SerializeField] GameObject P_Image;//プレイヤー画像オブジェクト
+    [SerializeField] GameObject E_Image;//相手側画像オブジェクト
+    [SerializeField] GameObject NameUI;//名前UI
+   [SerializeField] Image PlayerImage;//プレイヤー側イメージ
+   [SerializeField] Image FriendsImage;//相手側イメージ
     [Header("機能参照")]
-  　 // [SerializeField] GameManager gameManager;　仮消し
     [SerializeField] TalkDelay conttext;
     [SerializeField] GameManager gamemanager;
     
     [Header("データ参照")]//スクリプタブル    
     [SerializeField] MakeConversation Textdata;//会話データ
-   // [SerializeField] Chara_data NPCData;//NPCのデータ
-   // [SerializeField, Header("プレイヤー")] Chara_data Player_Data;//プレイヤーのデータ
-    //[SerializeField] ButtonAdd_ a;*/
     public enum TextMeshProMode { TextMeshPro, TextMeshProUGUI, TMP_Text }
 
     private List<(string Name,Sprite p_image, string Text)> backlogLogTextList = new();
@@ -63,7 +59,6 @@ public class TalkController : MonoBehaviour
     {
         StopAllCoroutines();
         colti = null;
-        //gameManager.c(false);仮消し
         StartCoroutine(CCOL(data.Datas, data.UseImage_));
     }
     IEnumerator CCOL(Setting_Text_Data[] data, bool i)
@@ -75,13 +70,10 @@ public class TalkController : MonoBehaviour
     IEnumerator Manage()//会話開始
     {
         TalkUI.SetActive(true);
-     //  if (Player_Data.Image != null) { PlayerImage.sprite = Player_Data.Image[0]; }
-     //  if (NPCData.Image != null) { FriendsImage.sprite = NPCData.Image[0]; }
         colti = col(Textdata.Datas, Textdata.UseImage_);
         yield return StartCoroutine(colti);
         gamemanager.Talkend = true;
         TalkUI.SetActive(false);
-        //gameManager.c(true);仮消し
         Debug.Log("cclo");
         yield break;
     }
@@ -135,7 +127,6 @@ public class TalkController : MonoBehaviour
                         Nametext.enabled = false;
                         backlogLogTextList.Add((charaName, PlayerImage.sprite, item.TextData));
                     }
-                  //  backlogLogTextList.Add((charaName, item.TextData));
                 }
                 else
                 {
@@ -152,7 +143,6 @@ public class TalkController : MonoBehaviour
                         Nametext.enabled = false;
                         backlogLogTextList.Add((charaName, FriendsImage.sprite, item.TextData));
                     }
-                   // backlogLogTextList.Add((charaName, item.TextData));
                 }
             }
             else
@@ -172,11 +162,6 @@ public class TalkController : MonoBehaviour
     private void Update()
     {
         Debug.Log("バックログ件数: " + backlogLogTextList.Count);
-
-      // if (Input.GetKeyDown(KeyCode.W/*KeypadEnter*/))
-       /* {
-            StartCoroutine(Manage());
-        }  */
     }
 
     public List<(string Name, Sprite p_image, string Text)> GetBacklogList()

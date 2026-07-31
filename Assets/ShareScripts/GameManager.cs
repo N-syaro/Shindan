@@ -236,11 +236,14 @@ public class GameManager : MonoBehaviour
                                     t_controller.SetObject(makeConversations[18]);//選択肢用特別配列
                                     yield return new WaitUntil(() => Talkend);
                                     Talkend = false;
+                                    t_controller.TalkUI.SetActive(true);
                                     QuestionPanel.SetActive(true);
                                     yield return new WaitUntil(() => Questionend);
                                     Questionend = false;
+                                    Debug.Log("a");
                                     yield return new WaitUntil(() => Talkend);
                                     Talkend = false;
+                                    Debug.Log("b");
                                     if (isQuestion)
                                     {
                                         Battle_Count++;
@@ -373,13 +376,15 @@ public class GameManager : MonoBehaviour
         QuestionPanel.SetActive(false);
         if(i)
         {
-            LoadImageCol(1);
             isQuestion = true;
+            LoadImageCol(1);
+            
         }
         else
         {
-            LoadImageCol(2);
             isQuestion = false;
+            LoadImageCol(2);
+            
         }
     }
     IEnumerator CurrentImage()
@@ -539,6 +544,7 @@ public class GameManager : MonoBehaviour
                         Debug.Log("不正解");
                         t_controller.TalkUI.SetActive(true);
                         isIncorrect = true;
+                        Questionend = true;
                         t_controller.SetObject(makeConversations[11]);
                         break;
 
@@ -546,6 +552,7 @@ public class GameManager : MonoBehaviour
                         Debug.Log("正解");
                         yield return StartCoroutine(CurrentImage());
                         isbattleloop = true;
+                        Questionend = true;
                         t_controller.SetObject(makeConversations[12]);                        
                         break;
 
