@@ -80,27 +80,47 @@ public class GameManager : MonoBehaviour
         
         sceneName = SceneManager.GetActiveScene().name;
         StartCoroutine(AllGameLoop());
-        switch (sceneName)
+        switch (sceneName)//各シーンの設定
         { case "JP":
+            case "EN":
             {
                 Exp_Panel.SetActive(false);
                     ShootingPanel.SetActive(false);
                     break;
             }
             case "JP Main":
+            case "EN Main":
                 QuestionPanel.SetActive(false);
                 ShootingPanel.SetActive(false);
                 break;
             case "Bad END":
-            {
+            case "EN Bad END":
+                {
                 ContinuePanel = GameObject.Find("Conti_Panel");
                 if(ContinuePanel != null)
                 {
                          ContinuePanel.SetActive(false);
                 }
-                break;  
-            }
+                break;
+                }
         }
+        switch (sceneName)//言語設定
+        {
+            case "JP":
+            case "JP Main":
+            case "END Credits":
+            case "Bad End":
+                GameSettings.CurrentLanguage = Language.Japanese;
+                break;
+            case "EN":
+            case "EN Main":
+            case "EN END Credits":
+            case "EN Bad End":
+                GameSettings.CurrentLanguage = Language.English;
+                break;
+
+        }
+
     }
     IEnumerator AllGameLoop()
     {
@@ -116,9 +136,18 @@ public class GameManager : MonoBehaviour
             Talkend = false;
             switch (sceneName)
             {
-                case "JP"://導入シーン用処理-------------------------------------------------------------------------------------------------------------------
+                case "JP":
+                case "EN"://導入シーン用処理-------------------------------------------------------------------------------------------------------------------
                     {
-                        NextScene = "JP Main";
+                        if(sceneName == "JP")
+                        {
+                            NextScene = "JP Main";
+                        }
+                        else if(sceneName == "EN")
+                        {
+                            NextScene = "EN Main";
+                        }
+                        
                         Debug.Log("導入シーン用処理");
                         if (Conv_Count == 1)
                         {
@@ -178,11 +207,18 @@ public class GameManager : MonoBehaviour
                         }
                         break;
                     }
-                case "JP Main"://本編シーン処理----------------------------------------------------------------------------------------------------------------
+                case "JP Main":
+                case "EN Main"://本編シーン処理----------------------------------------------------------------------------------------------------------------
                     {
                         yield return null;
-                        //fadeOutIn.fadeIn(2f,2f);
-                        NextScene = "END Credits";//次のシーン決め
+                        if (sceneName == "JP Main")
+                        {
+                            NextScene = "END Credits";
+                        }
+                        else if (sceneName == "EN Main")
+                        {
+                            NextScene = "EN END Credits";
+                        }
                         Debug.Log("本編シーン用処理");
                         Enemycount = 0;
                         Talk_Count = 1;
@@ -303,7 +339,8 @@ public class GameManager : MonoBehaviour
                         Debug.Log("loop抜け出し");
                         break;
                     }
-                case "END Credits"://エンドクレジット用処理-----------------------------------------------------------------------------------------------------
+                case "END Credits":
+                case "EN END Credits"://エンドクレジット用処理-----------------------------------------------------------------------------------------------------
                     {   
                         NextScene = "EndingScene";
                         if (Conv_Count == 1)
@@ -314,7 +351,8 @@ public class GameManager : MonoBehaviour
                         }    
                         break;            
                     }
-                case "Bad END"://バッドエンド用処理--------------------------------------------------------------------------------------------------------------
+                case "Bad END":
+                case "EN Bad END"://バッドエンド用処理--------------------------------------------------------------------------------------------------------------
                     {
                         Debug.Log("バッドエンド用処理");
                         if(Conv_Count == 1)

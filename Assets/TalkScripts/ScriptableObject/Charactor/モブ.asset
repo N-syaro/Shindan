@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5598be981560a014799b81903071c738, type: 3}
   m_Name: "\u30E2\u30D6"
   m_EditorClassIdentifier: Assembly-CSharp::Chara_data
-  Name: "\u5F8C\u8F29"
+  Names:
+  - language: 0
+    name: "\u5F8C\u8F29"
+  - language: 1
+    name: junior
   Image:
   - {fileID: 21300000, guid: 4be6c966e66b4354299f7fe61699a933, type: 3}
   - {fileID: 21300000, guid: cf63528151127f141a3f000a7c38b17f, type: 3}

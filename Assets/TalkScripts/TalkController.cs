@@ -107,7 +107,7 @@ public class TalkController : MonoBehaviour
                     FriendsImage.color = new Color(0.5f, 0.5f, 0.5f, 1);
                 }
               
-                string charaName = item.Talking_chara?.Name ?? "";               
+                string charaName = item.Talking_chara?.GetName(GameSettings.CurrentLanguage) ?? "";               
                 Nametext.text = charaName;
                 bool hasName = !string.IsNullOrEmpty(charaName);
                 NameUI.SetActive(hasName);
