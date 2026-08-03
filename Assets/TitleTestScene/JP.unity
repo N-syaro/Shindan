@@ -2014,6 +2014,53 @@ MonoBehaviour:
   finisheCout: 0
   maxSpawn: 25
   ending: {fileID: 87418562}
+--- !u!1 &1554732083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1554732085}
+  - component: {fileID: 1554732084}
+  m_Layer: 0
+  m_Name: UICheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1554732084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554732083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139bb7470dab3654384c7e155ff7b589, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UICheck
+  shootingUI: {fileID: 573359692}
+  preya_min: {fileID: 717784527}
+  priyaBOX: {fileID: 366967744}
+--- !u!4 &1554732085
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554732083}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1609351484 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1634035054210853108, guid: c0960554143f98343a619de6ef7f84ac, type: 3}
@@ -2580,3 +2627,4 @@ SceneRoots:
   - {fileID: 1416804137}
   - {fileID: 460481123}
   - {fileID: 227939538}
+  - {fileID: 1554732085}
