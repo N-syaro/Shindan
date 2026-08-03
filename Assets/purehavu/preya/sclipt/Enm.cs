@@ -66,8 +66,6 @@ public class Enm : MonoBehaviour
             if (taima <= 0f)
             {
 
-
-
                 Debug.Log("タイムオーバー");
                 if (scenename == "JP Main")
                 {
@@ -89,13 +87,13 @@ public class Enm : MonoBehaviour
         }  
     }
     
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)//当たり判定
     {
         if(isHit)
         {
             return;
         }
-        
+        //ダメージを受けた際にカウント減少
        if (collision.gameObject.tag == "Enemy"&&hit ==false)//hit==falseならダメージなし
        {
             taima -= demegte;
@@ -119,7 +117,7 @@ public class Enm : MonoBehaviour
         }
         isHit = false;
     }
-    public void ResetToTime(int BattlePhase)//
+    public void ResetToTime(int BattlePhase)//フェーズ切り替えの際にタイマーリセット
     {
         Debug.Log("ResetToTimeが読み込まれました。");
         Debug.Log(onactiv);

@@ -141,7 +141,7 @@ public class Preya_min : MonoBehaviour
         bllet2d.AddForce(this.transform.up* brsp);
         //Destroy(newbalet, dstm);
     }   
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)//“–‚½‚è”»’è
     {
         if (isHit)
         {
