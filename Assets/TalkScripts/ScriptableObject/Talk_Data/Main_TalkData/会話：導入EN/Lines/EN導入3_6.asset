@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Setting_Text_Data
   TextData: "I\u2019ll explain the rest later.Good luck.\u201D"
   Side: 0
-  Talking_chara: {fileID: 0}
+  Talking_chara: {fileID: 11400000, guid: 5dc5ac84f9eb4e04783959e1b5686ed0, type: 2}
   CHImageNum_: 0
   SceneName: 
   IsTalkEnd: 0

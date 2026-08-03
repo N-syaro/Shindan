@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 209ecdb9925d6264a9bef717787048f1, type: 3}
+  m_Name: "EN\u672C\u7DE8\uFF1A\u4F1A\u8A714"
+  m_EditorClassIdentifier: Assembly-CSharp::MakeConversation
+  SceneTitle: 
+  Datas:
+  - {fileID: 11400000, guid: 037a275fc136cb94d9d0a1a7eb355347, type: 2}
+  UseImage_: 1

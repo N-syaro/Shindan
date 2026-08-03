@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "EN\u5C0E\u51652_8"
   m_EditorClassIdentifier: Assembly-CSharp::Setting_Text_Data
   TextData: "\u201CWhy am I here?\u201D"
-  Side: 0
+  Side: 1
   Talking_chara: {fileID: 11400000, guid: 15cc553e12b581349b0536e4824d69ed, type: 2}
   CHImageNum_: 0
   SceneName: 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "EN\u5C0E\u51652_17"
   m_EditorClassIdentifier: Assembly-CSharp::Setting_Text_Data
   TextData: "(\u2026\u2026This really hurts.)"
-  Side: 0
+  Side: 1
   Talking_chara: {fileID: 11400000, guid: 15cc553e12b581349b0536e4824d69ed, type: 2}
   CHImageNum_: 0
   SceneName: 
