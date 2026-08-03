@@ -37,7 +37,8 @@ public class Enm : MonoBehaviour
         
         damgct = 0f;
         cpplid =  GetComponent<BoxCollider2D>();
-       
+        onactiv = false;//
+
     }
 
     // Update is called once per frame
@@ -118,7 +119,7 @@ public class Enm : MonoBehaviour
         }
         isHit = false;
     }
-    public void ResetToTime(int BattlePhase)
+    public void ResetToTime(int BattlePhase)//
     {
         Debug.Log("ResetToTimeÇ™ì«Ç›çûÇ‹ÇÍÇ‹ÇµÇΩÅB");
         Debug.Log(onactiv);
