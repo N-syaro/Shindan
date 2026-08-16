@@ -21,14 +21,14 @@ public class MenuManager : MonoBehaviour
     //SE用スライダー
     [SerializeField] Slider seSlider;
     //Voice用スライダー
-    //[SerializeField] Slider voiceSlider; 
+    [SerializeField] Slider voiceSlider; 
 
     //BGM用テキスト
     [SerializeField] Text bgmText;
     //SE用テキスト
     [SerializeField] Text seText;
     //Voice用テキスト
-    //[SerializeField] Text voiceText;
+    [SerializeField] Text voiceText;
 
     public static MenuManager menuInstance = null;
 
@@ -40,7 +40,7 @@ public class MenuManager : MonoBehaviour
     public AudioClip[] seClips;
 
     //Voiceの登録場所(仮)
-    //public AudioClip[] voiceClips;
+    public AudioClip[] voiceClips;
 
     //現在流れているBGM1
     [SerializeField] AudioSource bgmSourceOne;
@@ -51,7 +51,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] AudioSource seSource;
 
     //現在流れているVoice
-    //[SerializeField] AudioSource voiceSource;
+    [SerializeField] AudioSource voiceSource;
 
 
 
@@ -79,7 +79,7 @@ public class MenuManager : MonoBehaviour
         //SE
         InitializeSlider("SE", seSlider, seText);
         //Voice
-        //InitializeSlider("Voice", voiceSlider, voiceText);
+        InitializeSlider("Voice", voiceSlider, voiceText);
         audioMixer.SetFloat("BGM_1", 0f);
         audioMixer.SetFloat("BGM_2", -80f);
 
@@ -118,13 +118,12 @@ public class MenuManager : MonoBehaviour
     }
 
     //登録されたボイスを流す
-    /*
     public void voiceChange(int voiceCount)
     {
         voiceStop();
         voiceSource.PlayOneShot(voiceClips[voiceCount]);
     }
-    */
+    
 
 
 
@@ -145,12 +144,11 @@ public class MenuManager : MonoBehaviour
     }
 
     //Voice停止
-    /*
     public void voiceStop()
     {
         voiceSource.Stop();
     }
-    */
+    
 
 
     public void bgmOneSwap()
@@ -233,8 +231,7 @@ public class MenuManager : MonoBehaviour
     // 各メソッドをUIのOnValueChangedから呼ぶ
     public void SetBGM(float value) => SetVolume("BGM", value, bgmText);
     public void SetSE(float value) => SetVolume("SE", value, seText);
-
-    //public void SetCV(float value) => SetVolume("CV", value, voiceText);
+    public void SetVoice(float value) => SetVolume("CV", value, voiceText);
     private void SetVolume(string name, float value, Text text)
     {
         // 0だとLog10がエラーになるため、Mathf.Clampで微小な値を確保
