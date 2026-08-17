@@ -17,7 +17,7 @@ public class Enm : MonoBehaviour
     [SerializeField] float taima = 150f;//タイマー
     float kunt = 3.0f;
     bool kunon=true;
-    bool hit=false;//ダメージ判定
+    public bool hit=false;//ダメージ判定
     float damgct;//ダメージ時からの経過時間
     string scenename;//スコアテキスト
     private BoxCollider2D cpplid;
@@ -25,7 +25,7 @@ public class Enm : MonoBehaviour
     float flashIntarval = 0.02f;
     int loopCount = 60;
     SpriteRenderer sp;
-    bool isHit;
+    public bool isHit;
    public bool onactiv=true;//オブジェクトがアクティブになったかどうか
     
     

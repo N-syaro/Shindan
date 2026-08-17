@@ -371,6 +371,53 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcefd9929f1557f42a9f0aff2ad42f42, type: 3}
+--- !u!1 &120185769
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 120185771}
+  - component: {fileID: 120185770}
+  m_Layer: 0
+  m_Name: UICheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &120185770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120185769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139bb7470dab3654384c7e155ff7b589, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  shootingUI: {fileID: 1930378474}
+  preya_min: {fileID: 802586606}
+  priyaBOX: {fileID: 1536665084}
+--- !u!4 &120185771
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120185769}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &222684176
 GameObject:
   m_ObjectHideFlags: 0
@@ -1728,7 +1775,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2377046350189068657, guid: 0c4ed67cfeaf28c48b97b748a203705d, type: 3}
   m_PrefabInstance: {fileID: 2058932678}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1536665084}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fde0c39a1b6a4f54288b4ed15fbffbaa, type: 3}
@@ -2478,6 +2525,11 @@ RectTransform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3629993600704116588, guid: e5a6995fa8267e349932376e85691ffd, type: 3}
   m_PrefabInstance: {fileID: 1099153832}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1536665084 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1626596561338699639, guid: 0c4ed67cfeaf28c48b97b748a203705d, type: 3}
+  m_PrefabInstance: {fileID: 2058932678}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1631619459 stripped
 MonoBehaviour:
@@ -3553,3 +3605,4 @@ SceneRoots:
   - {fileID: 1926055547}
   - {fileID: 90028273}
   - {fileID: 2058932678}
+  - {fileID: 120185771}

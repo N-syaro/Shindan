@@ -21,14 +21,14 @@ public class MenuManager : MonoBehaviour
     //SE用スライダー
     [SerializeField] Slider seSlider;
     //Voice用スライダー
-    //[SerializeField] Slider voiceSlider; 
-    
+    [SerializeField] Slider voiceSlider; 
+
     //BGM用テキスト
     [SerializeField] Text bgmText;
     //SE用テキスト
     [SerializeField] Text seText;
     //Voice用テキスト
-    //[SerializeField] Text voiceText;
+    [SerializeField] Text voiceText;
 
     public static MenuManager menuInstance = null;
 
@@ -40,7 +40,7 @@ public class MenuManager : MonoBehaviour
     public AudioClip[] seClips;
 
     //Voiceの登録場所(仮)
-    //public AudioClip[] voiceClips;
+    public AudioClip[] voiceClips;
 
     //現在流れているBGM1
     [SerializeField] AudioSource bgmSourceOne;
@@ -51,15 +51,9 @@ public class MenuManager : MonoBehaviour
     [SerializeField] AudioSource seSource;
 
     //現在流れているVoice
-    //[SerializeField] AudioSource voiceSource;
+    [SerializeField] AudioSource voiceSource;
 
-    public GameObject targetObject;
-    private bool targetActiveState;
-    private AmmoUI ammoUI;
 
-    public GameObject player;
-    private bool playerActiveState;
-    public SpriteRenderer playerSprite;
 
 
     void Awake()
@@ -74,9 +68,9 @@ public class MenuManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
+
     }
-    
+
     IEnumerator Start()
     {
         menuCanvas.SetActive(false);
@@ -85,29 +79,17 @@ public class MenuManager : MonoBehaviour
         //SE
         InitializeSlider("SE", seSlider, seText);
         //Voice
-        //InitializeSlider("Voice", voiceSlider, voiceText);
+        InitializeSlider("Voice", voiceSlider, voiceText);
         audioMixer.SetFloat("BGM_1", 0f);
         audioMixer.SetFloat("BGM_2", -80f);
 
-        if (targetObject != null)
-        {
-            // 初期状態を保持
-            targetActiveState = targetObject.activeSelf;
 
-            ammoUI = targetObject.GetComponent<AmmoUI>();
-        }
-        if (player != null)
-        {
-            // 初期状態を保持
-            playerActiveState = targetObject.activeSelf;
-
-        }
 
         //1フレーム待つ(消えてしまうオブジェクトを参照しないようにするため) 
-        yield return null; 
+        yield return null;
 
 
-　       fadeout = FindFirstObjectByType<FadeOutIn>();
+        fadeout = FindFirstObjectByType<FadeOutIn>();
 
     }
 
@@ -136,13 +118,12 @@ public class MenuManager : MonoBehaviour
     }
 
     //登録されたボイスを流す
-    /*
     public void voiceChange(int voiceCount)
     {
         voiceStop();
         voiceSource.PlayOneShot(voiceClips[voiceCount]);
     }
-    */
+    
 
 
 
@@ -163,12 +144,11 @@ public class MenuManager : MonoBehaviour
     }
 
     //Voice停止
-    /*
     public void voiceStop()
     {
         voiceSource.Stop();
     }
-    */
+    
 
 
     public void bgmOneSwap()
@@ -195,29 +175,7 @@ public class MenuManager : MonoBehaviour
         {
             ToggleMenu();
         }
-        if (targetObject != null)
-        {
-            bool currentActiveState = targetObject.activeSelf;
-            if (!targetActiveState && currentActiveState)
-            {
-                Debug.Log("対象のGameObjectが非アクティブからアクティブになりました！");
 
-                
-                StartCoroutine(ammoUI.AmmoInitialization()); 
-            }
-            targetActiveState = currentActiveState;
-        }
-        if (player != null)
-        {
-            bool currentActiveState = player.activeSelf;
-            if (!playerActiveState && currentActiveState)
-            {
-                Debug.Log("対象のGameObjectが非アクティブからアクティブになりました！");
-
-                PlayerSpriteInitialization();
-            }
-            playerActiveState = currentActiveState;
-        }
 
     }
     public void ToggleMenu()
@@ -242,7 +200,7 @@ public class MenuManager : MonoBehaviour
             isMenuOpen = true;
             // ゲームを一時停止
             Time.timeScale = 0f;
-            
+
         }
         else { Debug.LogError("menuCanvasがインスペクターで設定されていません！"); }
     }
@@ -255,7 +213,7 @@ public class MenuManager : MonoBehaviour
             isMenuOpen = false;
             // ゲームを再開
             Time.timeScale = 1f;
-            
+
         }
     }
 
@@ -273,8 +231,7 @@ public class MenuManager : MonoBehaviour
     // 各メソッドをUIのOnValueChangedから呼ぶ
     public void SetBGM(float value) => SetVolume("BGM", value, bgmText);
     public void SetSE(float value) => SetVolume("SE", value, seText);
-
-    //public void SetCV(float value) => SetVolume("CV", value, voiceText);
+    public void SetVoice(float value) => SetVolume("CV", value, voiceText);
     private void SetVolume(string name, float value, Text text)
     {
         // 0だとLog10がエラーになるため、Mathf.Clampで微小な値を確保
@@ -299,7 +256,7 @@ public class MenuManager : MonoBehaviour
     }
 
 
-    
+
 
 
     public void TitleButton(string Title)
@@ -319,15 +276,12 @@ public class MenuManager : MonoBehaviour
 
         //タイトル画面に戻る
         SceneManager.LoadScene(Title);
-        
+
     }
 
     //-----------------------------------------------------------------------------------------
-    
 
-    void PlayerSpriteInitialization()
-    {
-        playerSprite.enabled = true;
-    }
+
+
 
 }
