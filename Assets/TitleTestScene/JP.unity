@@ -1027,7 +1027,7 @@ MonoBehaviour:
   StillImage: {fileID: 154559911409225203}
   Still_Image: {fileID: 154559911409225204}
   Still_Sprite:
-  - {fileID: 21300000, guid: 37f25fb7a01d2e14ca7e103972bc5554, type: 3}
+  - {fileID: -1026292838002357461, guid: 9c878613f790f584f9fa127196e711e2, type: 3}
   - {fileID: -7465474876107755776, guid: 44f91777291d9d343bb313fb15a5855e, type: 3}
 --- !u!1 &573359692 stripped
 GameObject:
