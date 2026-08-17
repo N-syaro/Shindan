@@ -19,7 +19,8 @@ public class TalkController : MonoBehaviour
     [Header("機能参照")]
     [SerializeField] TalkDelay conttext;
     [SerializeField] GameManager gamemanager;
-    
+    [SerializeField] AudioSourceManager sourceManager;
+
     [Header("データ参照")]//スクリプタブル    
     [SerializeField] MakeConversation Textdata;//会話データ
     public enum TextMeshProMode { TextMeshPro, TextMeshProUGUI, TMP_Text }
@@ -33,10 +34,7 @@ public class TalkController : MonoBehaviour
     private void Awake()
     {
         TalkUI.SetActive(false);
-    }
-    private void Start()
-    {      
-       // Manage();
+        
     }
     public void SetObject(MakeConversation d)
     {
@@ -80,11 +78,20 @@ public class TalkController : MonoBehaviour
 
     IEnumerator col(Setting_Text_Data[] data,bool usei)
     {
-
+        /*
+         * audioplay(int a)
+         * if(item.voice_count != null)
+         * {
+         *  
+         * }
+         */
         //イラスト表示-------------------------------------------------------------------------
         foreach (var item in data)
         {
-            
+            if(item.VoiceDeta_>0)
+            {
+                sourceManager.voiceChange(item.VoiceDeta_);
+            }
             if (usei)
             {
                 Nametext.enabled = true;

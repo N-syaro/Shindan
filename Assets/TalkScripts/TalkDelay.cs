@@ -16,25 +16,9 @@ public class TalkDelay : MonoBehaviour
 
     //----石上変更点----
 
-    public AudioSourceManager sourceManager;
+    [SerializeField] AudioSourceManager sourceManager;
 
-    IEnumerator Start()
-    {
-        // 1フレーム待つ(消えてしまうオブジェクトを参照しないため)
-        yield return null;
-
-        
-        sourceManager = FindFirstObjectByType<AudioSourceManager>();
-
-        if (sourceManager == null)
-        {
-            Debug.LogWarning("AudioSourceManager が見つかりませんでした。");
-        }
-        else
-        {
-            Debug.Log("AudioSourceManager が見つかりました");
-        }
-    }
+    
 
 
     //------------------

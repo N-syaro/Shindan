@@ -18,7 +18,7 @@ public class TitleManager : MonoBehaviour
 
     public FadeOutIn fadeout;
 
-    public AudioSourceManager sourceManager;
+    [SerializeField] AudioSourceManager sourceManager;
 
     private void Awake()
     {
@@ -27,13 +27,16 @@ public class TitleManager : MonoBehaviour
         jpText.SetActive(true);
         enText.SetActive(false);
 
+        
+
         //fade = GetComponent<FadeOutIn>();
     }
 
 
     IEnumerator Start()
-
     {
+
+        
 
         // 1フレーム待つ(消えてしまうオブジェクトを参照しないようにするため) 
 
@@ -41,7 +44,7 @@ public class TitleManager : MonoBehaviour
 
 
 
-        sourceManager = FindFirstObjectByType<AudioSourceManager>();
+       
 
         fadeout = FindFirstObjectByType<FadeOutIn>();
 
@@ -97,7 +100,7 @@ public class TitleManager : MonoBehaviour
         enText.SetActive(true);
     }
 
-    public void CancelButton()
+    public void TitleButton()
     {
         //タイトル画面を表示
         languageCanvas.SetActive(false);

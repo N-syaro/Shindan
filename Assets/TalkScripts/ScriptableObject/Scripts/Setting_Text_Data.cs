@@ -13,4 +13,5 @@ public class Setting_Text_Data : ScriptableObject
     public int CHImageNum_ = 0;
     [SerializeField, Header("シーンの名前")] public string SceneName = null;
     [SerializeField,Header("弾幕突入")]public bool IsTalkEnd;
+    [SerializeField, Header("ボイスデータ番号")] public int VoiceDeta_;
 }

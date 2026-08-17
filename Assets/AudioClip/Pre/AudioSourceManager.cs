@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -10,7 +9,7 @@ public class AudioSourceManager : MonoBehaviour
     public AudioClip[] seClips;
 
     //Voiceの登録場所(仮)
-    //public AudioClip[] voiceClips;
+    public AudioClip[] voiceClips;
 
     //現在流れているBGM1
     [SerializeField] AudioSource bgmSourceOne;
@@ -21,12 +20,10 @@ public class AudioSourceManager : MonoBehaviour
     [SerializeField] AudioSource seSource;
 
     //現在流れているVoice
-    //[SerializeField] AudioSource voiceSource;
+    [SerializeField] AudioSource voiceSource;
 
-    
-
-    //使い方はギャラリーのフェード関係を参考にしてください
-
+    //オーディオミキサー
+    [SerializeField] AudioMixer audioMixer;
 
 
     //登録されたBGMを流す
@@ -51,13 +48,12 @@ public class AudioSourceManager : MonoBehaviour
     }
 
     //登録されたボイスを流す
-    /*
     public void voiceChange(int voiceCount)
     {
         voiceStop();
         voiceSource.PlayOneShot(voiceClips[voiceCount]);
     }
-    */
+
 
 
 
@@ -78,10 +74,24 @@ public class AudioSourceManager : MonoBehaviour
     }
 
     //Voice停止
-    /*
     public void voiceStop()
     {
         voiceSource.Stop();
     }
-    */
+
+
+    public void bgmOneSwap()
+    {
+        //BGM1が聞こえるように
+        audioMixer.SetFloat("BGM_1", 0f);
+        audioMixer.SetFloat("BGM_2", -80f);
+    }
+    public void bgmTwoSwap()
+    {
+        //BGM2が聞こえるように
+        audioMixer.SetFloat("BGM_1", -80f);
+        audioMixer.SetFloat("BGM_2", 0f);
+    }
+
+    
 }
