@@ -2217,6 +2217,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6279031342109355522, guid: e5a6995fa8267e349932376e85691ffd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -491
+      objectReference: {fileID: 0}
     - target: {fileID: 6510012424577428860, guid: e5a6995fa8267e349932376e85691ffd, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 98
@@ -3278,6 +3282,7 @@ GameObject:
   - component: {fileID: 2044808537}
   - component: {fileID: 2044808539}
   - component: {fileID: 2044808538}
+  - component: {fileID: 2044808540}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -3346,6 +3351,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2044808536}
   m_CullTransparentMesh: 1
+--- !u!114 &2044808540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044808536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Outline
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 5, y: 5}
+  m_UseGraphicAlpha: 1
 --- !u!1001 &2058932678
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -372,7 +372,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &156051298
 RectTransform:
   m_ObjectHideFlags: 0
@@ -979,8 +979,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4a517cd439a126a42bb648b6bf204298, type: 2}
   - {fileID: 11400000, guid: dc0398099b173ea4e842a497a81f34d1, type: 2}
   Exp_Sprites:
-  - {fileID: 21300000, guid: ba8c43102d532d04fb0eb3fce1945656, type: 3}
-  - {fileID: 21300000, guid: 396743a63d82221459b3984fb50efa28, type: 3}
+  - {fileID: -2403765195358801486, guid: b9d46257519c8de4abad897f29db64b4, type: 3}
+  - {fileID: -3762210168391969253, guid: eea5163c21ab3284998ce16b9d35afea, type: 3}
   Player_obj: {fileID: 717784527}
   Enemy_obj:
   - {fileID: 378107313}
@@ -1226,7 +1226,7 @@ PrefabInstance:
       objectReference: {fileID: 1732526249}
     - target: {fileID: 4613386652522628322, guid: c0960554143f98343a619de6ef7f84ac, type: 3}
       propertyPath: m_Color.a
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4877817536813822410, guid: c0960554143f98343a619de6ef7f84ac, type: 3}
       propertyPath: m_LocalPosition.x
