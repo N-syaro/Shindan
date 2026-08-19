@@ -19,3 +19,8 @@ MonoBehaviour:
   SceneName: 
   IsTalkEnd: 0
   VoiceDeta_: 33
+  VoiceDeta_Two: 0
+  BGMDeta_: 0
+  BGMDeta_Two: 0
+  SEDeta_: 0
+  BGMDeta_Change: 1

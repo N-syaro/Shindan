@@ -14,22 +14,15 @@ public class TalkDelay : MonoBehaviour
 
     public string currentText;
 
-    //----石上変更点----
-
-    [SerializeField] AudioSourceManager sourceManager;
+    [SerializeField] MenuManager menuManager;
 
     
-
-
-    //------------------
-
-
     public void SKip()//スキップフラグ
     {
         isSkip = true;
 
         //------------------
-        //sourceManager.seChange(3);
+        //menuManager.seChange();
         //------------------
 
     }

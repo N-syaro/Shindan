@@ -39,8 +39,7 @@ public class MenuManager : MonoBehaviour
     //SEの登録場所
     public AudioClip[] seClips;
 
-    //Voiceの登録場所(仮)
-    public AudioClip[] voiceClips;
+    
 
     //現在流れているBGM1
     [SerializeField] AudioSource bgmSourceOne;
@@ -50,8 +49,7 @@ public class MenuManager : MonoBehaviour
     //現在流れているSE
     [SerializeField] AudioSource seSource;
 
-    //現在流れているVoice
-    [SerializeField] AudioSource voiceSource;
+    
 
 
 
@@ -117,12 +115,7 @@ public class MenuManager : MonoBehaviour
         seSource.PlayOneShot(seClips[seCount]);
     }
 
-    //登録されたボイスを流す
-    public void voiceChange(int voiceCount)
-    {
-        voiceStop();
-        voiceSource.PlayOneShot(voiceClips[voiceCount]);
-    }
+    
     
 
 
@@ -143,26 +136,30 @@ public class MenuManager : MonoBehaviour
         seSource.Stop();
     }
 
-    //Voice停止
-    public void voiceStop()
+    public void bgmSwap(int bgmSwapCount)
     {
-        voiceSource.Stop();
+        if (bgmSwapCount == 1)
+        {
+            //BGM1が聞こえるように
+            audioMixer.SetFloat("BGM_1", 0f);
+            audioMixer.SetFloat("BGM_2", -80f);
+        }
+        if (bgmSwapCount == 2)
+        {
+            //BGM2が聞こえるように
+            audioMixer.SetFloat("BGM_1", -80f);
+            audioMixer.SetFloat("BGM_2", 0f);
+        }
+        if(bgmSwapCount == 3)
+        {
+            bgmSourceOne.Stop();
+            bgmSourceTwo.Stop();
+        }
     }
     
 
 
-    public void bgmOneSwap()
-    {
-        //BGM1が聞こえるように
-        audioMixer.SetFloat("BGM_1", 0f);
-        audioMixer.SetFloat("BGM_2", -80f);
-    }
-    public void bgmTwoSwap()
-    {
-        //BGM2が聞こえるように
-        audioMixer.SetFloat("BGM_1", -80f);
-        audioMixer.SetFloat("BGM_2", 0f);
-    }
+    
 
     //-----------------------------------------------------
 
@@ -231,7 +228,7 @@ public class MenuManager : MonoBehaviour
     // 各メソッドをUIのOnValueChangedから呼ぶ
     public void SetBGM(float value) => SetVolume("BGM", value, bgmText);
     public void SetSE(float value) => SetVolume("SE", value, seText);
-    public void SetVoice(float value) => SetVolume("CV", value, voiceText);
+    public void SetVoice(float value) => SetVolume("Voice", value, voiceText);
     private void SetVolume(string name, float value, Text text)
     {
         // 0だとLog10がエラーになるため、Mathf.Clampで微小な値を確保

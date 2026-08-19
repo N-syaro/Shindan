@@ -19,7 +19,8 @@ public class TalkController : MonoBehaviour
     [Header("機能参照")]
     [SerializeField] TalkDelay conttext;
     [SerializeField] GameManager gamemanager;
-    [SerializeField] AudioSourceManager sourceManager;
+    [SerializeField] VoiceManager voiceManager;
+    private MenuManager menuManager;
 
     [Header("データ参照")]//スクリプタブル    
     [SerializeField] MakeConversation Textdata;//会話データ
@@ -36,6 +37,13 @@ public class TalkController : MonoBehaviour
         TalkUI.SetActive(false);
         
     }
+    private IEnumerator Start()
+    {
+        yield return null;
+
+        menuManager = FindFirstObjectByType<MenuManager>();
+    }
+
     public void SetObject(MakeConversation d)
     {
         if (d == null) { Debug.LogWarning("TextDataNull"); }
@@ -90,7 +98,27 @@ public class TalkController : MonoBehaviour
         {
             if(item.VoiceDeta_>0)
             {
-                sourceManager.voiceChange(item.VoiceDeta_);
+                voiceManager.voiceChangeOne(item.VoiceDeta_);
+            }
+            if (item.VoiceDeta_Two > 0)
+            {
+                voiceManager.voiceChangeTwo(item.VoiceDeta_Two);
+            }
+            if (item.BGMDeta_ > 0)
+            {
+                menuManager.bgmChangeOne(item.BGMDeta_);
+            }
+            if (item.BGMDeta_Two > 0)
+            {
+                menuManager.bgmChangeTwo(item.BGMDeta_Two);
+            }
+            if (item.SEDeta_ > 0)
+            {
+                menuManager.seChange(item.SEDeta_);
+            }
+            if (item.BGMDeta_Change > 0)
+            {
+                menuManager.bgmSwap(item.BGMDeta_Change);
             }
             if (usei)
             {

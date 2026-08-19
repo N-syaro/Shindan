@@ -18,7 +18,7 @@ public class TitleManager : MonoBehaviour
 
     public FadeOutIn fadeout;
 
-    [SerializeField] AudioSourceManager sourceManager;
+    [SerializeField] MenuManager menuManager;
 
     private void Awake()
     {
@@ -43,8 +43,8 @@ public class TitleManager : MonoBehaviour
         yield return null;
 
 
+        menuManager = FindFirstObjectByType<MenuManager>();
 
-       
 
         fadeout = FindFirstObjectByType<FadeOutIn>();
 
@@ -56,9 +56,11 @@ public class TitleManager : MonoBehaviour
 
         
 
-        sourceManager.seChange(3);
+        menuManager.seChange(3);
 
         fadeout.fadeOutIn(0f, 0.2f, 0.2f);
+
+
 
 
         SceneManager.LoadScene(sceneName);

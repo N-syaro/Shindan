@@ -18,3 +18,5 @@ MonoBehaviour:
   CHImageNum_: 0
   SceneName: 
   IsTalkEnd: 0
+  VoiceDeta_: 0
+  VoiceDeta_Two: 5
