@@ -8,11 +8,17 @@ public class PanelActive : MonoBehaviour
     private GameObject panel;
     [SerializeField,Header("‘JˆÚƒV[ƒ“‚Ì–¼‘O")]
     private string SceneName;
+
+    [SerializeField] MenuManager menuManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    IEnumerator Start() 
     {
         panel.SetActive(false);
         StartCoroutine(Panelactive());
+
+        yield return null;
+
+        menuManager = FindFirstObjectByType<MenuManager>();
     }
     private void Update()
     {
@@ -31,6 +37,8 @@ public class PanelActive : MonoBehaviour
 
     public void SceneLoad()
     {
+        menuManager.bgmSwap(3);
+
         SceneManager.LoadScene(SceneName);
     }
 }
