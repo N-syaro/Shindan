@@ -12,9 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be0c93688f7de047b94ab18306647e6, type: 3}
   m_Name: "EN\u672C\u7DE8\uFF1A\u8FD4\u7B545_C1"
   m_EditorClassIdentifier: Assembly-CSharp::Setting_Text_Data
-  TextData: "\u3053\u3053\u307E\u3067\u3088\u304F\u9811\u5F35\u3063\u305F\u306D\u3002"
+  TextData: "\u201CYou really pushed yourself that far.\u201D"
   Side: 0
   Talking_chara: {fileID: 11400000, guid: 15cc553e12b581349b0536e4824d69ed, type: 2}
   CHImageNum_: 0
   SceneName: 
   IsTalkEnd: 0
+  VoiceDeta_: 0
+  VoiceDeta_Two: 0
+  BGMDeta_: 0
+  BGMDeta_Two: 0
+  SEDeta_: 0
+  BGMDeta_Change: 0

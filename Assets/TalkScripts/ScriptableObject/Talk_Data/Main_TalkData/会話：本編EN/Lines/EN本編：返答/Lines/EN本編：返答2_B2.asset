@@ -12,9 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be0c93688f7de047b94ab18306647e6, type: 3}
   m_Name: "EN\u672C\u7DE8\uFF1A\u8FD4\u7B542_B2"
   m_EditorClassIdentifier: Assembly-CSharp::Setting_Text_Data
-  TextData: "\u6C7A\u3081\u3064\u3051\u306A\u3044\u3067\u304F\u3060\u3055\u3044\uFF01"
+  TextData: "Isn\u2019t that a bit of an arbitrary guess?"
   Side: 0
   Talking_chara: {fileID: 11400000, guid: 469f0900844b39540b366b71de5d73e2, type: 2}
   CHImageNum_: 3
   SceneName: 
   IsTalkEnd: 0
+  VoiceDeta_: 0
+  VoiceDeta_Two: 0
+  BGMDeta_: 0
+  BGMDeta_Two: 0
+  SEDeta_: 0
+  BGMDeta_Change: 0

@@ -810,6 +810,7 @@ MonoBehaviour:
   FriendsImage: {fileID: 1863458170}
   conttext: {fileID: 1863458166}
   gamemanager: {fileID: 492223872}
+  voiceManager: {fileID: 0}
   Textdata: {fileID: 0}
 --- !u!114 &492223869
 MonoBehaviour:
@@ -991,25 +992,25 @@ MonoBehaviour:
   fadeOutIn: {fileID: 1289127863}
   enm: {fileID: 763501929}
   makeConversations:
-  - {fileID: 11400000, guid: 656b193139c18294fb15a5504fd3d10c, type: 2}
-  - {fileID: 11400000, guid: 02550aac04892d44091f255e6d22630c, type: 2}
-  - {fileID: 11400000, guid: 51a6f81af71238b44b9b6f55bb77991b, type: 2}
-  - {fileID: 11400000, guid: 88e44d1125256a74d883f49bbc4b7879, type: 2}
-  - {fileID: 11400000, guid: 1fa2d9fc1e816b642b0023dc158d9966, type: 2}
-  - {fileID: 11400000, guid: 5593e596ed3c5594d8e26ea093bce508, type: 2}
-  - {fileID: 11400000, guid: 30736708703888246a15723d57e3eced, type: 2}
-  - {fileID: 11400000, guid: 029aed223aaa3ca47af543317a2de8fc, type: 2}
-  - {fileID: 11400000, guid: aece87b83548c7549b228c52f9ba3e33, type: 2}
-  - {fileID: 11400000, guid: 62734161127a1b741a4ba6952497fa86, type: 2}
-  - {fileID: 11400000, guid: 86a97ca8124ea88429c37e231a9870dc, type: 2}
-  - {fileID: 11400000, guid: e3c3ce30ed34c5145bfed6648c804232, type: 2}
-  - {fileID: 11400000, guid: 1532def7ab76f2a4391183c77c590dc5, type: 2}
-  - {fileID: 11400000, guid: 5f8f7f3f80e79b04b8dd3bf2302433c1, type: 2}
-  - {fileID: 11400000, guid: 679dc4db44e4f604b990ddaa4289d226, type: 2}
-  - {fileID: 11400000, guid: eacd7b58c51eacd4192389ce748431b8, type: 2}
-  - {fileID: 11400000, guid: abc5caa96fb3cb443b80c7a8f29caa11, type: 2}
-  - {fileID: 11400000, guid: b86dad340d0d425498e1c4b94a0af818, type: 2}
-  - {fileID: 11400000, guid: 258616717cdc4404c8fc7e6131da5a9f, type: 2}
+  - {fileID: 11400000, guid: 691f105d4186b7841b361d31da257ce0, type: 2}
+  - {fileID: 11400000, guid: 0b35b0c7c83af6749b58c1350b65bc78, type: 2}
+  - {fileID: 11400000, guid: bc15743880993194b93d4c2b9309c6f0, type: 2}
+  - {fileID: 11400000, guid: 252e491cc7053544bb771dfd15bcf853, type: 2}
+  - {fileID: 11400000, guid: bb005b2eb39c6dd4abb3828d497773fd, type: 2}
+  - {fileID: 11400000, guid: 9534ccbda9f169049b19b288a4f89fce, type: 2}
+  - {fileID: 11400000, guid: 67caa53b96c1a8e4da0a7aa566d7869f, type: 2}
+  - {fileID: 11400000, guid: 75d83bf05f77ddf4691edce59449419d, type: 2}
+  - {fileID: 11400000, guid: fd5f7465a4c402e47b765c914ee7a92e, type: 2}
+  - {fileID: 11400000, guid: 5dbc1039d99ad1d4f98672cfa2026954, type: 2}
+  - {fileID: 11400000, guid: cc790f6119a7ee646bd34b864047cc5e, type: 2}
+  - {fileID: 11400000, guid: ea967e6a0699eeb43ac04db6be39a2df, type: 2}
+  - {fileID: 11400000, guid: 05c2a638191c59d45a5d3ecff77fc89e, type: 2}
+  - {fileID: 11400000, guid: 46b3706752258f54a8dbca97dbdc676c, type: 2}
+  - {fileID: 11400000, guid: 5a7db6baa85084245b868f4ced4ca38f, type: 2}
+  - {fileID: 11400000, guid: 6237d3614b07cdf45812732dadd019c0, type: 2}
+  - {fileID: 11400000, guid: aebf748eb3d713c4fa1a70e12bc86d95, type: 2}
+  - {fileID: 11400000, guid: 74c55595b32791c45b4f7836220f5a40, type: 2}
+  - {fileID: 11400000, guid: 51a874b405595e348a5dd62e47f6c18e, type: 2}
   Exp_Sprites: []
   Player_obj: {fileID: 802586606}
   Enemy_obj:

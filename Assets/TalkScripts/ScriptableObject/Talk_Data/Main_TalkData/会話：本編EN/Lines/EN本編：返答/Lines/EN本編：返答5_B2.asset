@@ -12,9 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be0c93688f7de047b94ab18306647e6, type: 3}
   m_Name: "EN\u672C\u7DE8\uFF1A\u8FD4\u7B545_B2"
   m_EditorClassIdentifier: Assembly-CSharp::Setting_Text_Data
-  TextData: "\u3058\u3083\u3042\u3069\u3046\u3059\u308C\u3070\u30FB\u30FB\u30FB\u30FB\u30FB\uFF1F"
+  TextData: "\u201CThen\u2026\u2026what should I do?\u201D"
   Side: 0
   Talking_chara: {fileID: 11400000, guid: 469f0900844b39540b366b71de5d73e2, type: 2}
   CHImageNum_: 10
   SceneName: 
   IsTalkEnd: 0
+  VoiceDeta_: 0
+  VoiceDeta_Two: 0
+  BGMDeta_: 0
+  BGMDeta_Two: 0
+  SEDeta_: 0
+  BGMDeta_Change: 0

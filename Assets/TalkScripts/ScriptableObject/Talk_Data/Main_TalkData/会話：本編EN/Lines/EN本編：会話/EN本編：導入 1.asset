@@ -12,9 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be0c93688f7de047b94ab18306647e6, type: 3}
   m_Name: "EN\u672C\u7DE8\uFF1A\u5C0E\u5165 1"
   m_EditorClassIdentifier: Assembly-CSharp::Setting_Text_Data
-  TextData: "\u5931\u793C\u3057\u307E\u3059\u3002\u3010\u6D5C\u4E95\u4E39\u82B1\u3011\u3063\u3066\u3044\u3044\u307E\u3059\u3002"
+  TextData: "Excuse me.\u201CI'm Hamai Tanka. "
   Side: 0
   Talking_chara: {fileID: 11400000, guid: 3e459beea31698343b6910c1890c490a, type: 2}
   CHImageNum_: 0
   SceneName: 
   IsTalkEnd: 0
+  VoiceDeta_: 0
+  VoiceDeta_Two: 0
+  BGMDeta_: 0
+  BGMDeta_Two: 0
+  SEDeta_: 0
+  BGMDeta_Change: 0

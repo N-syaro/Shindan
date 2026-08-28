@@ -12,9 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be0c93688f7de047b94ab18306647e6, type: 3}
   m_Name: "EN\u672C\u7DE8\uFF1A\u8FD4\u7B542_B3"
   m_EditorClassIdentifier: Assembly-CSharp::Setting_Text_Data
-  TextData: "\uFF08\u8AD6\u7834\u3055\u308C\u3066\u3057\u307E\u3063\u305F\u30FB\u30FB\u30FB\u30FB\u30FB)"
+  TextData: "(\u2026\u2026She shot that down.)"
   Side: 0
   Talking_chara: {fileID: 11400000, guid: 15cc553e12b581349b0536e4824d69ed, type: 2}
   CHImageNum_: 0
   SceneName: 
   IsTalkEnd: 0
+  VoiceDeta_: 0
+  VoiceDeta_Two: 0
+  BGMDeta_: 0
+  BGMDeta_Two: 0
+  SEDeta_: 0
+  BGMDeta_Change: 0

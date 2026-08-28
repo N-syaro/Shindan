@@ -12,9 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be0c93688f7de047b94ab18306647e6, type: 3}
   m_Name: "EN\u672C\u7DE8\uFF1A\u8FD4\u7B544_B1"
   m_EditorClassIdentifier: Assembly-CSharp::Setting_Text_Data
-  TextData: "\u4ECA\u3001\u6094\u3057\u3044\u3068\u601D\u3046\u306A\u3089\u3001\u5224\u65AD\u306F\u307E\u3060\u65E9\u3044\u3068\u601D\u3046\u3002"
+  TextData: "\u201CFeeling frustrated now doesn\u2019t mean it\u2019s too late.\u201D"
   Side: 0
   Talking_chara: {fileID: 11400000, guid: 15cc553e12b581349b0536e4824d69ed, type: 2}
   CHImageNum_: 0
   SceneName: 
   IsTalkEnd: 0
+  VoiceDeta_: 0
+  VoiceDeta_Two: 0
+  BGMDeta_: 0
+  BGMDeta_Two: 0
+  SEDeta_: 0
+  BGMDeta_Change: 0

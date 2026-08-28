@@ -992,6 +992,7 @@ MonoBehaviour:
   FriendsImage: {fileID: 52491335}
   conttext: {fileID: 52491338}
   gamemanager: {fileID: 492223872}
+  voiceManager: {fileID: 0}
   Textdata: {fileID: 0}
 --- !u!114 &492223869
 MonoBehaviour:
@@ -1168,8 +1169,8 @@ MonoBehaviour:
   fadeOutIn: {fileID: 0}
   enm: {fileID: 0}
   makeConversations:
-  - {fileID: 11400000, guid: dedc3a6f674db3d44ada6fd9a5fdce9d, type: 2}
-  - {fileID: 11400000, guid: 2d868fd1f9f36584494267cefc015886, type: 2}
+  - {fileID: 11400000, guid: d27f2886c6812594caa0f40090b7f997, type: 2}
+  - {fileID: 11400000, guid: fb3ba3559dbb4b9469761c8993fdb5c6, type: 2}
   Exp_Sprites: []
   Player_obj: {fileID: 0}
   Enemy_obj: []
