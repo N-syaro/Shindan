@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5415466358066244314}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: -3, z: 0}
+  m_LocalPosition: {x: 10, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -106,8 +106,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::enemy_sprn
   weipos:
-  - {x: -10, y: -3}
-  mube: 4
+  - {x: -10, y: 0}
+  mube: 2
   culafl: 0
   next: 0
 --- !u!61 &786619620798434286

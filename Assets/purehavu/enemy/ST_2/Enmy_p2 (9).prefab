@@ -107,7 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::enemy_sprn
   weipos:
   - {x: -10, y: 3}
-  mube: 3
+  mube: 2.5
   culafl: 0
   next: 0
 --- !u!61 &8425480992396323541
