@@ -74,9 +74,13 @@ public class GameManager : MonoBehaviour
    
     private float fadeOutDuration = 1.5f;
 
+    private MenuManager menuManager;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
+        StartCoroutine(MenuIn());
         
         sceneName = SceneManager.GetActiveScene().name;
         StartCoroutine(AllGameLoop());
@@ -122,6 +126,14 @@ public class GameManager : MonoBehaviour
         }
 
     }
+
+    IEnumerator MenuIn()
+    {
+        yield return null;
+
+        menuManager = FindFirstObjectByType<MenuManager>();
+    }
+
     IEnumerator AllGameLoop()
     {
         
@@ -159,6 +171,7 @@ public class GameManager : MonoBehaviour
                             Exp_end = false;    
 
                             Debug.Log("シューティングゲーム開始");
+                            menuManager.bgmChangeOne(1);
                             ShootingPanel.SetActive(true);
                             AmmoUIManagment(0);                            
                             t_controller.TalkUI.SetActive(false);
@@ -226,6 +239,8 @@ public class GameManager : MonoBehaviour
                         {
                             Debug.Log("本編ループ開始");
                             Debug.Log("シューティングゲーム開始");
+                            menuManager.bgmChangeOne(1);
+                            menuManager.bgmChangeTwo(3);
                             Debug.Log(mainloopcount);
                             switch (mainloopcount)
                             {
@@ -247,6 +262,12 @@ public class GameManager : MonoBehaviour
                                     if (isbattleloop)
                                     {
                                         Debug.Log(Battle_Count + "回目");
+                                        if(Battle_Count == 2)
+                                        {
+                                            menuManager.bgmChangeOne(2);
+                                            menuManager.bgmChangeTwo(4);
+                                        }
+                                        menuManager.bgmSwap(1);
                                         isbattleloop = false;
                                         mainloopcount++;
                                         Enemycount++;

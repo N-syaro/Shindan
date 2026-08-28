@@ -17,3 +17,10 @@ MonoBehaviour:
   Talking_chara: {fileID: 0}
   CHImageNum_: 0
   SceneName: 
+  IsTalkEnd: 0
+  VoiceDeta_: 0
+  VoiceDeta_Two: 0
+  BGMDeta_: 0
+  BGMDeta_Two: 0
+  SEDeta_: 6
+  BGMDeta_Change: 0
