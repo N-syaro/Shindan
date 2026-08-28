@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,7 +7,7 @@ public class AmmoUI : MonoBehaviour
 {
     [SerializeField]
     GameObject[] ammos;
-    
+
     [SerializeField]
     Preya_min preya_Min;
 
@@ -28,7 +28,7 @@ public class AmmoUI : MonoBehaviour
             {
                 return ammos[uiBalet];
             }
-            return null; // ƒAƒNƒeƒBƒu‚È’e‚ª‚È‚¢ê‡
+            return null; // ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ãªå¼¾ãŒãªã„å ´åˆ
         }
     }
 
@@ -40,7 +40,7 @@ public class AmmoUI : MonoBehaviour
     {
         if (ammos.Length > 0 && !IsActiveAmmo(uiBalet))
         {
-            FindNextActive(1); // ‘O•û‚É’T‚·
+            FindNextActive(1); // å‰æ–¹ã«æ¢ã™
         }
         UpdateScale();
     }
@@ -53,7 +53,7 @@ public class AmmoUI : MonoBehaviour
         {
             int direction = wh > 0 ? 1 : -1;
 
-            // ”ñƒAƒNƒeƒBƒu‚È‚à‚Ì‚ğƒXƒLƒbƒv‚µ‚ÄŸ‚Ì—v‘f‚ğ’T‚·
+            // éã‚¢ã‚¯ãƒ†ã‚£ãƒ–ãªã‚‚ã®ã‚’ã‚¹ã‚­ãƒƒãƒ—ã—ã¦æ¬¡ã®è¦ç´ ã‚’æ¢ã™
             FindNextActive(direction);
 
             UpdateScale();
@@ -65,55 +65,53 @@ public class AmmoUI : MonoBehaviour
             StartCoroutine(AmmoCorrection());
         }
         */
-
-
-
-
     }
+
 
     void FindNextActive(int direction)
     {
-        int maxLenght = ammos.Length; // Šî€‚ğammos‚Ì”‚É‡‚í‚¹‚Ü‚·
+        int maxLenght = ammos.Length;
         if (maxLenght == 0) return;
+        if (direction == 0) return;
 
-        int originalBalet = uiBalet;
-        bool foundActive = false;
+        
+        int lastValidBalet = uiBalet;
 
-        while (!foundActive)
+        while (true)
         {
-            // ƒCƒ“ƒfƒbƒNƒX‚Ì‘Œ¸
-            uiBalet += direction;
+            int nextBalet = uiBalet + direction;
 
-            // ‹«ŠEƒ`ƒFƒbƒNiƒ‹[ƒvˆ—j
-            if (uiBalet >= maxLenght)
+            // å¢ƒç•Œãƒã‚§ãƒƒã‚¯ï¼šé…åˆ—ã®ç¯„å›²ã‚’å®Œå…¨ã«è¶…ãˆã¦ã—ã¾ã£ãŸã‚‰
+            if (nextBalet >= maxLenght || nextBalet < 0)
             {
-                uiBalet = 0;
-            }
-            else if (uiBalet < 0)
-            {
-                uiBalet = maxLenght - 1;
-            }
-
-            // w’è‚µ‚½ƒCƒ“ƒfƒbƒNƒX‚ÌAmmo‚ªƒAƒNƒeƒBƒu‚©ƒ`ƒFƒbƒN
-            if (IsActiveAmmo(uiBalet))
-            {
-                foundActive = true;
-            }
-
-            // 1ü‚µ‚Ä‚àƒAƒNƒeƒBƒu‚È‚à‚Ì‚ª‚È‚¯‚ê‚Î–³ŒÀƒ‹[ƒv‚ğ–h‚®‚½‚ß‚É”²‚¯‚é
-            if (uiBalet == originalBalet)
-            {
+                // ã“ã‚Œä»¥ä¸Šé€²ã‚ãªã„ã®ã§ã€æœ€å¾Œã«è¦‹ã¤ã‹ã£ã¦ã„ãŸæœ‰åŠ¹ãªä½ç½®ã«æˆ»ã—ã¦çµ‚äº†
+                uiBalet = lastValidBalet;
                 break;
             }
+
+            // ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’æ›´æ–°
+            uiBalet = nextBalet;
+
+            // æŒ‡å®šã—ãŸã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã®AmmoãŒã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã‹ãƒã‚§ãƒƒã‚¯
+            if (IsActiveAmmo(uiBalet))
+            {
+                // ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ãªã‚‚ã®ãŒè¦‹ã¤ã‹ã£ãŸã®ã§ã€ã“ã“ã‚’ã€Œæœ€å¾Œã®æœ‰åŠ¹ãªä½ç½®ã€ã¨ã—ã¦è¨˜æ†¶
+                lastValidBalet = uiBalet;
+                break; // è¦‹ã¤ã‹ã£ãŸã®ã§æˆåŠŸã¨ã—ã¦çµ‚äº†
+            }
+
+            // éã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã ã£ãŸå ´åˆã¯ã€whileãƒ«ãƒ¼ãƒ—ãŒç¶™ç¶šã—ã¦æ¬¡ã®è¦ç´ ã‚’æ¢ã—ã«è¡Œãã¾ã™
         }
     }
+
+
 
     bool IsActiveAmmo(int index)
     {
         if (index < 0 || index >= ammos.Length) return false;
 
         GameObject ammo = ammos[index];
-        // GameObject‚ª‘¶İ‚µA‚©‚ÂƒqƒGƒ‰ƒ‹ƒL[ã‚ÅƒAƒNƒeƒBƒui•\¦ó‘Ôj‚Å‚ ‚é‚©
+        // GameObjectãŒå­˜åœ¨ã—ã€ã‹ã¤ãƒ’ã‚¨ãƒ©ãƒ«ã‚­ãƒ¼ä¸Šã§ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ï¼ˆè¡¨ç¤ºçŠ¶æ…‹ï¼‰ã§ã‚ã‚‹ã‹
         return ammo != null && ammo.activeInHierarchy;
     }
 
@@ -123,7 +121,7 @@ public class AmmoUI : MonoBehaviour
         for (int i = 0; i < ammos.Length; i++)
         {
             if (ammos[i] == null) continue;
-            // ”ñƒAƒNƒeƒBƒu‚È‚à‚Ì‚ÍŠg‘åk¬‚ÌXV‚ğƒXƒLƒbƒv
+            // éã‚¢ã‚¯ãƒ†ã‚£ãƒ–ãªã‚‚ã®ã¯æ‹¡å¤§ç¸®å°ã®æ›´æ–°ã‚’ã‚¹ã‚­ãƒƒãƒ—
             if (!ammos[i].activeInHierarchy)
             {
                 continue;
@@ -133,18 +131,18 @@ public class AmmoUI : MonoBehaviour
 
             if (i == uiBalet)
             {
-                //‘I‚Î‚ê‚Ä‚é’e
+                //é¸ã°ã‚Œã¦ã‚‹å¼¾
                 ammos[i].transform.localScale = new Vector3(1.2f, 1.3f, 1f);
 
                 if (ammoImage != null)
                 {
                     ammoImage.color = Color.white;
                 }
-                    
+
             }
             else
             {
-                //‘I‚Î‚ê‚Ä‚È‚¢’e
+                //é¸ã°ã‚Œã¦ãªã„å¼¾
                 ammos[i].transform.localScale = new Vector3(1f, 1f, 1f);
 
                 if (ammoImage != null)
@@ -164,24 +162,24 @@ public class AmmoUI : MonoBehaviour
 
         ammoSlider.value = 0f;
 
-        while (time< duration)
+        while (time < duration)
         {
             time += Time.unscaledDeltaTime;
             ammoSlider.value = Mathf.Lerp(0f, 1f, time / duration);
 
             yield return new WaitForSecondsRealtime(0.0001f);
         }
-        
+
         ammoSlider.value = 1f;
         //correction = true;
         //timer = 0f;
     }
-    
+
     public IEnumerator AmmoInitialization()
     {
         ammoSlider.value = 1f;
 
         yield return null;
     }
-    
+
 }
