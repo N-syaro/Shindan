@@ -702,6 +702,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ec0693767e6128346bd269792fa6121b, type: 3}
   - {fileID: 8300000, guid: 0aec276bd1ce6dc449ad717edd1b20aa, type: 3}
   - {fileID: 8300000, guid: 78bd14d45556e4443b45faae4da3d689, type: 3}
+  - {fileID: 8300000, guid: a0fc6ffa346972447a2e9da7c9d1491c, type: 3}
   seClips:
   - {fileID: 8300000, guid: 95b9db6db532ee24e91e64cc0da129d0, type: 3}
   - {fileID: 8300000, guid: 8d9e0b21e617b37429c3a630fec4fa07, type: 3}
@@ -709,6 +710,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 72896810ce2cb314286e678a60588483, type: 3}
   - {fileID: 8300000, guid: d44d6f980986a8c4091fadbfcfe50a4b, type: 3}
   - {fileID: 8300000, guid: 56585b23208cda944856b0dd518eb447, type: 3}
+  - {fileID: 8300000, guid: 95b9db6db532ee24e91e64cc0da129d0, type: 3}
   bgmSourceOne: {fileID: 5250444848160469534}
   bgmSourceTwo: {fileID: 901637364126094027}
   seSource: {fileID: 4365989131740264551}

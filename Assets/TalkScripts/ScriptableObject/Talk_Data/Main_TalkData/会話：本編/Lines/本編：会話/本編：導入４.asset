@@ -20,7 +20,7 @@ MonoBehaviour:
   IsTalkEnd: 0
   VoiceDeta_: 4
   VoiceDeta_Two: 0
-  BGMDeta_: 1
-  BGMDeta_Two: 3
+  BGMDeta_: 0
+  BGMDeta_Two: 0
   SEDeta_: 0
   BGMDeta_Change: 0
